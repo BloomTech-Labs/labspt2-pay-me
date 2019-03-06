@@ -1,0 +1,11 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+  color: #ffff;
+}
+.showcase {
+    background: url(./img/Home_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }

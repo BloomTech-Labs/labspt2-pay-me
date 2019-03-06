@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import '../../App.css';
+import logo from '../../img/logo.png';
 
 const Nav = () => {
     return (
-    <nav className="blue">
+    <nav className="transparent z-depth-0">
         <div className="container">
-            <Link to="/" className="brand-logo">Pay Me</Link>
+            <Link to="/" className="brand-logo"><img src={ logo }></img></Link>
     
             <ul className="right">
                 <li><NavLink to ="/">Home</NavLink></li>
