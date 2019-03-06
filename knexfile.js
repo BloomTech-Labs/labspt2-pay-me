@@ -5,12 +5,24 @@ module.exports = {
   development: {
     client: 'sqlite3',
     connection: {
+<<<<<<< HEAD
       filename: './dev.sqlite3'
     },
     useNullAsDefault: true,
     migrations: {
       directory: './data/migrations',
     }
+=======
+      filename: './data/payMe.db'
+    },
+    useNullAsDefault:true,
+    migrations:{
+      directory:'./data/migrations'
+    },
+    seeds:{
+      directory:'./data/seeds'
+    },
+>>>>>>> 755489c63ea4ed27cabb4c9b79038747070f48de
   },
 
   staging: {
