@@ -29,14 +29,19 @@ class AddInvoice extends React.Component {
         return (
             <div>
                 <form name='addInvoiceForm' onSubmit={this.submit}>
+                    <label>Client Name</label>
                     <input className='addInvoiceForm-clientName' name='clientName' onChange={this.changeValue} value={this.state.clientName} />
                     <br />
+                    <label>Company Name</label>
                     <input className='addInvoiceForm-companyName' name='companyName' onChange={this.changeValue} value={this.state.companyName} />
                     <br />
+                    <label>Email Address</label>
                     <input className='addInvoiceForm-email' name='email' onChange={this.changeValue} value={this.state.email} />
                     <br />
+                    <label>Phone Number</label>
                     <input className='addInvoiceForm-phoneNumber' name='phoneNumber' onChange={this.changeValue} value={this.state.phoneNumber} />
                     <br />
+                    <label>Invoice Number</label>
                     <input className='addInvoiceForm-invoiceNumber' name='invoiceNumber' onChange={this.changeValue} value={this.state.invoiceNumber} />
                     <br />
                     <label>Upload Invoice: </label>
