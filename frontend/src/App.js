@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import {Elements, StripeProvider} from 'react-stripe-elements';
-import PayInvoice from "./components/PayInvoice";
+import PayInvoice from "./Component/PayInvoice";
 import Home from './components/home/Home';
 import Contact from './components/contact/contact';
 import Signup from './components/authenicate/SignUp';
