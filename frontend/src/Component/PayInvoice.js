@@ -1,4 +1,5 @@
-import React from "react";
+import React, {Component} from 'react';
+import {CardElement, injectStripe} from 'react-stripe-elements';
 
 /*
 Kendra Williams - 3/4/16
@@ -6,16 +7,22 @@ client pay invoice screen
 invoice holds: invoice number and invoice amount passed from database
 */
 
-class PayInvoice extends React.component {
+class PayInvoice extends Component {
    constructor(props){
       super(props)
       this.state = {
          invoice: []
       }
+      //bind submit for stripe
+      this.submit = this.submit.bind(this);
    }
 
    componentDidMount() {
 
+   }
+   
+   async submit(ev) {
+      //user clicked submit
    }
 
    //add side nav to render
@@ -28,7 +35,10 @@ class PayInvoice extends React.component {
                <p>{this.state.invoice.amount}</p>
                <div>
                   <p>Payment Info</p>
-                  {/* stripe for payment submission */}
+                  <div classname="checkout">
+                     <CardElement />
+                  </div>
+                  <button onClick={this.submit}>Submit</button>
                </div>
             </div>
          </>
@@ -36,4 +46,4 @@ class PayInvoice extends React.component {
    }
 }
 
-export default PayInvoice
+export default injectStripe(PayInvoice);
