@@ -10,12 +10,8 @@ import { Route } from 'react-router-dom';
 
 // import AddInvoice from './components/AddInvoice';
 
-
-class App extends Component {
-  render() {
-    return (
-
-      <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+/*
+<StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
         <div className="example">
           <h1>Pay Invoice Example</h1>
           <Elements>
@@ -23,6 +19,11 @@ class App extends Component {
           </Elements>
         </div>
       </StripeProvider>
+*/
+
+class App extends Component {
+  render() {
+    return (
       <div className="App">
         <Route exact path="/" component={Home} />
         <Route exact path="/contact" component={Contact} />
