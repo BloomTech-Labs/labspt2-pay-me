@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
+import {NavLink} from "react-router-dom";
 
 /*
 Kendra Williams - 3/4/16
@@ -41,9 +42,12 @@ class PayInvoice extends Component {
    render() {
       return (
          <>
-            <div width="400px">
+            <div>
                <h2>Invoice {this.state.invoice.number}</h2>
                <span>PDF Invoice</span>
+               {/* <NavLink to="{this.state.invoice.pdf}">
+                  <i class="fas fa-link"></i>
+               </NavLink> */}
                <p>{this.state.invoice.amount}</p>
                <div>
                   <p>Payment Info</p>
