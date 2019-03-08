@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {CardElement, injectStripe} from 'react-stripe-elements';
+import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 
 /*
 Kendra Williams - 3/4/16
@@ -11,7 +11,8 @@ class PayInvoice extends Component {
    constructor(props){
       super(props)
       this.state = {
-         invoice: []
+         invoice: [],
+         complete: false
       }
       //bind submit for stripe
       this.submit = this.submit.bind(this);
@@ -23,20 +24,33 @@ class PayInvoice extends Component {
    
    async submit(ev) {
       //user clicked submit
+      console.log("submit clicked");
+      let {token} = await this.props.stripe.createToken({name: "Name"});
+      console.log("token created");
+      let response = await fetch("/charge", {
+         method: "POST",
+         headers: {"Content-Type": "text/plain"},
+         body: token.id
+      });
+
+      console.log(response);
+      if (response.ok) this.setState({complete: true});
    }
 
    //add side nav to render
    render() {
       return (
          <>
-            <div>
+            <div width="400px">
                <h2>Invoice {this.state.invoice.number}</h2>
                <span>PDF Invoice</span>
                <p>{this.state.invoice.amount}</p>
                <div>
                   <p>Payment Info</p>
-                  <div classname="checkout">
-                     <CardElement />
+                  <div className="checkout">
+                     <CardNumberElement />
+                     <CardExpiryElement />
+                     <CardCVCElement />
                   </div>
                   <button onClick={this.submit}>Submit</button>
                </div>
