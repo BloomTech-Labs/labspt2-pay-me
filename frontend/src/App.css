@@ -13,7 +13,12 @@
 }
 
 .card-text {
-  color: #3E4348
+  color: #3E4348;
+}
+
+.card-paragraph{
+  letter-spacing:2px;
+  font-size:24px;
 }
 
 .call-to-action {
@@ -63,3 +68,34 @@ label {
     height: 100vh;
     position: relative;
   }
+
+  nav ul a{
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  nav .brand-logo{
+    padding:8px;
+  }
+
+  .btn-large{
+    border-radius:50px;
+    padding:0 50px;
+  }
+
+  .top{
+    margin-top: -20px;
+  }
+
+  .grey-text{
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
+.blue.lighten-2 {
+  border-radius:50px;
+}
+
+.pg-inverse{
+  color:black;
+}
