@@ -11,7 +11,6 @@ import { Route } from 'react-router-dom';
 // import AddInvoice from './components/AddInvoice';
 
 /*
-
 <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
         <div className="example">
           <h1>Pay Invoice Example</h1>
@@ -20,7 +19,6 @@ import { Route } from 'react-router-dom';
           </Elements>
         </div>
       </StripeProvider>
-
 */
 
 class App extends Component {
