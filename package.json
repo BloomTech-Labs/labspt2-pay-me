@@ -6,7 +6,7 @@
   "author": "Jason Hedrick <jasonleehedrick@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "node",
+    "start": "node index.js",
     "server": "nodemon",
     "test": "jest --watchAll --verbose"
   },

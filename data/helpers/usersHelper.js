@@ -8,13 +8,11 @@ module.exports = {
     findById,
 };
 
-async function getAll() {
-    let users = await db('users');
+async function attachToUsers(users) {
     let clients = await db('clients');
     let invoices = await db('invoices');
     let memberships = await db('memberships');
-
-    /* attach membership plan */
+    /* Attach membership plan to users */
     memberships.map(membership => {
         for (let i = 0; i < users.length; i++) {
             if (users[i].membership_id === membership.id) {
@@ -22,7 +20,7 @@ async function getAll() {
             }
         }
     });
-
+    /* Attach invoices to clients */
     invoices.map(invoice => {
         for(let i = 0; i < clients.length; i++) {
             if (invoice.client_id === clients[i].id) {
@@ -31,6 +29,7 @@ async function getAll() {
         }
     }) 
 
+    /* Attach clients to users */
     clients.map(client => {
         for(let i = 0; i < users.length; i++) {
             if(client.client_id === users[i].id) {
@@ -39,6 +38,13 @@ async function getAll() {
         }
     })
     
+    return users;
+}
+
+async function getAll() {
+    let users = await db.select('id', 'username', 'email', 'membership_id').from('users');
+    users = await attachToUsers(users);
+
     return users;
 }
 
@@ -74,7 +80,11 @@ async function update(id, user) {
 }
 
 async function findById(id) {
-
+    console.log(id);
+    let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
+    users = await attachToUsers(users);
+    
+    return users;
 }
 
 async function remove(id) {
