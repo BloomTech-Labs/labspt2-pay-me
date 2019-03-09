@@ -12,8 +12,16 @@ async function getAll() {
     let users = await db('users');
     let clients = await db('clients');
     let invoices = await db('invoices');
-    
+    let memberships = await db('memberships');
+
     /* attach membership plan */
+    memberships.map(membership => {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].membership_id === membership.id) {
+                users[i] = Object.assign({}, users[i], {plan: membership.plan});
+            }
+        }
+    });
 
     invoices.map(invoice => {
         for(let i = 0; i < clients.length; i++) {
