@@ -1,4 +1,3 @@
-import React from "react";
 import React, {Component} from 'react';
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 import {NavLink} from "react-router-dom";
