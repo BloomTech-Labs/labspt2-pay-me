@@ -14,6 +14,8 @@ const Nav = () => {
                 <li><NavLink to ="/contact">Contact Us</NavLink></li>
                 <li><NavLink to ="/signup">Sign Up</NavLink></li>
                 <li><a href= "/signin" class="btn blue lighten-2 z-depth-0 "><i class="material-icons left">lock</i>Sign In</a></li>
+                {/* Unable to link for accessing remenders main page
+                <li><NavLink to ="/reminders">Reminders</NavLink></li>*/}
             </ul>
         </div>
     </nav>

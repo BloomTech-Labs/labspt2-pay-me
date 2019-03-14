@@ -1,8 +1,6 @@
-<<<<<<< HEAD
-=======
 import React, { Component } from 'react';
 
-import './reminder_components/reminder.css';
+import './reminders_components/reminder.css';
 
 
 import {Route} from "react-router-dom";
@@ -13,10 +11,10 @@ import {Route} from "react-router-dom";
 
 // Importing Components
 
-import LeftNavBar from './reminderss_components/LeftNavbar';
-import TopNavbar from './reminderss_components/TopNavbar';
-import Textarea from './reminderss_components/Textarea';
-import Searchbar from './reminderss_components/Searchbar';
+import LeftNavBar from './reminders_components/LeftNavbar';
+import TopNavbar from './reminders_components/TopNavbar';
+import Textarea from './reminders_components/Textarea';
+import Searchbar from './reminders_components/Searchbar';
 import ReminderSection from './reminders_components/ReminderSection';
 
 
@@ -60,4 +58,3 @@ class Reminders extends Component {
 export default Reminders;
 
   
->>>>>>> added checkbox component
