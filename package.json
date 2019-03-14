@@ -15,8 +15,6 @@
     "express": "^4.16.4",
     "knex": "^0.16.3",
     "postgresql": "^0.0.1",
-    "react-calendar": "^2.18.1",
-    "react-search-input": "^0.11.3",
     "sqlite": "^3.0.2"
   },
   "devDependencies": {
