@@ -6,7 +6,12 @@ module.exports = {
     remove,
     getAll,
     findById,
+    auth,
 };
+
+async function auth(user) {
+    return await db('users').where('username', user.username);
+}
 
 async function attachToUsers(users) {
     let clients = await db('clients');
@@ -42,7 +47,7 @@ async function attachToUsers(users) {
 }
 
 async function getAll() {
-    let users = await db.select('id', 'username', 'email', 'membership_id').from('users');
+    let users = await db.select('id', 'username', 'password', 'email', 'membership_id').from('users');
     users = await attachToUsers(users);
 
     return users;
@@ -80,8 +85,7 @@ async function update(id, user) {
 }
 
 async function findById(id) {
-    console.log(id);
-    let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
+    let users = await db.select('id', 'username', 'password', 'email', 'membership_id').from('users').where('id', id);
     users = await attachToUsers(users);
     
     return users;
