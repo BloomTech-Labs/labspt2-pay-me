@@ -61,8 +61,8 @@ const Home = () => {
                             <img src={girlUser} />
                         </div>
                         <div className="col s6 call-to-action-content">
-                            <h2>Start Invoicing Now</h2>
-                            <h5>Get access to all of the Pay Me features. Including online payments, automatic payment reminders and text support.</h5>
+                            <h2 className="top">Start Invoicing Now</h2>
+                            <p className="card-paragraph">Get access to all of the Pay Me features. Including online payments, automatic payment reminders and text support.</p>
                             <div>
                                 <a href="/signup" className="waves-effect waves-light btn-large btn-flat white blue-text btn-call-to-action">Try Pay Me</a>
                             </div>
@@ -75,8 +75,9 @@ const Home = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col s6 call-to-action-content">
-                            <h2 className="card-text">Lightwieght.Easy.Flexible</h2>
-                            <h5 className="card-text">Pay Me offers a straightforward design with easy to use features. When you need to invoice a client, simply create a new invoice, add client dietails and send it off to your client.</h5>
+                            <h2 className="card-text top">Lightweight, Flexible,</h2>
+                            <h2 className="card-text top">Easy.</h2>
+                            <p className="card-paragraph pg-inverse">Pay Me offers a straightforward design with easy to use features. When you need to invoice a client, simply create a new invoice, add client details and send it off to your client.</p>
                         </div>
                         <div className="col s6 call-to-action-content">
                             <img src={guyUser} />
