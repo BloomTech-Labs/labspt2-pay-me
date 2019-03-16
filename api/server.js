@@ -7,7 +7,7 @@ const clients = require('./routes/clients');
 const invoices = require('./routes/invoices');
 const payments = require('./routes/payments');
 const reminders = require('./routes/reminders');
-const passportLocal = require('../auth/passportLocal');
+const local = require('../auth/local');
 
 const server = express();
 
@@ -20,7 +20,7 @@ server.use('/api/clients', clients);
 server.use('/api/invoices', invoices);
 server.use('/api/payments', payments);
 server.use('/api/reminders', reminders);
-server.use('/auth/local/login', passportLocal);
+server.use('/auth/local/', local);
 
 /* This just responds to the client letting it know that the server is up. */
 server.get('/', async (req, res) => {

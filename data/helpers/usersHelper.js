@@ -6,10 +6,10 @@ module.exports = {
     remove,
     getAll,
     findById,
-    auth,
+    findByUsername,
 };
 
-async function auth(user) {
+async function findByUsername(user) {
     return await db('users').where('username', user.username);
 }
 
@@ -85,7 +85,7 @@ async function update(id, user) {
 }
 
 async function findById(id) {
-    let users = await db.select('id', 'username', 'password', 'email', 'membership_id').from('users').where('id', id);
+    let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
     users = await attachToUsers(users);
     
     return users;
