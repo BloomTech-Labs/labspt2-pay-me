@@ -4,6 +4,9 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "passport": "^0.4.0",
+    "passport-http": "^0.3.0",
+    "passport-local": "^1.0.0",
     "react": "^16.8.3",
     "react-calendar": "^2.18.1",
     "react-dom": "^16.8.3",
