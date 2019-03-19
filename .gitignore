@@ -1,7 +1,4 @@
 node_modules/
-<<<<<<< HEAD
 .env
 frontend/src/components/dummy/
-=======
 *.env
->>>>>>> 376f01bd4f12f8e653d95a31073e4de9c9388713

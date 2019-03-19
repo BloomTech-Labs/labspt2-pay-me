@@ -11,7 +11,7 @@ const usersHelper = require('../data/helpers/usersHelper');
 
 router.use(cookieParser());
 router.use(bodyParser());
-router.use(expressSession({secret: 'development secret only pull from env later'}));
+router.use(expressSession({secret: 'development secret only. pull from env later'}));
 router.use(passport.initialize());
 // passport.session should set a cookie and stores the user.id 
 router.use(passport.session()); 
