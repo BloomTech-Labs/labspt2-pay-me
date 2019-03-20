@@ -39,9 +39,9 @@ class PayInvoice extends Component {
          headers: {"Content-Type": "text/plain"},
          body: token.id,
       });
-      //update invoice minus payment
+      //update invoice to 0 amount
       console.log(response);
-      if (response.ok) this.setState({complete: true});
+      if (response.ok) this.setState({complete: true, invoice: {number: this.state.invoice.number, amount: 0}});
    }
 
    //add side nav to render
