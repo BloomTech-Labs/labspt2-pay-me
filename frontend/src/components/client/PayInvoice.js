@@ -34,7 +34,7 @@ class PayInvoice extends Component {
       let {token} = await this.props.stripe.createToken({name: "Name"});
       console.log("token created");
       //create token for payment submission
-      let response = await fetch("/charge", {
+      let response = await fetch("http://localhost:5000/charge/payment", {
          method: "POST",
          headers: {"Content-Type": "text/plain"},
          body: token.id

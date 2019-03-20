@@ -12,5 +12,5 @@ exports.up = function(knex, Promise) {
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTableIfExist('reminders');
+  return knex.schema.dropTableIfExists('reminders');
 };
