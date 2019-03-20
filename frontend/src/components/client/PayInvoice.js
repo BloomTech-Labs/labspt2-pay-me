@@ -33,13 +33,13 @@ class PayInvoice extends Component {
       console.log("submit clicked");
       let {token} = await this.props.stripe.createToken({name: "Name"});
       console.log("token created");
-      //update to invoice
+      //create token for payment submission
       let response = await fetch("/charge", {
          method: "POST",
          headers: {"Content-Type": "text/plain"},
          body: token.id
       });
-
+      //update invoice minus payment
       console.log(response);
       if (response.ok) this.setState({complete: true});
    }
