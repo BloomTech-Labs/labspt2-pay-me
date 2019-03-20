@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 /* Pulling in the required Routes. */
 const users = require('./routes/users');
@@ -7,12 +8,14 @@ const clients = require('./routes/clients');
 const invoices = require('./routes/invoices');
 const payments = require('./routes/payments');
 const reminders = require('./routes/reminders');
+const charge = require('./routes/charge');
 const local = require('../auth/local');
 
 const server = express();
 
 server.use(express.json());
 server.use(cors());
+server.use(require("body-parser").text());
 
 /* Plugging in the Routes to the correct API paths */
 server.use('/api/users', users)
@@ -21,6 +24,7 @@ server.use('/api/invoices', invoices);
 server.use('/api/payments', payments);
 server.use('/api/reminders', reminders);
 server.use('/auth/local/', local);
+server.use('/charge', charge);
 
 /* This just responds to the client letting it know that the server is up. */
 server.get('/', async (req, res) => {
