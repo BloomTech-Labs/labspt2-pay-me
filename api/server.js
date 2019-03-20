@@ -1,6 +1,5 @@
 const express = require('express');
 const cors = require('cors');
-const stripe = require("stripe")("sk_test_4eC39HqLyjWDarjtT1zdp7dc");
 
 /* Pulling in the required Routes. */
 const users = require('./routes/users');
