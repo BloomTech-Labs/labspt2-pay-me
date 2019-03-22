@@ -10,7 +10,12 @@ module.exports = {
 };
 
 async function findByUsername(user) {
-    return await db('users').where('username', user.username);
+    if (user.username) {
+        return await db('users').where('username', user.username);
+    }
+    else {
+        return await db('users').where('username', user);
+    }
 }
 
 async function attachToUsers(users) {
@@ -54,7 +59,8 @@ async function getAll() {
 }
 
 async function insert(user) {
-    let newIDs = {membership_id: '', user_id: '', message: ''};
+    console.log(`username in insert: ${user.username}`)
+    let newIDs = {membership_id: '', id: '', message: ''};
 
     await db('memberships').insert({plan: user.plan})
     .then(success => {
@@ -69,10 +75,11 @@ async function insert(user) {
             email: user.email, 
             membership_id: membershipID[0]})
             .then(userID => {
-                newIDs.user_id = userID[0];
+                newIDs.id = userID[0];
                 newIDs.message = 'Account created.';
             })
             .catch(async error => {
+                console.log(error);
                 newIDs.message = {errno: error.errno, code: error.code };
                 await db('memberships').where('id', newIDs.membership_id).delete();
                 newIDs.membership_id = '';
