@@ -6,15 +6,18 @@ module.exports = {
     remove,
     getAll,
     findById,
+    findByUsername,
 };
 
-async function getAll() {
-    let users = await db('users');
+async function findByUsername(user) {
+    return await db('users').where('username', user.username);
+}
+
+async function attachToUsers(users) {
     let clients = await db('clients');
     let invoices = await db('invoices');
     let memberships = await db('memberships');
-
-    /* attach membership plan */
+    /* Attach membership plan to users */
     memberships.map(membership => {
         for (let i = 0; i < users.length; i++) {
             if (users[i].membership_id === membership.id) {
@@ -22,7 +25,7 @@ async function getAll() {
             }
         }
     });
-
+    /* Attach invoices to clients */
     invoices.map(invoice => {
         for(let i = 0; i < clients.length; i++) {
             if (invoice.client_id === clients[i].id) {
@@ -31,6 +34,7 @@ async function getAll() {
         }
     }) 
 
+    /* Attach clients to users */
     clients.map(client => {
         for(let i = 0; i < users.length; i++) {
             if(client.client_id === users[i].id) {
@@ -42,31 +46,45 @@ async function getAll() {
     return users;
 }
 
+async function getAll() {
+    let users = await db.select('id', 'username', 'password', 'email', 'membership_id').from('users');
+    users = await attachToUsers(users);
+
+    return users;
+}
+
 async function insert(user) {
-    let userPromise;
+    let newIDs = {membership_id: '', user_id: '', message: ''};
 
-    const membershipPromise = new Promise((resolve, reject) => {
-        const membershipID = db('memberships').insert({plan: user.plan});
-        resolve(membershipID);
-        reject(membershipID);
-    });
+    await db('memberships').insert({plan: user.plan})
+    .then(success => {
+        return success;
+    })
+    .then(async membershipID => {
+        newIDs.membership_id = membershipID[0];
 
-    membershipPromise.then(success => {
-        /* TODO: Add error handling. */
-        userPromise = new Promise((resolve, reject) => {
-            const membershipID = success[0];
-            const newUserId = db('users').insert(
-                {username: user.username, 
-                password: user.password, 
-                email: user.email, 
-                membership_id: membershipID});
-                
-                resolve(newUserId);
-                reject(newUserId);
-        });
-    });
+        await db('users').insert(
+            {username: user.username, 
+            password: user.password, 
+            email: user.email, 
+            membership_id: membershipID[0]})
+            .then(userID => {
+                newIDs.user_id = userID[0];
+                newIDs.message = 'Account created.';
+            })
+            .catch(async error => {
+                newIDs.message = {errno: error.errno, code: error.code };
+                await db('memberships').where('id', newIDs.membership_id).delete();
+                newIDs.membership_id = '';
+            })
+    })
+    .catch(async error => {
+        newIDs.message = {errno: error.errno, code: error.code };
+        await db('memberships').where('id', newIDs.membership_id).delete();
+        newIDs.membership_id = '';
+    })
 
-    return ({membershipID: await membershipPromise, userID: await userPromise});
+    return newIDs;
 }
 
 async function update(id, user) {
@@ -74,7 +92,10 @@ async function update(id, user) {
 }
 
 async function findById(id) {
-
+    let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
+    users = await attachToUsers(users);
+    
+    return users;
 }
 
 async function remove(id) {
