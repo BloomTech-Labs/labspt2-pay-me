@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Nav from '../nav/Nav'
 import '../../App.css';
+import googleButton from '../../img/google_btns/btn_google_signin_dark_normal_web.png'
+import Axios from 'axios';
 
+const local = 'http://localhost:5000';
+const deployed = 'https://sleepy-coast-80160.herokuapp.com/';
+
+const serverAddress = local;
 
 class SignIn extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state= {
             username:'',
             email: '',
@@ -14,18 +20,39 @@ class SignIn extends Component {
             passwordConfirmation: '',
         };
     }
-   
+
     handleChange= (e) => {
         this.setState ({
             [e.target.id]: e.target.value      
         })
     };
- 
-   handleSubmit = e => {
-    e.preventDefault();
-   }
 
+    handleSubmit = e => {
+        e.preventDefault();
+        Axios.post(`${serverAddress}/auth/local/login`, 
+        {username: this.state.username,
+        password: this.state.password})
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+
+    componentDidMount() {
+        if (this.props.match.params.jwt) {
+            localStorage.setItem('jwt', this.props.match.params.jwt);
+        }
+    }
+    
     render(){
+        // We may want to change this to check if the jwt is on localstorage instead of checking the params for it.
+        if (this.props.match.params.jwt) {
+            // Redirect to after login landing page. For now it redirects to the root.
+            // -Jason Hedrick
+            return <Redirect to='/' />;
+        }
         const { username, email, password, passwordConfirmation, errors, loading } = this.state;
         return (
         <div className="background">
@@ -50,6 +77,11 @@ class SignIn extends Component {
                         </div>
                         <div className="center">
                             <p className="">Not a user? <Link to="/signup" className="jump-link">Create an account</Link></p>
+                        </div>
+                        <div className="center google">
+                            <a href={`${serverAddress}/auth/google/`}>
+                                <img alt="Sign in with Google" src={googleButton} />
+                            </a>
                         </div>
                    </form>
                    </div>

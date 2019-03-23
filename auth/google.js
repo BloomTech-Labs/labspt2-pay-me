@@ -7,9 +7,9 @@ const JWT = require('./tokenGenerator');
 
 router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
 
-router.get('/redirect', passport.authenticate('google'), async (req, res) => {
+router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {
     jwt = JWT.generateToken(req.user[0]);
-    res.redirect('http:localhost:3000/signin?=' + jwt);
+    res.redirect('http://localhost:3000/signin/' + jwt);
 });
 
 module.exports = router;

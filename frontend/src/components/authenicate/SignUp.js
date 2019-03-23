@@ -63,7 +63,7 @@ class SignUp extends Component {
                             <button className="btn white blue-text z-depth-0" disabled ={ loading }>Sign Up</button>
                         </div>
                         <div className="center">
-                            <p className="">Already a user? <Link to="/signup" className="jump-link">Login</Link></p>
+                            <p className="">Already a user? <Link to="/signin" className="jump-link">Login</Link></p>
                         </div>
                    </form>
                    </div>
