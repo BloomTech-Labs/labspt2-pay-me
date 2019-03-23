@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 /* Pulling in the required Routes. */
 const users = require('./routes/users');
 const clients = require('./routes/clients');
@@ -12,16 +13,24 @@ const authGoogle = require('../auth/google');
 const server = express();
 
 server.use(express.json());
-//server.use(cors());
-server.use(cors({
+server.use(cors());
+server.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000 * 30,
+    keys: [process.env.COOKIE_KEY],
+}));
+
+server.use(passport.initialize());
+server.use(passport.session());
+/* server.use(cors({
     'allowedHeaders': ['sessionId', 'Content-Type'],
     'exposedHeaders': ['sessionId'],
     'origin': '*',
     'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
     'preflightContinue': false
-}));
+})); */
 
 /* Plugging in the Routes to the correct API paths */
+
 server.use('/api/users', users)
 server.use('/api/clients', clients);
 server.use('/api/invoices', invoices);

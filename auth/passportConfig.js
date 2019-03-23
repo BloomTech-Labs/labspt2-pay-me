@@ -2,6 +2,20 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 const usersHelper = require('../data/helpers/usersHelper');
 
+/* passport.serializeUser(function(user, done) {
+    done(null, user[0].id);
+});
+
+passport.deserializeUser(function(id, done) {
+    usersHelper.findById(id)
+    .then(user => {
+        done(null, user);
+    })
+    .catch(error => {
+        done(error);
+    })
+}); */
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT,
     clientSecret: process.env.GOOGLE_SECRET,
@@ -12,7 +26,7 @@ passport.use(new GoogleStrategy({
         await usersHelper.findByUsername(profile.displayName)
         .then(async user => {
             if (user.length > 0) {
-                console.log(`user: ${user}`)
+                console.log(`user: ${user}`);
                 done(null, user);
             }
             else {

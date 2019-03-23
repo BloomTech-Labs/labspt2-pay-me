@@ -3,13 +3,13 @@ const router = express.Router();
 const passport = require('passport');
 const passportSetup = require('./passportConfig');
 const cors = require('cors');
+const JWT = require('./tokenGenerator');
 
-router.use(passport.initialize());
 router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
-// passport.authenticate('google')
-router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {
-    console.log(req.query);
-    res.json(req.query);
+
+router.get('/redirect', passport.authenticate('google'), async (req, res) => {
+    jwt = JWT.generateToken(req.user[0]);
+    res.redirect('http:localhost:3000/signin?=' + jwt);
 });
 
 module.exports = router;
