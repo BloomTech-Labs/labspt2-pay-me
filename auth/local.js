@@ -13,8 +13,9 @@ const router = express.Router();
 router.post('/signup', async (req, res) => {
     // Get the user registration information off the body.
     const user = req.body;
+    console.log(user.plan);
     // Make sure it has all the required data.
-    if (user.username && user.password && user.plan) {
+    if (user.username && user.password && user.email && user.plan) {
         // Hash the password and set the hash to the user object.
         user.password = bcrypt.hashSync(user.password, 14);
 
@@ -25,6 +26,7 @@ router.post('/signup', async (req, res) => {
             console.log(newUser)
             // If there's an error number on the newUser object then something went wrong.
             if(newUser.message.errno) {
+                console.log(newUser)
                 // Send back the error.
                 res.status(400).json(newUser.message);
             }
@@ -48,15 +50,17 @@ router.post('/signup', async (req, res) => {
 router.post('/login', async (req, res) => {
     const credentials = req.body;
     if (credentials.username && credentials.password) {
-        const user = await usersHelper.findByUsername(credentials);
-        if (!user || !bcrypt.compareSync(credentials.password, user[0].password)) {
-            return res.status(401).json({error: 'Invalid username or password.'})
-        }
-        else {
-            const token = JWT.generateToken(user[0]);
-            const user = await usersHelper.findById(user[0].id);
-            return res.status(200).json({user: user, token: token});
-        }
+        await usersHelper.findByUsername(credentials)
+        .then(async user => { 
+            if (!user[0] || !bcrypt.compareSync(credentials.password, user[0].password)) {
+                return res.status(401).json({error: 'Invalid username or password.'})
+            }
+            else {
+                const token = JWT.generateToken(user[0]);
+                const foundUser = await usersHelper.findById(user[0].id);
+                return res.status(200).json({user: foundUser, token: token});
+            }
+        })
     }
     else {
         return res.status(400).json({error: 'Login requires both a username and password.'});

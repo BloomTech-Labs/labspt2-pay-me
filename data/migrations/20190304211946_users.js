@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     users.string('username', 128 ).notNullable().unique();
     users.string('password', 128).notNullable();
     users.string('email').notNullable().unique();
+    users.string('google_id');
     users.integer('membership_id').unsigned().notNullable().references('id').inTable('memberships');
   })
 };
