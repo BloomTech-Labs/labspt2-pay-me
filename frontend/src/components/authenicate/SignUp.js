@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Nav from '../nav/Nav'
 import '../../App.css';
-
+import serverLoc from '../../serverLoc';
+import Axios from 'axios';
 
 class SignUp extends Component {
     constructor() {
@@ -21,9 +22,20 @@ class SignUp extends Component {
         })
     };
  
-   handleSubmit = e => {
-    e.preventDefault();
-   }
+    handleSubmit = e => {
+        e.preventDefault();
+        Axios.post(`${serverLoc}/auth/local/signup`, 
+        {username: this.state.username, 
+        password: this.state.password,
+        email: this.state.email,
+        plan: 'test'})
+        .then(data => {
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        })
+    }
 
     render(){
         const { username, email, password, passwordConfirmation, errors, loading } = this.state;

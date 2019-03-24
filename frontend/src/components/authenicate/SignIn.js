@@ -4,11 +4,8 @@ import Nav from '../nav/Nav'
 import '../../App.css';
 import googleButton from '../../img/google_btns/btn_google_signin_dark_normal_web.png'
 import Axios from 'axios';
+import serverLoc from '../../serverLoc';
 
-const local = 'http://localhost:5000';
-const deployed = 'https://sleepy-coast-80160.herokuapp.com/';
-
-const serverAddress = local;
 
 class SignIn extends Component {
     constructor(props) {
@@ -29,11 +26,12 @@ class SignIn extends Component {
 
     handleSubmit = e => {
         e.preventDefault();
-        Axios.post(`${serverAddress}/auth/local/login`, 
+        Axios.post(`${serverLoc}/auth/local/login`, 
         {username: this.state.username,
         password: this.state.password})
-        .then(data => {
-            console.log(data);
+        .then(res => {
+            console.log(res.data);
+            localStorage.setItem('jwt', res.data.token);
         })
         .catch(error => {
             console.log(error);
@@ -63,9 +61,9 @@ class SignIn extends Component {
                         <div className="col offset-m3">
                     <form onSubmit={ this.handleSubmit } className="signin z-depth-0">
                         <div className="input-field">
-                        <i class="material-icons prefix">email</i>
-                            <label htmlFor="email">Email</label>
-                            <input type="email" className="white grey-text" id="email" value={ email } onChange={this.handleChange}></input>
+                        <i class="material-icons prefix"></i>
+                            <label htmlFor="username">Username</label>
+                            <input className="white grey-text" id="username" value={ username } onChange={this.handleChange}></input>
                         </div>
                         <div className="input-field">
                             <i class="material-icons prefix">lock</i>
@@ -79,7 +77,7 @@ class SignIn extends Component {
                             <p className="">Not a user? <Link to="/signup" className="jump-link">Create an account</Link></p>
                         </div>
                         <div className="center google">
-                            <a href={`${serverAddress}/auth/google/`}>
+                            <a href={`${serverLoc}/auth/google/`}>
                                 <img alt="Sign in with Google" src={googleButton} />
                             </a>
                         </div>
