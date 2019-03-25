@@ -137,6 +137,7 @@ handleInputChange2 = ev => {
 };
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -231,6 +232,8 @@ handleStartReminders = (e) => {
  
 //COMMENT
 =======
+=======
+>>>>>>> NavLeft minor change
 class Reminders extends Component {
   constructor() {
     super();
@@ -267,6 +270,9 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
+<<<<<<< HEAD
+>>>>>>> NavLeft minor change
+=======
 >>>>>>> NavLeft minor change
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
