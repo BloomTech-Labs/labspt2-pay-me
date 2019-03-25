@@ -19,12 +19,41 @@ import ReminderSection from './reminders_components/ReminderSection';
 
 
 class Reminders extends Component {
-  constructor(){
-    super()
-    this.state={
-      data :[]
-  }
-  }
+  constructor() {
+    super();
+    this.state = {
+        CustomInfo :[
+          {
+            Name: '',
+            InvoiceId:'',
+            Email:'',
+            EmailSubject:'',
+            EmailTextContent:'',
+            EmailSendingFrequency:'',
+            ReminderEmailStartDate:'',
+            ReminderCancel:'',
+            PhoneNumber:'',
+            SmsSendingFrequency:'',
+            ReminderSmsStartDate:'',
+            SmsTextContent:'',
+            InvoiceFileLink:'',
+          }
+        ] 
+     
+    }
+}
+
+changeValue = (event) => {
+    //console.log(`${event.target.name}:${event.target.value}`)
+    this.setState({
+        [event.target.name]: event.target.value,
+    })
+}
+
+submit = (event) => {
+    event.preventDefault();
+    /* We'll need to send this off to the AddInvoice endpoint on the server. */
+}
   render() {
     return (
       <div class="reminder">
