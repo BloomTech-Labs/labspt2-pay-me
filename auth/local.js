@@ -1,11 +1,12 @@
 const express = require('express');
 const bcrypt = require('bcryptjs');
 const JWT = require('./tokenGenerator');
-
+const cors = require('cors');
 const usersHelper = require('../data/helpers/usersHelper');
 
 const router = express.Router();
 
+router.use(cors());
 /* 
  * Create a JWT and send it to the Frontend after successful signup or login 
  */
