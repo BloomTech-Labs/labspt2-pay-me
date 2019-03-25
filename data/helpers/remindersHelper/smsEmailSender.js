@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 
+=======
+require('dotenv').config();
+>>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
