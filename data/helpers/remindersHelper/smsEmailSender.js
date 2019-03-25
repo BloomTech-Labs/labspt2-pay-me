@@ -1,3 +1,4 @@
+require('dotenv').config();
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
