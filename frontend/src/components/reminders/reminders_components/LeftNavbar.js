@@ -7,7 +7,7 @@ const LeftNavBar = () => {
         <a href="#!" class="collection-item">Invoices</a>
         <a href="#!" class="collection-item active">Reminders</a>
         <a href="#!" class="collection-item">Settings</a>
-        <a href="#!" class="collection-item">Billin</a>
+        <a href="#!" class="collection-item">Billing</a>
       </div>
   );
 };
