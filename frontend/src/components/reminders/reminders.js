@@ -151,6 +151,7 @@ handleInputChange2 = ev => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> NavLeft minor change
 =======
@@ -393,6 +394,8 @@ handleInputChange2 = ev => {
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
+=======
+>>>>>>> NavLeft minor change
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -612,6 +615,9 @@ handleStartReminders = (e) => {
 =======
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
 =======
@@ -794,6 +800,9 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
+<<<<<<< HEAD
+>>>>>>> NavLeft minor change
+=======
 >>>>>>> NavLeft minor change
 >>>>>>> NavLeft minor change
 >>>>>>> NavLeft minor change
