@@ -145,6 +145,7 @@ handleInputChange2 = ev => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> NavLeft minor change
 =======
@@ -180,6 +181,8 @@ submit = (event) => {
 }
 
 >>>>>>> comment reminders link
+=======
+>>>>>>> NavLeft minor change
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -599,6 +602,8 @@ handleStartReminders = (e) => {
 >>>>>>> refactor reminders
 =======
 =======
+=======
+>>>>>>> NavLeft minor change
 class Reminders extends Component {
   constructor() {
     super();
@@ -635,6 +640,9 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
+<<<<<<< HEAD
+>>>>>>> NavLeft minor change
+=======
 >>>>>>> NavLeft minor change
 >>>>>>> NavLeft minor change
   render() {
