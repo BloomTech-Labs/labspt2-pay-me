@@ -6,7 +6,7 @@ const cors = require('cors');
 const JWT = require('./tokenGenerator');
 
 const local = 'http://localhost:3000/signin/';
-const deployed = 'https://keen-mestorf-44ec10.netlify.com/';
+const deployed = 'https://keen-mestorf-44ec10.netlify.com/signin/';
 const redirect = deployed;
 router.use(cors());
 
