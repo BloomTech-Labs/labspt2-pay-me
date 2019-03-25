@@ -5,6 +5,8 @@ const passportSetup = require('./passportConfig');
 const cors = require('cors');
 const JWT = require('./tokenGenerator');
 
+router.use(cors());
+
 router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
 
 router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {

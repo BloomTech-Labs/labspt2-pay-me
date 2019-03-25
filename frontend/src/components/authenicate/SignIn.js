@@ -45,6 +45,7 @@ class SignIn extends Component {
     }
     
     render(){
+        console.log(serverLoc);
         // We may want to change this to check if the jwt is on localstorage instead of checking the params for it.
         if (this.props.match.params.jwt) {
             // Redirect to after login landing page. For now it redirects to the root.
