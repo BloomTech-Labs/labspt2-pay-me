@@ -307,6 +307,7 @@ class Reminders extends Component {
      
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
 handleCommentChange =(ev) =>{
@@ -444,6 +445,10 @@ handleStartReminders = (e) => {
 =======
 >>>>>>> comment reminders link
 
+=======
+}
+
+>>>>>>> NavLeft minor change
 changeValue = (event) => {
     //console.log(`${event.target.name}:${event.target.value}`)
     this.setState({
@@ -457,6 +462,7 @@ submit = (event) => {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
@@ -464,6 +470,8 @@ submit = (event) => {
 =======
 
 >>>>>>> comment reminders link
+=======
+>>>>>>> NavLeft minor change
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
