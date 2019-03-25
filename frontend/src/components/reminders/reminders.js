@@ -141,6 +141,9 @@ handleInputChange2 = ev => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
 handleInputChange = ev => {
@@ -238,6 +241,9 @@ handleStartReminders = (e) => {
 //COMMENT
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
 =======
@@ -414,6 +420,9 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
+<<<<<<< HEAD
+>>>>>>> NavLeft minor change
+=======
 >>>>>>> NavLeft minor change
 >>>>>>> NavLeft minor change
   render() {
