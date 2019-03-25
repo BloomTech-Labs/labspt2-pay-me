@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 require('dotenv').config();
 
 // yarn add nexmo  and then:
@@ -6,6 +7,9 @@ const Nexmo = require('nexmo');
 
 =======
 >>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
+=======
+require('dotenv').config();
+>>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
