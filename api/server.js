@@ -51,7 +51,7 @@ server.use('/charge', charge);
 
 /* This just responds to the client letting it know that the server is up. */
 server.get('/', async (req, res) => {
-    res.status(200).json({server: 'up'})
+    res.status(200).json({server: 'Updated: 3/24/19'})
 });
 
 
