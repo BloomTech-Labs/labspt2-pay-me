@@ -8,11 +8,13 @@ class Stripe extends React.Component {
    constructor(props) {
       super(props)
       this.state = {
-         invoice: null
+         invoice: null,
+         id: null
       };
    }
 
    componentDidMount() {
+      console.log(this.props.match.params.id)
       const id = this.props.match.params.id;
       this.getInvoice(id);
    }

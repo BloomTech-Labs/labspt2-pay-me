@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
+import {CardElement, CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 import {NavLink} from "react-router-dom";
-
+import serverLoc from '../../serverLoc';
+import util from 'util';
 /*
 Kendra Williams - 3/4/16
 client pay invoice screen
@@ -30,19 +31,21 @@ class PayInvoice extends Component {
    
    async submit(ev) {
       //user clicked submit
-      console.log("submit clicked");
+      //console.log("submit clicked");
+      // let {token} = 
       let {token} = await this.props.stripe.createToken({name: "Name"});
-      console.log(token)
-      //create token for payment submission
-      let response = await fetch("http://localhost:5000/charge/payment", {
+      
+      let response = await fetch(`${serverLoc}/charge/payment`, {
          method: "POST",
          headers: {"Content-Type": "text/plain"},
-         body: token.id,
+         body: token.id
       });
-      //update invoice to 0 amount
-      console.log(response);
-      if (response.ok) this.setState({complete: true, invoice: {number: this.state.invoice.number, amount: 0}});
-   }
+
+         if (response.ok) console.log("Purchase Complete!")
+         //update invoice to 0 amount
+         //console.log(response);
+         //if (response.ok) this.setState({complete: true, invoice: {number: this.state.invoice.number, amount: 0}});
+      }
 
    //add side nav to render
    render() {
@@ -59,9 +62,10 @@ class PayInvoice extends Component {
                <div>
                   <p>Payment Info</p>
                   <div className="checkout">
-                     <CardNumberElement />
+                     <CardElement />
+                     {/*<CardNumberElement />
                      <CardExpiryElement />
-                     <CardCVCElement />
+                     <CardCVCElement />*/}
                   </div>
                   <button onClick={this.submit}>Submit</button>
                </div>

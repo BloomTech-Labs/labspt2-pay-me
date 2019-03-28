@@ -13,7 +13,7 @@ router.get("/", async (req, res) => {
 //    res.status(200).json({invoice: client_invoice});
 // })
 
-router.post("/payment/:id", async (req, res) => {
+router.post("/payment/", async (req, res) => {
    const charge = req.body
    try {
       //change to include value pulled from the database
@@ -26,7 +26,8 @@ router.post("/payment/:id", async (req, res) => {
  
      res.json({status});
    } catch (err) {
-      // console.log(err.stack)
+      console.log(`error: ${err}`)
+      console.log(`error stack: ${err.stack}`)
      res.status(500).end();
    }
  });
