@@ -1,3 +1,9 @@
+/*******************
+ * Author: Jason Hedrick
+ * Date: 3/30/2019
+ * Description: A Jest test file for the clients database helper functionality.
+ */
+
 const clients = require('./clientsHelper');
 const users = require('./usersHelper');
 const db = require('../dbConfig');
@@ -7,7 +13,7 @@ let clientObj = {
     company_name: 'Database Test',
     email: 'data@test.jest',
     phone_number: '4441118888',
-    user_id: 0
+    user_id: 1
 };
 
 afterEach(async () => {
@@ -23,7 +29,7 @@ afterEach(async () => {
         plan: 'Monthly'
     });
 
-    // Reset the clientObj after each test suite.
+    // Reset the clientObj after each test.
     clientObj = {
         client_name: 'Database Test',
         company_name: 'Database Test',
@@ -35,13 +41,14 @@ afterEach(async () => {
 });
 
 describe('When successful the clients table', () => {
+    // Extemely basic functionality. These should always pass with a clean database.
     it('Should insert new clients', async () => {
         const ids = await clients.insert(clientObj);
         expect(ids.length).toBe(1);
         expect(ids[0]).toBe(1);
     });
 
-    it('Should update the clients company_name', async () => {
+    it('Should update the clients company_name field', async () => {
         await clients.insert(clientObj);
         clientObj.company_name = 'Updated Company';
         const ids = await clients.update(1, clientObj);
@@ -49,7 +56,7 @@ describe('When successful the clients table', () => {
         expect(client[0].company_name).toBe('Updated Company');
     });
 
-    it('Should update clients email', async () => {
+    it('Should update clients email field', async () => {
         await clients.insert(clientObj);
         clientObj.email = 'update@test.com';
         const ids = await clients.update(1, clientObj);
@@ -57,7 +64,7 @@ describe('When successful the clients table', () => {
         expect(client[0].email).toBe('update@test.com');
     });
 
-    it('Should update the clients phone_number', async () => {
+    it('Should update the clients phone_number field', async () => {
         await clients.insert(clientObj);
         clientObj.phone_number = '9990001111';
         const ids = await clients.update(1, clientObj);
@@ -67,5 +74,9 @@ describe('When successful the clients table', () => {
 });
 
 describe('When unsuccessful the clients table', () => {
-    // Build out error testing.
+    /**
+     * Build out error testing. 
+     * Here we're going to try to break the helpers and make sure they don't just crash out.
+     */
+
 })

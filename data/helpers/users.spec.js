@@ -1,7 +1,7 @@
 const users = require('./clientsHelper');
 const db = require('../dbConfig');
 
-const userObj = {
+let userObj = {
     username: 'jest',
     password: 'jest',
     email: 'user@test.jest',
