@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const cookieSession = require('cookie-session');
 const passport = require('passport');
+const formData = require('express-form-data')
 /* Pulling in the required Routes. */
 const users = require('./routes/users');
 const clients = require('./routes/clients');
@@ -20,23 +20,11 @@ server.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-/*
-server.use(cookieSession({
-    maxAge: 24 * 60 * 60 * 1000 * 30,
-    keys: [process.env.COOKIE_KEY],
-}));
 
-
-server.use(passport.session());
-server.use(cors({
-    'allowedHeaders': ['sessionId', 'Content-Type'],
-    'exposedHeaders': ['sessionId'],
-    'origin': '*',
-    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    'preflightContinue': false
-})); */
 server.use(passport.initialize());
+server.use(cors());
 server.use(require("body-parser").text());
+server.use(formData.parse());
 
 /* Plugging in the Routes to the correct API paths */
 
@@ -51,7 +39,7 @@ server.use('/charge', charge);
 
 /* This just responds to the client letting it know that the server is up. */
 server.get('/', async (req, res) => {
-    res.status(200).json({server: 'up'})
+    res.status(200).json({server: 'Updated: 3/24/19'})
 });
 
 
