@@ -3,9 +3,6 @@ import Nav from '../nav/Nav'
 import '../../App.css';
 import girlUser from '../../img/girl_user.png';
 import guyUser from '../../img/guy_user.png';
-import { Link } from 'react-router-dom';
-
-// <a href="/signup" className="btn-large white blue-text z-depth-0">Try Now</a>
 
 const Home = () => {
     return (
@@ -13,9 +10,9 @@ const Home = () => {
             <div className="showcase">
             <Nav />
                 <div className="container">
-                    <h3 className="center">Quickly Create Invoices For Your Business</h3>
+                    <h3 className="center" style={{marginTop: 60}}>Quickly Create Invoices For Your Business</h3>
                     <div className="center button-container">
-                        <Link to="/signin" className="btn-large white blue-text z-depth-0">Try Now</Link>
+                        <a href="/signup" className="btn-large white blue-text z-depth-0">Try Now</a>
                     </div>
                 </div>
             </div>

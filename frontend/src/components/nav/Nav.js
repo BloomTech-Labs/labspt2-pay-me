@@ -5,7 +5,7 @@ import logo from '../../img/logo.png';
 
 const Nav = () => {
     return (
-    <nav className="transparent z-depth-0">
+    <nav className="transparent z-depth-0" style={{paddingTop: 10}}>
         <div className="container">
             <Link to="/" className="brand-logo"><img src={ logo }></img></Link>
     
