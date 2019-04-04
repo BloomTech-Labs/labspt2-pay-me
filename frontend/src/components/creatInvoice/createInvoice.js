@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Sidenav from '../nav/Sidenav';
 import '../../Dashboard.css';
+import axios from 'axios';
 
 
 class CreateInvoice extends Component {
     constructor() {
         super()
         this.state= {
-            clientName:'',
-            clientEmail: '',
-            phoneNumber:'',
-            companyName:'',
-            invoiceNumber: '',
-            invoiceFilename: '',
+            client_name:'',
+            email: '',
+            phone_number:'',
+            company_name:'',
+            inv_url: null,
+            
         };
     }
    
@@ -25,11 +26,26 @@ class CreateInvoice extends Component {
  
    handleSubmit = e => {
     e.preventDefault();
-    console.log(this.state)
-   }
+    axios.post('http://localhost:5000/api/invoices/', {
+        invoice_number: this.state.invoice_number,
+        client_name: this.state.client_name,
+        company_name: this.state.company_name,
+        email: this.state.email,
+        phone_number: this.state.phone_number,  
+    })
+    .then(res => {
+        console.log(res.data);
+    })
 
+   }
+   singleFileChangedHandler = ( event ) => {
+    this.setState({
+     selectedFile: event.target.files[0]
+    });
+   };
+   
     render(){
-        const { clientName, clientEmail, phoneNumber, companyName } = this.state;
+        const { client_name, email, phone_number, company_name, notes } = this.state;
         return (
 
             <div>
@@ -43,23 +59,23 @@ class CreateInvoice extends Component {
                                 <p className="center white-text">Complete the form below to create a new invoice</p>
                                     <div className="input-field">
                                     <i class="material-icons prefix">person</i>
-                                        <input type="text" placeholder="Client Name" onblur="this.placeholder='Client Name'" className="white grey-text" id="clientName" value={ clientName } onChange={this.ChangeValue}></input>
+                                        <input type="text" placeholder="Client Name" onblur="this.placeholder='Client Name'" className="white grey-text" id="client_name" value={ client_name } onChange={this.ChangeValue}></input>
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">business_center</i> 
-                                        <input type="text" placeholder="Company" onblur="this.placeholder='Company'" className="white grey-text"  id="company" value={ companyName } onChange={this.ChangeValue}></input>
+                                        <input type="text" placeholder="Company" onblur="this.placeholder='Company'" className="white grey-text"  id="company_name" value={ company_name } onChange={this.ChangeValue}></input>
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">mail</i> 
-                                        <input type="email" placeholder="Email" onblur="this.placeholder='Email'" className="white lighten-3 grey-text"  id="clientEmail" value={ clientEmail } onChange={this.ChangeValue}></input>
+                                        <input type="email" placeholder="Email" onblur="this.placeholder='Email'" className="white lighten-3 grey-text"  id="email" value={ email } onChange={this.ChangeValue}></input>
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">phone</i> 
-                                        <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white grey-text"  id="phoneNumber" value={ phoneNumber } onChange={this.ChangeValue}></input>
+                                        <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white grey-text"  id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input>
                                     </div>
                                     <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea id="textarea2" class="materialize-textarea white" data-length="120" style={{height: "6rem"}} placeholder="Notes" onblur="this.placeholder='Notes'">  </textarea>
+                                        <textarea id="notes" class="materialize-textarea white" data-length="120" style={{height: "6rem"}} placeholder="Notes" value={ notes }>  </textarea>
                                         <label for="textarea2">Textarea</label>
                                     </div>
                                     </div>

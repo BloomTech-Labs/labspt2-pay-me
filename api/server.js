@@ -11,6 +11,10 @@ const reminders = require('./routes/reminders');
 const authLocal = require('../auth/local');
 const authGoogle = require('../auth/google');
 const charge = require('./routes/charge');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
+const multer = require('multer');
+const path = require('path');
 
 const server = express();
 
@@ -20,6 +24,13 @@ server.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
+/* AWS Profile File Storing */
+const s3 = new aws.S3({
+    accessKeyId: 'AKIA3I23NCTNRK5XT3F4',
+    secretAccessKey: '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',
+    Bucket: ''
+})
+
 /*
 server.use(cookieSession({
     maxAge: 24 * 60 * 60 * 1000 * 30,
