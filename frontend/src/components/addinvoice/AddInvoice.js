@@ -8,7 +8,7 @@ class AddInvoice extends React.Component {
         super();
         this.state = {
             clientName: '',
-            clientID: 1, // This needs to be pulled from which client we're creating it for.
+            clientID: 1, // This needs to be pulled from which client we're creating it for
             companyName: '',
             email: '',
             phoneNumber: '',
