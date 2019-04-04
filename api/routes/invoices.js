@@ -1,8 +1,8 @@
 const express = require('express');
+const invoices = require('../../data/helpers/invoiceHelper');
 const router = express.Router();
 const db = require('../../data/helpers/invoiceHelper');
 
-// Get a list of invoices
 router.get('/', async (req, res) => {
     db.getAll()
     .then(invoices => {

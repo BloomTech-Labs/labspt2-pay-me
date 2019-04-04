@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Reminders from './components/reminders/reminders'
 import {Elements, StripeProvider} from 'react-stripe-elements';
-//import PayInvoice from "./Component/PayInvoice";
+import PayInvoice from "./components/client/PayInvoice";
 import Home from './components/home/Home';
 import Contact from './components/contact/contact';
 import Signup from './components/authenicate/SignUp';
@@ -12,8 +12,6 @@ import InvoiceDetails from './components/Invoice/InvoiceDetails';
 import Billing from './components/billing/Billing';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/settings/Settings';
-
-// import AddInvoice from './components/AddInvoice';
 
 /*
 <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
@@ -39,6 +37,8 @@ class App extends Component {
         <Route  path="/create" component={CreateInvoice} />
         <Route  path="/billing" component={Billing} />
         <Route  path="/settings" component={Settings} />
+        <Route exact path="/payinvoice/:id" component={PayInvoice} />
+        <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
         {/* <Route exact path="/reminders" component={Reminders} />*/}
       </div>
     );

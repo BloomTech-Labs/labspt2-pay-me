@@ -59,7 +59,6 @@ async function getAll() {
 }
 
 async function insert(user) {
-    console.log(`username in insert: ${user.username}`)
     let newIDs = {membership_id: '', id: '', message: ''};
 
     await db('memberships').insert({plan: user.plan})
