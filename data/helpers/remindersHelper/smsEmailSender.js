@@ -1,22 +1,27 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 require('dotenv').config();
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
 =======
+<<<<<<< HEAD
 >>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
 =======
 require('dotenv').config();
 >>>>>>> Basic config Reminders Timer
+=======
+>>>>>>> cleaning
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -29,6 +34,10 @@ const Nexmo = require('nexmo');
 const Nexmo = require('nexmo');
 
 >>>>>>> some changes on sms sender
+=======
+
+>>>>>>> cleaning
+>>>>>>> cleaning
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -60,6 +69,7 @@ console.log(smsFromNumber, smstoNumber, smsText);
 // **SENDGRID EMAIL API Quickstart for Node.JS**
 const emailHandler = (to,from,subject,html) =>{
 
+<<<<<<< HEAD
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
@@ -68,9 +78,14 @@ const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 
 
+=======
+<<<<<<< HEAD
+>>>>>>> cleaning
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
+=======
+>>>>>>> cleaning
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
@@ -91,5 +106,26 @@ module.exports ={
   emailHandler,
   smsHandler
 }
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+/* POSTMAN JSON POST 
+{"sms" :{
+    "smsFromNumber":"a",
+   "smstoNumber":"b",
+  "smsText":"k",
+  "smsFREQ":"120000"
+},
+"email" : {
+       "to":"TO@gmail.com",
+   "from":"FROM@gmail.com",
+  "subject":"REMINDER EMAIL TEST",
+    "html":"<div>GOT A EMAIL TEMPLATE</div>",
+    "emailFREQ":"12000"
+     }   
+}*/
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
