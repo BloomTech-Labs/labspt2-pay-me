@@ -1,7 +1,7 @@
 
 div.reminder{
   color: rgb(12, 10, 10);
-  background: #f0f5fb
+  background: #f2f4f7
  
 
 }
@@ -56,6 +56,7 @@ i.Medium.material-icons.icon{
 
 div.row.wrapper-email-sms{
   padding: 10px;
+  width: 700px;
   display:flex;
   justify-content:center ;
  background: white;
@@ -119,3 +120,115 @@ span.spanComment{
   padding:20px; 
   color: #000;
 }
+.navleft,.commentsection{
+  max-width:200px; ;
+}
+.tab-wrapper{
+  display: flex;
+  justify-content:space-between; 
+}
+div.text{
+  margin: 0 0 -1px;
+    padding: 15px 25px;
+    font-weight: 600;
+    text-align: center;
+    color: #abc;
+    border: 1px solid transparent;
+    background: #fff;
+    
+}
+div.text:hover{
+  color: rgb(149, 164, 179);
+  cursor: pointer;
+}
+div.tab-button.active{
+  color: #0af;
+  border: 1px solid #abc;
+  border-top: 3px solid #0af;
+  border-bottom: 1px solid #fff;
+}
+div.tab-button{
+  padding: 2px 0 0;
+  border-bottom: 1px solid #abc;
+}
+.imagAvatar{
+  width:45px ;
+  margin: 10px;
+}
+span.spancomment{
+  color: #aeb4b7;
+}
+li.licomment{
+ background: #FFF;
+ color: #aeb4b7;
+ border-radius:8px  ;
+ margin: 15px;
+ padding: 0 20px;
+ -webkit-box-shadow: 0 1px 4px rgba(0,0,0,.05);
+ box-shadow: 0 1px 4px rgba(0,0,0,.05);
+
+}
+li.licomment:hover{
+  box-shadow: 0 4px 4px rgba(0,0,0,.09);
+ }
+ul.ulComment{
+  background: #fafafa;
+  padding:20px; 
+}
+.switchform{
+  margin-bottom:20px; 
+  background:#e8ecf0;
+display: flex;
+justify-content:space-between ;
+padding:2px; 
+}
+.switchName{
+  
+}
+.divSwitchStatus{
+  flex:1 0 auto; 
+  display: flex;
+  flex-direction:column;
+  align-items:center ; 
+  background: #ffffff;
+  padding:10px;  
+  margin:4px 
+}
+
+.Section-Email-Sms-Comment{
+  display:flex 
+}
+.Section-Email-Sms{
+  display:flex; 
+  flex-direction: column;
+
+  padding:20px; 
+}
+.Section-Email{
+  display:flex ;
+  border: 1px solid rgba(4, 5, 5, 0.1);
+  margin-bottom:10px; 
+}
+.Section-Sms{
+  display:flex ;
+  border: 1px solid rgba(4, 5, 5, 0.1);
+}
+.Section-Comment{
+  display:flex ;
+  border: 1px solid rgba(4, 5, 5, 0.7);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 3px;
+}
+.reminderform{
+  display:flex 
+}
+
+
+.emailfalse{
+display:none 
+}
+.smsfalse{
+  display:none 
+  }
+
