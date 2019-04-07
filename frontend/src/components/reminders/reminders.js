@@ -118,6 +118,7 @@ handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
   ev.preventDefault();
 };
+<<<<<<< HEAD
 
 handleChangeDateSms=(date) =>{
   this.setState({
@@ -138,6 +139,38 @@ handleInputChange2 = ev => {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+=======
+
+handleChangeDateSms=(date) =>{
+  this.setState({
+    Sms_StartDate: date,
+  });
+}
+
+handleChangeDateEmail=(date) =>{
+  this.setState({
+    Email_StartDate:date
+  });
+}
+handleInputChange2 = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+ 
+  ev.preventDefault();
+};
+
+changeValue = (event) => {
+    //console.log(`${event.target.name}:${event.target.value}`)
+    this.setState({
+        [event.target.name]: event.target.value,
+    })
+}
+
+submit = (event) => {
+    event.preventDefault();
+    /* We'll need to send this off to the AddInvoice endpoint on the server. */
+}
+
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -231,6 +264,7 @@ handleStartReminders = (e) => {
 
  
 //COMMENT
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> NavLeft minor change
@@ -274,6 +308,8 @@ submit = (event) => {
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
+=======
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
@@ -300,6 +336,7 @@ submit = (event) => {
   </div>
 
   <div class="col s12 m8 l10 "> 
+<<<<<<< HEAD
   
   <div class="col s12 m4 l3 ">{/*SEARCH INVOICE*/ }  
   <div className="reminderInput boxShadow">
@@ -314,6 +351,22 @@ submit = (event) => {
               })}
             </div></div>    
   
+=======
+  
+  <div class="col s12 m4 l3 ">{/*SEARCH INVOICE*/ }  
+  <div className="reminderInput boxShadow">
+    <SearchInput  onChange={this.searchUpdated} className='search'/>
+        {filteredInvoice.map(itemInfo => {
+          
+        return (
+            <div className="mail" key={itemInfo.invoiceId}>
+        <li className="info"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
+            </div>
+                )
+              })}
+            </div></div>    
+  
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
   <div class="col s12 m4 l9 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
   <div class="switch">
     <label ><span>Email Status :</span>
@@ -322,6 +375,7 @@ submit = (event) => {
       <span class="lever"></span>
       On
     </label>
+<<<<<<< HEAD
   </div>
   <div class="switch">
     <label ><span>Sms Status :</span>
@@ -331,6 +385,17 @@ submit = (event) => {
       On
     </label>
   </div>
+=======
+  </div>
+  <div class="switch">
+    <label ><span>Sms Status :</span>
+      Off
+      <input type="checkbox" value={this.state.isCheckedSms} onChange={this.handleChangeActivSms} />
+      <span class="lever"></span>
+      On
+    </label>
+  </div>
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
     <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
   <div className='Section-Email'>{/*&&EMAIL&&*/ } 
 
