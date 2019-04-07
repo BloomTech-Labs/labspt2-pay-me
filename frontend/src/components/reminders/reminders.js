@@ -112,8 +112,11 @@ class Reminders extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> refactor reminders
+=======
+>>>>>>> reminders refactor
 
 handleCommentChange =(ev) =>{
 
@@ -153,11 +156,15 @@ handleInputChange2 = ev => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
 =======
+=======
+
+>>>>>>> reminders refactor
 handleChangeDateSms=(date) =>{
   this.setState({
     Sms_StartDate: date,
@@ -187,11 +194,15 @@ submit = (event) => {
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
 
+<<<<<<< HEAD
 >>>>>>> comment reminders link
 =======
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
+=======
+
+>>>>>>> reminders refactor
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -283,6 +294,7 @@ handleStartReminders = (e) => {
     this.setState({ isCheckedSms:!this.state.isCheckedSms})
   };
 
+<<<<<<< HEAD
  
 //COMMENT
 <<<<<<< HEAD
@@ -345,6 +357,8 @@ handleChangeDateEmail=(date) =>{
   });
 =======
 
+=======
+>>>>>>> reminders refactor
 handleCommentChange =(ev) =>{
 
   this.setState({commentText: ev.target.value});
@@ -382,8 +396,7 @@ handleChangeFreqEmail = (selectedOption) => {
     Email_Freq: selectedOption.value
    }
     )
- 
->>>>>>> refactor reminders
+
 }
 handleInputChange2 = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
@@ -481,15 +494,7 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
   const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
+
 
 handleStartReminders = (e) => {
     e.preventDefault();
@@ -535,11 +540,14 @@ handleStartReminders = (e) => {
  
 //COMMENT
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
 }
 =======
 >>>>>>> comment reminders link
+=======
+>>>>>>> reminders refactor
 
 =======
 }
@@ -842,6 +850,7 @@ submit = (event) => {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
@@ -853,6 +862,8 @@ submit = (event) => {
 
 >>>>>>> comment reminders link
 >>>>>>> comment reminders link
+=======
+>>>>>>> reminders refactor
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
