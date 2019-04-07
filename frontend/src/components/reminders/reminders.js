@@ -152,6 +152,7 @@ handleInputChange2 = ev => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> NavLeft minor change
 =======
@@ -393,9 +394,42 @@ handleInputChange2 = ev => {
 =======
 >>>>>>> NavLeft minor change
 =======
+>>>>>>> comment reminders link
+=======
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
+=======
+handleChangeDateSms=(date) =>{
+  this.setState({
+    Sms_StartDate: date,
+  });
+}
+
+handleChangeDateEmail=(date) =>{
+  this.setState({
+    Email_StartDate:date
+  });
+}
+handleInputChange2 = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+ 
+  ev.preventDefault();
+};
+
+changeValue = (event) => {
+    //console.log(`${event.target.name}:${event.target.value}`)
+    this.setState({
+        [event.target.name]: event.target.value,
+    })
+}
+
+submit = (event) => {
+    event.preventDefault();
+    /* We'll need to send this off to the AddInvoice endpoint on the server. */
+}
+
+>>>>>>> comment reminders link
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -500,6 +534,7 @@ handleStartReminders = (e) => {
 <<<<<<< HEAD
  
 //COMMENT
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
 }
@@ -613,6 +648,9 @@ handleStartReminders = (e) => {
 <<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> comment reminders link
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -788,6 +826,8 @@ handleStartReminders = (e) => {
 =======
 =======
 }
+=======
+>>>>>>> comment reminders link
 
 changeValue = (event) => {
     //console.log(`${event.target.name}:${event.target.value}`)
@@ -801,11 +841,18 @@ submit = (event) => {
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
 >>>>>>> NavLeft minor change
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
+=======
+=======
+
+>>>>>>> comment reminders link
+>>>>>>> comment reminders link
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
