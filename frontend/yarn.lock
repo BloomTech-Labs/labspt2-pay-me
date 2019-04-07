@@ -854,11 +854,14 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> refactor reminders
 =======
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> comment reminders link
 =======
 <<<<<<< HEAD
 >>>>>>> refactor reminders
@@ -925,6 +928,12 @@
 >>>>>>> refactor reminders
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+"@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2":
+  version "7.4.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
+  integrity sha512-9lsJwJLxDh/T3Q3SZszfWOTkk3pHbkmH+3KY+zwIDmsNlxsumuhS2TH3NIpktU4kNvfzy+k3eLT7aTJSPTo0OA==
+>>>>>>> comment reminders link
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -1015,6 +1024,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
   integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
 
+<<<<<<< HEAD
 "@jest/types@^24.5.0":
   version "24.5.0"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.5.0.tgz#feee214a4d0167b0ca447284e95a57aa10b3ee95"
@@ -1063,6 +1073,8 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
   integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
 
+=======
+>>>>>>> comment reminders link
 "@jest/types@^24.7.0":
   version "24.7.0"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.7.0.tgz#c4ec8d1828cdf23234d9b4ee31f5482a3f04f48b"
@@ -2545,8 +2557,11 @@ class-utils@^0.3.5:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> comment reminders link
 =======
 =======
 >>>>>>> refactor reminders
@@ -2600,6 +2615,9 @@ classnames@^2.2.5, classnames@^2.2.6:
 classnames@^2.2.5, classnames@^2.2.6:
 >>>>>>> added dependecies select and react datapicker
 >>>>>>> added dependecies select and react datapicker
+=======
+classnames@^2.2.5, classnames@^2.2.6:
+>>>>>>> comment reminders link
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -2889,13 +2907,19 @@ core-js@2.6.4:
   integrity sha512-05qQ5hXShcqGkPZpXEFLIpxayZscVD2kuMBZewxiIPPEagukO4mqgPA9CWhUvFBJfy3ODdK2p9xyHh7FTU9/7A==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> comment reminders link
 core-js@3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.0.1.tgz#1343182634298f7f38622f95e73f54e48ddf4738"
   integrity sha512-sco40rF+2KlE0ROMvydjkrVMMG1vYilP2ALoRXcYR4obqbYIuV3Bg+51GEDW+HF8n7NRA+iaA4qD0nD9lo9mew==
 
+<<<<<<< HEAD
 =======
 >>>>>>> refactor reminders
+=======
+>>>>>>> comment reminders link
 core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
@@ -2922,6 +2946,7 @@ cosmiconfig@^4.0.0:
     require-from-string "^2.0.1"
 
 cosmiconfig@^5.0.0, cosmiconfig@^5.0.5, cosmiconfig@^5.0.7, cosmiconfig@^5.2.0:
+<<<<<<< HEAD
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
   integrity sha512-nxt+Nfc3JAqf4WIWd0jXLjTJZmsPLrA9DDc4nRw2KFJQJK7DNooqSXrNI7tzLG50CF8axczly5UV929tBmh/7g==
@@ -2932,6 +2957,8 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.0.5, cosmiconfig@^5.0.7, cosmiconfig@^5.2.0:
     parse-json "^4.0.0"
 
 cosmiconfig@^5.2.0:
+=======
+>>>>>>> comment reminders link
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
   integrity sha512-nxt+Nfc3JAqf4WIWd0jXLjTJZmsPLrA9DDc4nRw2KFJQJK7DNooqSXrNI7tzLG50CF8axczly5UV929tBmh/7g==
@@ -6087,6 +6114,7 @@ js-tokens@^3.0.2:
   integrity sha1-mGbfOVECEw449/mWvOtlRDIJwls=
 
 js-yaml@^3.12.0, js-yaml@^3.13.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
+<<<<<<< HEAD
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -6095,6 +6123,8 @@ js-yaml@^3.12.0, js-yaml@^3.13.0, js-yaml@^3.7.0, js-yaml@^3.9.0:
     esprima "^4.0.0"
 
 js-yaml@^3.13.0:
+=======
+>>>>>>> comment reminders link
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
@@ -8703,6 +8733,7 @@ react-input-autosize@^2.2.1:
   dependencies:
     prop-types "^15.5.8"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 <<<<<<< HEAD
 >>>>>>> refactor reminders
@@ -8837,6 +8868,7 @@ react-popper@^1.0.2:
     typed-styles "^0.0.7"
     warning "^4.0.2"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
 
@@ -8882,6 +8914,8 @@ react-popper@^1.0.2:
 >>>>>>> refactor reminders
 =======
 =======
+=======
+>>>>>>> comment reminders link
 
 react-redux@^6.0.1:
   version "6.0.1"
@@ -8894,8 +8928,11 @@ react-redux@^6.0.1:
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
     react-is "^16.8.2"
+<<<<<<< HEAD
 >>>>>>> added dependecies select and react datapicker
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> comment reminders link
 
 react-router-dom@^4.3.1:
   version "4.3.1"
@@ -9012,6 +9049,7 @@ react-testing-library@^6.0.0:
   dependencies:
     "@babel/runtime" "^7.4.2"
     dom-testing-library "^3.19.0"
+<<<<<<< HEAD
 
 react-transition-group@^2.2.1:
   version "2.9.0"
@@ -9022,6 +9060,8 @@ react-transition-group@^2.2.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+=======
+>>>>>>> comment reminders link
 
 react-transition-group@^2.2.1:
   version "2.9.0"
@@ -10508,10 +10548,14 @@ ua-parser-js@^0.7.18:
   integrity sha512-T3PVJ6uz8i0HzPxOF9SWzWAlfN/DavlpQqepn22xgve/5QecC+XMCAtmUNnY7C9StehaV6exjUCI801lOI7QlQ==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> comment reminders link
 uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
   integrity sha512-Y2VsbPVs0FIshJztycsO2SfPk7/KAF/T72qzv9u5EpQ4kB2hQoHlhNQTsNyy6ul7lQtqJN/AoWeS23OzEiEFxw==
+<<<<<<< HEAD
 =======
 uglify-js@3.4.x, uglify-js@^3.1.4:
   version "3.4.9"
@@ -10528,6 +10572,18 @@ uglify-js@^3.1.4:
   integrity sha512-rIQPT2UMDnk4jRX+w4WO84/pebU2jiLsjgIyrCktYgSvx28enOE3iYQMr+BD1rHiitWnDmpu0cY/LfIEpKcjcw==
   dependencies:
     commander "~2.19.0"
+=======
+  dependencies:
+    commander "~2.19.0"
+    source-map "~0.6.1"
+
+uglify-js@^3.1.4:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.5.3.tgz#d490bb5347f23025f0c1bc0dee901d98e4d6b063"
+  integrity sha512-rIQPT2UMDnk4jRX+w4WO84/pebU2jiLsjgIyrCktYgSvx28enOE3iYQMr+BD1rHiitWnDmpu0cY/LfIEpKcjcw==
+  dependencies:
+    commander "~2.19.0"
+>>>>>>> comment reminders link
     source-map "~0.6.1"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
@@ -10799,6 +10855,7 @@ walker@~1.0.5:
     makeerror "1.0.x"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 warning@^3.0.0:
   version "3.0.0"
@@ -10808,6 +10865,8 @@ warning@^3.0.0:
     loose-envify "^1.0.0"
 
 >>>>>>> refactor reminders
+=======
+>>>>>>> comment reminders link
 warning@^4.0.1, warning@^4.0.2:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"
