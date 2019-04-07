@@ -107,6 +107,10 @@
     regenerator-runtime "^0.12.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 "@babel/template@^7.0.0", "@babel/template@^7.1.0", "@babel/template@^7.4.0":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.4.0.tgz#12474e9c077bae585c5d835a95c0b0b790c25c8b"
@@ -242,80 +246,56 @@
   version "24.3.0"
   resolved "https://registry.yarnpkg.com/@jest/source-map/-/source-map-24.3.0.tgz#563be3aa4d224caf65ff77edc95cd1ca4da67f28"
   integrity sha512-zALZt1t2ou8le/crCeeiRYzvdnTzaIlpOWaet45lNSqNJUnXbppUUFR4ZUAlzgDmKee4Q5P/tKXypI1RiHwgag==
+=======
+"@sendgrid/client@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@sendgrid/client/-/client-6.3.0.tgz#25c34b11bec392ab43ca7e52fb35e4105fb00901"
+  integrity sha512-fTy8vRpA9Whtf8ULQr/0vkSZaQvGQ97rY5N5PrevKRtugJMsJqFMKO0pwzEWeqITSg71aMMTj57QTgw3SjZvnQ==
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
   dependencies:
-    callsites "^3.0.0"
-    graceful-fs "^4.1.15"
-    source-map "^0.6.0"
+    "@sendgrid/helpers" "^6.3.0"
+    "@types/request" "^2.0.3"
+    request "^2.81.0"
 
-"@jest/test-result@^24.5.0":
-  version "24.5.0"
-  resolved "https://registry.yarnpkg.com/@jest/test-result/-/test-result-24.5.0.tgz#ab66fb7741a04af3363443084e72ea84861a53f2"
-  integrity sha512-u66j2vBfa8Bli1+o3rCaVnVYa9O8CAFZeqiqLVhnarXtreSXG33YQ6vNYBogT7+nYiFNOohTU21BKiHlgmxD5A==
+"@sendgrid/helpers@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@sendgrid/helpers/-/helpers-6.3.0.tgz#1b1798af22aa7a4c98257fab3dd2a6a6afd8b467"
+  integrity sha512-uTFcmhCDFg/2Uhz+z/cLwyLHH0UsblG49hKwdR7nKbWsGKWv4js7W32FlPdXqy2C/plTJ20vcPLgKM1m3F/MjQ==
   dependencies:
-    "@jest/console" "^24.3.0"
-    "@jest/types" "^24.5.0"
-    "@types/istanbul-lib-coverage" "^1.1.0"
-
-"@jest/transform@^24.5.0":
-  version "24.5.0"
-  resolved "https://registry.yarnpkg.com/@jest/transform/-/transform-24.5.0.tgz#6709fc26db918e6af63a985f2cc3c464b4cf99d9"
-  integrity sha512-XSsDz1gdR/QMmB8UCKlweAReQsZrD/DK7FuDlNo/pE8EcKMrfi2kqLRk8h8Gy/PDzgqJj64jNEzOce9pR8oj1w==
-  dependencies:
-    "@babel/core" "^7.1.0"
-    "@jest/types" "^24.5.0"
-    babel-plugin-istanbul "^5.1.0"
     chalk "^2.0.1"
-    convert-source-map "^1.4.0"
-    fast-json-stable-stringify "^2.0.0"
-    graceful-fs "^4.1.15"
-    jest-haste-map "^24.5.0"
-    jest-regex-util "^24.3.0"
-    jest-util "^24.5.0"
-    micromatch "^3.1.10"
-    realpath-native "^1.1.0"
-    slash "^2.0.0"
-    source-map "^0.6.1"
-    write-file-atomic "2.4.1"
+    deepmerge "^2.1.1"
 
-"@jest/types@^24.5.0":
-  version "24.5.0"
-  resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.5.0.tgz#feee214a4d0167b0ca447284e95a57aa10b3ee95"
-  integrity sha512-kN7RFzNMf2R8UDadPOl6ReyI+MT8xfqRuAnuVL+i4gwjv/zubdDK+EDeLHYwq1j0CSSR2W/MmgaRlMZJzXdmVA==
+"@sendgrid/mail@^6.3.1":
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@sendgrid/mail/-/mail-6.3.1.tgz#e5003af167ca4dd358f04075aad4cfc30cef6c34"
+  integrity sha512-5zIeAV9iU+0hQkrOQ/D4RB2MfpK+lNbOortIfQdCh95aMDF/TRc9WB8FGNhmQrx9YMuJTms5eiBklF0Fi/dbVg==
   dependencies:
-    "@types/istanbul-lib-coverage" "^1.1.0"
-    "@types/yargs" "^12.0.9"
+<<<<<<< HEAD
+    "@babel/types" "^7.3.0"
+=======
+"@sendgrid/client@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@sendgrid/client/-/client-6.3.0.tgz#25c34b11bec392ab43ca7e52fb35e4105fb00901"
+  integrity sha512-fTy8vRpA9Whtf8ULQr/0vkSZaQvGQ97rY5N5PrevKRtugJMsJqFMKO0pwzEWeqITSg71aMMTj57QTgw3SjZvnQ==
+  dependencies:
+    "@sendgrid/helpers" "^6.3.0"
+    "@types/request" "^2.0.3"
+    request "^2.81.0"
 
-"@types/babel__core@^7.1.0":
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.0.tgz#710f2487dda4dcfd010ca6abb2b4dc7394365c51"
-  integrity sha512-wJTeJRt7BToFx3USrCDs2BhEi4ijBInTQjOIukj6a/5tEkwpFMVZ+1ppgmE+Q/FQyc5P/VWUbx7I9NELrKruHA==
+"@sendgrid/helpers@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@sendgrid/helpers/-/helpers-6.3.0.tgz#1b1798af22aa7a4c98257fab3dd2a6a6afd8b467"
+  integrity sha512-uTFcmhCDFg/2Uhz+z/cLwyLHH0UsblG49hKwdR7nKbWsGKWv4js7W32FlPdXqy2C/plTJ20vcPLgKM1m3F/MjQ==
   dependencies:
-    "@babel/parser" "^7.1.0"
-    "@babel/types" "^7.0.0"
-    "@types/babel__generator" "*"
-    "@types/babel__template" "*"
-    "@types/babel__traverse" "*"
+    chalk "^2.0.1"
+    deepmerge "^2.1.1"
 
-"@types/babel__generator@*":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@types/babel__generator/-/babel__generator-7.0.2.tgz#d2112a6b21fad600d7674274293c85dce0cb47fc"
-  integrity sha512-NHcOfab3Zw4q5sEE2COkpfXjoE7o+PmqD9DQW4koUT3roNxwziUdXGnRndMat/LJNUtePwn1TlP4do3uoe3KZQ==
+"@sendgrid/mail@^6.3.1":
+  version "6.3.1"
+  resolved "https://registry.yarnpkg.com/@sendgrid/mail/-/mail-6.3.1.tgz#e5003af167ca4dd358f04075aad4cfc30cef6c34"
+  integrity sha512-5zIeAV9iU+0hQkrOQ/D4RB2MfpK+lNbOortIfQdCh95aMDF/TRc9WB8FGNhmQrx9YMuJTms5eiBklF0Fi/dbVg==
   dependencies:
-    "@babel/types" "^7.0.0"
-
-"@types/babel__template@*":
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/@types/babel__template/-/babel__template-7.0.2.tgz#4ff63d6b52eddac1de7b975a5223ed32ecea9307"
-  integrity sha512-/K6zCpeW7Imzgab2bLkLEbz0+1JlFSrUMdw7KoIIu+IUdu51GWaBZpd3y1VXGVXzynvGa4DaIaxNZHiON3GXUg==
-  dependencies:
-    "@babel/parser" "^7.1.0"
-    "@babel/types" "^7.0.0"
-
-"@types/babel__traverse@*", "@types/babel__traverse@^7.0.6":
-  version "7.0.6"
-  resolved "https://registry.yarnpkg.com/@types/babel__traverse/-/babel__traverse-7.0.6.tgz#328dd1a8fc4cfe3c8458be9477b219ea158fd7b2"
-  integrity sha512-XYVgHF2sQ0YblLRMLNPB3CkFMewzFmlDsH/TneZFHUXDlABQgh88uOxuez7ZcXxayLFrqLwtDH1t+FmlFwNZxw==
-  dependencies:
+<<<<<<< HEAD
     "@babel/types" "^7.3.0"
 =======
 "@sendgrid/client@^6.3.0":
@@ -343,6 +323,15 @@
     "@sendgrid/client" "^6.3.0"
     "@sendgrid/helpers" "^6.3.0"
 >>>>>>> Added Nexmo/sms Sendgrid/email and tiandencies
+=======
+    "@sendgrid/client" "^6.3.0"
+    "@sendgrid/helpers" "^6.3.0"
+>>>>>>> Added Nexmo/sms Sendgrid/email and tiandencies
+=======
+    "@sendgrid/client" "^6.3.0"
+    "@sendgrid/helpers" "^6.3.0"
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 
 "@types/bluebird@^3.5.25":
   version "3.5.26"
@@ -350,26 +339,44 @@
   integrity sha512-aj2mrBLn5ky0GmAg6IPXrQjnN0iB/ulozuJ+oZdrHRAzRbXjGmu4UXsNCjFvPbSaaPZmniocdOzsM392qLOlmQ==
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 "@types/istanbul-lib-coverage@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-1.1.0.tgz#2cc2ca41051498382b43157c8227fea60363f94a"
   integrity sha512-ohkhb9LehJy+PA40rDtGAji61NCgdtKLAlFoYp4cnuuQEswwdK3vz9SOIkkyc3wrk8dzjphQApNs56yyXLStaQ==
+=======
+"@types/caseless@*":
+  version "0.12.2"
+  resolved "https://registry.yarnpkg.com/@types/caseless/-/caseless-0.12.2.tgz#f65d3d6389e01eeb458bd54dc8f52b95a9463bc8"
+  integrity sha512-6ckxMjBBD8URvjB6J3NcnuAn5Pkl7t3TizAg+xdlzzQGSPSmBcXf8KoIH0ua/i+tio+ZRUHEXp0HEmvaR4kt0w==
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
+
+"@types/form-data@*":
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/@types/form-data/-/form-data-2.2.1.tgz#ee2b3b8eaa11c0938289953606b745b738c54b1e"
+  integrity sha512-JAMFhOaHIciYVh8fb5/83nmuO/AHwmto+Hq7a9y8FzLDcC1KCU344XDOMEmahnrTFlHjgh4L0WJFczNIX2GxnQ==
+  dependencies:
+    "@types/node" "*"
 
 "@types/node@*":
-  version "11.12.2"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.12.2.tgz#d7f302e74b10e9801d52852137f652d9ee235da8"
-  integrity sha512-c82MtnqWB/CqqK7/zit74Ob8H1dBdV7bK+BcErwtXbe0+nUGkgzq5NTDmRW/pAv2lFtmeNmW95b0zK2hxpeklg==
+  version "11.11.6"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-11.11.6.tgz#df929d1bb2eee5afdda598a41930fe50b43eaa6a"
+  integrity sha512-Exw4yUWMBXM3X+8oqzJNRqZSwUAaS4+7NdvHqQuFi/d+synz++xmX3QIf+BFqneW8N31R8Ky+sikfZUXq07ggQ==
 
-"@types/stack-utils@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
-  integrity sha512-l42BggppR6zLmpfU6fq9HEa2oGPEI8yrSPL3GITjfRInppYFahObbIQOQK3UGxEnyQpltZLaPe75046NOZQikw==
+"@types/request@^2.0.3":
+  version "2.48.1"
+  resolved "https://registry.yarnpkg.com/@types/request/-/request-2.48.1.tgz#e402d691aa6670fbbff1957b15f1270230ab42fa"
+  integrity sha512-ZgEZ1TiD+KGA9LiAAPPJL68Id2UWfeSO62ijSXZjFJArVV+2pKcsVHmrcu+1oiE3q6eDGiFiSolRc4JHoerBBg==
+  dependencies:
+    "@types/caseless" "*"
+    "@types/form-data" "*"
+    "@types/node" "*"
+    "@types/tough-cookie" "*"
 
-"@types/yargs@^12.0.2", "@types/yargs@^12.0.9":
-  version "12.0.10"
-  resolved "https://registry.yarnpkg.com/@types/yargs/-/yargs-12.0.10.tgz#17a8ec65cd8e88f51b418ceb271af18d3137df67"
-  integrity sha512-WsVzTPshvCSbHThUduGGxbmnwcpkgSctHGHTqzWyFg4lYAuV5qXlyFPOsP3OWqCINfmg/8VXP+zJaa4OxEsBQQ==
-
+<<<<<<< HEAD
 abab@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/abab/-/abab-2.0.0.tgz#aba0ab4c5eee2d4c79d3487d85450fb2376ebb0f"
@@ -402,11 +409,23 @@ abab@^2.0.0:
     "@types/node" "*"
     "@types/tough-cookie" "*"
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 "@types/tough-cookie@*":
   version "2.3.5"
   resolved "https://registry.yarnpkg.com/@types/tough-cookie/-/tough-cookie-2.3.5.tgz#9da44ed75571999b65c37b60c9b2b88db54c585d"
   integrity sha512-SCcK7mvGi3+ZNz833RRjFIxrn4gI1PPR3NtuIS+6vMkvmsGjosqTJwRt5bAEFLRz+wtJMWv8+uOnZf2hi2QXTg==
+<<<<<<< HEAD
 >>>>>>> Added Nexmo/sms Sendgrid/email and tiandencies
+=======
+<<<<<<< HEAD
+>>>>>>> Added Nexmo/sms Sendgrid/email and tiandencies
+=======
+>>>>>>> b184c5cbdba58e96fa45a162f1f13bca140e1f64
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 
 abbrev@1:
   version "1.1.1"

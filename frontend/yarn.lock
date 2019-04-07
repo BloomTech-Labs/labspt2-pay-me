@@ -850,6 +850,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 "@babel/runtime@^7.1.2":
@@ -878,11 +879,16 @@
 =======
 >>>>>>> added dependecies select and react datapicker
 =======
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.3.4", "@babel/runtime@^7.4.2":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
   integrity sha512-9lsJwJLxDh/T3Q3SZszfWOTkk3pHbkmH+3KY+zwIDmsNlxsumuhS2TH3NIpktU4kNvfzy+k3eLT7aTJSPTo0OA==
+<<<<<<< HEAD
 >>>>>>> comment reminders link
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -2451,6 +2457,7 @@ class-utils@^0.3.5:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> refactor reminders
 =======
@@ -2474,6 +2481,9 @@ classnames@^2.2.5, classnames@^2.2.6:
 =======
 classnames@^2.2.5, classnames@^2.2.6:
 >>>>>>> comment reminders link
+=======
+classnames@^2.2.5, classnames@^2.2.6:
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -8464,12 +8474,16 @@ react-error-overlay@^5.1.4:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 react-input-autosize@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
   integrity sha512-3+K4CD13iE4lQQ2WlF8PuV5htfmTRLH6MDnfndHM6LuBRszuXnuyIfE7nhSKt8AzRBZ50bu0sAhkNMeS5pxQQA==
   dependencies:
     prop-types "^15.5.8"
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
@@ -8514,11 +8528,17 @@ react-is@^16.8.1, react-is@^16.8.4:
   integrity sha512-PVadd+WaUDOAciICm/J1waJaSvgq+4rHE/K70j0PFqKhkTBsPv/82UGQJNXAngz1fOQLLxI6z1sEDmJDQhCTAA==
 =======
 
+=======
+
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 react-is@^16.7.0, react-is@^16.8.1, react-is@^16.8.2, react-is@^16.8.4:
   version "16.8.6"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.6.tgz#5bbc1e2d29141c9fbdfed456343fe2bc430a6a16"
   integrity sha512-aUk3bHfZ2bRSVFFbbeVS4i+lNPZr3/WM5jT2J5omUVV1zzcs1nAaf3l51ctA5FFvCRbhrH0bdAsRRQddFJZPtA==
+<<<<<<< HEAD
 >>>>>>> comment reminders link
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 
 react-lifecycles-compat@^3.0.4:
   version "3.0.4"
@@ -8527,6 +8547,9 @@ react-lifecycles-compat@^3.0.4:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 react-onclickoutside@^6.7.1:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.8.0.tgz#9f91b5b3ed59f4d9e43fd71620dc200773a4d569"
@@ -8545,12 +8568,16 @@ react-popper@^1.0.2:
     warning "^4.0.2"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
 
 =======
 <<<<<<< HEAD
 >>>>>>> refactor reminders
+=======
+
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 react-redux@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"
@@ -10214,6 +10241,7 @@ uglify-js@3.4.x:
   version "3.4.10"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.10.tgz#9ad9563d8eb3acdfb8d38597d2af1d815f6a755f"
   integrity sha512-Y2VsbPVs0FIshJztycsO2SfPk7/KAF/T72qzv9u5EpQ4kB2hQoHlhNQTsNyy6ul7lQtqJN/AoWeS23OzEiEFxw==
+<<<<<<< HEAD
   dependencies:
     commander "~2.19.0"
     source-map "~0.6.1"
@@ -10224,6 +10252,18 @@ uglify-js@^3.1.4:
   integrity sha512-rIQPT2UMDnk4jRX+w4WO84/pebU2jiLsjgIyrCktYgSvx28enOE3iYQMr+BD1rHiitWnDmpu0cY/LfIEpKcjcw==
   dependencies:
     commander "~2.19.0"
+=======
+  dependencies:
+    commander "~2.19.0"
+    source-map "~0.6.1"
+
+uglify-js@^3.1.4:
+  version "3.5.3"
+  resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.5.3.tgz#d490bb5347f23025f0c1bc0dee901d98e4d6b063"
+  integrity sha512-rIQPT2UMDnk4jRX+w4WO84/pebU2jiLsjgIyrCktYgSvx28enOE3iYQMr+BD1rHiitWnDmpu0cY/LfIEpKcjcw==
+  dependencies:
+    commander "~2.19.0"
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
     source-map "~0.6.1"
 
 unicode-canonical-property-names-ecmascript@^1.0.4:

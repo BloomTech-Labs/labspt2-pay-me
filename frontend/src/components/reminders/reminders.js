@@ -109,6 +109,7 @@ class Reminders extends Component {
       isCheckedSms: props.isCheckedSms || false,
     }
 }
+<<<<<<< HEAD
 
 handleCommentChange =(ev) =>{
 
@@ -143,6 +144,41 @@ handleChangeDateSms=(date) =>{
   });
 }
 
+=======
+
+handleCommentChange =(ev) =>{
+
+  this.setState({commentText: ev.target.value});
+}
+handleInputChange = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+  ev.preventDefault();
+};
+
+handleChangeDateSms=(date) =>{
+  this.setState({
+    Sms_StartDate: date,
+  });
+}
+
+handleChangeDateEmail=(date) =>{
+  this.setState({
+    Email_StartDate:date
+  });
+}
+handleInputChange2 = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+ 
+  ev.preventDefault();
+};
+
+handleChangeDateSms=(date) =>{
+  this.setState({
+    Sms_StartDate: date,
+  });
+}
+
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 handleChangeDateEmail=(date) =>{
   this.setState({
     Email_StartDate:date
@@ -166,7 +202,10 @@ submit = (event) => {
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -209,6 +248,7 @@ handleAddComment=(event) => {
   
   searchUpdated = (term) => {
     this.setState({searchTerm: term})
+<<<<<<< HEAD
   }
 invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
 
@@ -326,6 +366,8 @@ handleAddComment=(event) => {
   
   searchUpdated = (term) => {
     this.setState({searchTerm: term})
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
   }
 invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
 
@@ -335,7 +377,10 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
 }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 handleStartReminders = (e) => {
     e.preventDefault();
     const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
@@ -390,6 +435,10 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
