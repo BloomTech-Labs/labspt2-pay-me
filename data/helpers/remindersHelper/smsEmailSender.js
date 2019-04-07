@@ -4,6 +4,7 @@
 require('dotenv').config();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -13,6 +14,8 @@ const sgMail = require('@sendgrid/mail');
 
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
+=======
+>>>>>>> some changes on sms sender
 
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -37,7 +40,16 @@ const sgMail = require('@sendgrid/mail');
 
 
 >>>>>>> cleaning
+<<<<<<< HEAD
 >>>>>>> cleaning
+=======
+=======
+
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+>>>>>>> some changes on sms sender
+>>>>>>> some changes on sms sender
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -71,6 +83,7 @@ const emailHandler = (to,from,subject,html) =>{
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
@@ -89,12 +102,22 @@ const sgMail = require('@sendgrid/mail');
 
 >>>>>>> some changes on sms sender
 =======
+=======
+>>>>>>> some changes on sms sender
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
 =======
 >>>>>>> cleaning
+<<<<<<< HEAD
 >>>>>>> cleaning
+=======
+=======
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+>>>>>>> some changes on sms sender
+>>>>>>> some changes on sms sender
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
