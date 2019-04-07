@@ -22,7 +22,7 @@ class App extends Component {
         <Route exact path="/payinvoice/:id" component={ClientStripe} />
 
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
-        {/* <Route exact path="/reminders" component={Reminders} />*/}
+        {<Route exact path="/reminders" component={Reminders} />}
       </div>
     );
   }
