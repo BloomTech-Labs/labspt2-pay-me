@@ -1,18 +1,18 @@
 require('dotenv').config();
-<<<<<<< HEAD
 
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
-=======
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
 
->>>>>>> cleaning
+
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -44,12 +44,13 @@ console.log(smsFromNumber, smstoNumber, smsText);
 // **SENDGRID EMAIL API Quickstart for Node.JS**
 const emailHandler = (to,from,subject,html) =>{
 
-<<<<<<< HEAD
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
-=======
->>>>>>> cleaning
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
