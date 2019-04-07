@@ -53,6 +53,7 @@ require('dotenv').config();
 =======
 require('dotenv').config();
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Basic config Reminders Timer
 >>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
@@ -124,11 +125,25 @@ const Nexmo = require('nexmo');
 =======
 >>>>>>> some changes on sms sender
 =======
+=======
+>>>>>>> cleaning
 
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
+=======
+=======
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+
+>>>>>>> cleaning
+>>>>>>> cleaning
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -171,6 +186,7 @@ const emailHandler = (to,from,subject,html) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> some changes on sms sender
 
@@ -195,6 +211,8 @@ const sgMail = require('@sendgrid/mail');
 >>>>>>> some changes on sms sender
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
+=======
+>>>>>>> cleaning
 
 =======
 >>>>>>> cleaning
@@ -254,9 +272,19 @@ const sgMail = require('@sendgrid/mail');
 
 >>>>>>> some changes on sms sender
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
 =======
 >>>>>>> some changes on sms sender
+=======
+=======
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
+>>>>>>> cleaning
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
@@ -282,6 +310,7 @@ module.exports ={
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
@@ -293,6 +322,11 @@ module.exports ={
 =======
 >>>>>>> cleaning
 =======
+>>>>>>> cleaning
+=======
+
+=======
+<<<<<<< HEAD
 >>>>>>> cleaning
 /* POSTMAN JSON POST 
 {"sms" :{
@@ -310,6 +344,7 @@ module.exports ={
      }   
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }*/
 =======
 >>>>>>> cleaning
@@ -328,5 +363,10 @@ module.exports ={
 >>>>>>> cleaning
 =======
 =======
+>>>>>>> cleaning
+=======
+}*/
+=======
+>>>>>>> cleaning
 >>>>>>> cleaning
 >>>>>>> cleaning
