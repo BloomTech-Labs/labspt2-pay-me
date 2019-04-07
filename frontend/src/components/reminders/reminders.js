@@ -136,8 +136,35 @@ handleInputChange2 = ev => {
   ev.preventDefault();
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+handleChangeDateSms=(date) =>{
+  this.setState({
+    Sms_StartDate: date,
+  });
+}
+
+handleChangeDateEmail=(date) =>{
+  this.setState({
+    Email_StartDate:date
+  });
+}
+handleInputChange2 = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+ 
+  ev.preventDefault();
+};
+
+changeValue = (event) => {
+    //console.log(`${event.target.name}:${event.target.value}`)
+    this.setState({
+        [event.target.name]: event.target.value,
+    })
+}
+
+submit = (event) => {
+    event.preventDefault();
+    /* We'll need to send this off to the AddInvoice endpoint on the server. */
+}
+
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -231,33 +258,6 @@ handleStartReminders = (e) => {
 
  
 //COMMENT
-=======
-=======
->>>>>>> NavLeft minor change
-class Reminders extends Component {
-  constructor() {
-    super();
-    this.state = {
-        CustomInfo :[
-          {
-            Name: '',
-            InvoiceId:'',
-            Email:'',
-            EmailSubject:'',
-            EmailTextContent:'',
-            EmailSendingFrequency:'',
-            ReminderEmailStartDate:'',
-            ReminderCancel:'',
-            PhoneNumber:'',
-            SmsSendingFrequency:'',
-            ReminderSmsStartDate:'',
-            SmsTextContent:'',
-            InvoiceFileLink:'',
-          }
-        ] 
-     
-    }
-}
 
 changeValue = (event) => {
     //console.log(`${event.target.name}:${event.target.value}`)
@@ -270,10 +270,7 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
+
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
