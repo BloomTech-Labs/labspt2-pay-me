@@ -2,6 +2,7 @@
 
 =======
 require('dotenv').config();
+<<<<<<< HEAD
 >>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -26,6 +27,12 @@ const Nexmo = require('nexmo');
 >>>>>>> some changes on sms sender
 =======
 >>>>>>> cleaning
+=======
+
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+
 =======
 
 // yarn add nexmo  and then:
@@ -64,9 +71,7 @@ console.log(smsFromNumber, smstoNumber, smsText);
 const emailHandler = (to,from,subject,html) =>{
 
 <<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
@@ -79,6 +84,11 @@ const sgMail = require('@sendgrid/mail');
 >>>>>>> some changes on sms sender
 =======
 >>>>>>> cleaning
+=======
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+
 =======
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
