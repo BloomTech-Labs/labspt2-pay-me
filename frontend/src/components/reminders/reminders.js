@@ -109,7 +109,6 @@ class Reminders extends Component {
       isCheckedSms: props.isCheckedSms || false,
     }
 }
-<<<<<<< HEAD
 
 handleCommentChange =(ev) =>{
 
@@ -137,17 +136,7 @@ handleInputChange2 = ev => {
   ev.preventDefault();
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
+
 handleChangeDateSms=(date) =>{
   this.setState({
     Sms_StartDate: date,
@@ -177,7 +166,7 @@ submit = (event) => {
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
 
->>>>>>> comment reminders link
+
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -269,46 +258,6 @@ handleStartReminders = (e) => {
     this.setState({ isCheckedSms:!this.state.isCheckedSms})
   };
 
- 
-//COMMENT
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-class Reminders extends Component {
-  constructor() {
-    super();
-    this.state = {
-        CustomInfo :[
-          {
-            Name: '',
-            InvoiceId:'',
-            Email:'',
-            EmailSubject:'',
-            EmailTextContent:'',
-            EmailSendingFrequency:'',
-            ReminderEmailStartDate:'',
-            ReminderCancel:'',
-            PhoneNumber:'',
-            SmsSendingFrequency:'',
-            ReminderSmsStartDate:'',
-            SmsTextContent:'',
-            InvoiceFileLink:'',
-          }
-        ] 
-     
-    }
-<<<<<<< HEAD
-=======
-
 handleCommentChange =(ev) =>{
 
   this.setState({commentText: ev.target.value});
@@ -346,8 +295,7 @@ handleChangeFreqEmail = (selectedOption) => {
     Email_Freq: selectedOption.value
    }
     )
- 
->>>>>>> refactor reminders
+
 }
 
 handleChangeFreqSms = (selectedOption) => {
@@ -386,15 +334,7 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
   const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
+
 
 handleStartReminders = (e) => {
     e.preventDefault();
@@ -438,11 +378,6 @@ handleStartReminders = (e) => {
 
  
 //COMMENT
->>>>>>> refactor reminders
-=======
-}
-=======
->>>>>>> comment reminders link
 
 changeValue = (event) => {
     //console.log(`${event.target.name}:${event.target.value}`)
@@ -455,15 +390,6 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
->>>>>>> NavLeft minor change
-=======
-
->>>>>>> comment reminders link
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
