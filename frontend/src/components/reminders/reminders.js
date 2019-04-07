@@ -111,6 +111,9 @@ class Reminders extends Component {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> refactor reminders
 
 handleCommentChange =(ev) =>{
 
@@ -632,19 +635,86 @@ class Reminders extends Component {
         ] 
      
     }
+=======
+
+handleCommentChange =(ev) =>{
+
+  this.setState({commentText: ev.target.value});
+}
+handleInputChange = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+  ev.preventDefault();
+};
+
+handleChangeDateSms=(date) =>{
+  this.setState({
+    Sms_StartDate: date,
+  });
 }
 
-changeValue = (event) => {
-    //console.log(`${event.target.name}:${event.target.value}`)
-    this.setState({
-        [event.target.name]: event.target.value,
-    })
+handleChangeDateEmail=(date) =>{
+  this.setState({
+    Email_StartDate:date
+  });
+}
+handleInputChange2 = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+ 
+  ev.preventDefault();
+};
+
+handleInputChange = ev => {
+  this.setState({ [ev.target.name]: ev.target.value });
+ 
+  ev.preventDefault();
+};
+
+handleChangeFreqEmail = (selectedOption) => {
+  this.setState({ 
+    Email_Freq: selectedOption.value
+   }
+    )
+ 
+>>>>>>> refactor reminders
 }
 
-submit = (event) => {
-    event.preventDefault();
-    /* We'll need to send this off to the AddInvoice endpoint on the server. */
+handleChangeFreqSms = (selectedOption) => {
+  this.setState({ 
+    Sms_Freq: selectedOption.value
+   }
+    )
 }
+
+
+handleAddComment=(event) => {
+ 
+  if (event.target.value !== "") {
+    const newComment = {
+      commentText: this.state.commentText,
+      key: Date.now()
+    };
+    this.setState((prevState) => {
+      return { 
+        comments: prevState.comments.concat(newComment) 
+      };
+    });
+    
+    this.state.commentText=''
+    event.preventDefault()
+    
+  }}
+  
+  searchUpdated = (term) => {
+    this.setState({searchTerm: term})
+  }
+invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
+
+  const filteredInvoice2 = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+
+  const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
+  this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
+}
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> NavLeft minor change
@@ -652,7 +722,55 @@ submit = (event) => {
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
+=======
+=======
+
+handleStartReminders = (e) => {
+    e.preventDefault();
+    const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
+       Email_Freq,isCheckedEmail,isCheckedSms,Sms_StartDate,Sms_Freq,Sms_CustomText,Sms_Template}= this.state;
+       const {invoicePdfLink,invoiceNumber}=this.state.invoiceUserClientInfo;
+       const Email_From = this.state.invoiceUserClientInfo.userInfo.UserEmail;
+       const Email_to= this.state.invoiceUserClientInfo.clientInfo.clientEmail;
+       const Sms_From = this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber;
+       const Sms_to= this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber;
+       const { UserName} =  this.state.invoiceUserClientInfo.userInfo
+       const {clientName} = this.state.invoiceUserClientInfo.clientInfo
+      axios
+      .post(`http://localhost:5001/test`,
+      {
+        comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
+        Email_Freq,Sms_StartDate,Email_From,Email_to,Sms_From,Sms_to,Sms_Freq,
+        Sms_CustomText,Sms_Template,isCheckedEmail,isCheckedSms,invoicePdfLink,invoiceNumber, UserName,clientName
+      })
+      .then(response => {
+       // this.setState({reminders : response.data})
+       console.log(response) 
+      })
+      .catch(err => {
+        console.log("IN CATCH", err);
+      });
+     /* this.setState({
+        reset forms input field :''
+      })*/
+   
+     // window.location.reload();*/
+  };
+  
+  handleChangeActivEmail=()=> {
+    this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
+  }
+
+  handleChangeActivSms=()=> {
+    this.setState({ isCheckedSms:!this.state.isCheckedSms})
+  };
+
+ 
+//COMMENT
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (

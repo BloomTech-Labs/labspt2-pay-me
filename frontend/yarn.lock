@@ -852,7 +852,12 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+>>>>>>> refactor reminders
+=======
+=======
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 "@babel/runtime@^7.1.2":
   version "7.4.2"
@@ -861,6 +866,7 @@
 =======
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> added dependecies select and react datapicker
 =======
 >>>>>>> refactor reminders
@@ -870,10 +876,14 @@
 >>>>>>> refactor reminders
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.2":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
   integrity sha512-9lsJwJLxDh/T3Q3SZszfWOTkk3pHbkmH+3KY+zwIDmsNlxsumuhS2TH3NIpktU4kNvfzy+k3eLT7aTJSPTo0OA==
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -895,9 +905,14 @@
 >>>>>>> refactor reminders
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
 >>>>>>> refactor reminders
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -2516,6 +2531,11 @@ class-utils@^0.3.5:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
 classnames@^2.2.6:
 <<<<<<< HEAD
 classnames@^2.2.5:
@@ -2527,12 +2547,15 @@ classnames@^2.2.5, classnames@^2.2.6:
 classnames@^2.2.5:
 >>>>>>> refactor reminders
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> refactor reminders
 =======
 =======
 classnames@^2.2.5, classnames@^2.2.6:
 >>>>>>> added dependecies select and react datapicker
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
 =======
 classnames@^2.2.5, classnames@^2.2.6:
 >>>>>>> comment reminders link
@@ -2550,6 +2573,8 @@ classnames@^2.2.5:
 classnames@^2.2.5, classnames@^2.2.6:
 >>>>>>> added dependecies select and react datapicker
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -8563,6 +8588,7 @@ react-error-overlay@^5.1.4:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 react-is@^16.7.0, react-is@^16.8.2:
   version "16.8.5"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
@@ -8574,6 +8600,8 @@ react-is@^16.7.0, react-is@^16.8.2:
 >>>>>>> refactor reminders
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
 react-input-autosize@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
@@ -8599,11 +8627,16 @@ react-is@^16.7.0, react-is@^16.8.2:
 =======
 
 =======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> refactor reminders
 >>>>>>> refactor reminders
 react-is@^16.7.0, react-is@^16.8.2:
   version "16.8.5"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
   integrity sha512-sudt2uq5P/2TznPV4Wtdi+Lnq3yaYW8LfvPKLM9BKD8jJNBkxMVyB0C9/GmVhLw7Jbdmndk/73n7XQGeN9A3QQ==
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> added dependecies select and react datapicker
 =======
@@ -8628,7 +8661,19 @@ react-is@^16.7.0, react-is@^16.8.2:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
   integrity sha512-sudt2uq5P/2TznPV4Wtdi+Lnq3yaYW8LfvPKLM9BKD8jJNBkxMVyB0C9/GmVhLw7Jbdmndk/73n7XQGeN9A3QQ==
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
 >>>>>>> added dependecies select and react datapicker
+=======
+=======
+react-input-autosize@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
+  integrity sha512-3+K4CD13iE4lQQ2WlF8PuV5htfmTRLH6MDnfndHM6LuBRszuXnuyIfE7nhSKt8AzRBZ50bu0sAhkNMeS5pxQQA==
+  dependencies:
+    prop-types "^15.5.8"
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
 
 react-is@^16.8.1, react-is@^16.8.4:
   version "16.8.4"
@@ -8651,6 +8696,7 @@ react-lifecycles-compat@^3.0.4:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 react-redux@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"
@@ -8728,6 +8774,8 @@ react-redux@^6.0.1:
 =======
 =======
 >>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
 react-onclickoutside@^6.7.1:
   version "6.8.0"
   resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.8.0.tgz#9f91b5b3ed59f4d9e43fd71620dc200773a4d569"
@@ -8748,6 +8796,9 @@ react-popper@^1.0.2:
 >>>>>>> refactor reminders
 =======
 
+=======
+<<<<<<< HEAD
+>>>>>>> refactor reminders
 react-redux@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-6.0.1.tgz#0d423e2c1cb10ada87293d47e7de7c329623ba4d"
@@ -8759,7 +8810,28 @@ react-redux@^6.0.1:
     loose-envify "^1.4.0"
     prop-types "^15.7.2"
     react-is "^16.8.2"
+<<<<<<< HEAD
 >>>>>>> added dependecies select and react datapicker
+=======
+=======
+react-onclickoutside@^6.7.1:
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/react-onclickoutside/-/react-onclickoutside-6.8.0.tgz#9f91b5b3ed59f4d9e43fd71620dc200773a4d569"
+  integrity sha512-5Q4Rn7QLEoh7WIe66KFvYIpWJ49GeHoygP1/EtJyZjXKgrWH19Tf0Ty3lWyQzrEEDyLOwUvvmBFSE3dcDdvagA==
+
+react-popper@^1.0.2:
+  version "1.3.3"
+  resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.3.3.tgz#2c6cef7515a991256b4f0536cd4bdcb58a7b6af6"
+  integrity sha512-ynMZBPkXONPc5K4P5yFWgZx5JGAUIP3pGGLNs58cfAPgK67olx7fmLp+AdpZ0+GoQ+ieFDa/z4cdV6u7sioH6w==
+  dependencies:
+    "@babel/runtime" "^7.1.2"
+    create-react-context "<=0.2.2"
+    popper.js "^1.14.4"
+    prop-types "^15.6.1"
+    typed-styles "^0.0.7"
+    warning "^4.0.2"
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
 
 react-router-dom@^4.3.1:
   version "4.3.1"
