@@ -10,10 +10,13 @@ require('dotenv').config();
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> cleaning
 =======
 >>>>>>> some changes on sms sender
+=======
+>>>>>>> cleaning
 
 <<<<<<< HEAD
 // yarn add nexmo  and then:
@@ -23,6 +26,7 @@ const Nexmo = require('nexmo');
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
 =======
 require('dotenv').config();
@@ -36,6 +40,8 @@ require('dotenv').config();
 =======
 require('dotenv').config();
 >>>>>>> Basic config Reminders Timer
+=======
+>>>>>>> cleaning
 =======
 >>>>>>> cleaning
 // yarn add nexmo  and then:
@@ -51,6 +57,7 @@ const sgMail = require('@sendgrid/mail');
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
+<<<<<<< HEAD
 =======
 >>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
 
@@ -90,6 +97,9 @@ const Nexmo = require('nexmo');
 =======
 
 >>>>>>> cleaning
+=======
+<<<<<<< HEAD
+>>>>>>> cleaning
 >>>>>>> cleaning
 =======
 
@@ -97,6 +107,8 @@ const Nexmo = require('nexmo');
 const Nexmo = require('nexmo');
 
 >>>>>>> some changes on sms sender
+=======
+>>>>>>> cleaning
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -136,6 +148,7 @@ const emailHandler = (to,from,subject,html) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
@@ -183,6 +196,8 @@ const sgMail = require('@sendgrid/mail');
 =======
 =======
 >>>>>>> some changes on sms sender
+=======
+>>>>>>> cleaning
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
@@ -196,7 +211,12 @@ const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 
 >>>>>>> some changes on sms sender
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
+=======
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
@@ -221,6 +241,7 @@ module.exports ={
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 
 =======
@@ -229,6 +250,8 @@ module.exports ={
 <<<<<<< HEAD
 =======
 >>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
+=======
+>>>>>>> cleaning
 =======
 >>>>>>> cleaning
 /* POSTMAN JSON POST 
@@ -251,6 +274,7 @@ module.exports ={
 =======
 >>>>>>> cleaning
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> cleaning
@@ -260,6 +284,9 @@ module.exports ={
 >>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
 =======
 }*/
+=======
+>>>>>>> cleaning
+=======
 =======
 >>>>>>> cleaning
 >>>>>>> cleaning
