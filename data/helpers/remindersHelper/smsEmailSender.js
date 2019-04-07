@@ -3,6 +3,7 @@
 =======
 require('dotenv').config();
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -18,11 +19,25 @@ const Nexmo = require('nexmo');
 
 
 =======
+=======
+>>>>>>> cleaning
 
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
+=======
+=======
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+
+>>>>>>> cleaning
+>>>>>>> cleaning
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -55,6 +70,7 @@ console.log(smsFromNumber, smstoNumber, smsText);
 const emailHandler = (to,from,subject,html) =>{
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
@@ -72,6 +88,13 @@ const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 
 >>>>>>> some changes on sms sender
+=======
+// yarn add @sendgrid/mail  and then:
+const sgMail = require('@sendgrid/mail');
+
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
@@ -92,4 +115,25 @@ module.exports ={
   emailHandler,
   smsHandler
 }
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+/* POSTMAN JSON POST 
+{"sms" :{
+    "smsFromNumber":"a",
+   "smstoNumber":"b",
+  "smsText":"k",
+  "smsFREQ":"120000"
+},
+"email" : {
+       "to":"TO@gmail.com",
+   "from":"FROM@gmail.com",
+  "subject":"REMINDER EMAIL TEST",
+    "html":"<div>GOT A EMAIL TEMPLATE</div>",
+    "emailFREQ":"12000"
+     }   
+}*/
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
