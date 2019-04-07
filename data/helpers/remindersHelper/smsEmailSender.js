@@ -52,6 +52,7 @@ require('dotenv').config();
 
 =======
 require('dotenv').config();
+<<<<<<< HEAD
 >>>>>>> Basic config Reminders Timer
 >>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
@@ -94,6 +95,7 @@ const Nexmo = require('nexmo');
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
 =======
 
@@ -119,6 +121,8 @@ const Nexmo = require('nexmo');
 >>>>>>> some changes on sms sender
 =======
 >>>>>>> cleaning
+=======
+>>>>>>> some changes on sms sender
 =======
 
 // yarn add nexmo  and then:
@@ -166,6 +170,9 @@ const emailHandler = (to,from,subject,html) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> some changes on sms sender
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
@@ -221,6 +228,7 @@ const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 
 =======
+<<<<<<< HEAD
 >>>>>>> cleaning
 <<<<<<< HEAD
 >>>>>>> cleaning
@@ -239,10 +247,15 @@ const sgMail = require('@sendgrid/mail');
 >>>>>>> cleaning
 =======
 =======
+=======
+>>>>>>> some changes on sms sender
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
 >>>>>>> some changes on sms sender
+<<<<<<< HEAD
+>>>>>>> some changes on sms sender
+=======
 >>>>>>> some changes on sms sender
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
