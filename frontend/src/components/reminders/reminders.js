@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import './reminders_components/reminder.css';
+import './reminder.css';
 
 
 import {Route} from "react-router-dom";
