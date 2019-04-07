@@ -5,6 +5,7 @@ require('dotenv').config();
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -17,6 +18,8 @@ const Nexmo = require('nexmo');
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
+=======
+>>>>>>> cleaning
 
 
 <<<<<<< HEAD
@@ -40,6 +43,7 @@ const Nexmo = require('nexmo');
 =======
 =======
 >>>>>>> cleaning
+<<<<<<< HEAD
 
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
@@ -48,6 +52,8 @@ const Nexmo = require('nexmo');
 >>>>>>> some changes on sms sender
 =======
 =======
+=======
+>>>>>>> cleaning
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
@@ -55,6 +61,7 @@ const Nexmo = require('nexmo');
 const sgMail = require('@sendgrid/mail');
 
 
+<<<<<<< HEAD
 >>>>>>> cleaning
 <<<<<<< HEAD
 >>>>>>> cleaning
@@ -65,7 +72,12 @@ const sgMail = require('@sendgrid/mail');
 const Nexmo = require('nexmo');
 
 >>>>>>> some changes on sms sender
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
+=======
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -100,13 +112,14 @@ const emailHandler = (to,from,subject,html) =>{
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
+
 =======
 >>>>>>> cleaning
-=======
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
@@ -139,7 +152,12 @@ const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 
 >>>>>>> some changes on sms sender
+<<<<<<< HEAD
 >>>>>>> some changes on sms sender
+=======
+=======
+>>>>>>> cleaning
+>>>>>>> cleaning
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
@@ -161,8 +179,11 @@ module.exports ={
   smsHandler
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> cleaning
 <<<<<<< HEAD
 /* POSTMAN JSON POST 
 {"sms" :{
@@ -179,6 +200,10 @@ module.exports ={
     "emailFREQ":"12000"
      }   
 }*/
+=======
+>>>>>>> cleaning
+<<<<<<< HEAD
+=======
 =======
 >>>>>>> cleaning
 >>>>>>> cleaning
