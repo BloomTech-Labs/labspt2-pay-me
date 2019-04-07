@@ -57,3 +57,21 @@ module.exports ={
   emailHandler,
   smsHandler
 }
+<<<<<<< HEAD
+=======
+/* POSTMAN JSON POST 
+{"sms" :{
+    "smsFromNumber":"a",
+   "smstoNumber":"b",
+  "smsText":"k",
+  "smsFREQ":"120000"
+},
+"email" : {
+       "to":"TO@gmail.com",
+   "from":"FROM@gmail.com",
+  "subject":"REMINDER EMAIL TEST",
+    "html":"<div>GOT A EMAIL TEMPLATE</div>",
+    "emailFREQ":"12000"
+     }   
+}*/
+>>>>>>> 7fbf9e4d0342fa253d46b7ce2dd022d659506d20
