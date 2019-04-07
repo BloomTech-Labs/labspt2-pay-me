@@ -1,149 +1,12 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-require('dotenv').config();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> cleaning
-=======
->>>>>>> some changes on sms sender
-=======
->>>>>>> cleaning
-=======
->>>>>>> some changes on sms sender
 
-<<<<<<< HEAD
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
+require('dotenv').config();
 
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-=======
-require('dotenv').config();
->>>>>>> Basic config Reminders Timer
-=======
->>>>>>> cleaning
-=======
->>>>>>> cleaning
-=======
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-=======
-require('dotenv').config();
->>>>>>> Basic config Reminders Timer
-=======
->>>>>>> cleaning
-=======
->>>>>>> cleaning
-=======
-
-=======
-require('dotenv').config();
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Basic config Reminders Timer
->>>>>>> Basic config Reminders Timer
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
-<<<<<<< HEAD
-=======
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-
-=======
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
->>>>>>> some changes on sms sender
-=======
-
-<<<<<<< HEAD
->>>>>>> cleaning
->>>>>>> cleaning
-=======
-
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
->>>>>>> some changes on sms sender
-=======
->>>>>>> cleaning
-=======
-
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
-<<<<<<< HEAD
->>>>>>> some changes on sms sender
-=======
-
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-=======
-
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
->>>>>>> some changes on sms sender
-=======
-
->>>>>>> cleaning
-=======
-<<<<<<< HEAD
->>>>>>> cleaning
->>>>>>> cleaning
-=======
-
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
->>>>>>> some changes on sms sender
-=======
->>>>>>> cleaning
-=======
->>>>>>> some changes on sms sender
-=======
-=======
->>>>>>> cleaning
-
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
-<<<<<<< HEAD
->>>>>>> some changes on sms sender
-=======
-=======
-// yarn add nexmo  and then:
-const Nexmo = require('nexmo');
-
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
-
->>>>>>> cleaning
->>>>>>> cleaning
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
 
@@ -175,20 +38,6 @@ console.log(smsFromNumber, smstoNumber, smsText);
 // **SENDGRID EMAIL API Quickstart for Node.JS**
 const emailHandler = (to,from,subject,html) =>{
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> some changes on sms sender
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
@@ -197,94 +46,9 @@ const sgMail = require('@sendgrid/mail');
 const sgMail = require('@sendgrid/mail');
 
 
-=======
-<<<<<<< HEAD
->>>>>>> cleaning
-=======
-<<<<<<< HEAD
->>>>>>> some changes on sms sender
-=======
-<<<<<<< HEAD
->>>>>>> cleaning
-=======
-<<<<<<< HEAD
->>>>>>> some changes on sms sender
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-=======
->>>>>>> cleaning
-
-=======
->>>>>>> cleaning
-=======
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
->>>>>>> some changes on sms sender
-=======
->>>>>>> cleaning
-=======
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
->>>>>>> some changes on sms sender
-=======
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-=======
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
->>>>>>> some changes on sms sender
-=======
-=======
->>>>>>> some changes on sms sender
-=======
->>>>>>> cleaning
-=======
->>>>>>> some changes on sms sender
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
-=======
-<<<<<<< HEAD
->>>>>>> cleaning
-<<<<<<< HEAD
->>>>>>> cleaning
-=======
-=======
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
->>>>>>> some changes on sms sender
-<<<<<<< HEAD
->>>>>>> some changes on sms sender
-=======
-=======
->>>>>>> cleaning
-<<<<<<< HEAD
->>>>>>> cleaning
-=======
-=======
-=======
->>>>>>> some changes on sms sender
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
->>>>>>> some changes on sms sender
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> some changes on sms sender
-=======
->>>>>>> some changes on sms sender
-=======
-=======
-// yarn add @sendgrid/mail  and then:
-const sgMail = require('@sendgrid/mail');
-
-=======
->>>>>>> cleaning
->>>>>>> cleaning
->>>>>>> cleaning
 /*To use this sample you will first need a SENDGRID account. Once you have your own API credentials, 
 create an .env file and set the value as required.*/
 
@@ -305,68 +69,5 @@ module.exports ={
   emailHandler,
   smsHandler
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 
-=======
-=======
->>>>>>> cleaning
-<<<<<<< HEAD
-=======
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-=======
->>>>>>> cleaning
-=======
->>>>>>> cleaning
-=======
-
-=======
-<<<<<<< HEAD
->>>>>>> cleaning
-/* POSTMAN JSON POST 
-{"sms" :{
-    "smsFromNumber":"a",
-   "smstoNumber":"b",
-  "smsText":"k",
-  "smsFREQ":"120000"
-},
-"email" : {
-       "to":"TO@gmail.com",
-   "from":"FROM@gmail.com",
-  "subject":"REMINDER EMAIL TEST",
-    "html":"<div>GOT A EMAIL TEMPLATE</div>",
-    "emailFREQ":"12000"
-     }   
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-}*/
-=======
->>>>>>> cleaning
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> cleaning
->>>>>>> cleaning
-=======
-}*/
->>>>>>> Basic config for sending email via SendGrid Api , sms via nexmo and a simple email template
-=======
-}*/
-=======
->>>>>>> cleaning
-=======
-=======
->>>>>>> cleaning
-=======
-}*/
-=======
->>>>>>> cleaning
->>>>>>> cleaning
->>>>>>> cleaning
