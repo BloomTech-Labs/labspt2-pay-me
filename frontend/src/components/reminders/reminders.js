@@ -109,42 +109,6 @@ class Reminders extends Component {
       isCheckedSms: props.isCheckedSms || false,
     }
 }
-<<<<<<< HEAD
-
-handleCommentChange =(ev) =>{
-
-  this.setState({commentText: ev.target.value});
-}
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
-  ev.preventDefault();
-};
-
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-=======
 
 handleCommentChange =(ev) =>{
 
@@ -178,7 +142,6 @@ handleChangeDateSms=(date) =>{
   });
 }
 
->>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 handleChangeDateEmail=(date) =>{
   this.setState({
     Email_StartDate:date
@@ -202,10 +165,6 @@ submit = (event) => {
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -248,7 +207,6 @@ handleAddComment=(event) => {
   
   searchUpdated = (term) => {
     this.setState({searchTerm: term})
-<<<<<<< HEAD
   }
 invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
 
@@ -258,129 +216,6 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
 }
 
-handleStartReminders = (e) => {
-    e.preventDefault();
-    const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-       Email_Freq,isCheckedEmail,isCheckedSms,Sms_StartDate,Sms_Freq,Sms_CustomText,Sms_Template}= this.state;
-       const {invoicePdfLink,invoiceNumber}=this.state.invoiceUserClientInfo;
-       const Email_From = this.state.invoiceUserClientInfo.userInfo.UserEmail;
-       const Email_to= this.state.invoiceUserClientInfo.clientInfo.clientEmail;
-       const Sms_From = this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber;
-       const Sms_to= this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber;
-       const { UserName} =  this.state.invoiceUserClientInfo.userInfo
-       const {clientName} = this.state.invoiceUserClientInfo.clientInfo
-      axios
-      .post(`http://localhost:5001/test`,
-      {
-        comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-        Email_Freq,Sms_StartDate,Email_From,Email_to,Sms_From,Sms_to,Sms_Freq,
-        Sms_CustomText,Sms_Template,isCheckedEmail,isCheckedSms,invoicePdfLink,invoiceNumber, UserName,clientName
-      })
-      .then(response => {
-       // this.setState({reminders : response.data})
-       console.log(response) 
-      })
-      .catch(err => {
-        console.log("IN CATCH", err);
-      });
-     /* this.setState({
-        reset forms input field :''
-      })*/
-   
-     // window.location.reload();*/
-  };
-  
-  handleChangeActivEmail=()=> {
-    this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
-  }
-
-  handleChangeActivSms=()=> {
-    this.setState({ isCheckedSms:!this.state.isCheckedSms})
-  };
-
-handleCommentChange =(ev) =>{
-
-  this.setState({commentText: ev.target.value});
-}
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
-  ev.preventDefault();
-};
-
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-handleChangeFreqEmail = (selectedOption) => {
-  this.setState({ 
-    Email_Freq: selectedOption.value
-   }
-    )
-
-}
-
-handleChangeFreqSms = (selectedOption) => {
-  this.setState({ 
-    Sms_Freq: selectedOption.value
-   }
-    )
-}
-
-
-handleAddComment=(event) => {
- 
-  if (event.target.value !== "") {
-    const newComment = {
-      commentText: this.state.commentText,
-      key: Date.now()
-    };
-    this.setState((prevState) => {
-      return { 
-        comments: prevState.comments.concat(newComment) 
-      };
-    });
-    
-    this.state.commentText=''
-    event.preventDefault()
-    
-  }}
-  
-  searchUpdated = (term) => {
-    this.setState({searchTerm: term})
-=======
->>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
-  }
-invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
-
-  const filteredInvoice2 = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-
-  const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
-  this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
-}
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
 handleStartReminders = (e) => {
     e.preventDefault();
     const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
@@ -435,10 +270,6 @@ submit = (event) => {
     event.preventDefault();
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> 86f8dbfffdfa3ba5e662169434802abb7dbc9dd4
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
