@@ -1,21 +1,20 @@
 require('dotenv').config();
-const express = require('express');
 const server = express();
-const TaskManager =require('./smsEmailSender');
+const TaskManager =require('./emailReminderSample');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
 
 const smsData = TaskManager.smsHandler;
 const emailData = TaskManager.emailHandler;
 
-const reminders = (req,res)=>{
+const remindersTimer= (req,res)=>{
+  
   const {isCheckedEmail,isCheckedSms,comments,Sms_CustomText,Sms_Freq,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
     Sms_StartDate,Email_Freq, Sms_From,Sms_to,invoicePdfLink,invoiceNumber,UserName,clientName,Email_From,Email_to}=req.body
 
 // for email template
 const HtmlSample =emailTemplateSample(invoiceNumber,clientName,invoicePdfLink,UserName)   
 
-//Should start reminders on given date and time
 const setToHappenOn = (fn, dateR)=>{
   const now = new Date();
   const nowInNumber = now.getTime();
@@ -25,7 +24,7 @@ const setToHappenOn = (fn, dateR)=>{
   return setTimeout(fn, diff);
  }
  
- if(isCheckedEmail){ //user can switch on/off Email reminder
+ if(isCheckedEmail){
  const timerEmail= new TimerJob({
   interval:Email_Freq, //emailFREQ, //The interval in milliseconds which the job should be performed
   /*ref : 1day=86400000ms /1week =604800000ms /30days or a month = 2592000000ms */
@@ -43,7 +42,7 @@ done()
   setToHappenOn(()=>{timerEmail.start()},Email_StartDate) ;
  }
 
- if(isCheckedSms){//user can switch on/off Sms reminder
+ if(isCheckedSms){
   const timerSms    = new TimerJob({
     interval:Sms_Freq, //emailFREQ, //The interval in milliseconds which the job should be performed
     /*ref : 1day=86400000ms /1week =604800000ms /30days or a month = 2592000000ms */
@@ -62,6 +61,7 @@ done()
     
     setToHappenOn(()=>{timerSms.start()},Sms_StartDate)
   }
+<<<<<<< HEAD
 })
 
 
@@ -69,6 +69,11 @@ done()
 server.listen(5001, () => {
     console.log(`\n** Server is listening on port: ${PORT} **\n`);
 })
+=======
+}
+
+
+>>>>>>> refactor reminders front end
 
      
      
