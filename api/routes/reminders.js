@@ -1,11 +1,25 @@
 const express = require('express');
-const router = express.Router();
+const ReminderRouter = express.Router();
+const TaskManager = require('../../data/helpers/remindersHelper/TaskManager')
 
-router.get('/', async (req, res) => {
-    res.status(200).json({reminders: 'Up'});
-});
+// ** ROUTERS FOR OUR REMINDERS  ** //
 
-module.exports = router;
+// ## GET ALL REMINDERS
+ReminderRouter.get('/',TaskManager.getAllReminders);
+
+// ## SEND A REMINDER
+ReminderRouter.post('/user',TaskManager.SendReminders);
+
+// ## CREATE/SAVE A  REMINDER
+ReminderRouter.post('/save',TaskManager.SaveReminder);
+
+
+// ## DESTROY/STOP A  REMINDER
+ReminderRouter.delete('/delete/:_id',TaskManager.StopReminder);
+
+module.exports = ReminderRouter;
+
+
 
 
 
