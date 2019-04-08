@@ -23,3 +23,7 @@ module.exports = ReminderRouter;
 
 
 
+module.exports = router;
+
+
+

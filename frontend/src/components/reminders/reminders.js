@@ -112,8 +112,14 @@ class Reminders extends Component {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> refactor reminders
+=======
+>>>>>>> reminders refactor
+=======
+>>>>>>> refactor reminders front end
 
 handleCommentChange =(ev) =>{
 
@@ -141,6 +147,8 @@ handleInputChange2 = ev => {
   ev.preventDefault();
 };
 
+<<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -333,6 +341,8 @@ handleInputChange = ev => {
   ev.preventDefault();
 };
 
+=======
+>>>>>>> refactor reminders front end
 handleChangeDateSms=(date) =>{
   this.setState({
     Sms_StartDate: date,
@@ -371,6 +381,7 @@ handleInputChange2 = ev => {
   ev.preventDefault();
 };
 
+<<<<<<< HEAD
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -417,6 +428,8 @@ handleInputChange2 = ev => {
   ev.preventDefault();
 };
 
+=======
+>>>>>>> refactor reminders front end
 changeValue = (event) => {
     //console.log(`${event.target.name}:${event.target.value}`)
     this.setState({
@@ -429,7 +442,10 @@ submit = (event) => {
     /* We'll need to send this off to the AddInvoice endpoint on the server. */
 }
 
+<<<<<<< HEAD
 >>>>>>> comment reminders link
+=======
+>>>>>>> refactor reminders front end
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -473,6 +489,7 @@ handleAddComment=(event) => {
   
   searchUpdated = (term) => {
     this.setState({searchTerm: term})
+<<<<<<< HEAD
   }
 invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
 
@@ -757,6 +774,8 @@ handleAddComment=(event) => {
   
   searchUpdated = (term) => {
     this.setState({searchTerm: term})
+=======
+>>>>>>> refactor reminders front end
   }
 invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
 
@@ -768,6 +787,7 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
@@ -777,6 +797,8 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
 >>>>>>> NavLeft minor change
 =======
 =======
+=======
+>>>>>>> refactor reminders front end
 
 handleStartReminders = (e) => {
     e.preventDefault();
@@ -842,6 +864,8 @@ submit = (event) => {
 }
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> NavLeft minor change
 =======
 >>>>>>> NavLeft minor change
@@ -853,6 +877,10 @@ submit = (event) => {
 
 >>>>>>> comment reminders link
 >>>>>>> comment reminders link
+=======
+>>>>>>> reminders refactor
+=======
+>>>>>>> refactor reminders front end
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
