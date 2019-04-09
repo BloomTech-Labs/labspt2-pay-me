@@ -109,17 +109,6 @@ class Reminders extends Component {
       isCheckedSms: props.isCheckedSms || false,
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> refactor reminders
-=======
->>>>>>> reminders refactor
-=======
->>>>>>> refactor reminders front end
 
 handleCommentChange =(ev) =>{
 
@@ -147,59 +136,6 @@ handleInputChange2 = ev => {
   ev.preventDefault();
 };
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-changeValue = (event) => {
-    //console.log(`${event.target.name}:${event.target.value}`)
-    this.setState({
-        [event.target.name]: event.target.value,
-    })
-}
-
-submit = (event) => {
-    event.preventDefault();
-    /* We'll need to send this off to the AddInvoice endpoint on the server. */
-}
-
->>>>>>> comment reminders link
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
 handleInputChange = ev => {
   this.setState({ [ev.target.name]: ev.target.value });
  
@@ -293,594 +229,6 @@ handleStartReminders = (e) => {
 
  
 //COMMENT
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-class Reminders extends Component {
-  constructor() {
-    super();
-    this.state = {
-        CustomInfo :[
-          {
-            Name: '',
-            InvoiceId:'',
-            Email:'',
-            EmailSubject:'',
-            EmailTextContent:'',
-            EmailSendingFrequency:'',
-            ReminderEmailStartDate:'',
-            ReminderCancel:'',
-            PhoneNumber:'',
-            SmsSendingFrequency:'',
-            ReminderSmsStartDate:'',
-            SmsTextContent:'',
-            InvoiceFileLink:'',
-          }
-        ] 
-     
-    }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-handleCommentChange =(ev) =>{
-
-  this.setState({commentText: ev.target.value});
-}
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
-  ev.preventDefault();
-};
-
-=======
->>>>>>> refactor reminders front end
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-=======
-
-handleCommentChange =(ev) =>{
-
-  this.setState({commentText: ev.target.value});
-}
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
-  ev.preventDefault();
-};
-
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-<<<<<<< HEAD
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-handleChangeFreqEmail = (selectedOption) => {
-  this.setState({ 
-    Email_Freq: selectedOption.value
-   }
-    )
- 
->>>>>>> refactor reminders
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> comment reminders link
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-=======
->>>>>>> refactor reminders front end
-changeValue = (event) => {
-    //console.log(`${event.target.name}:${event.target.value}`)
-    this.setState({
-        [event.target.name]: event.target.value,
-    })
-}
-
-submit = (event) => {
-    event.preventDefault();
-    /* We'll need to send this off to the AddInvoice endpoint on the server. */
-}
-
-<<<<<<< HEAD
->>>>>>> comment reminders link
-=======
->>>>>>> refactor reminders front end
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-handleChangeFreqEmail = (selectedOption) => {
-  this.setState({ 
-    Email_Freq: selectedOption.value
-   }
-    )
- 
->>>>>>> refactor reminders
-}
-
-handleChangeFreqSms = (selectedOption) => {
-  this.setState({ 
-    Sms_Freq: selectedOption.value
-   }
-    )
-}
-
-
-handleAddComment=(event) => {
- 
-  if (event.target.value !== "") {
-    const newComment = {
-      commentText: this.state.commentText,
-      key: Date.now()
-    };
-    this.setState((prevState) => {
-      return { 
-        comments: prevState.comments.concat(newComment) 
-      };
-    });
-    
-    this.state.commentText=''
-    event.preventDefault()
-    
-  }}
-  
-  searchUpdated = (term) => {
-    this.setState({searchTerm: term})
-<<<<<<< HEAD
-  }
-invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
-
-  const filteredInvoice2 = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-
-  const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
-  this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
-
-handleStartReminders = (e) => {
-    e.preventDefault();
-    const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-       Email_Freq,isCheckedEmail,isCheckedSms,Sms_StartDate,Sms_Freq,Sms_CustomText,Sms_Template}= this.state;
-       const {invoicePdfLink,invoiceNumber}=this.state.invoiceUserClientInfo;
-       const Email_From = this.state.invoiceUserClientInfo.userInfo.UserEmail;
-       const Email_to= this.state.invoiceUserClientInfo.clientInfo.clientEmail;
-       const Sms_From = this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber;
-       const Sms_to= this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber;
-       const { UserName} =  this.state.invoiceUserClientInfo.userInfo
-       const {clientName} = this.state.invoiceUserClientInfo.clientInfo
-      axios
-      .post(`http://localhost:5001/test`,
-      {
-        comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-        Email_Freq,Sms_StartDate,Email_From,Email_to,Sms_From,Sms_to,Sms_Freq,
-        Sms_CustomText,Sms_Template,isCheckedEmail,isCheckedSms,invoicePdfLink,invoiceNumber, UserName,clientName
-      })
-      .then(response => {
-       // this.setState({reminders : response.data})
-       console.log(response) 
-      })
-      .catch(err => {
-        console.log("IN CATCH", err);
-      });
-     /* this.setState({
-        reset forms input field :''
-      })*/
-   
-     // window.location.reload();*/
-  };
-  
-  handleChangeActivEmail=()=> {
-    this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
-  }
-
-  handleChangeActivSms=()=> {
-    this.setState({ isCheckedSms:!this.state.isCheckedSms})
-  };
-
-<<<<<<< HEAD
- 
-//COMMENT
-<<<<<<< HEAD
->>>>>>> refactor reminders
-=======
-}
-=======
->>>>>>> comment reminders link
-
-=======
-}
-
->>>>>>> NavLeft minor change
-changeValue = (event) => {
-    //console.log(`${event.target.name}:${event.target.value}`)
-    this.setState({
-        [event.target.name]: event.target.value,
-    })
-=======
-handleChangeFreqSms = (selectedOption) => {
-  this.setState({ 
-    Sms_Freq: selectedOption.value
-   }
-    )
->>>>>>> refactor reminders
-}
-
-
-handleAddComment=(event) => {
- 
-  if (event.target.value !== "") {
-    const newComment = {
-      commentText: this.state.commentText,
-      key: Date.now()
-    };
-    this.setState((prevState) => {
-      return { 
-        comments: prevState.comments.concat(newComment) 
-      };
-    });
-    
-    this.state.commentText=''
-    event.preventDefault()
-    
-  }}
-  
-  searchUpdated = (term) => {
-    this.setState({searchTerm: term})
-  }
-invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
-
-  const filteredInvoice2 = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-
-  const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
-  this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
->>>>>>> NavLeft minor change
-=======
-
->>>>>>> comment reminders link
-=======
->>>>>>> NavLeft minor change
-=======
-
-handleStartReminders = (e) => {
-    e.preventDefault();
-    const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-       Email_Freq,isCheckedEmail,isCheckedSms,Sms_StartDate,Sms_Freq,Sms_CustomText,Sms_Template}= this.state;
-       const {invoicePdfLink,invoiceNumber}=this.state.invoiceUserClientInfo;
-       const Email_From = this.state.invoiceUserClientInfo.userInfo.UserEmail;
-       const Email_to= this.state.invoiceUserClientInfo.clientInfo.clientEmail;
-       const Sms_From = this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber;
-       const Sms_to= this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber;
-       const { UserName} =  this.state.invoiceUserClientInfo.userInfo
-       const {clientName} = this.state.invoiceUserClientInfo.clientInfo
-      axios
-      .post(`http://localhost:5001/test`,
-      {
-        comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-        Email_Freq,Sms_StartDate,Email_From,Email_to,Sms_From,Sms_to,Sms_Freq,
-        Sms_CustomText,Sms_Template,isCheckedEmail,isCheckedSms,invoicePdfLink,invoiceNumber, UserName,clientName
-      })
-      .then(response => {
-       // this.setState({reminders : response.data})
-       console.log(response) 
-      })
-      .catch(err => {
-        console.log("IN CATCH", err);
-      });
-     /* this.setState({
-        reset forms input field :''
-      })*/
-   
-     // window.location.reload();*/
-  };
-  
-  handleChangeActivEmail=()=> {
-    this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
-  }
-
-  handleChangeActivSms=()=> {
-    this.setState({ isCheckedSms:!this.state.isCheckedSms})
-  };
-
- 
-//COMMENT
-<<<<<<< HEAD
->>>>>>> refactor reminders
-=======
-=======
-<<<<<<< HEAD
->>>>>>> comment reminders link
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-class Reminders extends Component {
-  constructor() {
-    super();
-    this.state = {
-        CustomInfo :[
-          {
-            Name: '',
-            InvoiceId:'',
-            Email:'',
-            EmailSubject:'',
-            EmailTextContent:'',
-            EmailSendingFrequency:'',
-            ReminderEmailStartDate:'',
-            ReminderCancel:'',
-            PhoneNumber:'',
-            SmsSendingFrequency:'',
-            ReminderSmsStartDate:'',
-            SmsTextContent:'',
-            InvoiceFileLink:'',
-          }
-        ] 
-     
-    }
-<<<<<<< HEAD
-=======
-
-handleCommentChange =(ev) =>{
-
-  this.setState({commentText: ev.target.value});
-}
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
-  ev.preventDefault();
-};
-
-handleChangeDateSms=(date) =>{
-  this.setState({
-    Sms_StartDate: date,
-  });
-}
-
-handleChangeDateEmail=(date) =>{
-  this.setState({
-    Email_StartDate:date
-  });
-}
-handleInputChange2 = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-handleInputChange = ev => {
-  this.setState({ [ev.target.name]: ev.target.value });
- 
-  ev.preventDefault();
-};
-
-handleChangeFreqEmail = (selectedOption) => {
-  this.setState({ 
-    Email_Freq: selectedOption.value
-   }
-    )
- 
->>>>>>> refactor reminders
-}
-
-handleChangeFreqSms = (selectedOption) => {
-  this.setState({ 
-    Sms_Freq: selectedOption.value
-   }
-    )
-}
-
-
-handleAddComment=(event) => {
- 
-  if (event.target.value !== "") {
-    const newComment = {
-      commentText: this.state.commentText,
-      key: Date.now()
-    };
-    this.setState((prevState) => {
-      return { 
-        comments: prevState.comments.concat(newComment) 
-      };
-    });
-    
-    this.state.commentText=''
-    event.preventDefault()
-    
-  }}
-  
-  searchUpdated = (term) => {
-    this.setState({searchTerm: term})
-=======
->>>>>>> refactor reminders front end
-  }
-invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
-
-  const filteredInvoice2 = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
-
-  const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
-  this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
-=======
-=======
->>>>>>> refactor reminders front end
-
-handleStartReminders = (e) => {
-    e.preventDefault();
-    const {comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-       Email_Freq,isCheckedEmail,isCheckedSms,Sms_StartDate,Sms_Freq,Sms_CustomText,Sms_Template}= this.state;
-       const {invoicePdfLink,invoiceNumber}=this.state.invoiceUserClientInfo;
-       const Email_From = this.state.invoiceUserClientInfo.userInfo.UserEmail;
-       const Email_to= this.state.invoiceUserClientInfo.clientInfo.clientEmail;
-       const Sms_From = this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber;
-       const Sms_to= this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber;
-       const { UserName} =  this.state.invoiceUserClientInfo.userInfo
-       const {clientName} = this.state.invoiceUserClientInfo.clientInfo
-      axios
-      .post(`http://localhost:5001/test`,
-      {
-        comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
-        Email_Freq,Sms_StartDate,Email_From,Email_to,Sms_From,Sms_to,Sms_Freq,
-        Sms_CustomText,Sms_Template,isCheckedEmail,isCheckedSms,invoicePdfLink,invoiceNumber, UserName,clientName
-      })
-      .then(response => {
-       // this.setState({reminders : response.data})
-       console.log(response) 
-      })
-      .catch(err => {
-        console.log("IN CATCH", err);
-      });
-     /* this.setState({
-        reset forms input field :''
-      })*/
-   
-     // window.location.reload();*/
-  };
-  
-  handleChangeActivEmail=()=> {
-    this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
-  }
-
-  handleChangeActivSms=()=> {
-    this.setState({ isCheckedSms:!this.state.isCheckedSms})
-  };
-
- 
-//COMMENT
->>>>>>> refactor reminders
-<<<<<<< HEAD
->>>>>>> refactor reminders
-=======
-=======
-}
-=======
->>>>>>> comment reminders link
-
-changeValue = (event) => {
-    //console.log(`${event.target.name}:${event.target.value}`)
-    this.setState({
-        [event.target.name]: event.target.value,
-    })
-}
-
-submit = (event) => {
-    event.preventDefault();
-    /* We'll need to send this off to the AddInvoice endpoint on the server. */
-}
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
->>>>>>> NavLeft minor change
->>>>>>> NavLeft minor change
-<<<<<<< HEAD
->>>>>>> NavLeft minor change
-=======
-=======
-
->>>>>>> comment reminders link
->>>>>>> comment reminders link
-=======
->>>>>>> reminders refactor
-=======
->>>>>>> refactor reminders front end
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
@@ -907,59 +255,28 @@ submit = (event) => {
   </div>
 
   <div class="col s12 m8 l10 "> 
-<<<<<<< HEAD
   
-  <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
+  <div class="col s12 m4 l3 ">{/*SEARCH INVOICE*/ }  
   <div className="reminderInput boxShadow">
-    <SearchInput  onChange={this.searchUpdated} className='search' />
+    <SearchInput  onChange={this.searchUpdated} className='search'/>
         {filteredInvoice.map(itemInfo => {
           
         return (
             <div className="mail" key={itemInfo.invoiceId}>
-        <li className="info active"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
+        <li className="info"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
             </div>
                 )
               })}
             </div></div>    
   
-  <div class="col s12 m4 l10 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
- 
-    <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
-    <div className="switchbox">
-    <div className="switch">
-=======
-  
-  <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
-  <div className="reminderInput boxShadow">
-    <SearchInput  onChange={this.searchUpdated} className='search' />
-        {filteredInvoice.map(itemInfo => {
-          
-        return (
-            <div className="mail" key={itemInfo.invoiceId}>
-        <li className="info active"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
-            </div>
-                )
-              })}
-            </div></div>    
-  
-<<<<<<< HEAD
   <div class="col s12 m4 l9 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
   <div class="switch">
->>>>>>> refactor reminders
-=======
-  <div class="col s12 m4 l10 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
- 
-    <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
-    <div className="switchbox">
-    <div className="switch">
->>>>>>> css styling
     <label ><span>Email Status :</span>
       Off
       <input type="checkbox" value={this.state.isCheckedEmail} onChange={this.handleChangeActivEmail} />
       <span class="lever"></span>
       On
     </label>
-<<<<<<< HEAD
   </div>
   <div class="switch">
     <label ><span>Sms Status :</span>
@@ -968,23 +285,8 @@ submit = (event) => {
       <span class="lever"></span>
       On
     </label>
-  </div></div>
-=======
-  </div>
-  <div class="switch">
-    <label ><span>Sms Status :</span>
-      Off
-      <input type="checkbox" value={this.state.isCheckedSms} onChange={this.handleChangeActivSms} />
-      <span class="lever"></span>
-      On
-    </label>
-<<<<<<< HEAD
   </div>
     <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
->>>>>>> refactor reminders
-=======
-  </div></div>
->>>>>>> css styling
   <div className='Section-Email'>{/*&&EMAIL&&*/ } 
 
   <div className={`sectionboxcontact email${this.state.isCheckedEmail}`}>
@@ -993,44 +295,19 @@ submit = (event) => {
   
         </div>
             </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-         <div class="email-compose-body boxwrapper">
-         <h4 class=" mB-20 rem">Send Email</h4>
-         <div class="send-header"><div class="form-group">
-         <div class="input-field col s4">
-          <span class="rem">Email_From:</span>
-          <input  disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserEmail}/>
-        </div>
-         <div class="input-field col s4">
-          <span class="rem">Email_to:</span>
-          <input disabled id="icon_prefix" type="text" class="validate rem" value={this.state.invoiceUserClientInfo.clientInfo.clientEmail}/>
-        </div>
-        <div class=" col s4">
-          <span class="rem">Send first reminder on:</span>
-=======
          <div class="email-compose-body">
          <h4 class=" mB-20">Send Email</h4>
-=======
-         <div class="email-compose-body boxwrapper">
-         <h4 class=" mB-20 rem">Send Email</h4>
->>>>>>> css styling
          <div class="send-header"><div class="form-group">
          <div class="input-field col s4">
-          <span class="rem">Email_From:</span>
-          <input  disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserEmail}/>
+          <span class="">Email_From:</span>
+          <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserEmail}/>
         </div>
          <div class="input-field col s4">
-          <span class="rem">Email_to:</span>
-          <input disabled id="icon_prefix" type="text" class="validate rem" value={this.state.invoiceUserClientInfo.clientInfo.clientEmail}/>
+          <span class="">Email_to:</span>
+          <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientEmail}/>
         </div>
         <div class=" col s4">
-<<<<<<< HEAD
           <span class="">Send first reminder on:</span>
->>>>>>> refactor reminders
-=======
-          <span class="rem">Send first reminder on:</span>
->>>>>>> css styling
           <DatePicker
         selected={this.state.Email_StartDate}
         onChange={this.handleChangeDateEmail}
@@ -1043,18 +320,8 @@ submit = (event) => {
         </div>
 
         <div class="input-field col s4">
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <span class=" rem">Then repeat :</span>
-          <Select className='rem'
-=======
           <span class="">Then repeat :</span>
           <Select 
->>>>>>> refactor reminders
-=======
-          <span class=" rem">Then repeat :</span>
-          <Select className='rem'
->>>>>>> css styling
         value={this.state.selectedOption.value}
         onChange={this.handleChangeFreqEmail}
         options={options}
@@ -1062,18 +329,8 @@ submit = (event) => {
         </div>
          </div>
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-         <div class="form-group"><input class="form-control rem" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
-         <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control rem" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
-=======
          <div class="form-group"><input class="form-control" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
          <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
->>>>>>> refactor reminders
-=======
-         <div class="form-group"><input class="form-control rem" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
-         <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control rem" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
->>>>>>> css styling
          </div>
          <div id="compose-area"></div><div class="text-right mrg-top-30">
          </div>
@@ -1089,27 +346,11 @@ submit = (event) => {
          <div class="send-header"><div class="form-group">
          <div class="input-field col s4">
           <span class="">Sms_From:</span>
-<<<<<<< HEAD
-<<<<<<< HEAD
-          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
-        </div>
-         <div class="input-field col s4">
-          <span class="">Sms_to:</span>
-          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
-=======
           <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
         </div>
          <div class="input-field col s4">
           <span class="">Sms_to:</span>
           <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
->>>>>>> refactor reminders
-=======
-          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
-        </div>
-         <div class="input-field col s4">
-          <span class="">Sms_to:</span>
-          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
->>>>>>> css styling
         </div>
         <div class=" col s4">
           <span class="">Send first reminder on:</span>
