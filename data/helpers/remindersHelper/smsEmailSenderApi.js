@@ -1,8 +1,15 @@
+require('dotenv').config();
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
+
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
 
 
  // **Nexmo SMS API Quickstart for Node.JS**
@@ -24,12 +31,13 @@ const nexmo = new Nexmo({
 })
 
 //Send SMS via NEXMO 
+console.log(smsFromNumber, smstoNumber, smsText);
 
 // unable only if necessary**cost money**/
-nexmo.message.sendSms(
+/*nexmo.message.sendSms(
  smsFromNumber, smstoNumber, smsText, {type: 'unicode'},
   (err, responseData) => {if (responseData) {console.log(responseData)}}
-);
+);*/
 }
 
 // **SENDGRID EMAIL API Quickstart for Node.JS**
