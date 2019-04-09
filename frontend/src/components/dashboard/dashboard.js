@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Sidenav from '../nav/Sidenav';
 import '../../Dashboard.css';
 import InvoiceList from "../Invoice/InvoiceList";
@@ -13,6 +13,12 @@ class Dashboard extends Component {
 
     render() {
         console.log(this.props)
+        const token = localStorage.getItem('jwt');
+        if (!token || token === 'undefined') {
+            return (
+                <Redirect to='/signin' />
+            )
+        }
         const { invoices } = this.props;
         return (
         <div>

@@ -7,6 +7,7 @@ module.exports = {
     getAll,
     findById,
     findByUsername,
+    findByEmail,
 };
 
 async function findByUsername(user) {
@@ -60,7 +61,6 @@ async function getAll() {
 
 async function insert(user) {
     let newIDs = {membership_id: '', id: '', message: ''};
-
     await db('memberships').insert({plan: user.plan})
     .then(success => {
         return success;
@@ -73,12 +73,11 @@ async function insert(user) {
             password: user.password, 
             email: user.email, 
             membership_id: membershipID[0]})
-            .then(userID => {
+            .then(async userID => {
                 newIDs.id = userID[0];
                 newIDs.message = 'Account created.';
             })
             .catch(async error => {
-                console.log(error);
                 newIDs.message = {errno: error.errno, code: error.code };
                 await db('memberships').where('id', newIDs.membership_id).delete();
                 newIDs.membership_id = '';
@@ -97,6 +96,10 @@ async function update(id, user) {
 
 }
 
+async function findByEmail(email) {
+    let user = await db('users').where('email', email);
+    return user;
+}
 async function findById(id) {
     let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
     users = await attachToUsers(users);

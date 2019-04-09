@@ -1,8 +1,20 @@
+"use strict"
 const express = require('express');
 const router = express.Router();
+const auth = require('../authorizeToken');
+const clientsHelper = require('../../data/helpers/clientsHelper');
 
-router.get('/', async (req, res) => {
-    res.status(200).json({clients: 'Up'});
+router.get('/', auth, async (req, res) => {
+    if (res.locals.error) {
+        res.json({message: error});
+    }
+    else {
+        if (res.locals.decodedToken) {
+            const token = res.locals.decodedToken;
+            const clients = await clientsHelper.findById(token.subject);
+            res.json(clients);
+        }
+    }
 });
 
 module.exports = router;

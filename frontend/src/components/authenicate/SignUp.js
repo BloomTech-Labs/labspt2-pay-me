@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
+import serverLoc from '../../serverLoc';
 import Nav from '../nav/Nav'
 import '../../App.css';
 
@@ -21,11 +23,30 @@ class SignUp extends Component {
         })
     };
  
-   handleSubmit = e => {
-    e.preventDefault();
-   }
+    handleSubmit = e => {
+        e.preventDefault();
+        axios.post(`${serverLoc}/auth/local/signup/`, {
+            username: this.state.username,
+            email: this.state.email,
+            password: this.state.password,
+            plan: 'none' 
+        })
+        .then(res => {
+            localStorage.setItem('jwt', res.data.token);
+            this.forceUpdate();
+        })
+        .catch(error => {
+            console.log(error.response);
+        });
+    }
 
     render(){
+        const token = localStorage.getItem('jwt');
+        if (token && token !== 'undefined') {
+            return (
+                <Redirect to='/dashboard' />
+            )
+        }
         const { username, email, password, passwordConfirmation, errors, loading } = this.state;
         return (
         <div className="background" style={{background: "#209cd7"}}>

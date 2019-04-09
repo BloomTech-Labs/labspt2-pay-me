@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
+import axios from 'axios';
+import serverLoc from '../../serverLoc';
 import Nav from '../nav/Nav'
 import '../../App.css';
 
+import googleBtn from '../../img/google_btns/btn_google_signin_dark_normal_web.png'
 
 class SignIn extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state= {
             username:'',
             email: '',
@@ -14,18 +17,39 @@ class SignIn extends Component {
             passwordConfirmation: '',
         };
     }
-   
+
     handleChange= (e) => {
         this.setState ({
             [e.target.id]: e.target.value      
         })
     };
- 
-   handleSubmit = e => {
-    e.preventDefault();
-   }
+
+    handleSubmit = e => {
+        e.preventDefault();
+        axios.post(`${serverLoc}/auth/local/login/`, {
+            email: this.state.email,
+            password: this.state.password,
+        })
+        .then(res => {
+            localStorage.setItem('jwt', res.data.token);
+            this.forceUpdate();
+        })
+        .catch(error => {
+            console.log(error);
+        });
+    }
+
+    componentDidMount() {
+        localStorage.setItem('jwt', this.props.match.params.jwt);
+    }
 
     render(){
+        const token = localStorage.getItem('jwt');
+        if (token && token !== 'undefined') {
+            return (
+                <Redirect to='/dashboard' />
+            )
+        }
         const { username, email, password, passwordConfirmation, errors, loading } = this.state;
         return (
             <div className="background" style={{background: "#209cd7"}}>
@@ -51,6 +75,9 @@ class SignIn extends Component {
                         <div className="center">
                             <p className="">Not a user? <Link to="/signup" className="jump-link">Create an account</Link></p>
                         </div>
+                        <a href={`${serverLoc}/auth/google`}>
+                            <img src={googleBtn} alt='Sign in with Google'/>
+                        </a>
                    </form>
                    </div>
                    </div>
