@@ -823,6 +823,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 =======
 >>>>>>> refactor reminders
 =======
@@ -857,6 +861,11 @@
 >>>>>>> added dependecies select and react datapicker
 =======
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 "@babel/runtime@^7.1.2", "@babel/runtime@^7.4.2":
   version "7.4.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.4.3.tgz#79888e452034223ad9609187a0ad1fe0d2ad4bdc"
@@ -868,6 +877,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 =======
 >>>>>>> refactor reminders
 =======
@@ -907,6 +920,11 @@
 >>>>>>> comment reminders link
 =======
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
   dependencies:
     regenerator-runtime "^0.13.2"
 
@@ -960,7 +978,14 @@
   resolved "https://registry.yarnpkg.com/@emotion/babel-utils/-/babel-utils-0.6.10.tgz#83dbf3dfa933fae9fc566e54fbb45f14674c6ccc"
   integrity sha512-/fnkM/LTEp3jKe++T0KyTszVGWNKPNOUJfjNKLO17BzQ6QPxgbg3whayom1Qr2oLFH3V92tDymU+dT5q676uow==
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
   dependencies:
     "@emotion/hash" "^0.6.6"
     "@emotion/memoize" "^0.6.6"
@@ -1004,6 +1029,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
   integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 "@jest/types@^24.5.0":
   version "24.5.0"
@@ -1061,10 +1087,74 @@
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.7.0.tgz#c4ec8d1828cdf23234d9b4ee31f5482a3f04f48b"
   integrity sha512-ipJUa2rFWiKoBqMKP63Myb6h9+iT3FHRTF2M8OR6irxWzItisa8i4dcSg14IbvmXUnBlHBlUQPYUHWyX3UPpYA==
 =======
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 "@jest/types@^24.5.0":
   version "24.5.0"
   resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.5.0.tgz#feee214a4d0167b0ca447284e95a57aa10b3ee95"
   integrity sha512-kN7RFzNMf2R8UDadPOl6ReyI+MT8xfqRuAnuVL+i4gwjv/zubdDK+EDeLHYwq1j0CSSR2W/MmgaRlMZJzXdmVA==
+<<<<<<< HEAD
+=======
+>>>>>>> refactor reminders
+  dependencies:
+    "@emotion/hash" "^0.6.6"
+    "@emotion/memoize" "^0.6.6"
+    "@emotion/serialize" "^0.9.1"
+    convert-source-map "^1.5.1"
+    find-root "^1.1.0"
+    source-map "^0.7.2"
+
+"@emotion/hash@^0.6.2", "@emotion/hash@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.6.6.tgz#62266c5f0eac6941fece302abad69f2ee7e25e44"
+  integrity sha512-ojhgxzUHZ7am3D2jHkMzPpsBAiB005GF5YU4ea+8DNPybMk01JJUM9V9YRlF/GE95tcOm8DxQvWA2jq19bGalQ==
+
+"@emotion/memoize@^0.6.1", "@emotion/memoize@^0.6.6":
+  version "0.6.6"
+  resolved "https://registry.yarnpkg.com/@emotion/memoize/-/memoize-0.6.6.tgz#004b98298d04c7ca3b4f50ca2035d4f60d2eed1b"
+  integrity sha512-h4t4jFjtm1YV7UirAFuSuFGyLa+NNxjdkq6DpFLANNQY5rHueFZHVY+8Cu1HYVP6DrheB0kv4m5xPjo7eKT7yQ==
+
+"@emotion/serialize@^0.9.1":
+  version "0.9.1"
+  resolved "https://registry.yarnpkg.com/@emotion/serialize/-/serialize-0.9.1.tgz#a494982a6920730dba6303eb018220a2b629c145"
+  integrity sha512-zTuAFtyPvCctHBEL8KZ5lJuwBanGSutFEncqLn/m9T1a6a93smBStK+bZzcNPgj4QS8Rkw9VTwJGhRIUVO8zsQ==
+  dependencies:
+    "@emotion/hash" "^0.6.6"
+    "@emotion/memoize" "^0.6.6"
+    "@emotion/unitless" "^0.6.7"
+    "@emotion/utils" "^0.8.2"
+
+"@emotion/stylis@^0.7.0":
+  version "0.7.1"
+  resolved "https://registry.yarnpkg.com/@emotion/stylis/-/stylis-0.7.1.tgz#50f63225e712d99e2b2b39c19c70fff023793ca5"
+  integrity sha512-/SLmSIkN13M//53TtNxgxo57mcJk/UJIDFRKwOiLIBEyBHEcipgR6hNMQ/59Sl4VjCJ0Z/3zeAZyvnSLPG/1HQ==
+
+"@emotion/unitless@^0.6.2", "@emotion/unitless@^0.6.7":
+  version "0.6.7"
+  resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.6.7.tgz#53e9f1892f725b194d5e6a1684a7b394df592397"
+  integrity sha512-Arj1hncvEVqQ2p7Ega08uHLr1JuRYBuO5cIvcA+WWEQ5+VmkOE3ZXzl04NbQxeQpWX78G7u6MqxKuNX3wvYZxg==
+
+"@emotion/utils@^0.8.2":
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/@emotion/utils/-/utils-0.8.2.tgz#576ff7fb1230185b619a75d258cbc98f0867a8dc"
+  integrity sha512-rLu3wcBWH4P5q1CGoSSH/i9hrXs7SlbRLkoq9IGuoPYNGQvDJ3pt/wmOM+XgYjIDRMVIdkUWt0RsfzF50JfnCw==
+
+<<<<<<< HEAD
+=======
+>>>>>>> comment reminders link
+"@jest/types@^24.7.0":
+  version "24.7.0"
+  resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.7.0.tgz#c4ec8d1828cdf23234d9b4ee31f5482a3f04f48b"
+  integrity sha512-ipJUa2rFWiKoBqMKP63Myb6h9+iT3FHRTF2M8OR6irxWzItisa8i4dcSg14IbvmXUnBlHBlUQPYUHWyX3UPpYA==
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+"@jest/types@^24.5.0":
+  version "24.5.0"
+  resolved "https://registry.yarnpkg.com/@jest/types/-/types-24.5.0.tgz#feee214a4d0167b0ca447284e95a57aa10b3ee95"
+  integrity sha512-kN7RFzNMf2R8UDadPOl6ReyI+MT8xfqRuAnuVL+i4gwjv/zubdDK+EDeLHYwq1j0CSSR2W/MmgaRlMZJzXdmVA==
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 >>>>>>> refactor reminders front end
   dependencies:
     "@types/istanbul-lib-coverage" "^1.1.0"
@@ -2546,6 +2636,10 @@ class-utils@^0.3.5:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 =======
 >>>>>>> added dependecies select and react datapicker
 =======
@@ -2556,6 +2650,7 @@ class-utils@^0.3.5:
 >>>>>>> refactor reminders
 =======
 >>>>>>> added dependecies select and react datapicker
+<<<<<<< HEAD
 classnames@^2.2.6:
 <<<<<<< HEAD
 classnames@^2.2.5:
@@ -2584,6 +2679,36 @@ classnames@^2.2.5, classnames@^2.2.6:
 =======
 >>>>>>> added dependecies select and react datapicker
 classnames@^2.2.6:
+=======
+classnames@^2.2.6:
+<<<<<<< HEAD
+classnames@^2.2.5:
+=======
+classnames@^2.2.5, classnames@^2.2.6:
+>>>>>>> added dependecies select and react datapicker
+=======
+=======
+classnames@^2.2.5:
+>>>>>>> refactor reminders
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> refactor reminders
+=======
+=======
+classnames@^2.2.5, classnames@^2.2.6:
+>>>>>>> added dependecies select and react datapicker
+>>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
+=======
+classnames@^2.2.5, classnames@^2.2.6:
+>>>>>>> comment reminders link
+=======
+=======
+>>>>>>> added dependecies select and react datapicker
+classnames@^2.2.6:
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 =======
 classnames@^2.2.5:
 >>>>>>> refactor reminders
@@ -2609,6 +2734,12 @@ classnames@^2.2.5, classnames@^2.2.6:
 =======
 classnames@^2.2.5:
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+classnames@^2.2.5:
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
   integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
@@ -2880,6 +3011,10 @@ core-js@2.6.4:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 =======
 >>>>>>> comment reminders link
 core-js@3.0.1:
@@ -2894,6 +3029,11 @@ core-js@3.0.1:
 >>>>>>> comment reminders link
 =======
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 core-js@^1.0.0:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-1.2.7.tgz#652294c14651db28fa93bd2d5ff2983a4f08c636"
@@ -2947,7 +3087,14 @@ cosmiconfig@^5.0.0, cosmiconfig@^5.0.5, cosmiconfig@^5.0.7:
     parse-json "^4.0.0"
 
 cosmiconfig@^5.2.0:
+<<<<<<< HEAD
 >>>>>>> refactor reminders front end
+=======
+<<<<<<< HEAD
+>>>>>>> refactor reminders front end
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/cosmiconfig/-/cosmiconfig-5.2.0.tgz#45038e4d28a7fe787203aede9c25bca4a08b12c8"
   integrity sha512-nxt+Nfc3JAqf4WIWd0jXLjTJZmsPLrA9DDc4nRw2KFJQJK7DNooqSXrNI7tzLG50CF8axczly5UV929tBmh/7g==
@@ -6126,6 +6273,17 @@ js-yaml@^3.13.0:
   version "3.13.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
   integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+<<<<<<< HEAD
+=======
+  dependencies:
+    argparse "^1.0.7"
+    esprima "^4.0.0"
+
+js-yaml@^3.13.0:
+  version "3.13.1"
+  resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.13.1.tgz#aff151b30bfdfa8e49e05da22e7415e9dfa37847"
+  integrity sha512-YfbcO7jXDdyj0DGxYVSlSeQNHbD7XPWvrVWeVUujrQEoZzWJIRrCPoyk6kL6IAjAG2IolMK4T0hNUe0HOUs5Jw==
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -8664,6 +8822,7 @@ react-input-autosize@^2.2.1:
 <<<<<<< HEAD
 =======
 
+<<<<<<< HEAD
 react-is@^16.7.0, react-is@^16.8.2:
   version "16.8.5"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
@@ -8709,6 +8868,8 @@ react-input-autosize@^2.2.1:
 =======
 =======
 
+=======
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 react-is@^16.7.0, react-is@^16.8.2:
   version "16.8.5"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
@@ -8716,6 +8877,55 @@ react-is@^16.7.0, react-is@^16.8.2:
 >>>>>>> added dependecies select and react datapicker
 =======
 >>>>>>> refactor reminders
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> added dependecies select and react datapicker
+>>>>>>> refactor reminders
+=======
+
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> refactor reminders
+>>>>>>> refactor reminders
+=======
+>>>>>>> refactor reminders front end
+react-is@^16.7.0, react-is@^16.8.2:
+  version "16.8.5"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
+  integrity sha512-sudt2uq5P/2TznPV4Wtdi+Lnq3yaYW8LfvPKLM9BKD8jJNBkxMVyB0C9/GmVhLw7Jbdmndk/73n7XQGeN9A3QQ==
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> added dependecies select and react datapicker
+=======
+=======
+=======
+>>>>>>> added dependecies select and react datapicker
+react-input-autosize@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
+  integrity sha512-3+K4CD13iE4lQQ2WlF8PuV5htfmTRLH6MDnfndHM6LuBRszuXnuyIfE7nhSKt8AzRBZ50bu0sAhkNMeS5pxQQA==
+  dependencies:
+    prop-types "^15.5.8"
+<<<<<<< HEAD
+>>>>>>> refactor reminders
+<<<<<<< HEAD
+>>>>>>> refactor reminders
+=======
+=======
+
+react-is@^16.7.0, react-is@^16.8.2:
+  version "16.8.5"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.5.tgz#c54ac229dd66b5afe0de5acbe47647c3da692ff8"
+  integrity sha512-sudt2uq5P/2TznPV4Wtdi+Lnq3yaYW8LfvPKLM9BKD8jJNBkxMVyB0C9/GmVhLw7Jbdmndk/73n7XQGeN9A3QQ==
+<<<<<<< HEAD
+>>>>>>> added dependecies select and react datapicker
+=======
+>>>>>>> refactor reminders
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 >>>>>>> added dependecies select and react datapicker
 =======
 =======
@@ -8723,6 +8933,11 @@ react-is@^16.7.0, react-is@^16.8.2:
 >>>>>>> added dependecies select and react datapicker
 =======
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 react-input-autosize@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/react-input-autosize/-/react-input-autosize-2.2.1.tgz#ec428fa15b1592994fb5f9aa15bb1eb6baf420f8"
@@ -9035,6 +9250,19 @@ react-transition-group@^2.2.1:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+<<<<<<< HEAD
+=======
+
+react-transition-group@^2.2.1:
+  version "2.9.0"
+  resolved "https://registry.yarnpkg.com/react-transition-group/-/react-transition-group-2.9.0.tgz#df9cdb025796211151a436c69a8f3b97b5b07c8d"
+  integrity sha512-+HzNTCHpeQyl4MJ/bdE0u6XRMe9+XG/+aL4mCxVN4DnPBQ0/5bfHWPDuOZUzYdMj94daZaZdCCc1Dzt9R/xSSg==
+  dependencies:
+    dom-helpers "^3.4.0"
+    loose-envify "^1.4.0"
+    prop-types "^15.6.2"
+    react-lifecycles-compat "^3.0.4"
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 
 react@^16.8.3:
   version "16.8.4"
@@ -10498,6 +10726,10 @@ ua-parser-js@^0.7.18:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 =======
 >>>>>>> comment reminders link
 uglify-js@3.4.x:
@@ -10508,6 +10740,11 @@ uglify-js@3.4.x:
 =======
 =======
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 uglify-js@3.4.x, uglify-js@^3.1.4:
   version "3.4.9"
   resolved "https://registry.yarnpkg.com/uglify-js/-/uglify-js-3.4.9.tgz#af02f180c1207d76432e473ed24a28f4a782bae3"
@@ -10824,11 +11061,20 @@ warning@^3.0.0:
     loose-envify "^1.0.0"
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 >>>>>>> refactor reminders
 =======
 >>>>>>> comment reminders link
 =======
 >>>>>>> refactor reminders front end
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 8fe8f1283bb785c8d675e702d9ae783e04186f95
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 warning@^4.0.1, warning@^4.0.2:
   version "4.0.3"
   resolved "https://registry.yarnpkg.com/warning/-/warning-4.0.3.tgz#16e9e077eb8a86d6af7d64aa1e05fd85b4678ca3"

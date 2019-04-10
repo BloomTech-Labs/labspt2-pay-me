@@ -1,9 +1,22 @@
+<<<<<<< HEAD
+=======
+require('dotenv').config();
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 // yarn add nexmo  and then:
 const Nexmo = require('nexmo');
 
 // yarn add @sendgrid/mail  and then:
 const sgMail = require('@sendgrid/mail');
 
+<<<<<<< HEAD
+=======
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+// yarn add nexmo  and then:
+const Nexmo = require('nexmo');
+
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 
  // **Nexmo SMS API Quickstart for Node.JS**
 const smsHandler = (smsFromNumber, smstoNumber,smsText) =>{
@@ -24,12 +37,22 @@ const nexmo = new Nexmo({
 })
 
 //Send SMS via NEXMO 
+<<<<<<< HEAD
 
 // unable only if necessary**cost money**/
 nexmo.message.sendSms(
  smsFromNumber, smstoNumber, smsText, {type: 'unicode'},
   (err, responseData) => {if (responseData) {console.log(responseData)}}
 );
+=======
+console.log(smsFromNumber, smstoNumber, smsText);
+
+// unable only if necessary**cost money**/
+/*nexmo.message.sendSms(
+ smsFromNumber, smstoNumber, smsText, {type: 'unicode'},
+  (err, responseData) => {if (responseData) {console.log(responseData)}}
+);*/
+>>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
 }
 
 // **SENDGRID EMAIL API Quickstart for Node.JS**
