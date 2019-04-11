@@ -14,7 +14,7 @@ const charge = require('./routes/charge');
 
 const server = express();
 
-server.use(express.json());/*
+server.use(express.json());
 server.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -25,17 +25,17 @@ server.use(passport.initialize());
 server.use(cors());
 server.use(require("body-parser").text());
 server.use(formData.parse());
-*/
+
 /* Plugging in the Routes to the correct API paths */
 
-//server.use('/api/users', users)
-//server.use('/api/clients', clients);
-//server.use('/api/invoices', invoices);
-//server.use('/api/payments', payments);
+server.use('/api/users', users)
+server.use('/api/clients', clients);
+server.use('/api/invoices', invoices);
+server.use('/api/payments', payments);
 server.use('/api/reminders', reminders);
-//server.use('/auth/local/', authLocal);
-///server.use('/auth/google/', authGoogle);
-//server.use('/charge', charge);
+server.use('/auth/local/', authLocal);
+server.use('/auth/google/', authGoogle);
+server.use('/charge', charge);
 
 /* This just responds to the client letting it know that the server is up. */
 server.get('/', async (req, res) => {
