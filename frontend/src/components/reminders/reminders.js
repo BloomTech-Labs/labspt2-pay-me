@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
+
 import Select from 'react-select';
-import {Route} from "react-router-dom";
+
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SearchInput, {createFilter} from 'react-search-input' ;
 import axios from 'axios';
-
 import './reminder.css';
 
 // Key for Searching invoices
@@ -256,7 +256,7 @@ handleStartReminders = (e) => {
 
   <div class="col s12 m8 l10 "> 
   
-  <div class="col s12 m4 l3 ">{/*SEARCH INVOICE*/ }  
+  <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
   <div className="reminderInput boxShadow">
     <SearchInput  onChange={this.searchUpdated} className='search'/>
         {filteredInvoice.map(itemInfo => {
@@ -269,7 +269,7 @@ handleStartReminders = (e) => {
               })}
             </div></div>    
   
-  <div class="col s12 m4 l9 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
+  <div class="col s12 m4 l10 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
   <div class="switch">
     <label ><span>Email Status :</span>
       Off
@@ -295,9 +295,8 @@ handleStartReminders = (e) => {
   
         </div>
             </div>
-<<<<<<< HEAD
          <div class="email-compose-body">
-         <h4 class=" mB-20">Send Email</h4>
+         <h4 class="c-grey-900 mB-20">Send Email</h4>
          <div class="send-header"><div class="form-group">
          <div class="input-field col s4">
           <span class="">Email_From:</span>
@@ -309,21 +308,6 @@ handleStartReminders = (e) => {
         </div>
         <div class=" col s4">
           <span class="">Send first reminder on:</span>
-=======
-         <div class="email-compose-body boxwrapper">
-         <h4 class=" mB-20 rem">Send Email</h4>
-         <div class="send-header"><div class="form-group">
-         <div class="input-field col s4">
-          <span class="rem">Email_From:</span>
-          <input  disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserEmail}/>
-        </div>
-         <div class="input-field col s4">
-          <span class="rem">Email_to:</span>
-          <input disabled id="icon_prefix" type="text" class="validate rem" value={this.state.invoiceUserClientInfo.clientInfo.clientEmail}/>
-        </div>
-        <div class=" col s4">
-          <span class="rem">Send first reminder on:</span>
->>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
           <DatePicker
         selected={this.state.Email_StartDate}
         onChange={this.handleChangeDateEmail}
@@ -336,13 +320,8 @@ handleStartReminders = (e) => {
         </div>
 
         <div class="input-field col s4">
-<<<<<<< HEAD
           <span class="">Then repeat :</span>
           <Select 
-=======
-          <span class=" rem">Then repeat :</span>
-          <Select className='rem'
->>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
         value={this.state.selectedOption.value}
         onChange={this.handleChangeFreqEmail}
         options={options}
@@ -350,13 +329,8 @@ handleStartReminders = (e) => {
         </div>
          </div>
 
-<<<<<<< HEAD
          <div class="form-group"><input class="form-control" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
          <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
-=======
-         <div class="form-group"><input class="form-control rem" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
-         <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control rem" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
->>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
          </div>
          <div id="compose-area"></div><div class="text-right mrg-top-30">
          </div>
@@ -372,19 +346,11 @@ handleStartReminders = (e) => {
          <div class="send-header"><div class="form-group">
          <div class="input-field col s4">
           <span class="">Sms_From:</span>
-<<<<<<< HEAD
           <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
         </div>
          <div class="input-field col s4">
           <span class="">Sms_to:</span>
           <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
-=======
-          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
-        </div>
-         <div class="input-field col s4">
-          <span class="">Sms_to:</span>
-          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
->>>>>>> 9500e991d98348567d69833daf201af4f5ec5255
         </div>
         <div class=" col s4">
           <span class="">Send first reminder on:</span>
@@ -415,7 +381,7 @@ handleStartReminders = (e) => {
       
          </div>
         
-        </div>
+        </div>    
  </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
  </form>
 
@@ -442,13 +408,12 @@ handleStartReminders = (e) => {
 
   </div>
 
-
-    </div> 
+</div>
+   
     );
-  
+  }
 }
-}
+
 export default Reminders;
 
-  
   
