@@ -2,7 +2,18 @@ require('dotenv').config();
 const EmailSmsApiConfig =require('./smsEmailSenderApi');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
+<<<<<<< HEAD
 const db = require('../../dbConfig');
+=======
+<<<<<<< HEAD
+//const ReminderTimer = require('./TimerReminders')
+const db = require('../../dbConfig');
+=======
+const ReminderTimer = require('./TimerReminders')
+const db = require('../dbConfig');
+>>>>>>> revert my fake commit
+
+>>>>>>> revert my fake commit
 const smsData = EmailSmsApiConfig.smsHandler;
 const emailData = EmailSmsApiConfig.emailHandler;
 const tblInvs = 'invoices';

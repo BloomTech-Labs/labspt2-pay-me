@@ -24,8 +24,12 @@ server.use(function(req, res, next) {
 server.use(passport.initialize());
 server.use(cors());
 server.use(require("body-parser").text());
+<<<<<<< HEAD
 server.use(bodyParser.urlencoded({extended: true}));
 //server.use(formData.parse());
+=======
+server.use(formData.parse());
+>>>>>>> revert my fake commit
 
 /* Plugging in the Routes to the correct API paths */
 

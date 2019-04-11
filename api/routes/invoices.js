@@ -1,4 +1,5 @@
 const express = require('express');
+<<<<<<< HEAD
 const router = express.Router();
 const db = require('../../data/helpers/invoiceHelper');
 const clientsHelper = require('../../data/helpers/clientsHelper');
@@ -65,6 +66,35 @@ router.get('/', authToken, async (req, res) => {
 
 // Get an invoice by id
 router.get('/:id', authToken, async (req, res) => {
+=======
+const invoices = require('../../data/helpers/invoiceHelper');
+const router = express.Router();
+const db = require('../../data/helpers/invoiceHelper');
+
+router.get('/', async (req, res) => {
+    db.getAll()
+    .then(invoices => {
+        res.status(200).json(invoices);
+    })
+    .catch(err => res.status(500).json(err))
+});
+
+// Add invoice 
+router.post('/', async (req, res) => {
+    const invoice = req.body;
+
+    db.insert(invoice)
+        .then(ids => {
+            res.status(201).json({ mesage: 'Unable to create invoice'})
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+})
+
+// Get an invoice by id
+router.get('/:id', async (req, res) => {
+>>>>>>> revert my fake commit
   const { id } = req.params;
 
   await db.findById(id)
@@ -77,23 +107,36 @@ router.get('/:id', authToken, async (req, res) => {
 });
 
 // Update invoice
+<<<<<<< HEAD
 router.put('/:id', authToken, async (req, res) => {
+=======
+router.put('/:id',  async (req, res) => {
+>>>>>>> revert my fake commit
   const { id } = req.params;
   const changes = req.body;
 
   await db.update(id, changes)
   .then(count => {
+<<<<<<< HEAD
       if(!count || count < 1) {
         res.status(404).json({message: 'No invoice found to update'})
       } else {
         res.status(200).json(count);
       }
+=======
+     if(!count || count < 1) {
+       res.status(404).json({message: 'No invoice found to update'})
+     } else {
+       res.status(200).json(count);
+     }
+>>>>>>> revert my fake commit
   })
   .catch(err => {
       res.status(500).json({ message: 'Sorry, the server ran into an issue'})
   })     
 });
 
+<<<<<<< HEAD
 // Add invoice and PDF 
 router.post('/create', [authToken, pdfUpload], (req, res) => {
   let invoice = JSON.parse(req.body.invoice);
@@ -164,6 +207,10 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
 
 // Delete invoice
 router.delete('/:id', authToken, async (req, res) =>{
+=======
+// Delete invoice
+router.delete('/:id', async (req, res) =>{
+>>>>>>> revert my fake commit
     const { id } = req.params;
 
     await db.remove(id)
