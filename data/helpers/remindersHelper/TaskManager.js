@@ -1,101 +1,87 @@
+require('dotenv').config();
 const EmailSmsApiConfig =require('./smsEmailSenderApi');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
-//const ReminderTimer = require('./TimerReminders')
-const db = require('../../dbConfig');
-
+const db = require('../dbconfig');
 const smsData = EmailSmsApiConfig.smsHandler;
 const emailData = EmailSmsApiConfig.emailHandler;
-
-const tblInvs = 'Invoices';
-const tblClt = 'Client';
-const tblUsr = 'User';
-const tblRem = 'Reminders';
-require('dotenv').config();
+const tblInvs = 'invoices';
+const tblClt = 'clients';
+const tblUsr = 'users';
+const tblRem = 'reminders';
 
 
 
-const getInvoicesbyClientsbyUserId =  async (req, res)=>{
-    const {id} = await req.params;
- 
-      const data_user =await db('users').where('user_id',id).map(item=>{
-        return item
-      })
-    
-      const filtered_clients = await db('clients').where('user_id',id).map(item=>{
-        return item
-      });
-    
-      const data_invoices =await db('invoices').map(item=>{
-        return item
-      })
-      
-      data_invoices.map(invoice => {
-        for(let i = 0; i < filtered_clients.length; i++) {
-            if (invoice.client_id === filtered_clients[i].client_id) {
-              filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
-            }
-        }
-    }) ;
-const data = {
-      user:data_user,
-      client:filtered_clients
-    };
-   if(data){
-    (res.status(200).json(data)
-    )
-    .catch(err =>{
-      res.status(500).json(err)
-    })
-   }
-      
-  }      
+const getInvoices =  async (req, res)=>{
+  const {id} = req.params;
 
-  const StopReminder = async (req,res) =>{
-        const {id} = req.params;
-        db(tblRem).where({id})
-        .del()
-        .then(ids =>{
-          res.status(200).json(`You've deleted your ${tableName} with id:${ids}`)
-        })
-        .catch(err =>{
-          res.status(500).json(err)
-        })
-    }
+
+  const data_user =await db('users').where('user_id',id).map(item=>{
+    return item
+  })
    
+  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
+    return item
+  });
 
-  const getAllReminders = (req, res) => {
-    db.select().table(`${tableName}`)
-      .then(item =>{
-        res.status(200).json(item)
-      })
-      .catch(err =>{
-        res.status(500).json(err)
-      })
+ 
+ 
+  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
+    return item
+  })
+
+ 
+  const data_invoices =await db('invoices').map(item=>{
+    return item
+  })
+  
+  data_invoices.map(invoice => {
+    for(let i = 0; i < filtered_clients.length; i++) {
+        if (invoice.client_id === filtered_clients[i].client_id) {
+          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
+        }
+    }
+}) ;
+/*const data = {
+  user:data_user[0],
+  client:filtered_clients
+}*/
+
+var dataToSend  =filtered_clients.map((item,i)=>{
+  const invoice = item.invoice;
+ return{
+  invoice,
+  user:data_user[0],
+  client:filtered_clients2[i]
+}})
+async function senddata(){
+  return dataToSend
+}
+
+senddata().then(response=>{
+  //console.log(response)
+  if(response.length!==0){
+    res.status(200).json(response)
+  }else{
+    res.status(203).json([])
   }
+}).catch(err =>{res.status(500).json('eeeerror')})
 
-    const SaveReminder =  async (req, res)=>{
-          const newItem = await req.body;
-          await db(tblRem).insert(newItem)
-          .then(id =>{
-            res.status(201).json({message :` inserted with ID :${id}`})
-          })
-          .catch(err =>{
-            res.status(500).json(err)
-          })
-      }
-         
+}
+
+
+      
    
     const SendReminders= async (req,res)=>{
-        const {isCheckedEmail,isCheckedSms,comments,Sms_CustomText,
+        const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,
             Sms_to,invoicePdfLink,invoiceNumber,UserName,clientName,
             Email_From,Email_to}= req.body
-      
+      console.log(req.body)
             // if Email_Template
       const HtmlSample =emailTemplateSample(invoiceNumber,clientName,invoicePdfLink,UserName)   
-      
+      console.log(Email_StartDate,Sms_StartDate)
       const setToHappenOn = (fn, dateR)=>{
         const now = new Date();
         const nowInNumber = now.getTime();
@@ -143,11 +129,45 @@ const data = {
         }
       }
 
+
+     
+      const SaveReminder =(req,res)=>{
+        console.log(process.env.API_KEY_NEXMO_SMS,process.env.API_SECRET_NEXMO_SMS,process.env.SENDGRID_API_KEY);
+        const dataTobeSaved=req.body.data;
+        const invoiceNumber=dataTobeSaved.invoiceNumber;
+        const Email_Startdate=dataTobeSaved.invoiceNumber.toString;
+        const dateobj = new Date(Email_Startdate)
+        const B = dateobj.toString()
+        console.log(B)
+        db('reminder111').where('invoiceNumber',invoiceNumber).then(item =>{
+          console.log(item.length)
+         if(item.length!==0){
+          console.log('found')
+         }else{
+          console.log('Notfound')
+         
+            db('reminder111')
+            .insert(dataTobeSaved)
+            .then( reminders_id =>{
+              console.log( reminders_id)
+            res.status(200).json(reminders_id)
+                })}
+        }
+       
+    
+        )
+  .catch(err =>{
+   res.status(500).json(err)
+
+  })
+ 
+   }
+
+
 module.exports ={
-    getInvoicesbyClientsbyUserId,
-        StopReminder,
-        getAllReminders,
+        getRemindersbyInvoiceNumber ,
         SendReminders,
-        SaveReminder
+        SaveReminder,
+        getInvoices,
       }
       

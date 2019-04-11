@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 "use strict"
 const express = require('express');
 const router = express.Router();
@@ -10,6 +11,13 @@ router.get('/', auth, async (req, res) => {
         const clients = await clientsHelper.findById(token.subject);
         res.json(clients);
     }
+=======
+const express = require('express');
+const router = express.Router();
+
+router.get('/', async (req, res) => {
+    res.status(200).json({clients: 'Up'});
+>>>>>>> revert my fake commit
 });
 
 module.exports = router;

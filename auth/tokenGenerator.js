@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 const jwt = require('jsonwebtoken');
+=======
+const JWT = require('jsonwebtoken');
+>>>>>>> revert my fake commit
 
 module.exports = {
     generateToken,
@@ -6,7 +10,10 @@ module.exports = {
 };
 
 function generateToken(user) {
+<<<<<<< HEAD
     console.log(user);
+=======
+>>>>>>> revert my fake commit
     if (user.id && user.username) {
         const payload = {
             subject: user.id,
@@ -18,7 +25,11 @@ function generateToken(user) {
             expiresIn: '30d'
         }
 
+<<<<<<< HEAD
         return jwt.sign(payload, process.env.JWT_SECRET, options)
+=======
+        return JWT.sign(payload, process.env.JWT_SECRET, options)
+>>>>>>> revert my fake commit
     }  
     else {
         return 'Invalid user.'

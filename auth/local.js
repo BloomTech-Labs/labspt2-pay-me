@@ -22,18 +22,31 @@ router.post('/signup', async (req, res) => {
 
         // Now we have to chain a couple promises...
         // Attempt to insert the user into the database.
+<<<<<<< HEAD
         usersHelper.insert(user)
         .then(newUser => {
             console.log(newUser);
             console.log(newUser.id);
             // If there's an error number on the newUser object then something went wrong.
             if(newUser.message.errno) { 
+=======
+        await usersHelper.insert(user)
+        .then(async newUser => {
+            console.log(newUser)
+            // If there's an error number on the newUser object then something went wrong.
+            if(newUser.message.errno) {
+                console.log(newUser)
+>>>>>>> revert my fake commit
                 // Send back the error.
                 res.status(400).json(newUser.message);
             }
             // Otherwise the user was created so let's get all the information available for it.
             else {
+<<<<<<< HEAD
                 usersHelper.findById(newUser.id)
+=======
+                await usersHelper.findById(newUser.user_id)
+>>>>>>> revert my fake commit
                 .then(data => {
                     // Generate us a JWT to send to the client to store for sessions.
                     const token = JWT.generateToken(data[0]);
@@ -48,6 +61,7 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 router.post('/login', (req, res) => {
     const credentials = req.body;
     console.log(credentials)
@@ -55,16 +69,28 @@ router.post('/login', (req, res) => {
         usersHelper.findByEmail(credentials.email)
         .then(user => { 
             console.log(user[0]);
+=======
+router.post('/login', async (req, res) => {
+    const credentials = req.body;
+    if (credentials.username && credentials.password) {
+        await usersHelper.findByUsername(credentials)
+        .then(async user => { 
+>>>>>>> revert my fake commit
             if (!user[0] || !bcrypt.compareSync(credentials.password, user[0].password)) {
                 return res.status(401).json({error: 'Invalid username or password.'})
             }
             else {
                 const token = JWT.generateToken(user[0]);
+<<<<<<< HEAD
                 usersHelper.findById(user[0].id)
                 .then(foundUser => {
                     return res.status(200).json({user: foundUser, token: token});
                 })
                 
+=======
+                const foundUser = await usersHelper.findById(user[0].id);
+                return res.status(200).json({user: foundUser, token: token});
+>>>>>>> revert my fake commit
             }
         })
     }
@@ -73,6 +99,7 @@ router.post('/login', (req, res) => {
     }
 });
 
+<<<<<<< HEAD
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
     await usersHelper.findById(id)
@@ -85,4 +112,6 @@ router.get('/:id', async (req, res) => {
     })
 });
 
+=======
+>>>>>>> revert my fake commit
 module.exports = router;
