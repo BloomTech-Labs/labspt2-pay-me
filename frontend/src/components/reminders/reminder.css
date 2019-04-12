@@ -174,7 +174,6 @@ padding:2px;
 }
 
 .divSwitchStatus{
-  flex:1 0 auto; 
   display: flex;
   flex-direction:column;
   align-items:center ; 
@@ -184,13 +183,16 @@ padding:2px;
 }
 
 .Section-Email-Sms-Comment{
-  display:flex 
+  display:flex ;
+  
 }
 .Section-Email-Sms{
+  width:800px; 
+  margin-right:20px; 
   display:flex; 
-  flex-direction: column;
+  flex-direction:column ;
+  align-items:center; 
   padding:20px; 
-  width:600px ;
 }
 .Section-Email{
   display:flex ;
@@ -205,6 +207,7 @@ padding:2px;
   -webkit-box-shadow: none;
   box-shadow: none;
   border-radius: 3px;
+  width:300px; 
 }
 .reminderform{
   display:flex 
@@ -241,7 +244,9 @@ div.mail li.info{
   list-style:none 
 }
 .switchbox{
-  display:flex
+ 
+  display:flex;
+
 }
 
 .css-d8oujb{
@@ -284,7 +289,7 @@ div.mail li.info{
 }
 
 .Searchbox  {
-  width:200px; 
+  width:207px; 
   padding:5px; 
   
 }

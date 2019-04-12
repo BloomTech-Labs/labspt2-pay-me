@@ -382,7 +382,7 @@ handleStartReminders = (e) => {
  </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
  </form>
 
-<form class="sectionboxcontact" onSubmit={this.handleAddComment}>
+<form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
 <h4 class="c-grey-900 mB-20">Add a Comment</h4>
 <ul className="ulComment">{this.state.comments.map( (comment) =>{
   return <li className="collection-item avatar licomment" key={comment.key}>
