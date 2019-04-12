@@ -1214,10 +1214,28 @@ export default Reminders;
       
 //          </div>
         
+<<<<<<< HEAD
 //         </div>    
 //  </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
 //  </form>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+        </div>    
+ </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
+ </form>
+
+<form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
+<h4 class="c-grey-900 mB-20">Add a Comment</h4>
+<ul className="ulComment">{this.state.comments.map( (comment) =>{
+  return <li className="collection-item avatar licomment" key={comment.key}>
+      <img src="https://i.ibb.co/pLfXZ0w/blank-profile-picture-973460-960-720.png" alt="" className="circle imagAvatar" />
+      <span className="avatarli">{comment.commentText}</span>
+    </li>
+})}
+>>>>>>> styled sms-email section
+>>>>>>> styled sms-email section
 
 // <form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
 // <h4 class="c-grey-900 mB-20">Add a Comment</h4>

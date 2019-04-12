@@ -195,7 +195,10 @@ padding:2px;
 
 .Section-Email-Sms-Comment{
   display:flex ;
+<<<<<<< HEAD
   background:#82c0ff
+=======
+>>>>>>> styled sms-email section
   
 }
 .Section-Email-Sms{
@@ -205,7 +208,10 @@ padding:2px;
   flex-direction:column ;
   align-items:center; 
   padding:20px; 
+<<<<<<< HEAD
   
+=======
+>>>>>>> styled sms-email section
 }
 .Section-Email{
   display:flex ;
