@@ -80,6 +80,7 @@ class Reminders extends Component {
       Sms_Freq:'',
       Sms_CustomText:'',
       Sms_Template:null,
+<<<<<<< HEAD
       isCheckedEmail: props.isCheckedSms || true,
       isCheckedSms: props.isCheckedSms || true,
       isClickedInvoice:'',
@@ -90,6 +91,11 @@ class Reminders extends Component {
       reminders_data:[],
       isHidding:true,
       isHidding2:false
+=======
+      isCheckedEmail: props.isCheckedSms || false,
+      isCheckedSms: props.isCheckedSms || false,
+      isClickedInvoice:InvoicesInfo[0].invoiceId
+>>>>>>> added activeInvoice function and styled it onclik
     }
 }
 
@@ -172,6 +178,7 @@ invoiceData2 =(id)=>{ //1.get index of current Invoice 2.Get data user - client 
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
     this.handleChangeActivInvoice(filteredInvoice2[index].invoiceNumber)
     console.log(this.state.invoiceUserClientInfo.invoiceNumber)
+<<<<<<< HEAD
 }
 invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
   if(this.state.data_invoices){
@@ -182,6 +189,8 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
     this.handleChangeActivInvoice(filteredInvoice2[index].invoice.invoice_number)
   }
   this.getData_reminders_sent(id)
+=======
+>>>>>>> added activeInvoice function and styled it onclik
 }
 
 handleStartReminders = (e) => {
@@ -248,6 +257,7 @@ handleStartReminders = (e) => {
   handleChangeActivInvoice=(invoiceNumber)=> {
     this.setState({ isClickedInvoice:  invoiceNumber })
   };
+<<<<<<< HEAD
   getData_reminders_sent = async (id) =>{
     
     const res = await axios('http://localhost:3111/api/reminders/view');
@@ -272,6 +282,8 @@ handleStartReminders = (e) => {
       // console.log(id)
        
  }
+=======
+>>>>>>> added activeInvoice function and styled it onclik
 
  dateConvert =(xdate)=>{
   const currentDate = new Date(xdate);
@@ -763,6 +775,7 @@ export default Reminders;
 //      // window.location.reload();*/
 //   };
   
+<<<<<<< HEAD
 //   handleChangeActivEmail=()=> {
 //     this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
 //   }
@@ -1071,6 +1084,20 @@ export default Reminders;
 //                 )
 //               })}
 //             </div></div>    
+=======
+  <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
+  <div className="Searchbox boxstyle4">
+    <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
+        {filteredInvoice.map((itemInfo) => {
+          
+        return (
+            <div className="mail" key={itemInfo.invoiceId}>
+        <li  className={this.state.isClickedInvoice === itemInfo.invoiceNumber ? 'info invoice--clicked' : 'info '}  onClick={(i) => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
+            </div>
+                )
+              })}
+            </div></div>    
+>>>>>>> added activeInvoice function and styled it onclik
   
 //   <div class="col s12 m4 l10 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
 
