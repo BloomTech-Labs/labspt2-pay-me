@@ -107,6 +107,7 @@ class Reminders extends Component {
       Sms_Template:null,
       isCheckedEmail: props.isCheckedSms || false,
       isCheckedSms: props.isCheckedSms || false,
+      isClickedInvoice:InvoicesInfo[0].invoiceId
     }
 }
 
@@ -185,6 +186,8 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
 
   const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
+    this.handleChangeActivInvoice(filteredInvoice2[index].invoiceNumber)
+    console.log(this.state.invoiceUserClientInfo.invoiceNumber)
 }
 
 handleStartReminders = (e) => {
@@ -226,6 +229,9 @@ handleStartReminders = (e) => {
   handleChangeActivSms=()=> {
     this.setState({ isCheckedSms:!this.state.isCheckedSms})
   };
+  handleChangeActivInvoice=(invoiceNumber)=> {
+    this.setState({ isClickedInvoice:  invoiceNumber })
+  };
 
  
 //COMMENT
@@ -259,11 +265,11 @@ handleStartReminders = (e) => {
   <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
   <div className="Searchbox boxstyle4">
     <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
-        {filteredInvoice.map(itemInfo => {
+        {filteredInvoice.map((itemInfo) => {
           
         return (
             <div className="mail" key={itemInfo.invoiceId}>
-        <li className="info boxstyle4"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
+        <li  className={this.state.isClickedInvoice === itemInfo.invoiceNumber ? 'info invoice--clicked' : 'info '}  onClick={(i) => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
             </div>
                 )
               })}
