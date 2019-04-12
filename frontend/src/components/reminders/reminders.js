@@ -254,59 +254,62 @@ handleStartReminders = (e) => {
       </div>          
   </div>
 
-  <div class="col s12 m8 l10 "> 
+  <div class="col s12 m8 l10 boxstyle"> 
   
   <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
-  <div className="reminderInput boxShadow">
-    <SearchInput  onChange={this.searchUpdated} className='search'/>
+  <div className="Searchbox boxstyle4">
+    <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
         {filteredInvoice.map(itemInfo => {
           
         return (
             <div className="mail" key={itemInfo.invoiceId}>
-        <li className="info"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
+        <li className="info boxstyle4"  onClick={() => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
             </div>
                 )
               })}
             </div></div>    
   
   <div class="col s12 m4 l10 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
-  <div class="switch">
+
+    <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
+    <div className='switchbox boxstyle4 '>
+    <div class="switch">
     <label ><span>Email Status :</span>
-      Off
+   
       <input type="checkbox" value={this.state.isCheckedEmail} onChange={this.handleChangeActivEmail} />
       <span class="lever"></span>
-      On
+   
     </label>
   </div>
   <div class="switch">
     <label ><span>Sms Status :</span>
-      Off
       <input type="checkbox" value={this.state.isCheckedSms} onChange={this.handleChangeActivSms} />
       <span class="lever"></span>
-      On
+  
     </label>
   </div>
-    <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
-  <div className='Section-Email'>{/*&&EMAIL&&*/ } 
+    </div>
+  
+  <div className='Section-Email '>{/*&&EMAIL&&*/ } 
 
-  <div className={`sectionboxcontact email${this.state.isCheckedEmail}`}>
+  <div className={`sectionboxcontact email${this.state.isCheckedEmail} boxstyle3`}>
   <div>
   <div className="">
   
         </div>
             </div>
          <div class="email-compose-body">
-         <h4 class="c-grey-900 mB-20">Send Email</h4>
+         <h4 class="c-grey-900 mB-20 boxstyle5">Send Email</h4>
          <div class="send-header"><div class="form-group">
-         <div class="input-field col s4">
+         <div class="input-field col s6">
           <span class="">Email_From:</span>
-          <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserEmail}/>
+          <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.userInfo.UserEmail}/>
         </div>
-         <div class="input-field col s4">
+         <div class="input-field col s6">
           <span class="">Email_to:</span>
-          <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientEmail}/>
+          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientEmail}/>
         </div>
-        <div class=" col s4">
+        <div class=" col s6">
           <span class="">Send first reminder on:</span>
           <DatePicker
         selected={this.state.Email_StartDate}
@@ -319,7 +322,7 @@ handleStartReminders = (e) => {
       />
         </div>
 
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <span class="">Then repeat :</span>
           <Select 
         value={this.state.selectedOption.value}
@@ -340,19 +343,19 @@ handleStartReminders = (e) => {
         </div>
  </div>
   <div className='Section-Sms'>{/*&&**SMS**&&*/ }  
-  <div className={`sectionboxcontact sms${this.state.isCheckedSms}`}>
+  <div className={`sectionboxcontact sms${this.state.isCheckedSms} boxstyle3`}>
          <div class="email-compose-body">
-         <h4 class="c-grey-900 mB-20">Send Sms</h4>
+         <h4 class="c-grey-900 mB-20 boxstyle5">Send Sms</h4>
          <div class="send-header"><div class="form-group">
-         <div class="input-field col s4">
+         <div class="input-field col s6">
           <span class="">Sms_From:</span>
-          <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
+          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.userInfo.UserPhoneNumber}/>
         </div>
-         <div class="input-field col s4">
+         <div class="input-field col s6">
           <span class="">Sms_to:</span>
-          <input id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
+          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.clientInfo.clientPhoneNumber}/>
         </div>
-        <div class=" col s4">
+        <div class=" col s6">
           <span class="">Send first reminder on:</span>
           <DatePicker
         selected={this.state.Sms_StartDate}
@@ -365,7 +368,7 @@ handleStartReminders = (e) => {
       />
         </div>
 
-        <div class="input-field col s4">
+        <div class="input-field col s6">
           <span class="">Then repeat :</span>
           <Select 
          value={this.state.selectedOption.value}

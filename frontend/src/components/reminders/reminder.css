@@ -200,17 +200,15 @@ padding:2px;
 .Section-Email-Sms{
   display:flex; 
   flex-direction: column;
-
   padding:20px; 
+  width:600px ;
 }
 .Section-Email{
   display:flex ;
-  border: 1px solid rgba(4, 5, 5, 0.1);
   margin-bottom:10px; 
 }
 .Section-Sms{
   display:flex ;
-  border: 1px solid rgba(4, 5, 5, 0.1);
 }
 .Section-Comment{
   display:flex ;
@@ -244,8 +242,9 @@ div.mail li.info{
   font-size: 12px;
   font-weight:600;
 	color: #2f70e1;
-	padding: 10px 30px;  
-	box-shadow:	0px 1px 3px 0px rgba(0, 0, 0, .3);
+  padding: 10px 30px;
+  background:#fafafa;
+  margin:3px;    
   cursor: pointer;
   list-style:none 
 }
@@ -260,4 +259,43 @@ div.mail li.info{
 div.mail li.info:active{    
 background-color:#2f70e1;
 color:grey;
+}
+
+.switchbox{
+  display:flex;
+  justify-content:space-between;
+  padding: 10px; 
+  margin-bottom:10px;  
+}
+
+.boxstyle {
+  box-shadow: 0 0 0 .1px rgba(0,0,0,.08), 0 1px 1px 0 rgba(0,0,0,.12);
+  background-color: #fff;
+  border-radius: 6px;
+  padding: .1px 0;
+}
+.boxstyle2 {
+  box-shadow: 0 .1px .1px rgba(0,0,0,0.1), 0 .1px .1px rgba(0,0,0,0.1);
+}
+
+.boxstyle3 {
+  box-shadow: 0px .2px .2px 1px rgba(0,0,0,0.1);
+}
+.boxstyle4 {
+  box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
+  background: #fafafa;
+}
+.boxstyle5 {
+  box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
+ 
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #222;
+  padding-left:20px; 
+}
+
+.Searchbox  {
+  width:200px; 
+  padding:5px; 
+  
 }
