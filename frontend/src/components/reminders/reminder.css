@@ -248,10 +248,7 @@ div.mail li.info{
   color: rgb(10, 10, 10);
 }
 
-div.mail li.info:active{    
-background-color:#2f70e1;
-color:grey;
-}
+
 
 .switchbox{
   display:flex;
@@ -291,3 +288,7 @@ color:grey;
   padding:5px; 
   
 }
+div.mail li.info.invoice--clicked{    
+  background-color:#2f70e1;
+  color:white;
+  }
