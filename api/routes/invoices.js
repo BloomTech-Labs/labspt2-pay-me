@@ -1,9 +1,11 @@
 const express = require('express');
-const invoices = require('../../data/helpers/invoiceHelper');
 const router = express.Router();
 const db = require('../../data/helpers/invoiceHelper');
+const authToken = require('../authorizeToken');
 
-router.get('/', async (req, res) => {
+router.get('/', authToken, async (req, res) => {
+  console.log(req.headers);
+  console.log(res.locals);
     db.getAll()
     .then(invoices => {
         res.status(200).json(invoices);
@@ -12,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // Add invoice 
-router.post('/', async (req, res) => {
+router.post('/', authToken, async (req, res) => {
     const invoice = req.body;
 
     db.insert(invoice)
@@ -25,7 +27,7 @@ router.post('/', async (req, res) => {
 })
 
 // Get an invoice by id
-router.get('/:id', async (req, res) => {
+router.get('/:id', authToken, async (req, res) => {
   const { id } = req.params;
 
   await db.findById(id)
@@ -38,7 +40,7 @@ router.get('/:id', async (req, res) => {
 });
 
 // Update invoice
-router.put('/:id',  async (req, res) => {
+router.put('/:id', authToken, async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -56,7 +58,7 @@ router.put('/:id',  async (req, res) => {
 });
 
 // Delete invoice
-router.delete('/:id', async (req, res) =>{
+router.delete('/:id', authToken, async (req, res) =>{
     const { id } = req.params;
 
     await db.remove(id)

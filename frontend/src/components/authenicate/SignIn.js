@@ -40,7 +40,10 @@ class SignIn extends Component {
     }
 
     componentDidMount() {
-        localStorage.setItem('jwt', this.props.match.params.jwt);
+        if (this.props.match.params.jwt) {
+            localStorage.setItem('jwt', this.props.match.params.jwt);
+            this.forceUpdate();
+        }
     }
 
     render(){

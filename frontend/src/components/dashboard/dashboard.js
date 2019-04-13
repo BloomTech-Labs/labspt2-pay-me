@@ -9,16 +9,17 @@ import { connect } from 'react-redux';
 class Dashboard extends Component {
    componentDidMount() {
        this.props.getInvoices();
-   }
-
-    render() {
-        console.log(this.props)
-        const token = localStorage.getItem('jwt');
+       const token = localStorage.getItem('jwt');
         if (!token || token === 'undefined') {
             return (
                 <Redirect to='/signin' />
             )
         }
+   }
+
+    render() {
+        console.log(this.props)
+        
         const { invoices } = this.props;
         return (
         <div>
