@@ -4,8 +4,7 @@ const db = require('../../data/helpers/invoiceHelper');
 const authToken = require('../authorizeToken');
 
 router.get('/', authToken, async (req, res) => {
-  console.log(req.headers);
-  console.log(res.locals);
+  //res.locals.decodedToken
     db.getAll()
     .then(invoices => {
         res.status(200).json(invoices);
@@ -15,15 +14,15 @@ router.get('/', authToken, async (req, res) => {
 
 // Add invoice 
 router.post('/', authToken, async (req, res) => {
-    const invoice = req.body;
-
-    db.insert(invoice)
-        .then(ids => {
-            res.status(201).json({ mesage: 'Unable to create invoice'})
-        })
-        .catch(err => {
-            res.status(500).json(err);
-        });
+  const invoice = req.body;
+  console.log(invoice);
+  db.insert(invoice)
+      .then(ids => {
+          res.status(201).json({ mesage: 'Unable to create invoice'})
+      })
+      .catch(err => {
+          res.status(500).json(err);
+      });
 })
 
 // Get an invoice by id

@@ -53,7 +53,7 @@ class CreateInvoice extends Component {
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">business_center</i> 
-                                        <input type="text" placeholder="Company" onblur="this.placeholder='Company'" className="white grey-text"  id="company" value={ companyName } onChange={this.ChangeValue}></input>
+                                        <input type="text" placeholder="Company" onblur="this.placeholder='Company'" className="white grey-text"  id="companyName" value={ companyName } onChange={this.ChangeValue}></input>
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">mail</i> 

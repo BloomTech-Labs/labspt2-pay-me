@@ -19,10 +19,11 @@ export const getInvoice = (id) => async dispatch => {
     });
 };
 
-export const addInvoice = (invoice) => {
+export const addInvoice = async (invoice) => {
+    const res = await axios.post(`${serverLoc}/api/invoices`);
     return {
         type: ADD_INVOICE,
-        payload: invoice
+        payload: res.data
     };
 };
 
