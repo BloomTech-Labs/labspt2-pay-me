@@ -8,7 +8,7 @@ const Nav = () => {
     <nav className="transparent z-depth-0" style={{paddingTop: 10}}>
         <div className="container">
             <Link to="/" className="brand-logo"><img src={ logo }></img></Link>
-    
+            
             <ul className="right">
                 <li><NavLink to ="/">Home</NavLink></li>
                 <li><NavLink to ="/contact">Contact Us</NavLink></li>

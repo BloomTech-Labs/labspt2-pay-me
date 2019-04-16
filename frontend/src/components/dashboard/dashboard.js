@@ -23,9 +23,10 @@ class Dashboard extends Component {
         const { invoices } = this.props;
         return (
         <div>
+            
             <div className="row">
                 <Sidenav />
-                
+               
                 <div className="col s10 workspace">
                     <div className="dashboard-container">
                         <InvoiceList invoices={invoices} />
