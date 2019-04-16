@@ -16,8 +16,8 @@ module.exports = {
     clients.integer('user_id').unsigned().notNullable().references('id').inTable('users');
 */
 
-async function getAll() {
-    return await db('clients');
+async function getAll(user_id) {
+    return await db('clients').where('user_id', user_id);
 }
 
 async function insert(client) {

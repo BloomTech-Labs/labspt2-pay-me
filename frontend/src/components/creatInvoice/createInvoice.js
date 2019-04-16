@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import Sidenav from '../nav/Sidenav';
 import '../../Dashboard.css';
 
@@ -29,6 +29,12 @@ class CreateInvoice extends Component {
    }
 
     render(){
+        const token = localStorage.getItem('jwt');
+        if (!token || token === 'undefined') {
+            return (
+                <Redirect to='/signin' />
+            )
+        }
         const { clientName, clientEmail, phoneNumber, companyName } = this.state;
         return (
 
@@ -47,7 +53,7 @@ class CreateInvoice extends Component {
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">business_center</i> 
-                                        <input type="text" placeholder="Company" onblur="this.placeholder='Company'" className="white grey-text"  id="company" value={ companyName } onChange={this.ChangeValue}></input>
+                                        <input type="text" placeholder="Company" onblur="this.placeholder='Company'" className="white grey-text"  id="companyName" value={ companyName } onChange={this.ChangeValue}></input>
                                     </div>
                                     <div className="input-field">
                                         <i class="material-icons prefix">mail</i> 

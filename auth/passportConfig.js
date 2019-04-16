@@ -26,7 +26,6 @@ passport.use(new GoogleStrategy({
         await usersHelper.findByUsername(profile.displayName)
         .then(async user => {
             if (user.length > 0) {
-                console.log(`user: ${user}`);
                 done(null, user);
             }
             else {
@@ -38,7 +37,6 @@ passport.use(new GoogleStrategy({
                     email: profile.emails[0].value,
                     plan: 'none'})
                 .then(newUser => {
-                    console.log(newUser);
                     done(null, newUser);
                 })
             }

@@ -1,4 +1,4 @@
-const JWT = require('jsonwebtoken');
+const jwt = require('jsonwebtoken');
 
 module.exports = {
     generateToken,
@@ -17,7 +17,7 @@ function generateToken(user) {
             expiresIn: '30d'
         }
 
-        return JWT.sign(payload, process.env.JWT_SECRET, options)
+        return jwt.sign(payload, process.env.JWT_SECRET, options)
     }  
     else {
         return 'Invalid user.'

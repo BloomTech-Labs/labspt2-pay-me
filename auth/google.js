@@ -10,6 +10,7 @@ router.use(cors());
 router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
 
 router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {
+    console.log(req.user[0]);
     jwt = JWT.generateToken(req.user[0]);
     res.redirect('http://localhost:3000/signin/' + jwt);
 });
