@@ -3,7 +3,7 @@ import { Link, Redirect } from 'react-router-dom';
 import Sidenav from '../nav/Sidenav';
 import '../../Dashboard.css';
 import axios from 'axios';
-
+import serverLoc from '../../serverLoc';
 
 class CreateInvoice extends Component {
     constructor() {
@@ -33,7 +33,7 @@ class CreateInvoice extends Component {
     company_name: this.state.company_name,
     notes: this.state.notes
     }
-    axios.post('http://localhost:5000/api/invoices/create', newInvoice)
+    axios.post(`${serverLoc}/api/invoices/create`, newInvoice)
     .then(res => this.setState ({
        create: res.data,
        client_name: '',
@@ -41,8 +41,7 @@ class CreateInvoice extends Component {
        phone_number: '',
        company_name: '',
        notes: ''
-    })).
-    then(err => console.log(err))
+    })).then(err => console.log(err))
 }
 
 
@@ -54,7 +53,7 @@ class CreateInvoice extends Component {
 
    singleFileUploadHandler = ( e ) => {
     e.preventDefault();
-    const endpoint ='http://localhost:5000/api/invoices/create';
+    const endpoint =`${serverLoc}/api/invoices/create`;
     const data = new FormData();
         
   data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );

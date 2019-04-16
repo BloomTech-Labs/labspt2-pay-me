@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {CardNumberElement, CardExpiryElement, CardCVCElement, injectStripe} from 'react-stripe-elements';
 import {NavLink} from "react-router-dom";
+import serverLoc from '../../serverLoc';
 
 /*
 Kendra Williams - 3/4/16
@@ -34,7 +35,7 @@ class PayInvoice extends Component {
       let {token} = await this.props.stripe.createToken({name: "Name"});
       console.log(token)
       //create token for payment submission
-      let response = await fetch("http://localhost:5000/charge/payment", {
+      let response = await fetch(`${serverLoc}/charge/payment`, {
          method: "POST",
          headers: {"Content-Type": "text/plain"},
          body: token.id,

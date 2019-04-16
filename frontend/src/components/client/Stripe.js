@@ -2,6 +2,7 @@ import React from "react";
 import {Elements, StripeProvider} from 'react-stripe-elements';
 import axios from "axios";
 import PayInvoice from "./PayInvoice";
+import serverLoc from '../../serverLoc';
 
 class Stripe extends React.Component {
    constructor(props) {
@@ -18,7 +19,7 @@ class Stripe extends React.Component {
 
    getInvoice = id => {
       axios
-         .get(`http://localhost/api/invoices/${id}`)
+         .get(`${serverLoc}/api/invoices/${id}`)
          .then(response => {
             console.log(response.data)
             this.setState ({invoice: response.data});
