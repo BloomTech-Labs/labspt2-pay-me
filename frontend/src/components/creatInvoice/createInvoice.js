@@ -9,12 +9,12 @@ class CreateInvoice extends Component {
     constructor() {
         super()
         this.state= {
-            client_name:'',
+            client_name: '',
             email: '',
-            phone_number:'',
-            company_name:'',
-            inv_url: null,
-            
+            phone_number: '',
+            company_name: '',
+            notes: '',
+            selectedFile: null,     
         };
     }
    
@@ -26,26 +26,80 @@ class CreateInvoice extends Component {
  
    handleSubmit = e => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/invoices/', {
-        invoice_number: this.state.invoice_number,
-        client_name: this.state.client_name,
-        company_name: this.state.company_name,
-        email: this.state.email,
-        phone_number: this.state.phone_number,  
-    })
-    .then(res => {
-        console.log(res.data);
-    })
+    const newInvoice = {
+    client_name: this.state.client_name,
+    email: this.state.email,
+    phone_number: this.state.phone_number,
+    company_name: this.state.company_name,
+    notes: this.state.notes
+    }
+    axios.post('http://localhost:5000/api/invoices/create', newInvoice)
+    .then(res => this.setState ({
+       create: res.data,
+       client_name: '',
+       email: '',
+       phone_number: '',
+       company_name: '',
+       notes: ''
+    })).
+    then(err => console.log(err))
+}
 
-   }
+
    singleFileChangedHandler = ( event ) => {
     this.setState({
      selectedFile: event.target.files[0]
     });
    };
-   
+
+   singleFileUploadHandler = ( e ) => {
+    e.preventDefault();
+    const endpoint ='http://localhost:5000/api/invoices/create';
+    const data = new FormData();
+        
+  data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );
+  axios.post( endpoint, data, {
+    invoice_number: this.state.invoice_number,
+    client_name: this.state.client_name,
+    company_name: this.state.company_name,
+    email: this.state.email,
+    phone_number: this.state.phone_number, 
+    notes: this.state.notes,
+
+      headers: {
+       'accept': 'application/json',
+       'Accept-Language': 'en-US,en;q=0.8',
+       'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+      }
+      
+     })
+      .then( ( response ) => {
+  if ( 200 === response.status ) {
+        // If file size is larger than expected.
+        if( response.data.error ) {
+         if ( 'LIMIT_FILE_SIZE' === response.data.error.code ) {
+          console.log( 'Max size: 4MB');
+         } else {
+          console.log( response.data );
+  // If not the given file type
+          console.log( response.data.error);
+         }
+        } else {
+         // Success
+         let fileName = response.data;
+         console.log( 'fileName', fileName );
+         console.log( 'File Uploaded Successfuly');
+        }
+       }
+      }).catch( ( error ) => {
+      // If another error
+      console.log( error );
+     });
+  };
+
     render(){
         const { client_name, email, phone_number, company_name, notes } = this.state;
+        console.log(this.state)
         return (
 
             <div>
@@ -55,7 +109,7 @@ class CreateInvoice extends Component {
             <div className="col s10 workspace-white"> 
                 <div className="col offset-m3 create-invoice-container">
                 <h3 className="center">Add New Invoice</h3>
-                                <form onSubmit={ this.handleSubmit } className="create-invoice-form z-depth-0">
+                                <form className="create-invoice-form z-depth-0">
                                 <p className="center white-text">Complete the form below to create a new invoice</p>
                                     <div className="input-field">
                                     <i class="material-icons prefix">person</i>
@@ -83,14 +137,14 @@ class CreateInvoice extends Component {
                                     <h6>Upload PDF invoice</h6>
                                         <div className="btn blue"><i className="material-icons white-text left">picture_as_pdf</i>
                                             <span>File</span>
-                                            <input type="file" />
+                                            <input type="file" onChange={this.singleFileChangedHandler} />
                                         </div>
-                                            <div class="file-path-wrapper">
-                                            <input class="file-path validate" type="text" />
+                                            <div className="file-path-wrapper">
+                                            <input className="file-path validate" type="text" />
                                          </div>
                                     </div>
                                     <div className="input-field center">
-                                        <button className="btn-large blue add-btn" stle><i className="material-icons white-text left">add_circle</i>Create New Invoice</button>
+                                        <button className="btn-large blue add-btn" onClick={ this.singleFileUploadHandler }><i className="material-icons white-text left">add_circle</i>Create New Invoice</button>
                                     </div>
                             </form>
                         </div>

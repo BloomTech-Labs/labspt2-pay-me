@@ -24,12 +24,7 @@ server.use(function(req, res, next) {
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
 });
-/* AWS Profile File Storing */
-const s3 = new aws.S3({
-    accessKeyId: 'AKIA3I23NCTNRK5XT3F4',
-    secretAccessKey: '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',
-    Bucket: ''
-})
+
 
 /*
 server.use(cookieSession({

@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../../data/helpers/invoiceHelper');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
+const multer = require('multer');
+const path = require('path');
+
 
 // Get a list of invoices
 router.get('/', async (req, res) => {
@@ -9,22 +14,6 @@ router.get('/', async (req, res) => {
         res.status(200).json(invoices);
     })
     .catch(err => res.status(500).json(err))
-});
-
-// Add invoice 
-router.post('/', async (req, res) => {
-  const data = req.body;
-  const invoice = {
-      invoice_number: data.invoice_number,
-      company_name: data.company_name,
-      inv_url: data.inv_url,
-      notes: '', // This needs to be fixed on the client side.
-      client_id: data.client_id,
-  };
-
-  const invoiceID = await invoices.insert(invoice);
-  console.log(invoiceID);
-  res.send(`Testing ${invoiceID}`);
 });
 
 // Get an invoice by id
@@ -60,19 +49,23 @@ router.put('/:id',  async (req, res) => {
 
 // Upload PDF invoice to AWS
 
-/**
- * Single Upload
- */
+/* AWS Profile File Storing */
+const s3 = new aws.S3({
+	accessKeyId: 'AKIA3I23NCTN3R2ZB2O2',
+	secretAccessKey: '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',
+	Bucket: 'paymeawsbucket'
+});
+
 const profileImgUpload = multer({
   storage: multerS3({
    s3: s3,
-   bucket: '',
+   bucket: 'paymeawsbucket',
    acl: 'public-read',
    key: function (req, file, cb) {
     cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
    }
   }),
-  limits:{ fileSize: 2000000 }, // In bytes: 2000000 bytes = 2 MB
+  limits:{ fileSize: 4000000 }, // In bytes: 4000000 bytes = 4 MB
   fileFilter: function( req, file, cb ){
    checkFileType( file, cb );
   }
@@ -86,7 +79,7 @@ const profileImgUpload = multer({
 */
 function checkFileType( file, cb ){
   // Allowed ext
-  const filetypes = /pdf/; // const filetypes = /jpeg|jpg|png|gif/;
+  const filetypes = /pdf/;
   // Check ext
   const extname = filetypes.test( path.extname( file.originalname ).toLowerCase());
   // Check mime
@@ -94,14 +87,26 @@ function checkFileType( file, cb ){
  if( mimetype && extname ){
    return cb( null, true );
   } else {
-   cb( 'Error: Images Only!' );
+   cb( 'Error: Pdf Only!' );
   }
  }
 
- // Upload PDF Route
-router.post( '/invoices-pdf-upload', ( req, res ) => {
+ // Add invoice and PDF 
+router.post('/create', (req, res) => {
+  const invoice = req.body;
+  console.log(req.body)
+ 
+  db.insert(invoice)
+  .then(ids => {
+      res.status(201).json({message: ids});
+  })
+  .catch(err => {
+      res.status(500).json(err)
+  })
+ 
+/*
   profileImgUpload( req, res, ( error ) => {
-    // console.log( 'requestOkokok', req.file );
+    console.log( 'requestOkokok', req.file );
     // console.log( 'error', error );
     if( error ){
      console.log( 'errors', error );
@@ -123,6 +128,7 @@ router.post( '/invoices-pdf-upload', ( req, res ) => {
      }
     }
    });
+  */
   });
 
 // Delete invoice

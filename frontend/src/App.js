@@ -12,7 +12,6 @@ import InvoiceDetails from './components/Invoice/InvoiceDetails';
 import Billing from './components/billing/Billing';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/settings/Settings';
-
 // import AddInvoice from './components/AddInvoice';
 
 /*
