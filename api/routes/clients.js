@@ -5,15 +5,10 @@ const auth = require('../authorizeToken');
 const clientsHelper = require('../../data/helpers/clientsHelper');
 
 router.get('/', auth, async (req, res) => {
-    if (res.locals.error) {
-        res.json({message: error});
-    }
-    else {
-        if (res.locals.decodedToken) {
-            const token = res.locals.decodedToken;
-            const clients = await clientsHelper.findById(token.subject);
-            res.json(clients);
-        }
+    if (res.locals.decodedToken) {
+        const token = res.locals.decodedToken;
+        const clients = await clientsHelper.findById(token.subject);
+        res.json(clients);
     }
 });
 

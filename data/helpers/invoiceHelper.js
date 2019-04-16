@@ -6,6 +6,7 @@ module.exports = {
     remove,
     getAll,
     findById,
+    findByClientId,
 };
 
 async function getAll() {
@@ -15,9 +16,7 @@ async function getAll() {
 };
 
 async function insert(invoice) {
-    return await db('invoices')
-        .insert(invoice)
-        .into('invoices');
+    return await db('invoices').insert(invoice);
 };
 
 async function update(id, changes) {
@@ -31,6 +30,10 @@ async function findById(id) {
         .where('id', id)
         .first()
 };
+
+async function findByClientId(client_id) {
+    return await db('invoices').where('client_id', client_id);
+}
 
 async function remove(id) {
     return db('invoices')
