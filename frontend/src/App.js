@@ -40,8 +40,6 @@ class App extends Component {
         <Route exact path="/payinvoice/:id" component={PayInvoice} />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
         {<Route exact path="/reminders" component={Reminders} />}
-        <Route exact path="/payinvoice/:id" component={ClientStripe} />
-        <Route exact path="/invoices/add" component={AddInvoice} />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
         {/* <Route exact path="/reminders" component={Reminders} />*/}
       </div>

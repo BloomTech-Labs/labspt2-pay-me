@@ -36,7 +36,7 @@
     "react-select": "^2.4.2",
     "sqlite": "^3.0.2",
     "stripe": "^6.28.0",
-    "timerjobs": "^1.4.2"
+    "timerjobs": "^1.4.2",
     "url": "^0.11.0"
   },
   "devDependencies": {
