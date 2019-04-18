@@ -109,9 +109,8 @@ router.post('/create', (req, res) => {
       res.status(500).json(err)
   })
  
-/*
   profileImgUpload( req, res, ( error ) => {
-    console.log( 'requestOkokok', req.file );
+    console.log( 'File upload successful', req.file );
     // console.log( 'error', error );
     if( error ){
      console.log( 'errors', error );
@@ -132,8 +131,7 @@ router.post('/create', (req, res) => {
       } );
      }
     }
-   });
-  */
+   }); 
   });
 
 // Delete invoice

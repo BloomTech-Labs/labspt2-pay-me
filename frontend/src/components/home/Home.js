@@ -27,7 +27,7 @@ const Home = () => {
                                     <i className="material-icons large blue-text">
                                         description
                                     </i>  
-                                    <h5 className="card-text">Quickly generate invoices</h5>
+                                    <h5 className="card-text grey-text darken-4">Quickly generate invoices</h5>
                                     <p className="card-text grey-text darken-4">Quickly create invoices that can be store as PDF and emailed to clients</p>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@ const Home = () => {
                                     <i className="material-icons large blue-text">
                                         monetization_on
                                     </i>  
-                                    <h5 className="card-text">Accept Payments Online</h5>
+                                    <h5 className="card-text grey-text darken-4">Accept Payments Online</h5>
                                     <p className="card-text grey-text darken-4">No more waiting in line at the bank. Clients can pay  you securly online with the click of a button</p>
                                 </div>
                             </div>
@@ -45,7 +45,7 @@ const Home = () => {
                                     <i className="material-icons large blue-text">
                                         notifications
                                     </i>  
-                                    <h5 className="card-text">Set Payment Reminders</h5>
+                                    <h5 className="card-text grey-text darken-4">Set Payment Reminders</h5>
                                     <p className="card-text grey-text darken-4">Set up up automatice payment reminders to alert your client whenever payment is due</p>
                                 </div>
                             </div>

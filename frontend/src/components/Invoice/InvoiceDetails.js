@@ -26,7 +26,7 @@ class InvoiceDetails extends Component {
     const { id, client_name, company_name, email, phone } = this.state;
     return (
         <div className="background">
-            <div className="container">
+            <div className="container invoice-details-container">
                 <div className="col s12">
                     <div className="input-field center">
                     <Link to="/dashboard">

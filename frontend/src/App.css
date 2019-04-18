@@ -5,7 +5,7 @@
 
 .background {
   background: #209cd7;
-  height: 800px;
+  height: 100%;
 }
 
 .btn-call-to-action {
@@ -27,8 +27,9 @@
 }
 
 .features {
-  margin-top: 100px;
+  background-color: #fff;
   height: 500px;
+  border: 1px solid transparent;
 }
 
 .jump-link {
@@ -89,4 +90,21 @@ label {
 
 .pg-inverse{
   color:black;
+}
+.signup-container {
+  border: 1px solid transparent;
+  background: #209cd7;
+}
+
+#loading {
+  animation: round 2s linear infinite;
+}
+
+@keyframes round {
+  from{transform: rotate(0deg)}
+  to{transform: rotate(360deg)}
+}
+
+.error-text {
+  font-size: 20px;
 }
