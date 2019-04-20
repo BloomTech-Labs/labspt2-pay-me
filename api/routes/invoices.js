@@ -31,7 +31,7 @@ const upload = multer({
   })
 })
 
-const profileImgUpload = multer({
+const pdfUpload = multer({
   storage: multerS3({
    s3: s3,
    bucket: 'paymeawsbucket',
@@ -44,7 +44,7 @@ const profileImgUpload = multer({
   fileFilter: function( req, file, cb ){
    checkFileType( file, cb );
   }
- }).single('pdfFile');
+ }).single('pdf');
 
 /**
 * Check File Type
@@ -108,29 +108,31 @@ router.put('/:id', authToken, async (req, res) => {
   })     
 });
 
-// Upload PDF invoice to AWS
-
-
-
  // Add invoice and PDF 
-router.post('/create', upload.single('pdf'), (req, res) => {
-  // I need to use the client_name to get the client_id
-  console.log(req.file);
-  const invoice = JSON.parse(req.body.invoice);
+router.post('/create', pdfUpload, (req, res) => {
+  let invoice = JSON.parse(req.body.invoice);
   clientsHelper.getIdByName(invoice.client_name)
   .then(id => {
-    console.log(id);
-  }) 
-  console.log(invoice);
-  invoice.inv_url = req.file.location;
-  console.log(invoice);
-  db.insert(invoice)
-  .then(ids => {
-      res.status(201).json({message: ids});
+    invoice = {
+      client_id: id[0].id,
+      invoice_number: invoice.invoice_number,
+      company_name: invoice.company_name,
+      notes: invoice.notes,
+      inv_url: req.file.location,
+    }
+    console.log(invoice);
+    db.insert(invoice)
+      .then(ids => {
+          res.status(201).json({message: ids});
+      })
+      .catch(err => {
+          console.log(err);
+          res.status(500).json(err)
+      })
   })
   .catch(err => {
-      console.log(err);
-      res.status(500).json(err)
+    console.log(err);
+    res.status(500).json(err);
   })
 
 });
