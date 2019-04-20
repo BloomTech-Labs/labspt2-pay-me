@@ -55,23 +55,25 @@ class CreateInvoice extends Component {
     e.preventDefault();
     const endpoint =`${serverLoc}/api/invoices/create`;
     const data = new FormData();
+    const invoice = {
         
-  data.append( 'profileImage', this.state.selectedFile, this.state.selectedFile.name );
+    }
+    data.append('invoice', JSON.stringify({
+        invoice_number: this.state.invoice_number,
+        client_name: this.state.client_name,
+        company_name: this.state.company_name,
+        email: this.state.email,
+        phone_number: this.state.phone_number, 
+        notes: this.state.notes,
+    }));
+    data.append( 'pdf', this.state.selectedFile, this.state.selectedFile.name );
   axios.post( endpoint, data, {
-    invoice_number: this.state.invoice_number,
-    client_name: this.state.client_name,
-    company_name: this.state.company_name,
-    email: this.state.email,
-    phone_number: this.state.phone_number, 
-    notes: this.state.notes,
-
-      headers: {
-       'accept': 'application/json',
-       'Accept-Language': 'en-US,en;q=0.8',
-       'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
-      }
-      
-     })
+        headers: {
+        'accept': 'application/json',
+        'Accept-Language': 'en-US,en;q=0.8',
+        'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+        }
+    })
       .then( ( response ) => {
   if ( 200 === response.status ) {
         // If file size is larger than expected.
@@ -115,7 +117,7 @@ class CreateInvoice extends Component {
             <div className="col s10 workspace-white"> 
                 <div className="col offset-m3 create-invoice-container">
                 <h3 className="center">Add New Invoice</h3>
-                                <form className="create-invoice-form z-depth-0">
+                                <form className="create-invoice-form z-depth-0" enctype='multipart/form-data'>
                                 <p className="center white-text">Complete the form below to create a new invoice</p>
                                     <div className="input-field">
                                     <i class="material-icons prefix">person</i>

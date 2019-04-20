@@ -6,6 +6,7 @@ module.exports = {
     remove,
     getAll,
     findById,
+    getIdByName
 };
 
 /* Clients model 
@@ -18,6 +19,10 @@ module.exports = {
 
 async function getAll(user_id) {
     return await db('clients').where('user_id', user_id);
+}
+
+async function getIdByName(client_name) {
+    return await db('clients').where('client_name', client_name).select('id');
 }
 
 async function insert(client) {
