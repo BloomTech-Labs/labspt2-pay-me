@@ -1,8 +1,8 @@
 const EmailSmsApiConfig =require('./smsEmailSenderApi');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
-const ReminderTimer = require('./TimerReminders')
-const db = require('../dbConfig');
+//const ReminderTimer = require('./TimerReminders')
+const db = require('../../dbConfig');
 
 const smsData = EmailSmsApiConfig.smsHandler;
 const emailData = EmailSmsApiConfig.emailHandler;

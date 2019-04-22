@@ -22,18 +22,16 @@ router.post('/signup', async (req, res) => {
 
         // Now we have to chain a couple promises...
         // Attempt to insert the user into the database.
-        await usersHelper.insert(user)
-        .then(async newUser => {
-            console.log(newUser)
+        usersHelper.insert(user)
+        .then(newUser => {
             // If there's an error number on the newUser object then something went wrong.
-            if(newUser.message.errno) {
-                console.log(newUser)
+            if(newUser.message.errno) { 
                 // Send back the error.
                 res.status(400).json(newUser.message);
             }
             // Otherwise the user was created so let's get all the information available for it.
             else {
-                await usersHelper.findById(newUser.user_id)
+                usersHelper.findById(newUser.id)
                 .then(data => {
                     // Generate us a JWT to send to the client to store for sessions.
                     const token = JWT.generateToken(data[0]);
@@ -48,18 +46,23 @@ router.post('/signup', async (req, res) => {
     }
 });
 
-router.post('/login', async (req, res) => {
+router.post('/login', (req, res) => {
     const credentials = req.body;
-    if (credentials.username && credentials.password) {
-        await usersHelper.findByUsername(credentials)
-        .then(async user => { 
+    console.log(credentials)
+    if (credentials.email && credentials.password) {
+        usersHelper.findByEmail(credentials.email)
+        .then(user => { 
+            console.log(user[0]);
             if (!user[0] || !bcrypt.compareSync(credentials.password, user[0].password)) {
                 return res.status(401).json({error: 'Invalid username or password.'})
             }
             else {
                 const token = JWT.generateToken(user[0]);
-                const foundUser = await usersHelper.findById(user[0].id);
-                return res.status(200).json({user: foundUser, token: token});
+                usersHelper.findById(user[0].id)
+                .then(foundUser => {
+                    return res.status(200).json({user: foundUser, token: token});
+                })
+                
             }
         })
     }

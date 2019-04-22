@@ -1,11 +1,23 @@
 import React, { Component } from "react";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, Redirect } from 'react-router-dom';
 import '../../Dashboard.css';
 import logo from '../../img/logo.png';
 
 class Sidenav extends Component {
+
+    logout = () => {
+        localStorage.removeItem('jwt');
+        this.forceUpdate();
+    }
+
     render() {
-     
+        const token = localStorage.getItem('jwt');
+        if (!token || token === 'undefined') {
+            return (
+                <Redirect to='/signin' />
+            )
+        }
+
         return (
             <div className="col s2 blue">
                 <div className="white-text sidebar fixed">
@@ -21,6 +33,8 @@ class Sidenav extends Component {
                             <Link to="/create">
                                 <button className="btn blue add-btn"><i className="material-icons left">add_circle</i>New Invoice</button>
                             </Link>
+                                <br />
+                                <button className="btn blue add-btn" onClick={this.logout}>Logout</button>
                         </div>
                 </div>
             </div>

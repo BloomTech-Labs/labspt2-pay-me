@@ -1,4 +1,4 @@
-const db = require('../dbConfig.js');
+const db = require('../dbConfig');
 
 module.exports = {
     insert,
@@ -6,18 +6,17 @@ module.exports = {
     remove,
     getAll,
     findById,
+    findByClientId,
 };
 
 async function getAll() {
     return await db('clients')
-        .leftJoin('invoices', 'client_id', 'clients.id')
-        .orderBy('invoices.invoice_number', 'desc');   
+    .leftJoin('invoices', 'client_id', 'clients.id')
+    .orderBy('invoices.invoice_number', 'desc');   
 };
 
 async function insert(invoice) {
-    return await db('invoices')
-        .insert(invoice)
-        .into('invoices');
+    return await db('invoices').insert(invoice);
 };
 
 async function update(id, changes) {
@@ -28,9 +27,13 @@ async function update(id, changes) {
 
 async function findById(id) {
     return await db('invoices')
-        .where('id', id)
-        .first()
+    .where('id', id)
+    .first()
 };
+
+async function findByClientId(client_id) {
+    return await db('invoices').where('client_id', client_id);
+}
 
 async function remove(id) {
     return db('invoices')

@@ -11,6 +11,10 @@ const reminders = require('./routes/reminders');
 const authLocal = require('../auth/local');
 const authGoogle = require('../auth/google');
 const charge = require('./routes/charge');
+const aws = require('aws-sdk');
+const multerS3 = require('multer-s3');
+const multer = require('multer');
+const path = require('path');
 
 const server = express();
 
