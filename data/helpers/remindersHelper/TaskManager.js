@@ -15,21 +15,40 @@ require('dotenv').config();
 
 
 
-const getInvoicesforClientsbyUserId =  async (req, res)=>{
+const getInvoicesbyClientsbyUserId =  async (req, res)=>{
     const {id} = await req.params;
-      await db.select('us.id','us.username','us.email',
-     'us.phonenumber','iv.invoice_number','iv.company_name'
-    ,'iv.inv_url','iv.client_id','cl.id','cl.client_name','cl.email','cl.phone_number','cl.user_id',)
-       .from('tblUsr as us').where('us.id', id)
-       .leftJoin('tblClt as cl','us.id' ,'cl.user_id')
-       .leftJoin('tblInvs as iv','cl.id' ,'iv.client_id')
-       //.orderBy('cl.name', 'desc')
-      .then(data =>{
-        res.status(200).json(data)
+ 
+      const data_user =await db('users').where('user_id',id).map(item=>{
+        return item
       })
-      .catch(err =>{
-        res.status(500).json(err)
+    
+      const filtered_clients = await db('clients').where('user_id',id).map(item=>{
+        return item
+      });
+    
+      const data_invoices =await db('invoices').map(item=>{
+        return item
       })
+      
+      data_invoices.map(invoice => {
+        for(let i = 0; i < filtered_clients.length; i++) {
+            if (invoice.client_id === filtered_clients[i].client_id) {
+              filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
+            }
+        }
+    }) ;
+const data = {
+      user:data_user,
+      client:filtered_clients
+    };
+   if(data){
+    (res.status(200).json(data)
+    )
+    .catch(err =>{
+      res.status(500).json(err)
+    })
+   }
+      
   }      
 
   const StopReminder = async (req,res) =>{
@@ -125,7 +144,7 @@ const getInvoicesforClientsbyUserId =  async (req, res)=>{
       }
 
 module.exports ={
-        getInvoicesforClientsbyUserId,
+    getInvoicesbyClientsbyUserId,
         StopReminder,
         getAllReminders,
         SendReminders,
