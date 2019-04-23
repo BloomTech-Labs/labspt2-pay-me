@@ -9,10 +9,10 @@ module.exports = {
     findByClientId,
 };
 
-async function getAll() {
-    return await db('clients')
+async function getAll(userID) {
+    return await db('clients').where('user_id', userID)
     .leftJoin('invoices', 'client_id', 'clients.id')
-    .orderBy('invoices.invoice_number', 'desc');   
+    .orderBy('invoices.invoice_number', 'desc');  
 };
 
 async function insert(invoice) {
