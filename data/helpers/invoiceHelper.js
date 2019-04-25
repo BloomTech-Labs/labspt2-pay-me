@@ -7,12 +7,17 @@ module.exports = {
     getAll,
     findById,
     findByClientId,
+    test
 };
+
+async function test() {
+    
+}
 
 async function getAll(userID) {
     return await db('clients').where('user_id', userID)
-    .leftJoin('invoices', 'client_id', 'clients.id')
-    .orderBy('invoices.invoice_number', 'desc');  
+    .leftJoin('invoices', 'client_id', 'clients.id');
+    //.orderBy('invoices.invoice_number', 'desc');  
 };
 
 async function insert(invoice) {

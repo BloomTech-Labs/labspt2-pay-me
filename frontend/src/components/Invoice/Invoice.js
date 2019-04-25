@@ -12,7 +12,7 @@ class Invoice extends Component {
         };
 
         render() {
-        const { id, client_name, company_name, email, phone_number } = this.props.invoice;
+        const { id, client_name, company_name, email, phone_number, inv_url } = this.props.invoice;
         return (
             <div className="card white z-depth-1">
             <div className="card-content">
@@ -32,7 +32,7 @@ class Invoice extends Component {
                 <p className="invoice-text">{email}</p>
                 <p className="invoice-text">{phone_number}</p>
                 <div className="pdf-icon right">
-                    <a href="#">
+                    <a href={inv_url}>
                     <i className="far fa-file-pdf" />
                     </a>
                 </div> 

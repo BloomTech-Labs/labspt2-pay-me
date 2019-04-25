@@ -24,6 +24,8 @@ router.post('/signup', async (req, res) => {
         // Attempt to insert the user into the database.
         usersHelper.insert(user)
         .then(newUser => {
+            console.log(newUser);
+            console.log(newUser.id);
             // If there's an error number on the newUser object then something went wrong.
             if(newUser.message.errno) { 
                 // Send back the error.

@@ -10,11 +10,12 @@ class InvoiceDetails extends Component {
         company_name: '',
         phone: '',
         email: '',
-        inv_url: ''
+        inv_url: '',
+        notes: ''
     };
     componentWillReceiveProps(nextProps, nextState){
-        const {id, company_name} = nextProps.invoice;
-        this.setState({ id, company_name})
+        const {id, company_name, phone, email, inv_url, notes} = nextProps.invoice;
+        this.setState({ id, company_name, phone, email, inv_url, notes})
     }
 
     componentDidMount() {
@@ -23,7 +24,8 @@ class InvoiceDetails extends Component {
     }
 
     render () {
-    const { id, client_name, company_name, email, phone } = this.state;
+    const { id, client_name, company_name, email, phone, notes } = this.state;
+    console.log(this.state);
     return (
         <div className="background">
             <div className="container">
@@ -41,7 +43,7 @@ class InvoiceDetails extends Component {
                         <p className="invoice-text">{email}</p>
                         <p className="invoice-text">{phone}</p>
                         <p className="invoice-text-details">
-                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                            {notes}
                         </p>
                     </div>
                     </div>

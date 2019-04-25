@@ -14,7 +14,9 @@ class CreateInvoice extends Component {
             phone_number: '',
             company_name: '',
             notes: '',
-            selectedFile: null,     
+            invoice_number: '',
+            selectedFile: null,
+            created: false,
         };
     }
    
@@ -24,28 +26,7 @@ class CreateInvoice extends Component {
         })
     };
  
-   handleSubmit = e => {
-    e.preventDefault();
-    const newInvoice = {
-    client_name: this.state.client_name,
-    email: this.state.email,
-    phone_number: this.state.phone_number,
-    company_name: this.state.company_name,
-    notes: this.state.notes
-    }
-    axios.post(`${serverLoc}/api/invoices/create`, newInvoice)
-    .then(res => this.setState ({
-       create: res.data,
-       client_name: '',
-       email: '',
-       phone_number: '',
-       company_name: '',
-       notes: ''
-    })).then(err => console.log(err))
-}
-
-
-   singleFileChangedHandler = ( event ) => {
+    singleFileChangedHandler = ( event ) => {
     this.setState({
      selectedFile: event.target.files[0]
     });
@@ -74,6 +55,13 @@ class CreateInvoice extends Component {
         }
     })
     .then( ( response ) => {
+        if (response.status === 201) {
+            //Display to the user that the invoice was successfully created.
+            console.log(response);
+            this.setState({
+                created: true,
+            })
+        }
     if ( 200 === response.status ) {
         // If file size is larger than expected.
         if( response.data.error ) {
@@ -104,13 +92,13 @@ class CreateInvoice extends Component {
                 <Redirect to='/signin' />
             )
         }
-        
-        const { client_name, email, phone_number, company_name, notes } = this.state;
+        const { client_name, email, phone_number, company_name, notes, invoice_number, created } = this.state;
         console.log(this.state)
         return (
-
             <div>
+                
             <div className="row">
+            {created ? <h5 className="s10">Invoice successfully created.</h5> : <></>}
                 <Sidenav />
             
             <div className="col s10 workspace-white"> 
@@ -134,9 +122,11 @@ class CreateInvoice extends Component {
                             <i class="material-icons prefix">phone</i> 
                             <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white grey-text"  id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input>
                         </div>
+                        <div className="input-field">
+                            <input type="number" placeholder="Invoice Number" onblur="this.placeholder='Invoice Number'" className="white grey-text" id="invoice_number" value={invoice_number} onChange={this.ChangeValue}></input>                        </div>
                         <div class="row">
                         <div class="input-field col s12">
-                            <textarea id="notes" class="materialize-textarea white" data-length="120" style={{height: "6rem"}} placeholder="Notes" value={ notes }>  </textarea>
+                            <textarea id="notes" class="materialize-textarea white" data-length="120" style={{height: "6rem"}} placeholder="Notes" value={ notes } onChange={this.ChangeValue}>  </textarea>
                             <label for="textarea2">Textarea</label>
                         </div>
                         </div>

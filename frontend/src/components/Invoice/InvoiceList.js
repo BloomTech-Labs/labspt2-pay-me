@@ -7,11 +7,15 @@ const InvoiceList = ({ invoices }) => {
     return (
         <div className="invoice-list-container">
            {invoices && invoices.map(invoice => {
-               return (
-               
-                    <Invoice invoice={invoice} key={invoice.id} />  
-               
-               )
+               if (invoice.id === null) {
+                   return (<></>)
+               }
+               else {
+                return (
+                        <Invoice invoice={invoice} key={invoice.id} />  
+                
+                )
+                }
            })}
         </div>
     )
