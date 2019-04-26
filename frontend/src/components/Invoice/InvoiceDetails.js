@@ -25,7 +25,6 @@ class InvoiceDetails extends Component {
 
     render () {
     const { id, client_name, company_name, email, phone, notes } = this.state;
-    console.log(this.state);
     return (
         <div className="background">
             <div className="container">

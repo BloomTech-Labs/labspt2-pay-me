@@ -57,7 +57,6 @@ class CreateInvoice extends Component {
     .then( ( response ) => {
         if (response.status === 201) {
             //Display to the user that the invoice was successfully created.
-            console.log(response);
             this.setState({
                 created: true,
             })
@@ -93,7 +92,7 @@ class CreateInvoice extends Component {
             )
         }
         const { client_name, email, phone_number, company_name, notes, invoice_number, created } = this.state;
-        console.log(this.state)
+        
         return (
             <div>
                 
