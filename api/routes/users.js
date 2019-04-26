@@ -26,30 +26,33 @@ router.get('/:id', async (req, res) => {
 
 router.put('/:id', (req, res, next) => {
     db.findById(req.body.id || req.params.id).then((user) => {
-        const id = user.id;
-
-        if(req.body.oldPassword) {
-            if(bcrypt.compareSync(req.body.oldPassword, user.password)) {
-                hash = bcrypt.hashSync(req.body.newPassword);
+        const id = user[0].id; // Get the first user in the array
+        console.log(user);
+        // The old password was being sent as old_password. This whole check failed - Jason
+        if(req.body.old_password) {
+            // Reminder: the database sends objects back in arrays
+            if(bcrypt.compareSync(req.body.old_password, user[0].password)) { // get the first user in the array
+                const hash = bcrypt.hashSync(req.body.new_password);
                 // update object
                 const edit = {
                     email: req.body.email,
                     password: hash
                 };
-                
+                console.log(id, edit)
                 //db function to update user
                 db.editUser(id, edit)
                 .then((updated) => {
+                    console.log(updated)
                     if (updated) {
                         res.status(200).json({
                             message:'User is updated'
                         });
                     } else {
-                        res.status(404).json({ error: 'User is missong!'})
+                        res.status(404).json({ error: 'User is missing!'})
                     }
                 })
                 .catch((error) => {
-                    next('h500', err)
+                    next('h500', error)
                 });
             } else {
                 res.status(401).json({ error: 'The password you entered is incorrect'});

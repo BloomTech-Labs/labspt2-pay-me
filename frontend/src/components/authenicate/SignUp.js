@@ -60,12 +60,12 @@ class SignUp extends Component {
      )
 
     handleSubmit = e => {
-        e.preventDefault();
+        e.preventDefault();/*
         if (this.isformValid()) { 
         this.setState({
             errors: [],
             loading: true
-        });
+        });*/
         axios.post(`${serverLoc}/auth/local/signup/`, {
             username: this.state.username,
             email: this.state.email,
@@ -83,7 +83,7 @@ class SignUp extends Component {
             this.setState({errors: this.state.errors.concat(error), loading: false})
         });
     }
-}
+
 
     render(){
         const token = localStorage.getItem('jwt');

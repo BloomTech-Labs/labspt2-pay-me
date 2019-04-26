@@ -73,8 +73,9 @@ router.post('/login', (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
-    await db.findById(id)
+    await usersHelper.findById(id)
     .then ((user) => {
+        console.log(user);
         res.json(user)
     })
     .catch(err => {

@@ -5,14 +5,17 @@ const passportSetup = require('./passportConfig');
 const cors = require('cors');
 const JWT = require('./tokenGenerator');
 
+const local = 'http://localhost:3000/signin/';
+const deployed = 'https://keen-mestorf-44ec10.netlify.com/signin/';
+
 router.use(cors());
 
 router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
 
 router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {
-    console.log(req.user[0]);
-    jwt = JWT.generateToken(req.user[0]);
-    res.redirect('https://keen-mestorf-44ec10.netlify.com/signin/' + jwt);
+    console.log(req.user);
+    jwt = JWT.generateToken(req.user);
+    res.redirect(local + jwt);
 });
 
 module.exports = router;

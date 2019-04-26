@@ -26,7 +26,7 @@ passport.use(new GoogleStrategy({
         await usersHelper.findByUsername(profile.displayName)
         .then(async user => {
             if (user.length > 0) {
-                done(null, user);
+                done(null, user[0]);
             }
             else {
                 // Add them if not.
@@ -36,8 +36,9 @@ passport.use(new GoogleStrategy({
                     google_id: profile.id,
                     email: profile.emails[0].value,
                     plan: 'none'})
-                .then(newUser => {
-                    done(null, newUser);
+                .then(user => {
+                    console.log(user);
+                    done(null, user);
                 })
             }
         })
