@@ -114,7 +114,7 @@ class CreateInvoice extends Component {
             
             <div className="col s10 workspace-white"> 
                 <div className="col offset-m3 create-invoice-container">
-                <h3 className="center">Add New Invoice</h3>
+                <h3 className="center">Create New Invoice</h3>
                                 <form className="create-invoice-form z-depth-0">
                                 <p className="center white-text">Complete the form below to create a new invoice</p>
                                     <div className="input-field">
@@ -140,9 +140,8 @@ class CreateInvoice extends Component {
                                     </div>
                                     </div>
                                     <div className="file-field input-field" style={{marginTop: 50}}>
-                                    <h6>Upload PDF invoice</h6>
-                                        <div className="btn blue"><i className="material-icons white-text left">picture_as_pdf</i>
-                                            <span>File</span>
+                                    <h6>Upload invoice</h6>
+                                        <div className="upload-btn"><i className="material-icons white-text left cloud">cloud_upload</i>
                                             <input type="file" onChange={this.singleFileChangedHandler} />
                                         </div>
                                             <div className="file-path-wrapper">

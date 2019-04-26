@@ -5,7 +5,7 @@
 
 .background {
   background: #209cd7;
-  height: 800px;
+  height: 100%;
 }
 
 .btn-call-to-action {
@@ -14,21 +14,26 @@
 
 .call-to-action {
   background: #3381cc;
-  height: 600px;
+  height: 550px;
 }
 
-.call-to-action-content{
+.call-to-action-content-top{
+  margin-top: 120px;
+}
+
+.call-to-action-content-bottom{
   margin-top: 120px;
 }
 
 .call-to-action-2 {
   background: #e2e2e2;
-  height: 600px;
+  height: 550px;
 }
 
 .features {
-  margin-top: 100px;
+  background-color: #fff;
   height: 500px;
+  border: 1px solid transparent;
 }
 
 .jump-link {
@@ -74,8 +79,13 @@ label {
     padding:0 50px;
   }
 
-  .top{
+  .call-to-action-top-text{
     margin-top: -20px;
+  }
+
+  .call-to-action-bottom-text{
+    margin-top: -20px;
+    color: #000;
   }
 
   .grey-text{
@@ -89,4 +99,37 @@ label {
 
 .pg-inverse{
   color:black;
+}
+.signup-container {
+  border: 1px solid transparent;
+  background: #209cd7;
+}
+
+#loading {
+  animation: round 2s linear infinite;
+}
+
+@keyframes round {
+  from{transform: rotate(0deg)}
+  to{transform: rotate(360deg)}
+}
+
+.error-text {
+  font-size: 20px;
+}
+
+#user-image {
+  margin-top: 120px;
+}
+
+/* ----- Media Queries ----- */
+
+@media screen and (max-width: 700px){
+  #user-image{
+    display: none;
+  }
+
+  .call-to-action-content-top{
+    margin: 0 auto;
+  }
 }

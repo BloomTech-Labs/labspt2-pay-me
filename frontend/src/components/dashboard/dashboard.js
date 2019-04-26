@@ -28,7 +28,7 @@ class Dashboard extends Component {
                 <Sidenav />
                
                 <div className="col s10 workspace">
-                    <div className="dashboard-container">
+                    <div className="dashboard-container" style={{paddingLeft: 200}}>
                         <InvoiceList invoices={invoices} />
                     </div>
                 </div>

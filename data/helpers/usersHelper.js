@@ -8,6 +8,7 @@ module.exports = {
     findById,
     findByUsername,
     findByEmail,
+    editUser
 };
 
 async function findByUsername(user) {
@@ -56,11 +57,11 @@ async function attachToUsers(users) {
 }
 
 async function getAll() {
-    let users = await db.select('id', 'username', 'password', 'email', 'membership_id').from('users');
-    users = await attachToUsers(users);
-
+    return await db('users');
     return users;
-}
+};
+
+
 
 async function insert(user) {
     let newIDs = {membership_id: '', id: '', message: ''};
@@ -109,6 +110,10 @@ async function findById(id) {
     users = await attachToUsers(users);
     
     return users;
+}
+
+async function editUser(id, updated) {
+	await db('users').where({ id }).update(updated, 'id');
 }
 
 async function remove(id) {
