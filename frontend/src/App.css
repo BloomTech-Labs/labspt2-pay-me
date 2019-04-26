@@ -14,16 +14,20 @@
 
 .call-to-action {
   background: #3381cc;
-  height: 600px;
+  height: 550px;
 }
 
-.call-to-action-content{
+.call-to-action-content-top{
+  margin-top: 120px;
+}
+
+.call-to-action-content-bottom{
   margin-top: 120px;
 }
 
 .call-to-action-2 {
   background: #e2e2e2;
-  height: 600px;
+  height: 550px;
 }
 
 .features {
@@ -75,8 +79,13 @@ label {
     padding:0 50px;
   }
 
-  .top{
+  .call-to-action-top-text{
     margin-top: -20px;
+  }
+
+  .call-to-action-bottom-text{
+    margin-top: -20px;
+    color: #000;
   }
 
   .grey-text{
@@ -107,4 +116,20 @@ label {
 
 .error-text {
   font-size: 20px;
+}
+
+#user-image {
+  margin-top: 120px;
+}
+
+/* ----- Media Queries ----- */
+
+@media screen and (max-width: 700px){
+  #user-image{
+    display: none;
+  }
+
+  .call-to-action-content-top{
+    margin: 0 auto;
+  }
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import serverLoc from '../../serverLoc';
 import { Link, Redirect } from 'react-router-dom';
 import axios from 'axios';
-import serverLoc from '../../serverLoc';
 import Nav from '../nav/Nav'
 import '../../App.css';
 import googleBtn from '../../img/google_btns/btn_google_signin_dark_normal_web.png'
@@ -13,7 +13,7 @@ class SignIn extends Component {
             email: '',
             password:'',
             errors: [],
-            loading: true
+            loading: false
         };
     }
 
@@ -48,6 +48,7 @@ class SignIn extends Component {
         e.preventDefault();
         if (this.isformValid()) { 
         this.setState({
+            errors: [],
             loading: true
         });
         axios.post(`${serverLoc}/auth/local/login/`, {
@@ -57,17 +58,18 @@ class SignIn extends Component {
         .then(res => {
             localStorage.setItem('jwt', res.data.token);
             this.forceUpdate();
+            console.log(res.data.token)
+            this.setState({ loading: false })
         })
         .catch(error => {
             console.log(error);
+            this.setState({errors: this.state.errors.concat(error), loading: false})
         });
 
         //reset form data
         this.setState({
             email: '',
             password: '',
-            errors: [],
-            loading: false
         })
     }
     }
@@ -114,7 +116,7 @@ class SignIn extends Component {
                         <div>
                             {errors.length > 0 && (
                                 <message error className="center">
-                                    <p className="error-text">Oops...Something went wrong</p>
+                                    <p className="error-text"><i class="material-icons prefix" style={{marginRight: "5px"}}>info</i>Oops...Something went wrong</p>
                                     {this.displayErrors(errors)}
                                 </message>
                             )}

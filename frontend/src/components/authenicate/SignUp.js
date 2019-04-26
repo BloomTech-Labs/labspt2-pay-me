@@ -75,20 +75,13 @@ class SignUp extends Component {
         .then(res => {
             localStorage.setItem('jwt', res.data.token);
             this.forceUpdate();
-            console.log(res.data)
+            console.log(res.data.token)
             this.setState({ loading: false })
         })
         .catch(error => {
             console.log(error.response);
             this.setState({errors: this.state.errors.concat(error), loading: false})
         });
-         //reset form data
-         this.setState({
-            username: '',
-            email: '',
-            password: '',
-            passwordConfirmation: ''
-        })
     }
 }
 
@@ -114,7 +107,7 @@ class SignUp extends Component {
                         <div className="input-field">
                             <i class="material-icons prefix">account_circle</i>
                             <label htmlFor="username">Username</label>
-                            <input type="text" className="white grey-text" id="username" value={ username } onChange={this.handleChange}></input>
+                            <input type="text" className="white grey-text input-container" id="username" value={ username } onChange={this.handleChange}></input>
                         </div>
 
                         <div className="input-field">
@@ -141,7 +134,7 @@ class SignUp extends Component {
                         <div>
                             {errors.length > 0 && (
                                 <message error className="center">
-                                    <p className="error-text"><i class="material-icons prefix" style={{marginRight: "10px"}}>priority_high</i>Oops...Something went wrong</p>
+                                    <p className="error-text"><i class="material-icons prefix" style={{marginRight: "5px"}}>info</i>Oops...Something went wrong</p>
                                     {this.displayErrors(errors)}
                                 </message>
                             )}

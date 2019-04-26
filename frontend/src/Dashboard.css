@@ -89,6 +89,7 @@
 	margin-top:40px;
 	border: 1px solid transparent;
 }
+
 .close {
 	color: #c6c6c6;
 }
@@ -220,6 +221,7 @@
 	background: #82c0ff;
 	height: 120vh;
 }
+
 body {
 	background: #82c0ff;
 	height: fixed;
@@ -228,3 +230,19 @@ body {
 input {
 	border-radius: 3px !important;
 }
+
+#logout-button {
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+/* ----- Media Queries ----- */
+@media screen and (max-width: 700px){
+	#user-image{
+	  display: none;
+	}
+  
+	.call-to-action-content-top{
+	  margin: 0 auto;
+	}
+  }

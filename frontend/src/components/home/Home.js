@@ -10,9 +10,9 @@ const Home = () => {
             <div className="showcase">
             <Nav />
                 <div className="container">
-                    <h3 className="center" style={{marginTop: 60}}>Quickly Create Invoices For Your Business</h3>
-                    <div className="center button-container">
-                        <a href="/signup" className="btn-large white blue-text z-depth-0">Try Now</a>
+                    <h2 className="center hero-text" style={{marginTop: 30}}>Quickly Create Invoices</h2>
+                    <div className="center button-container" style={{marginTop: 30}}>
+                        <a href="/signup" className="btn-large white blue-text z-depth-0 hero-button">Try Now</a>
                     </div>
                 </div>
             </div>
@@ -46,7 +46,7 @@ const Home = () => {
                                         notifications
                                     </i>  
                                     <h5 className="card-text grey-text darken-4">Set Payment Reminders</h5>
-                                    <p className="card-text grey-text darken-4">Set up up automatice payment reminders to alert your client whenever payment is due</p>
+                                    <p className="card-text grey-text darken-4">Set up automatic payment reminders to alert your client whenever payment is due</p>
                                 </div>
                             </div>
                         </div>
@@ -55,13 +55,13 @@ const Home = () => {
             </section>
 
             <section className="call-to-action">
-                <div className="container">
+                <div className="container call-to-action">
                     <div className="row">
                         <div className="col s6 call-to-action-content">
-                            <img src={girlUser} />
+                            <img src={girlUser} id="user-image" className="responsive-img" />
                         </div>
-                        <div className="col s6 call-to-action-content">
-                            <h2 className="top">Start Invoicing Now</h2>
+                        <div className="col s6 call-to-action-content-top">
+                            <h2 className="call-to-action-top-text">Start Invoicing Now</h2>
                             <p className="card-paragraph">Get access to all of the Pay Me features. Including online payments, automatic payment reminders and text support.</p>
                             <div>
                                 <a href="/signup" className="waves-effect waves-light btn-large btn-flat white blue-text btn-call-to-action">Try Pay Me</a>
@@ -74,13 +74,13 @@ const Home = () => {
             <section className="call-to-action-2">
                 <div className="container">
                     <div className="row">
-                        <div className="col s6 call-to-action-content">
-                            <h2 className="card-text top">Lightweight, Flexible,</h2>
-                            <h2 className="card-text top">Easy.</h2>
+                        <div className="col s6 call-to-action-content-bottom">
+                            <h2 className="call-to-action-bottom-text">Lightweight, Flexible,</h2>
+                            <h2 className="call-to-action-bottom-text">Easy.</h2>
                             <p className="card-paragraph pg-inverse">Pay Me offers a straightforward design with easy to use features. When you need to invoice a client, simply create a new invoice, add client details and send it off to your client.</p>
                         </div>
                         <div className="col s6 call-to-action-content">
-                            <img src={guyUser} />
+                            <img src={guyUser} id="user-image" className="responsive-img"/>
                         </div>
                     </div>
                 </div>

@@ -7,6 +7,7 @@
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "body-parser": "^1.18.3",
+    "jwt-decode": "^2.2.0",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
