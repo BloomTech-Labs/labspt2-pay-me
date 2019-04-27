@@ -37,8 +37,6 @@ function styleFn(provided, state) {
 =======
 //import './materialize.min.css';
 //import './App.css';
-
-
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
      
@@ -125,9 +123,13 @@ const options = [
         border-color: red;
     `;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 >>>>>>> Started refactoring the frontEnd
+=======
+
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
 class Reminders extends Component {
   constructor(props) {
     super(props);
@@ -409,21 +411,30 @@ handleStartReminders = (e) => {
    } 
   getData().then(response => {
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log(response.data[0]) 
     if(response.data[0].lenght!==0||undefined){
 =======
  
 >>>>>>> Started refactoring the frontEnd
+=======
+    console.log(response.data[0]) 
+    if(response.data[0].lenght!==0||undefined){
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
       this.setState({data_invoices : response.data,
         invoiceUserClientInfo:response.data[0],
         isLoading:false,
         isHidding:true })
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
     }
     else{
 console.log('hhhhhhhhhhh')
     }
   })
+<<<<<<< HEAD
       .catch(err => { /*...handle the error...*/
                     this.setState({data_error:'err.data',errorstatus:true,
                     isInvoiced:true,
@@ -438,6 +449,15 @@ console.log('hhhhhhhhhhh')
                     isInvoiced:true})});
                     
 >>>>>>> Started refactoring the frontEnd
+=======
+      .catch(err => { /*...handle the error...*/
+                    this.setState({data_error:'err.data',errorstatus:true,
+                    isInvoiced:true,
+                    isHidding2:true})});
+         console.log(this.state.data_invoices)  ; 
+    
+            
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
   }
   render() {
     
@@ -497,7 +517,7 @@ console.log('hhhhhhhhhhh')
 </div>
 <div class="col s12 m8 l10 boxstyle">
 <div ><div class={` isHidding${this.state.isHidding2}`}>Click an Invoice to start</div>
-        {!this.state.isLoading&&filteredInvoice[0].invoice&&( <div >
+        {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
             <div class="col s12 m4 l2 ">
           <div className="Searchbox boxstyle4">
              <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
@@ -734,6 +754,7 @@ console.log('hhhhhhhhhhh')
       <td>{this.state.reminders_data.Sms_Freq_label}</td>
     </tr>
   </table>}
+<<<<<<< HEAD
                 
         
 
@@ -749,6 +770,10 @@ console.log('hhhhhhhhhhh')
           <section className='notinvoicecard'>  
 
 >>>>>>> Started refactoring the frontEnd
+=======
+         </div> </div>
+        )||(<section className='notinvoicecard'>  
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
           <p class="h3"><strong>Loading data ...</strong></p>
           <div className='PacmanLoader'>
                 <ClimbingBoxLoader
@@ -765,6 +790,7 @@ console.log('hhhhhhhhhhh')
           <p>...Oops no invoice found, please add an invoice!</p>
         </section>
 <<<<<<< HEAD
+<<<<<<< HEAD
         )}
 =======
         
@@ -772,6 +798,9 @@ console.log('hhhhhhhhhhh')
 
         }
 >>>>>>> Started refactoring the frontEnd
+=======
+        )}
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
       </div></div></div></div>
     );
   }}
@@ -779,6 +808,7 @@ console.log('hhhhhhhhhhh')
 
 export default Reminders;
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 //           invoiceId:1,
 //           invoicePdfLink:'#',
@@ -952,6 +982,8 @@ export default Reminders;
      
      
 // const InvoicesInfo =[{
+=======
+>>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
 //           invoiceId:1,
 //           invoicePdfLink:'#',
 //           invoiceNumber:'#2314',
