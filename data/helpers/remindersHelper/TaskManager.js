@@ -1,3 +1,4 @@
+require('dotenv').config();
 const EmailSmsApiConfig =require('./smsEmailSenderApi');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
@@ -11,38 +12,11 @@ const tblInvs = 'Invoices';
 const tblClt = 'Client';
 const tblUsr = 'User';
 const tblRem = 'Reminders';
-require('dotenv').config();
 
 
 
-const getInvoicesforClientsbyUserId =  async (req, res)=>{
-    const {id} = await req.params;
-      await db.select('us.id','us.username','us.email',
-     'us.phonenumber','iv.invoice_number','iv.company_name'
-    ,'iv.inv_url','iv.client_id','cl.id','cl.client_name','cl.email','cl.phone_number','cl.user_id',)
-       .from('tblUsr as us').where('us.id', id)
-       .leftJoin('tblClt as cl','us.id' ,'cl.user_id')
-       .leftJoin('tblInvs as iv','cl.id' ,'iv.client_id')
-       //.orderBy('cl.name', 'desc')
-      .then(data =>{
-        res.status(200).json(data)
-      })
-      .catch(err =>{
-        res.status(500).json(err)
-      })
-  }      
 
-  const StopReminder = async (req,res) =>{
-        const {id} = req.params;
-        db(tblRem).where({id})
-        .del()
-        .then(ids =>{
-          res.status(200).json(`You've deleted your ${tableName} with id:${ids}`)
-        })
-        .catch(err =>{
-          res.status(500).json(err)
-        })
-    }
+
    
 
   const getAllReminders = (req, res) => {
