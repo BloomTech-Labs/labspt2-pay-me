@@ -16,6 +16,7 @@ import Sidenav from '../nav/Sidenav';
 import {Route} from "react-router-dom";
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
+<<<<<<< HEAD
 import { Table,Label,Icon  } from 'semantic-ui-react';
 //import './materialize.min.css';
 //import './App.css';
@@ -33,6 +34,73 @@ const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
 function styleFn(provided, state) {
   return { ...provided, color: state.isFocused ? 'black' : 'red' };
 }    
+=======
+//import './materialize.min.css';
+//import './App.css';
+
+
+// Key for Searching invoices
+const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
+     
+     
+const InvoicesInfo =[{
+          invoiceId:1,
+          invoicePdfLink:'#',
+          invoiceNumber:'#2314',
+          userInfo :{
+            UserName :'Martins Khol',
+            UserPhoneNumber:'+154',
+            UserEmail:'Khol@kholusa.io'
+          },
+          clientInfo:{
+            clientName:'Ross Geller',
+            clientEmail:'RossGellerDoe@doe.com',
+            clientPhoneNumber:'+178***'
+          }},
+          {
+            invoiceId:2,
+            invoicePdfLink:'#',
+            invoiceNumber:'#345',
+              userInfo :{
+                UserName :'Martins Khol',
+                UserPhoneNumber:'+154MK',
+                UserEmail:'Khol@kholusa.io'
+            },
+            clientInfo:{
+              clientName:'Jane Doe',
+              clientEmail:'JaneDoe@doe.com',
+              clientPhoneNumber:'+179***'
+            }},
+            {
+              invoiceId:3,
+              invoicePdfLink:'#',
+              invoiceNumber:'#237',
+                userInfo :{
+                UserName :'Martins Khol',
+                UserPhoneNumber:'+154MK',
+                UserEmail:'Khol@kholusa.io'
+              },
+              clientInfo:{
+                clientName:'Jonas Doe',
+                clientEmail:'JonasDoe@doe.com',
+                clientPhoneNumber:'+178***'
+              }},
+              {
+                invoiceId:4,
+                invoicePdfLink:'#',
+                invoiceNumber:'#409',
+                userInfo :{
+                  UserName :'MOMPASU',
+                  UserPhoneNumber:'17323335835',
+                  UserEmail:'witanday.cd@gmail.com'
+                },
+                clientInfo:{
+                  clientName:'Didi Doe',
+                  clientEmail:'ir.witanday@gmail.com',
+                  clientPhoneNumber:'19788718331'
+            }},]
+        
+>>>>>>> Started refactoring the frontEnd
 const options = [
           { value: '3600 ', label: 'Daily' },//value in milliseconds 1min --3600s 86400000--daily
           { value: '604800000', label: 'Weekly' },
@@ -43,7 +111,11 @@ const options = [
   const buttonReminder=(a,b)=> {
           if (a || b) {
            // return<Link to={`/`}  className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</Link>
+<<<<<<< HEAD
             return <button className="btn blue add-btn"><i className="material-icons left">av_timer</i>Start Reminders</button>;
+=======
+            return <button className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</button>;
+>>>>>>> Started refactoring the frontEnd
           }
           return null;
         }
@@ -52,7 +124,10 @@ const options = [
         margin: 0 auto;
         border-color: red;
     `;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Started refactoring the frontEnd
 class Reminders extends Component {
   constructor(props) {
     super(props);
@@ -94,8 +169,19 @@ class Reminders extends Component {
 =======
       isCheckedEmail: props.isCheckedSms || false,
       isCheckedSms: props.isCheckedSms || false,
+<<<<<<< HEAD
       isClickedInvoice:InvoicesInfo[0].invoiceId
 >>>>>>> added activeInvoice function and styled it onclik
+=======
+      isClickedInvoice:InvoicesInfo[0].invoiceId,
+      isLoading: true ,
+      filteredInvoice:[],
+      isInvoiced:false,
+      isRemindersSent:true,
+      reminders_data:[],
+      isHidding:true,
+      isHidding2:false
+>>>>>>> Started refactoring the frontEnd
     }
 }
 
@@ -192,6 +278,16 @@ invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client f
 =======
 >>>>>>> added activeInvoice function and styled it onclik
 }
+invoiceData =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
+  if(this.state.data_invoices){
+    const filteredInvoice2 =this.state.data_invoices.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+  const index = filteredInvoice2.map(e => e.invoice.invoice_number).indexOf(id);
+  this.setState({invoiceUserClientInfo: filteredInvoice2[index],
+    isHidding2:true});
+    this.handleChangeActivInvoice(filteredInvoice2[index].invoice.invoice_number)
+  }
+  this.getData_reminders_sent(id)
+}
 
 handleStartReminders = (e) => {
     e.preventDefault();
@@ -258,6 +354,9 @@ handleStartReminders = (e) => {
     this.setState({ isClickedInvoice:  invoiceNumber })
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Started refactoring the frontEnd
   getData_reminders_sent = async (id) =>{
     
     const res = await axios('http://localhost:3111/api/reminders/view');
@@ -282,6 +381,7 @@ handleStartReminders = (e) => {
       // console.log(id)
        
  }
+<<<<<<< HEAD
 =======
 >>>>>>> added activeInvoice function and styled it onclik
 
@@ -300,17 +400,25 @@ handleStartReminders = (e) => {
 
   componentDidMount(){
     console.log(this.dateConvert("2019-04-28T03:29:07.798Z"))
+=======
+  componentDidMount(){
+>>>>>>> Started refactoring the frontEnd
     async function getData(){
       const res = await axios('http://localhost:3111/api/reminders/invoices/5');
       return await res;
    } 
   getData().then(response => {
+<<<<<<< HEAD
     console.log(response.data[0]) 
     if(response.data[0].lenght!==0||undefined){
+=======
+ 
+>>>>>>> Started refactoring the frontEnd
       this.setState({data_invoices : response.data,
         invoiceUserClientInfo:response.data[0],
         isLoading:false,
         isHidding:true })
+<<<<<<< HEAD
     }
     else{
 console.log('hhhhhhhhhhh')
@@ -323,6 +431,13 @@ console.log('hhhhhhhhhhh')
          console.log(this.state.data_invoices)  ; 
     
             
+=======
+    })
+      .catch(err => { /*...handle the error...*/
+                    this.setState({data_error:'err.data',errorstatus:true,
+                    isInvoiced:true})});
+                    
+>>>>>>> Started refactoring the frontEnd
   }
   render() {
     
@@ -362,6 +477,7 @@ console.log('hhhhhhhhhhh')
 </div>
 <div class="row">
 <div class="col s12 m4 l2 navleft"> 
+<<<<<<< HEAD
 <Sidenav />
 </div>
 <div className="col s12 m8 l10 wrapperContainer">
@@ -371,6 +487,21 @@ console.log('hhhhhhhhhhh')
             <div class="col s12 m4 l2 ">
           <div className="Searchbox ">
              <SearchInput  onChange={this.searchUpdated} className='search'/>
+=======
+<div class="collection leftNav">
+    <a href="#!" class="collection-item">Invoices</a>
+    <a href="#!" class="collection-item active">Reminders</a>
+    <a href="#!" class="collection-item">Settings</a>
+    <a href="#!" class="collection-item">Billing</a>
+  </div>         
+</div>
+<div class="col s12 m8 l10 boxstyle">
+<div ><div class={` isHidding${this.state.isHidding2}`}>Click an Invoice to start</div>
+        {!this.state.isLoading&&filteredInvoice[0].invoice&&( <div >
+            <div class="col s12 m4 l2 ">
+          <div className="Searchbox boxstyle4">
+             <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
+>>>>>>> Started refactoring the frontEnd
                  {filteredInvoice.map((itemInfo) => {
                  return (
                      <div className="mail" key={itemInfo.invoice.invoice_id}>
@@ -413,6 +544,7 @@ console.log('hhhhhhhhhhh')
                  </div>
                      </div>
                   <div class="email-compose-body">
+<<<<<<< HEAD
                   <h4 class=" boxstyle5">Send Email</h4>
                   <div class="send-header"><div class="form-group">
                   <div class="input-field col s12 l6">
@@ -424,6 +556,19 @@ console.log('hhhhhhhhhhh')
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_email}/>
                  </div>
                  <div class="col s12 l6">
+=======
+                  <h4 class="c-grey-900 mB-20 boxstyle5">Send Email</h4>
+                  <div class="send-header"><div class="form-group">
+                  <div class="input-field col s6">
+                   <span class="">Email_From:</span>
+                   <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.user_email}/>
+                 </div>
+                  <div class="input-field col s6">
+                   <span class="">Email_to:</span>
+                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_email}/>
+                 </div>
+                 <div class=" col s6">
+>>>>>>> Started refactoring the frontEnd
                    <span class="">Send first reminder on:</span>
                    <DatePicker
                  selected={this.state.Email_StartDate}
@@ -436,14 +581,21 @@ console.log('hhhhhhhhhhh')
                />
                  </div>
          
+<<<<<<< HEAD
                  <div class="input-field col s12 l6">
+=======
+                 <div class="input-field col s6">
+>>>>>>> Started refactoring the frontEnd
                    <span class="">Then repeat :</span>
                    <Select 
                  value={this.state.selectedOption.value}
                  label={this.state.selectedOption.label}
                  onChange={this.handleChangeFreqEmail}
                  options={options}
+<<<<<<< HEAD
                  styles={styleFn}
+=======
+>>>>>>> Started refactoring the frontEnd
                />
                  </div>
                   </div>
@@ -463,6 +615,7 @@ console.log('hhhhhhhhhhh')
                   <div class="email-compose-body">
                   <h4 class="c-grey-900 mB-20 boxstyle5">Send Sms</h4>
                   <div class="send-header"><div class="form-group">
+<<<<<<< HEAD
                   <div class="input-field col s12 l6">
                    <span class="">Sms_From:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.user_phonenumber}/>
@@ -472,6 +625,17 @@ console.log('hhhhhhhhhhh')
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_phonenumber}/>
                  </div>
                  <div class=" col s12 l6">
+=======
+                  <div class="input-field col s6">
+                   <span class="">Sms_From:</span>
+                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.user_phonenumber}/>
+                 </div>
+                  <div class="input-field col s6">
+                   <span class="">Sms_to:</span>
+                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_phonenumber}/>
+                 </div>
+                 <div class=" col s6">
+>>>>>>> Started refactoring the frontEnd
                    <span class="">Send first reminder on:</span>
                    <DatePicker
                  selected={this.state.Sms_StartDate}
@@ -484,7 +648,11 @@ console.log('hhhhhhhhhhh')
                />
                  </div>
          
+<<<<<<< HEAD
                  <div class="input-field col s12 l6">
+=======
+                 <div class="input-field col s6">
+>>>>>>> Started refactoring the frontEnd
                    <span class="">Then repeat :</span>
                    <Select 
                   value={this.state.selectedOption.value}
@@ -520,6 +688,7 @@ console.log('hhhhhhhhhhh')
          <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange}></textarea></div>
          <button class="btn waves-effect waves-light" type="submit" name="action">Add comment</button>
         
+<<<<<<< HEAD
            </form> </div>)||<div className={`isHidding${this.state.isHidding}`} >
            <ul class="collection rem_card_stats ">
     <li class="collection-item avatar card_stats">
@@ -547,18 +716,62 @@ console.log('hhhhhhhhhhh')
   }
          </div> </div>
         )||(<section className='notinvoicecard'>  
+=======
+           </form> </div>)|| <table class={`rwd-table isHidding${this.state.isHidding}`}>
+    <tr>
+      <th>Invoice Number : {this.state.reminders_data.invoiceNumber}</th>
+      <th>Email Reminders</th>
+      <th>Sms Reminders</th>
+    </tr>
+    <tr>
+      <td>STARTS</td>
+      <td ><span class="span-table">{this.state.reminders_data.Email_Startdate}</span></td>
+      <td>{this.state.reminders_data.Sms_Startdate}</td>
+    </tr>
+    <tr>
+      <td>REPEATS</td>
+      <td>{this.state.reminders_data.Email_Freq_label}</td>
+      <td>{this.state.reminders_data.Sms_Freq_label}</td>
+    </tr>
+  </table>}
+                
+        
+
+
+
+        
+         </div> </div> 
+                      
+
+
+        )||
+        <Route exact  path="/"   render={() => 
+          <section className='notinvoicecard'>  
+
+>>>>>>> Started refactoring the frontEnd
           <p class="h3"><strong>Loading data ...</strong></p>
           <div className='PacmanLoader'>
                 <ClimbingBoxLoader
                   css={override}
                   sizeUnit={"px"}
                   size={15}
+<<<<<<< HEAD
                   color={'whitesmoke'}
+=======
+                  color={'#2f70e1'}
+>>>>>>> Started refactoring the frontEnd
                   loading={this.state.loading}
                 /> </div>
           <p>...Oops no invoice found, please add an invoice!</p>
         </section>
+<<<<<<< HEAD
         )}
+=======
+        
+        } />
+
+        }
+>>>>>>> Started refactoring the frontEnd
       </div></div></div></div>
     );
   }}
@@ -566,6 +779,7 @@ console.log('hhhhhhhhhhh')
 
 export default Reminders;
 
+<<<<<<< HEAD
 //           invoiceId:1,
 //           invoicePdfLink:'#',
 //           invoiceNumber:'#2314',
@@ -730,6 +944,179 @@ export default Reminders;
     
 //   }}
   
+=======
+  
+
+// // Key for Searching invoices
+// const KEYS_TO_FILTERS = ['invoiceNumber', 'clientInfo.clientName', ]
+     
+     
+// const InvoicesInfo =[{
+//           invoiceId:1,
+//           invoicePdfLink:'#',
+//           invoiceNumber:'#2314',
+//           userInfo :{
+//             UserName :'Martins Khol',
+//             UserPhoneNumber:'+154',
+//             UserEmail:'Khol@kholusa.io'
+//           },
+//           clientInfo:{
+//             clientName:'Ross Geller',
+//             clientEmail:'RossGellerDoe@doe.com',
+//             clientPhoneNumber:'+178***'
+//           }},
+//           {
+//             invoiceId:2,
+//             invoicePdfLink:'#',
+//             invoiceNumber:'#345',
+//               userInfo :{
+//                 UserName :'Martins Khol',
+//                 UserPhoneNumber:'+154MK',
+//                 UserEmail:'Khol@kholusa.io'
+//             },
+//             clientInfo:{
+//               clientName:'Jane Doe',
+//               clientEmail:'JaneDoe@doe.com',
+//               clientPhoneNumber:'+179***'
+//             }},
+//             {
+//               invoiceId:3,
+//               invoicePdfLink:'#',
+//               invoiceNumber:'#237',
+//                 userInfo :{
+//                 UserName :'Martins Khol',
+//                 UserPhoneNumber:'+154MK',
+//                 UserEmail:'Khol@kholusa.io'
+//               },
+//               clientInfo:{
+//                 clientName:'Jonas Doe',
+//                 clientEmail:'JonasDoe@doe.com',
+//                 clientPhoneNumber:'+178***'
+//               }},
+//               {
+//                 invoiceId:4,
+//                 invoicePdfLink:'#',
+//                 invoiceNumber:'#409',
+//                 userInfo :{
+//                   UserName :'MOMPASU',
+//                   UserPhoneNumber:'17323335835',
+//                   UserEmail:'witanday.cd@gmail.com'
+//                 },
+//                 clientInfo:{
+//                   clientName:'Didi Doe',
+//                   clientEmail:'ir.witanday@gmail.com',
+//                   clientPhoneNumber:'19788718331'
+//             }},]
+        
+// const options = [
+//           { value: '1000', label: 'Daily' },//value in milliseconds 1min --3600s
+//           { value: '604800000', label: 'Weekly' },
+//           { value: '2592000000', label: 'Monthly' },
+//           { value: '', label: 'Custom' }
+//         ];
+
+//   const buttonReminder=(a,b)=> {
+//           if (a || b) {
+//             return <button className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</button>;
+//           }
+//           return null;
+//         }
+// class Reminders extends Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       searchTerm: '',
+//       //Comments can be stored in the db 
+//       comments:  [],
+//      commentText: '',
+//      invoiceUserClientInfo:InvoicesInfo[0],
+//       //Comments 
+//       invoice :[],
+//       selectedOption: '',
+//       Email_Subject:'',
+//       Email_CustomText:'',
+//       Email_Template:null,
+//       Email_Status:false,
+//       Email_StartDate:new Date(),
+//       Email_Freq:'',
+//       Sms_Status:true,
+//       Sms_StartDate:new Date(),
+//       Sms_Freq:'',
+//       Sms_CustomText:'',
+//       Sms_Template:null,
+//       isCheckedEmail: props.isCheckedSms || false,
+//       isCheckedSms: props.isCheckedSms || false,
+//       isClickedInvoice:InvoicesInfo[0].invoiceId
+//     }
+// }
+
+// handleCommentChange =(ev) =>{
+
+//   this.setState({commentText: ev.target.value});
+// }
+// handleInputChange = ev => {
+//   this.setState({ [ev.target.name]: ev.target.value });
+//   ev.preventDefault();
+// };
+
+// handleChangeDateSms=(date) =>{
+//   this.setState({
+//     Sms_StartDate: date,
+//   });
+// }
+
+// handleChangeDateEmail=(date) =>{
+//   this.setState({
+//     Email_StartDate:date
+//   });
+// }
+// handleInputChange2 = ev => {
+//   this.setState({ [ev.target.name]: ev.target.value });
+ 
+//   ev.preventDefault();
+// };
+
+// handleInputChange = ev => {
+//   this.setState({ [ev.target.name]: ev.target.value });
+ 
+//   ev.preventDefault();
+// };
+
+// handleChangeFreqEmail = (selectedOption) => {
+//   this.setState({ 
+//     Email_Freq: selectedOption.value
+//    }
+//     )
+ 
+// }
+
+// handleChangeFreqSms = (selectedOption) => {
+//   this.setState({ 
+//     Sms_Freq: selectedOption.value
+//    }
+//     )
+// }
+
+
+// handleAddComment=(event) => {
+ 
+//   if (event.target.value !== "") {
+//     const newComment = {
+//       commentText: this.state.commentText,
+//       key: Date.now()
+//     };
+//     this.setState((prevState) => {
+//       return { 
+//         comments: prevState.comments.concat(newComment) 
+//       };
+//     });
+    
+//     this.state.commentText=''
+//     event.preventDefault()
+    
+//   }}
+  
+>>>>>>> Started refactoring the frontEnd
 //   searchUpdated = (term) => {
 //     this.setState({searchTerm: term})
 //   }
@@ -776,6 +1163,9 @@ export default Reminders;
 //   };
   
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> Started refactoring the frontEnd
 //   handleChangeActivEmail=()=> {
 //     this.setState({ isCheckedEmail:!this.state.isCheckedEmail})
 //   }
@@ -1073,9 +1463,12 @@ export default Reminders;
 //     <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
 //         {filteredInvoice.map((itemInfo) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> Started refactoring the frontEnd
 =======
 >>>>>>> styling search form and sms-email section
+=======
+>>>>>>> Started refactoring the frontEnd
           
 //         return (
 //             <div className="mail" key={itemInfo.invoiceId}>
@@ -1098,6 +1491,16 @@ export default Reminders;
               })}
             </div></div>    
 >>>>>>> added activeInvoice function and styled it onclik
+=======
+          
+//         return (
+//             <div className="mail" key={itemInfo.invoiceId}>
+//         <li  className={this.state.isClickedInvoice === itemInfo.invoiceNumber ? 'info invoice--clicked' : 'info '}  onClick={(i) => this.invoiceData(itemInfo.invoiceNumber)}>{itemInfo.clientInfo.clientName +'---'+ itemInfo.invoiceNumber}</li>
+//             </div>
+//                 )
+//               })}
+//             </div></div>    
+>>>>>>> Started refactoring the frontEnd
   
 //   <div class="col s12 m4 l10 Section-Email-Sms-Comment">{/*EMAIL&&SMS&&*/ }  
 
@@ -1215,6 +1618,7 @@ export default Reminders;
 //          </div>
         
 <<<<<<< HEAD
+<<<<<<< HEAD
 //         </div>    
 //  </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
 //  </form>
@@ -1235,7 +1639,15 @@ export default Reminders;
     </li>
 })}
 >>>>>>> styled sms-email section
+<<<<<<< HEAD
 >>>>>>> styled sms-email section
+=======
+=======
+//         </div>    
+//  </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
+//  </form>
+>>>>>>> Started refactoring the frontEnd
+>>>>>>> Started refactoring the frontEnd
 
 // <form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
 // <h4 class="c-grey-900 mB-20">Add a Comment</h4>
