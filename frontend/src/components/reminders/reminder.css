@@ -305,3 +305,101 @@ div.mail li.info.invoice--clicked{
   background-color:#2f70e1;
   color:white;
   }
+  section.notinvoicecard{
+    text-align:center; 
+  background:white; 
+ display:flex ;
+ flex-direction:column ;
+ justify-content: center;
+}
+
+.wrapper{
+  transform-style: preserve-3d;
+  
+  width:600px;
+margin: 20px;
+border:1px solid  rgba(151, 171, 187, 0.1);
+padding-bottom:10px }
+.tile:hover{
+
+
+}
+#tile1{
+	margin-right:20px;
+}
+.dates{
+	border:1px solid #ebeff2;
+	border-radius:5px;
+	padding:20px 0px;
+	margin:37px 20px 0;
+	font-size:16px;
+	color:#5aadef;
+	font-weight:600;	
+	overflow:auto;
+}
+.dates div{
+	float:left;
+	width:50%;
+	text-align:center;
+	position:relative;
+}
+.dates strong,
+.stats strong{
+	display:block;
+	color:#adb8c2;
+	font-size:11px;
+	font-weight:700;
+}
+.dates span{
+	width:1px;
+	height:40px;
+	position:absolute;
+	right:0;
+	top:0;	
+	background:#ebeff2;
+}
+.stats{
+	border-top:1px solid #ebeff2;
+	background:#f7f8fa;
+	overflow:auto;
+	padding:15px 0;
+	font-size:16px;
+	color:#59687f;
+	font-weight:600;	
+    margin-top: 36px;
+	border-radius: 0 0 5px 5px;
+}
+.stats div{
+	border-right:1px solid #ebeff2;
+	width:119px;
+	float:left;
+	text-align:center
+}
+.stats div:nth-of-type(3){border:none;}
+
+table.rwd-table {
+  width: 800px;
+  color:#888;
+  border-radius: .4em;
+}
+.rwd-table tr {
+ 
+}
+.rwd-table th, .rwd-table td {
+  margin: .10em 1em;
+}
+
+td.td-table{
+ background:darkolivegreen 
+}
+
+span.span-table{
+  background:#888;
+  color:#fafafa;
+  border-radius: 10px/50%;
+ 
+ 
+ }
+ .rwd-table.isHiddingtrue,div.isHiddingtrue{
+   display:none 
+ }

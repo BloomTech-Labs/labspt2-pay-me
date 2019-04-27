@@ -10,8 +10,6 @@ import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
 //import './materialize.min.css';
 //import './App.css';
-
-
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
      
@@ -92,6 +90,7 @@ const options = [
         margin: 0 auto;
         border-color: red;
     `;
+
 class Reminders extends Component {
   constructor(props) {
     super(props);
@@ -317,16 +316,24 @@ handleStartReminders = (e) => {
       return await res;
    } 
   getData().then(response => {
- 
+    console.log(response.data[0]) 
+    if(response.data[0].lenght!==0||undefined){
       this.setState({data_invoices : response.data,
         invoiceUserClientInfo:response.data[0],
         isLoading:false,
         isHidding:true })
-    })
+    }
+    else{
+console.log('hhhhhhhhhhh')
+    }
+  })
       .catch(err => { /*...handle the error...*/
                     this.setState({data_error:'err.data',errorstatus:true,
-                    isInvoiced:true})});
-                    
+                    isInvoiced:true,
+                    isHidding2:true})});
+         console.log(this.state.data_invoices)  ; 
+    
+            
   }
   render() {
     
@@ -356,7 +363,7 @@ handleStartReminders = (e) => {
 </div>
 <div class="col s12 m8 l10 boxstyle">
 <div ><div class={` isHidding${this.state.isHidding2}`}>Click an Invoice to start</div>
-        {!this.state.isLoading&&filteredInvoice[0].invoice&&( <div >
+        {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
             <div class="col s12 m4 l2 ">
           <div className="Searchbox boxstyle4">
              <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
@@ -525,20 +532,8 @@ handleStartReminders = (e) => {
       <td>{this.state.reminders_data.Sms_Freq_label}</td>
     </tr>
   </table>}
-                
-        
-
-
-
-        
-         </div> </div> 
-                      
-
-
-        )||
-        <Route exact  path="/"   render={() => 
-          <section className='notinvoicecard'>  
-
+         </div> </div>
+        )||(<section className='notinvoicecard'>  
           <p class="h3"><strong>Loading data ...</strong></p>
           <div className='PacmanLoader'>
                 <ClimbingBoxLoader
@@ -550,23 +545,13 @@ handleStartReminders = (e) => {
                 /> </div>
           <p>...Oops no invoice found, please add an invoice!</p>
         </section>
-        
-        } />
-
-        }
+        )}
       </div></div></div></div>
     );
   }}
 
 export default Reminders;
 
-  
-
-// // Key for Searching invoices
-// const KEYS_TO_FILTERS = ['invoiceNumber', 'clientInfo.clientName', ]
-     
-     
-// const InvoicesInfo =[{
 //           invoiceId:1,
 //           invoicePdfLink:'#',
 //           invoiceNumber:'#2314',
