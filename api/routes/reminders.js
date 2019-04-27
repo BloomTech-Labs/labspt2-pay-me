@@ -4,18 +4,18 @@ const TaskManager = require('../../data/helpers/remindersHelper/TaskManager')
 
 // ** ROUTERS FOR OUR REMINDERS  ** //
 
-// ## GET ALL REMINDERS
-ReminderRouter.get('/',TaskManager.getAllReminders);
+// ## GET  REMINDERS
+RouterReminder.get('/view',TaskManager.getRemindersbyInvoiceNumber);
+
+//## GET ALL INVOICES BY USER ID
+RouterReminder.get('/reminders/invoices/:id',TaskManager.getInvoices);
+
+
+RouterReminder.post('/save',TaskManager.SaveReminder);
 
 // ## SEND A REMINDER
-ReminderRouter.post('/user',TaskManager.SendReminders);
+RouterReminder.post('/send',TaskManager.SendReminders);
 
-// ## CREATE/SAVE A  REMINDER
-ReminderRouter.post('/save',TaskManager.SaveReminder);
-
-
-// ## DESTROY/STOP A  REMINDER
-ReminderRouter.delete('/delete/:_id',TaskManager.StopReminder);
 
 module.exports = ReminderRouter;
 
