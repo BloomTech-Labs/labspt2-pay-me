@@ -8,6 +8,7 @@ module.exports = {
     findById,
     findByUsername,
     findByEmail,
+    editUser
 };
 
 async function findByUsername(user) {
@@ -56,14 +57,14 @@ async function attachToUsers(users) {
 }
 
 async function getAll() {
-    let users = await db.select('id', 'username', 'password', 'email', 'membership_id').from('users');
-    users = await attachToUsers(users);
-
+    return await db('users');
     return users;
-}
+};
+
+
 
 async function insert(user) {
-    let newIDs = {membership_id: '', id: '', message: ''};
+    let newIDs = {membership_id: '', id: '', username: '', message: ''};
     await db('memberships').insert({plan: user.plan})
     .then(success => {
         return success;
@@ -72,12 +73,14 @@ async function insert(user) {
         newIDs.membership_id = membershipID[0];
         await db('users').insert(
             {username: user.username, 
-            password: user.password, 
+            password: user.password,
+            google_id: user.google_id ? user.google_id : null, 
             email: user.email, 
             membership_id: membershipID[0]})
             .then(async userID => {
                 console.log('inside user insert.')
                 newIDs.id = userID[0];
+                newIDs.username = user.username;
                 newIDs.message = 'Account created.';
             })
             .catch(async error => {
@@ -105,11 +108,17 @@ async function findByEmail(email) {
     return user;
 }
 async function findById(id) {
-    let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
+    return await db('users').where('id', id);
+    //let users = await db.select('id', 'username', 'email', 'membership_id').from('users').where('id', id);
     
     //users = await attachToUsers(users);
     
-    return users;
+    //return users;
+}
+
+async function editUser(id, updated) {
+    // Added the return statement. -Jason
+	return await db('users').where({ id }).update(updated, 'id');
 }
 
 async function remove(id) {

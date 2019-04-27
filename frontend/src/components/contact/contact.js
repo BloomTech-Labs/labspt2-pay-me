@@ -27,12 +27,12 @@ class SignUp extends Component {
     render(){
         const { name, email, message } = this.state;
         return (
-        <div className="background">
+        <div className="background" style={{background: "#209cd7"}}>
             <Nav />
-            <div className="container">
-                <h1 className="center">Have a question?</h1>
+            <div className="signup-container">
+                <h2 className="center">Have a question?</h2>
                     <div className="row">
-                        <div className="col offset-m3">
+                        <div className="col offset-m4">
                     <form onSubmit={ this.handleSubmit } className="signup z-depth-0">
                         <h5 className="center">Contact us by filling out the form below.</h5>
                         <div className="input-field">

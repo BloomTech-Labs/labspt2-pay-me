@@ -4,8 +4,9 @@ const passport = require('passport');
 const passportSetup = require('./passportConfig');
 const cors = require('cors');
 const JWT = require('./tokenGenerator');
-const deployed = 'https://keen-mestorf-44ec10.netlify.com/signin/'
+
 const local = 'http://localhost:3000/signin/';
+const deployed = 'https://keen-mestorf-44ec10.netlify.com/signin/';
 
 router.use(cors());
 

@@ -73,4 +73,16 @@ router.post('/login', (req, res) => {
     }
 });
 
+router.get('/:id', async (req, res) => {
+    const { id } = req.params;
+    await usersHelper.findById(id)
+    .then ((user) => {
+        console.log(user);
+        res.json(user)
+    })
+    .catch(err => {
+        res.status(500).json({ message: 'Unable to find user by id'})
+    })
+});
+
 module.exports = router;

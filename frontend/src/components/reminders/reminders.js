@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-
 import Select from 'react-select';
-
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SearchInput, {createFilter} from 'react-search-input' ;
 import axios from 'axios';
 import './reminder.css';
+import '../../Dashboard.css';
+import Sidenav from '../nav/Sidenav';
 
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoiceNumber', 'clientInfo.clientName', ]
@@ -232,30 +232,13 @@ handleStartReminders = (e) => {
   render() {
     const filteredInvoice = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
-      <div class="reminder">
-    <div class="row">{/*Top Nav*/ }
-    <nav className='Topnav'>
-    <div class="nav-wrapper">
-      <a href="#!" class="brand-logo">Reminders</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="sass.html"><i class="material-icons left">home</i>Home</a></li>
-        <li><a href="badges.html"><i class="material-icons right">sign</i>Sign out</a></li>
-      </ul>
-    </div>
-  </nav>
-    </div>
-<div class="row">{/*LEFT Nav*/ } 
-  <div class="col s12 m4 l2 navleft"> 
-  <div class="collection leftNav">
-        <a href="#!" class="collection-item">Invoices</a>
-        <a href="#!" class="collection-item active">Reminders</a>
-        <a href="#!" class="collection-item">Settings</a>
-        <a href="#!" class="collection-item">Billing</a>
-      </div>          
-  </div>
 
-  <div class="col s12 m8 l10 "> 
-  
+      <div class="reminder">
+  <div className="row">
+    <Sidenav />
+
+  <div class="col s12 m8 l10 reminder-container"> 
+  <h2 className="center">Reminders</h2>
   <div class="col s12 m4 l2 ">{/*SEARCH INVOICE*/ }  
   <div className="reminderInput boxShadow">
     <SearchInput  onChange={this.searchUpdated} className='search'/>
@@ -404,11 +387,9 @@ handleStartReminders = (e) => {
     </div>          
   </div>
    
-
-
+</div>
   </div>
 
-</div>
    
     );
   }

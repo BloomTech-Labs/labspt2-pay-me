@@ -2,6 +2,21 @@
 	font-family: 'Open Sans', sans-serif;
 }
 
+.add-circle  {
+	font-size: 4rem;
+}
+
+.add-circle:hover {
+	opacity: .8;
+}
+
+.add-invoiceBtn-container {
+	margin-left: 50px;
+}
+
+.add-invoiceBtn-container-text {
+	margin-left: 35px;
+}
 
 .add-btn {
 	margin: 20px 0px 20px 10px;
@@ -45,6 +60,14 @@
 	color: #c6c6c6;
 }
 
+.cloud {
+	font-size: 4rem;
+}
+
+.cloud:hover{
+	opacity: .5;
+}
+
 .delete-icon{
 	color: #c6c6c6 !important;
 }
@@ -64,7 +87,9 @@
 
 .create-invoice-container {
 	margin-top:40px;
+	border: 1px solid transparent;
 }
+
 .close {
 	color: #c6c6c6;
 }
@@ -120,6 +145,10 @@
 	font-size: 1.2rem;
 	padding-top: 20px;
 }
+
+.invoice-details-container {
+	border: 1px solid transparent;
+} 
 
 .logo-container {
 	margin-top: 50px;
@@ -192,6 +221,7 @@
 	background: #82c0ff;
 	height: 120vh;
 }
+
 body {
 	background: #82c0ff;
 	height: fixed;
@@ -200,3 +230,19 @@ body {
 input {
 	border-radius: 3px !important;
 }
+
+#logout-button {
+	margin-top: 10px;
+	margin-left: 5px;
+}
+
+/* ----- Media Queries ----- */
+@media screen and (max-width: 700px){
+	#user-image{
+	  display: none;
+	}
+  
+	.call-to-action-content-top{
+	  margin: 0 auto;
+	}
+  }
