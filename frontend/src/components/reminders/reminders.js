@@ -12,64 +12,6 @@ import { ClimbingBoxLoader} from 'react-spinners';
 //import './App.css';
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
-     
-     
-const InvoicesInfo =[{
-          invoiceId:1,
-          invoicePdfLink:'#',
-          invoiceNumber:'#2314',
-          userInfo :{
-            UserName :'Martins Khol',
-            UserPhoneNumber:'+154',
-            UserEmail:'Khol@kholusa.io'
-          },
-          clientInfo:{
-            clientName:'Ross Geller',
-            clientEmail:'RossGellerDoe@doe.com',
-            clientPhoneNumber:'+178***'
-          }},
-          {
-            invoiceId:2,
-            invoicePdfLink:'#',
-            invoiceNumber:'#345',
-              userInfo :{
-                UserName :'Martins Khol',
-                UserPhoneNumber:'+154MK',
-                UserEmail:'Khol@kholusa.io'
-            },
-            clientInfo:{
-              clientName:'Jane Doe',
-              clientEmail:'JaneDoe@doe.com',
-              clientPhoneNumber:'+179***'
-            }},
-            {
-              invoiceId:3,
-              invoicePdfLink:'#',
-              invoiceNumber:'#237',
-                userInfo :{
-                UserName :'Martins Khol',
-                UserPhoneNumber:'+154MK',
-                UserEmail:'Khol@kholusa.io'
-              },
-              clientInfo:{
-                clientName:'Jonas Doe',
-                clientEmail:'JonasDoe@doe.com',
-                clientPhoneNumber:'+178***'
-              }},
-              {
-                invoiceId:4,
-                invoicePdfLink:'#',
-                invoiceNumber:'#409',
-                userInfo :{
-                  UserName :'MOMPASU',
-                  UserPhoneNumber:'17323335835',
-                  UserEmail:'witanday.cd@gmail.com'
-                },
-                clientInfo:{
-                  clientName:'Didi Doe',
-                  clientEmail:'ir.witanday@gmail.com',
-                  clientPhoneNumber:'19788718331'
-            }},]
         
 const options = [
           { value: '3600 ', label: 'Daily' },//value in milliseconds 1min --3600s 86400000--daily
