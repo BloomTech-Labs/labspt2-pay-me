@@ -3,22 +3,64 @@ const router = express.Router();
 const db = require('../../data/helpers/invoiceHelper');
 const clientsHelper = require('../../data/helpers/clientsHelper');
 const authToken = require('../authorizeToken');
-
 const aws = require('aws-sdk');
 const multerS3 = require('multer-s3');
 const multer = require('multer');
 const path = require('path');
 
+/* AWS Profile File Storing */
+const s3 = new aws.S3({
+	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+	Bucket: process.env.AWS_BUCKET,
+});
+
+const pdfUpload = multer({
+  storage: multerS3({
+    s3: s3,
+    bucket: process.env.AWS_BUCKET,
+    acl: 'public-read',
+    key: function (req, file, cb) {
+      cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
+    }
+  }),
+  limits:{ fileSize: 4000000 }, // In bytes: 4000000 bytes = 4 MB
+  fileFilter: function( req, file, cb ){
+    checkFileType( file, cb );
+  }
+}).single('pdf');
+
+/**
+* Check File Type
+* @param file
+* @param cb
+* @return {*}
+*/
+function checkFileType( file, cb ){
+  // Allowed ext
+  const filetypes = /pdf/;
+  // Check ext
+  const extname = filetypes.test( path.extname( file.originalname ).toLowerCase());
+  // Check mime
+  const mimetype = filetypes.test( file.mimetype );
+  if( mimetype && extname ){
+    return cb( null, true );
+  } else {
+    cb( 'Error: Pdf Only!' );
+  }
+}
 
 // Get a list of invoices
-router.get('/', async (req, res) => {
-    db.getAll()
-    .then(invoices => {
-        res.status(200).json(invoices);
-    })
-    .catch(err => {
-      res.status(500).json(err)
-    })
+router.get('/', authToken, async (req, res) => {
+  const user_id = res.locals.decodedToken.subject;
+  db.getAll(user_id)
+  .then(invoices => {
+    res.status(200).json(invoices);
+  })
+  .catch(err => {
+    console.log(err);
+    res.status(500).json({errorMessage: `Server sent an error of type ${err}.`});
+  })
 });
 
 // Get an invoice by id
@@ -41,98 +83,84 @@ router.put('/:id', authToken, async (req, res) => {
 
   await db.update(id, changes)
   .then(count => {
-     if(!count || count < 1) {
-       res.status(404).json({message: 'No invoice found to update'})
-     } else {
-       res.status(200).json(count);
-     }
+      if(!count || count < 1) {
+        res.status(404).json({message: 'No invoice found to update'})
+      } else {
+        res.status(200).json(count);
+      }
   })
   .catch(err => {
       res.status(500).json({ message: 'Sorry, the server ran into an issue'})
   })     
 });
 
-// Upload PDF invoice to AWS
+// Add invoice and PDF 
+router.post('/create', [authToken, pdfUpload], (req, res) => {
+  let invoice = JSON.parse(req.body.invoice);
+  // We get the user_id out of the authenticated and now decoded token.
+  const user_id = res.locals.decodedToken.subject;
 
-/* AWS Profile File Storing */
-const s3 = new aws.S3({
-	accessKeyId: 'AKIA3I23NCTN3R2ZB2O2',
-	secretAccessKey: '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',
-	Bucket: 'paymeawsbucket'
-});
-
-const profileImgUpload = multer({
-  storage: multerS3({
-   s3: s3,
-   bucket: 'paymeawsbucket',
-   acl: 'public-read',
-   key: function (req, file, cb) {
-    cb(null, path.basename( file.originalname, path.extname( file.originalname ) ) + '-' + Date.now() + path.extname( file.originalname ) )
-   }
-  }),
-  limits:{ fileSize: 4000000 }, // In bytes: 4000000 bytes = 4 MB
-  fileFilter: function( req, file, cb ){
-   checkFileType( file, cb );
-  }
- }).single('profileImage');
-
-/**
-* Check File Type
-* @param file
-* @param cb
-* @return {*}
-*/
-function checkFileType( file, cb ){
-  // Allowed ext
-  const filetypes = /pdf/;
-  // Check ext
-  const extname = filetypes.test( path.extname( file.originalname ).toLowerCase());
-  // Check mime
-  const mimetype = filetypes.test( file.mimetype );
- if( mimetype && extname ){
-   return cb( null, true );
-  } else {
-   cb( 'Error: Pdf Only!' );
-  }
- }
-
- // Add invoice and PDF 
-router.post('/create', (req, res) => {
-  const invoice = req.body;
-  console.log(req.body)
- 
-  db.insert(invoice)
-  .then(ids => {
-      res.status(201).json({message: ids});
+  // Let's see if we can find an ID with this client_name that also belongs to this user
+  clientsHelper.getIdByName(invoice.client_name, user_id)
+  .then(id => {
+    // if id.length === 0 create a new client based on the information given to us here.
+    if (id.length === 0) {
+      clientsHelper.insert({
+        client_name: invoice.client_name,
+        company_name: invoice.company_name,
+        email: invoice.email,
+        phone_number: invoice.phone_number,
+        user_id: user_id,
+      }).then(ids => { 
+        // Now that we've created the new client let's add the invoice to it.
+        invoice = {
+          client_id: ids[0],
+          invoice_number: invoice.invoice_number,
+          company_name: invoice.company_name,
+          notes: invoice.notes,
+          inv_url: req.file.location,
+        }
+          db.insert(invoice)
+        .then(ids => {
+            res.status(201).json({message: ids});
+        })
+        .catch(err => {
+            console.log(`Server had an error of : ${err} while trying to add an invoice to a new client.`);
+            res.status(500).json(err)
+        })
+      })
+      .catch(err => {
+        console.log(`Server had an error of : ${err} while trying to create a new client.`);
+        res.status(500).json(err);
+      })
+    }
+    // This client is already attached to this user. 
+    else {
+      // Make sure the invoice object only contains the required invoice information.
+      invoice = {
+        client_id: id[0].id,
+        invoice_number: invoice.invoice_number,
+        company_name: invoice.company_name,
+        notes: invoice.notes,
+        inv_url: req.file.location,
+      }
+      // Attempt to insert the invoice into the invoice table
+      db.insert(invoice)
+        .then(ids => {
+            res.status(201).json({message: ids});
+        })
+        .catch(err => {
+            console.log(`Server had an error of : ${err} while trying to add an invoice to a client.`);
+            res.status(500).json(err)
+        })
+      }
   })
   .catch(err => {
-      res.status(500).json(err)
+    console.log(`Server had an error of : ${err} while trying to find a client name by user_id.`);
+    res.status(500).json(err);
   })
- 
-  profileImgUpload( req, res, ( error ) => {
-    console.log( 'File upload successful', req.file );
-    // console.log( 'error', error );
-    if( error ){
-     console.log( 'errors', error );
-     res.json( { error: error } );
-    } else {
-     // If File not found
-     if( req.file === undefined ){
-      console.log( 'Error: No File Selected!' );
-      res.json( 'Error: No File Selected' );
-     } else {
-      // If Success
-      const imageName = req.file.key;
-      const imageLocation = req.file.location;
-  // Save the file name into database into profile model
-  res.json( {
-       image: imageName,
-       location: imageLocation
-      } );
-     }
-    }
-   }); 
-  });
+
+});
 
 // Delete invoice
 router.delete('/:id', authToken, async (req, res) =>{

@@ -13,8 +13,8 @@ router.use(cors());
 router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
 
 router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {
-    console.log(req.user);
-    jwt = JWT.generateToken(req.user);
+    console.log(req.user[0]);
+    jwt = JWT.generateToken(req.user[0]);
     res.redirect(local + jwt);
 });
 

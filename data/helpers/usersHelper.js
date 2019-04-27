@@ -71,7 +71,6 @@ async function insert(user) {
     })
     .then(async membershipID => {
         newIDs.membership_id = membershipID[0];
-
         await db('users').insert(
             {username: user.username, 
             password: user.password,
@@ -79,11 +78,13 @@ async function insert(user) {
             email: user.email, 
             membership_id: membershipID[0]})
             .then(async userID => {
+                console.log('inside user insert.')
                 newIDs.id = userID[0];
                 newIDs.username = user.username;
                 newIDs.message = 'Account created.';
             })
             .catch(async error => {
+                console.log(`User insert failed while trying to insert the user with error ${error}`)
                 newIDs.message = {errno: error.errno, code: error.code };
                 await db('memberships').where('id', newIDs.membership_id).delete();
                 newIDs.membership_id = '';
