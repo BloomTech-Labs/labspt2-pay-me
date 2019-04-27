@@ -46,6 +46,7 @@ const getInvoices =  async (req, res)=>{
   user:data_user[0],
   client:filtered_clients
 }*/
+<<<<<<< HEAD
 
 var dataToSend  =filtered_clients.map((item,i)=>{
   const invoice = item.invoice;
@@ -58,6 +59,20 @@ async function senddata(){
   return dataToSend
 }
 
+=======
+
+var dataToSend  =filtered_clients.map((item,i)=>{
+  const invoice = item.invoice;
+ return{
+  invoice,
+  user:data_user[0],
+  client:filtered_clients2[i]
+}})
+async function senddata(){
+  return dataToSend
+}
+
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 senddata().then(response=>{
   //console.log(response)
   if(response.length!==0){
@@ -129,7 +144,10 @@ senddata().then(response=>{
         }
       }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
      
       const SaveReminder =(req,res)=>{
         console.log(process.env.API_KEY_NEXMO_SMS,process.env.API_SECRET_NEXMO_SMS,process.env.SENDGRID_API_KEY);
@@ -151,6 +169,7 @@ senddata().then(response=>{
             .then( reminders_id =>{
               console.log( reminders_id)
             res.status(200).json(reminders_id)
+<<<<<<< HEAD
                 })}
         }
        
@@ -159,11 +178,27 @@ senddata().then(response=>{
   .catch(err =>{
    res.status(500).json(err)
 
+=======
+                })}})
+  .catch(err =>{
+   res.status(500).json(err)
+   
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
   })
  
    }
 
+<<<<<<< HEAD
 
+=======
+const getRemindersbyInvoiceNumber =(req,res)=>{
+        db.select().table('reminder111').then(item =>{
+          res.status(200).json(item)})
+          .catch(err =>{
+          res.status(500).json(err)
+        })
+      }
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 module.exports ={
         getRemindersbyInvoiceNumber ,
         SendReminders,
