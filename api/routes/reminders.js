@@ -10,13 +10,13 @@ RouterReminder.get('/view',TaskManager.getRemindersbyInvoiceNumber);
 //## GET ALL INVOICES BY USER ID
 RouterReminder.get('/reminders/invoices/:id',TaskManager.getInvoices);
 
+//## SAVE REMINDERS AND STOP RESEND
+RouterReminder.post('/save',TaskManager.SaveReminder);
 
 // ## SEND A REMINDER
 RouterReminder.post('/send',TaskManager.SendReminders);
 
 
-// ## Save A REMINDER
-ReminderRouter.post('/send',TaskManager.SaveReminder);
 
 
 
