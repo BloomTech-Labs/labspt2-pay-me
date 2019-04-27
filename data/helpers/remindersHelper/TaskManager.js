@@ -22,11 +22,19 @@ const tblUsr = 'users';
 const tblRem = 'reminders';
 
 
+<<<<<<< HEAD
+=======
+const tblInvs = 'Invoices';
+const tblClt = 'Client';
+const tblUsr = 'User';
+const tblRem = 'Reminders';
+>>>>>>> started to reforctor theReminders backend
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
 
 
+<<<<<<< HEAD
   const data_user =await db('users').where('user_id',id).map(item=>{
     return item
   })
@@ -35,6 +43,11 @@ const getInvoices =  async (req, res)=>{
     return item
   });
 
+=======
+<<<<<<< HEAD
+const getInvoicesbyClientsbyUserId =  async (req, res)=>{
+    const {id} = await req.params;
+>>>>>>> started to reforctor theReminders backend
  
  
   const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
@@ -51,6 +64,7 @@ const getInvoices =  async (req, res)=>{
         if (invoice.client_id === filtered_clients[i].client_id) {
           filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
         }
+<<<<<<< HEAD
     }
 }) ;
 /*const data = {
@@ -71,6 +85,27 @@ async function senddata(){
 }
 
 =======
+=======
+    }) ;
+const data = {
+      user:data_user,
+      client:filtered_clients
+    };
+   if(data){
+    (res.status(200).json(data)
+    )
+    .catch(err =>{
+      res.status(500).json(err)
+    })
+   }
+      
+  }      
+=======
+>>>>>>> started to reforctor theReminders backend
+
+
+   
+>>>>>>> started to reforctor theReminders backend
 
 var dataToSend  =filtered_clients.map((item,i)=>{
   const invoice = item.invoice;
