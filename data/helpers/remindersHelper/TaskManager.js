@@ -3,8 +3,11 @@ const EmailSmsApiConfig =require('./smsEmailSenderApi');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
 <<<<<<< HEAD
+<<<<<<< HEAD
 const db = require('../../dbConfig');
 =======
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 <<<<<<< HEAD
 //const ReminderTimer = require('./TimerReminders')
 const db = require('../../dbConfig');
@@ -13,13 +16,20 @@ const ReminderTimer = require('./TimerReminders')
 const db = require('../dbConfig');
 >>>>>>> revert my fake commit
 
+<<<<<<< HEAD
 >>>>>>> revert my fake commit
+=======
+=======
+const db = require('../dbconfig');
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 const smsData = EmailSmsApiConfig.smsHandler;
 const emailData = EmailSmsApiConfig.emailHandler;
 const tblInvs = 'invoices';
 const tblClt = 'clients';
 const tblUsr = 'users';
 const tblRem = 'reminders';
+<<<<<<< HEAD
 
 
 <<<<<<< HEAD
@@ -29,11 +39,14 @@ const tblClt = 'Client';
 const tblUsr = 'User';
 const tblRem = 'Reminders';
 >>>>>>> started to reforctor theReminders backend
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   const data_user =await db('users').where('user_id',id).map(item=>{
     return item
@@ -44,6 +57,8 @@ const getInvoices =  async (req, res)=>{
   });
 
 =======
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 <<<<<<< HEAD
 const getInvoicesbyClientsbyUserId =  async (req, res)=>{
     const {id} = await req.params;
@@ -102,10 +117,58 @@ const data = {
   }      
 =======
 >>>>>>> started to reforctor theReminders backend
+=======
+const getInvoices =  async (req, res)=>{
+  const {id} = req.params;
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 
 
+  const data_user =await db('users').where('user_id',id).map(item=>{
+    return item
+  })
    
+<<<<<<< HEAD
 >>>>>>> started to reforctor theReminders backend
+
+var dataToSend  =filtered_clients.map((item,i)=>{
+  const invoice = item.invoice;
+ return{
+  invoice,
+  user:data_user[0],
+  client:filtered_clients2[i]
+}})
+async function senddata(){
+  return dataToSend
+}
+
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
+=======
+  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
+    return item
+  });
+
+ 
+ 
+  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
+    return item
+  })
+
+ 
+  const data_invoices =await db('invoices').map(item=>{
+    return item
+  })
+  
+  data_invoices.map(invoice => {
+    for(let i = 0; i < filtered_clients.length; i++) {
+        if (invoice.client_id === filtered_clients[i].client_id) {
+          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
+        }
+    }
+}) ;
+/*const data = {
+  user:data_user[0],
+  client:filtered_clients
+}*/
 
 var dataToSend  =filtered_clients.map((item,i)=>{
   const invoice = item.invoice;
@@ -127,9 +190,18 @@ senddata().then(response=>{
     res.status(203).json([])
   }
 }).catch(err =>{res.status(500).json('eeeerror')})
+<<<<<<< HEAD
 
 }
 
+=======
+
+}
+
+
+      
+   
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
     const SendReminders= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
@@ -188,7 +260,10 @@ senddata().then(response=>{
       }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 =======
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
      
@@ -213,6 +288,7 @@ senddata().then(response=>{
               console.log( reminders_id)
             res.status(200).json(reminders_id)
 <<<<<<< HEAD
+<<<<<<< HEAD
                 })}
         }
        
@@ -222,18 +298,26 @@ senddata().then(response=>{
    res.status(500).json(err)
 
 =======
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
                 })}})
   .catch(err =>{
    res.status(500).json(err)
    
+<<<<<<< HEAD
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
+=======
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
   })
  
    }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
+=======
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
 const getRemindersbyInvoiceNumber =(req,res)=>{
         db.select().table('reminder111').then(item =>{
           res.status(200).json(item)})
@@ -241,9 +325,20 @@ const getRemindersbyInvoiceNumber =(req,res)=>{
           res.status(500).json(err)
         })
       }
+<<<<<<< HEAD
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
 module.exports ={
         getRemindersbyInvoiceNumber ,
+=======
+module.exports ={
+<<<<<<< HEAD
+    getInvoicesbyClientsbyUserId,
+        StopReminder,
+        getAllReminders,
+=======
+        getRemindersbyInvoiceNumber ,
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
+>>>>>>> Reminders TaskManager completed but need to rename many parameters
         SendReminders,
         SaveReminder,
         getInvoices,
