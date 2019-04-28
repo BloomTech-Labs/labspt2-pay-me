@@ -4,15 +4,19 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import SearchInput, {createFilter} from 'react-search-input' ;
 import axios from 'axios';
+import Sidenav from '../nav/Sidenav'
 import './reminder.css';
 import {Route} from "react-router-dom";
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
+import { Table,Label,Icon  } from 'semantic-ui-react';
 //import './materialize.min.css';
 //import './App.css';
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
-        
+function styleFn(provided, state) {
+  return { ...provided, color: state.isFocused ? 'black' : 'red' };
+}    
 const options = [
           { value: '3600 ', label: 'Daily' },//value in milliseconds 1min --3600s 86400000--daily
           { value: '604800000', label: 'Weekly' },
@@ -23,7 +27,7 @@ const options = [
   const buttonReminder=(a,b)=> {
           if (a || b) {
            // return<Link to={`/`}  className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</Link>
-            return <button className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</button>;
+            return <button className="btn blue add-btn"><i className="material-icons left">av_timer</i>Start Reminders</button>;
           }
           return null;
         }
@@ -60,9 +64,9 @@ class Reminders extends Component {
       Sms_Freq:'',
       Sms_CustomText:'',
       Sms_Template:null,
-      isCheckedEmail: props.isCheckedSms || false,
-      isCheckedSms: props.isCheckedSms || false,
-      isClickedInvoice:InvoicesInfo[0].invoiceId,
+      isCheckedEmail: props.isCheckedSms || true,
+      isCheckedSms: props.isCheckedSms || true,
+      isClickedInvoice:'',
       isLoading: true ,
       filteredInvoice:[],
       isInvoiced:false,
@@ -146,7 +150,7 @@ handleAddComment=(event) => {
   }
 invoiceData2 =(id)=>{ //1.get index of current Invoice 2.Get data user - client for each invoice 3. fill form with curent invoice data
 
-  const filteredInvoice2 = InvoicesInfo.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
+  const filteredInvoice2 = this.state.data_invoices.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
 
   const index = filteredInvoice2.map(e => e.invoiceNumber).indexOf(id);
   this.setState({invoiceUserClientInfo: filteredInvoice2[index]});
@@ -252,7 +256,22 @@ handleStartReminders = (e) => {
       // console.log(id)
        
  }
+
+ dateConvert =(xdate)=>{
+  const currentDate = new Date(xdate);
+  const date = currentDate.getDate();
+  const month = currentDate.getMonth(); //Be careful! January is 0 not 1
+  const year = currentDate.getFullYear();
+  const hours = currentDate.getHours()
+  const isPM = currentDate.getHours() >= 12;
+  const isMidday = currentDate.getHours() == 12;
+  const minutes = currentDate.getMinutes();
+  const secondes = currentDate.getSeconds();
+  return (`${month}/${date }/${ year} at ${hours } :${minutes}:${secondes || '00'} ${(isPM ? 'PM' : 'AM')}`)
+ }
+
   componentDidMount(){
+    console.log(this.dateConvert("2019-04-28T03:29:07.798Z"))
     async function getData(){
       const res = await axios('http://localhost:3111/api/reminders/invoices/5');
       return await res;
@@ -296,19 +315,15 @@ console.log('hhhhhhhhhhh')
 </div>
 <div class="row">
 <div class="col s12 m4 l2 navleft"> 
-<div class="collection leftNav">
-    <a href="#!" class="collection-item">Invoices</a>
-    <a href="#!" class="collection-item active">Reminders</a>
-    <a href="#!" class="collection-item">Settings</a>
-    <a href="#!" class="collection-item">Billing</a>
-  </div>         
+<Sidenav />
 </div>
-<div class="col s12 m8 l10 boxstyle">
-<div ><div class={` isHidding${this.state.isHidding2}`}>Click an Invoice to start</div>
+<div className="col s12 m8 l10 wrapperContainer">
+<div className="wrapperContainer_send_reminders">
+<div className={` isHidding${this.state.isHidding2}`}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>
         {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
             <div class="col s12 m4 l2 ">
-          <div className="Searchbox boxstyle4">
-             <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
+          <div className="Searchbox ">
+             <SearchInput  onChange={this.searchUpdated} className='search'/>
                  {filteredInvoice.map((itemInfo) => {
                  return (
                      <div className="mail" key={itemInfo.invoice.invoice_id}>
@@ -351,17 +366,17 @@ console.log('hhhhhhhhhhh')
                  </div>
                      </div>
                   <div class="email-compose-body">
-                  <h4 class="c-grey-900 mB-20 boxstyle5">Send Email</h4>
+                  <h4 class=" boxstyle5">Send Email</h4>
                   <div class="send-header"><div class="form-group">
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Email_From:</span>
                    <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.user_email}/>
                  </div>
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Email_to:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_email}/>
                  </div>
-                 <div class=" col s6">
+                 <div class="col s12 l6">
                    <span class="">Send first reminder on:</span>
                    <DatePicker
                  selected={this.state.Email_StartDate}
@@ -374,13 +389,14 @@ console.log('hhhhhhhhhhh')
                />
                  </div>
          
-                 <div class="input-field col s6">
+                 <div class="input-field col s12 l6">
                    <span class="">Then repeat :</span>
                    <Select 
                  value={this.state.selectedOption.value}
                  label={this.state.selectedOption.label}
                  onChange={this.handleChangeFreqEmail}
                  options={options}
+                 styles={styleFn}
                />
                  </div>
                   </div>
@@ -400,15 +416,15 @@ console.log('hhhhhhhhhhh')
                   <div class="email-compose-body">
                   <h4 class="c-grey-900 mB-20 boxstyle5">Send Sms</h4>
                   <div class="send-header"><div class="form-group">
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Sms_From:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.user_phonenumber}/>
                  </div>
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Sms_to:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_phonenumber}/>
                  </div>
-                 <div class=" col s6">
+                 <div class=" col s12 l6">
                    <span class="">Send first reminder on:</span>
                    <DatePicker
                  selected={this.state.Sms_StartDate}
@@ -421,7 +437,7 @@ console.log('hhhhhhhhhhh')
                />
                  </div>
          
-                 <div class="input-field col s6">
+                 <div class="input-field col s12 l6">
                    <span class="">Then repeat :</span>
                    <Select 
                   value={this.state.selectedOption.value}
@@ -457,23 +473,31 @@ console.log('hhhhhhhhhhh')
          <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange}></textarea></div>
          <button class="btn waves-effect waves-light" type="submit" name="action">Add comment</button>
         
-           </form> </div>)|| <table class={`rwd-table isHidding${this.state.isHidding}`}>
-    <tr>
-      <th>Invoice Number : {this.state.reminders_data.invoiceNumber}</th>
-      <th>Email Reminders</th>
-      <th>Sms Reminders</th>
-    </tr>
-    <tr>
-      <td>STARTS</td>
-      <td ><span class="span-table">{this.state.reminders_data.Email_Startdate}</span></td>
-      <td>{this.state.reminders_data.Sms_Startdate}</td>
-    </tr>
-    <tr>
-      <td>REPEATS</td>
-      <td>{this.state.reminders_data.Email_Freq_label}</td>
-      <td>{this.state.reminders_data.Sms_Freq_label}</td>
-    </tr>
-  </table>}
+           </form> </div>)||<div className={`isHidding${this.state.isHidding}`} >
+           <ul class="collection rem_card_stats ">
+    <li class="collection-item avatar card_stats">
+      <i class="material-icons circle bigicon">email</i>
+      <div className="stats_body">
+        <div className="stats_title">Email Reminders</div>
+        <div className="stats_contents">
+        <div className="stats_content1"><i class="material-icons  iconstyle">snooze</i>{this.dateConvert(`${this.state.reminders_data.Email_Startdate}`)}</div>
+        <div className="stats_content2"><i class="material-icons  iconstyle">repeat</i>{this.state.reminders_data.Email_Freq_label}</div>
+        </div>
+      </div>
+    </li>
+    <li class="collection-item avatar card_stats">
+      <i class="material-icons circle bigicon">sms</i>
+      <div className="stats_body">
+        <div className="stats_title">Sms Reminders</div>
+        <div className="stats_contents">
+        <div className="stats_content1"><i class="material-icons  iconstyle">snooze</i>{this.dateConvert(`${this.state.reminders_data.Sms_Startdate}`)}</div>
+        <div className="stats_content2"><i class="material-icons  iconstyle">repeat</i>{this.state.reminders_data.Sms_Freq_label}</div>
+        </div>
+      </div>
+    </li>
+  </ul>
+    </div>
+  }
          </div> </div>
         )||(<section className='notinvoicecard'>  
           <p class="h3"><strong>Loading data ...</strong></p>
@@ -482,7 +506,7 @@ console.log('hhhhhhhhhhh')
                   css={override}
                   sizeUnit={"px"}
                   size={15}
-                  color={'#2f70e1'}
+                  color={'whitesmoke'}
                   loading={this.state.loading}
                 /> </div>
           <p>...Oops no invoice found, please add an invoice!</p>

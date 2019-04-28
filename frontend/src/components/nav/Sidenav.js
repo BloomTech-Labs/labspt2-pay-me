@@ -12,7 +12,7 @@ class Sidenav extends Component {
                     <div className="logo-container"><img src={ logo }></img></div>
                     <ul>
                         <Link to="/dashboard"><li>INVOICES</li></Link>
-                        <Link to="#"><li>REMINDERS</li></Link>
+                        <Link to="/reminders"><li>REMINDERS</li></Link>
                         <Link to="/settings"><li>ACCOUNT AND SETTINGS</li></Link>
                         <Link to="/billing"><li>BILLINGS</li></Link>
                         <Link to="#"><li>SUPPORT CENTER</li></Link>

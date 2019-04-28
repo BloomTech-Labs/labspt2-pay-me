@@ -2,13 +2,13 @@
 
 div.reminder{
   color: rgb(12, 10, 10);
-  background: #f2f4f7
+  background: #82c0ff;
  
 
 }
 nav.Topnav {
   color: #fff;
-  background-color: #2196F3;
+  background-color: dodgerblue;
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -60,7 +60,7 @@ div.row.wrapper-email-sms{
   width: 700px;
   display:flex;
   justify-content:center ;
- background: white;
+ background: #fff;
  border-color: rgba(0,0,0,.7);
  box-shadow: 0 0 0 1px rgba(198, 199, 201, 0.5);
 
@@ -101,10 +101,11 @@ padding:10px;
 }
 
 abbr{
-  color:#222;
+  color:#000;
 }
 .sectionboxcontact{
  background: white;
+ color:#222;
  padding:10px; 
   margin:10px; 
 
@@ -188,13 +189,14 @@ padding:2px;
   display: flex;
   flex-direction:column;
   align-items:center ; 
-  background: #ffffff;
+  background: #fff;
   padding:10px;  
   margin:4px 
 }
 
 .Section-Email-Sms-Comment{
   display:flex ;
+  background:#82c0ff
   
 }
 .Section-Email-Sms{
@@ -204,10 +206,12 @@ padding:2px;
   flex-direction:column ;
   align-items:center; 
   padding:20px; 
+  
 }
 .Section-Email{
   display:flex ;
   margin-bottom:10px; 
+  
 }
 .Section-Sms{
   display:flex ;
@@ -236,17 +240,17 @@ display:none
 }
 
  div span,h4, input,span .rem{
-  color:#222 ;
+  color:#222;
   list-style:none ;
   padding:5px; 
-  font-size:12px; 
+  font-size:14px; 
 }
 div.mail li.info{
   font-size: 12px;
   font-weight:600;
-	color: #2f70e1;
+	color: dodgerblue;
   padding: 10px 30px;
-  background:#fafafa;
+  background:white;
   margin:3px;    
   cursor: pointer;
   list-style:none 
@@ -267,25 +271,25 @@ div.mail li.info{
   display:flex;
   justify-content:space-between;
   padding: 10px; 
-  margin-bottom:10px;  
+  margin-bottom:10px; 
+  background: white 
 }
 
 .boxstyle {
-  box-shadow: 0 0 0 .1px rgba(0,0,0,.08), 0 1px 1px 0 rgba(0,0,0,.12);
-  background-color: #fff;
+  box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
+  background-color: #82c0ff;
+  color:#000;
   border-radius: 6px;
   padding: .1px 0;
 }
-.boxstyle2 {
-  box-shadow: 0 .1px .1px rgba(0,0,0,0.1), 0 .1px .1px rgba(0,0,0,0.1);
-}
+
 
 .boxstyle3 {
-  box-shadow: 0px .2px .2px 1px rgba(0,0,0,0.1);
+  box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
 }
 .boxstyle4 {
-  box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
-  background: #fafafa;
+  box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
+  background: #82c0ff;
 }
 .boxstyle5 {
   box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
@@ -302,12 +306,12 @@ div.mail li.info{
   
 }
 div.mail li.info.invoice--clicked{    
-  background-color:#2f70e1;
+  background-color:dodgerblue;
   color:white;
   }
   section.notinvoicecard{
     text-align:center; 
-  background:white; 
+  background:#82c0ff; 
  display:flex ;
  flex-direction:column ;
  justify-content: center;
@@ -333,7 +337,7 @@ padding-bottom:10px }
 	padding:20px 0px;
 	margin:37px 20px 0;
 	font-size:16px;
-	color:#5aadef;
+	color:dodgerblue;
 	font-weight:600;	
 	overflow:auto;
 }
@@ -356,7 +360,7 @@ padding-bottom:10px }
 	position:absolute;
 	right:0;
 	top:0;	
-	background:#ebeff2;
+	background:#208fe4;
 }
 .stats{
 	border-top:1px solid #ebeff2;
@@ -379,7 +383,7 @@ padding-bottom:10px }
 
 table.rwd-table {
   width: 800px;
-  color:#888;
+  color:rgb(22, 8, 8);
   border-radius: .4em;
 }
 .rwd-table tr {
@@ -400,6 +404,70 @@ span.span-table{
  
  
  }
- .rwd-table.isHiddingtrue,div.isHiddingtrue{
+ .isHiddingtrue,div.isHiddingtrue{
    display:none 
  }
+
+ section.notinvoicecard {
+   height:80vh; 
+   background:#82c0ff;
+    
+ }
+
+ .wrapperContainer_send_reminders{
+   display: flex;
+   flex-direction:column; 
+   justify-content:space-between 
+ }
+ h3.titles{
+   font-size:18px; 
+   color:grey;
+   margin-bottom:15px 
+ }
+ .rem_card_stats{
+   width:600px ;
+  display:flex;
+  
+  flex-direction: column;
+   
+   display:flex;
+ }
+.card_stats{
+  margin:20px ;
+ 
+}
+ .stats_body{
+   border-left: 0.5px solid #D3D3D3;
+   margin-left: 10px;
+   padding-left:15px; 
+  font-size:18px; 
+  color:rgba(0,0,0,0.87);
+  margin-bottom:15px 
+ }
+ .stats_title{
+  font-size:20px; 
+  color:rgba(0,0,0,0.87);
+  margin-bottom:45px;
+  
+ }
+ .stats_contents{
+  height:150px ;
+  margin-left:10px 
+ }
+ .stats_content1,.stats_content2{
+  font-size:18px; 
+  color:rgba(0,0,0,0.87);
+  margin-bottom:25px;
+ }
+ .material-icons.iconstyle,.bigicon{
+  color:rgba(0,0,0,0.87);
+  line-height: 35px;
+  margin-right: 10px;
+ }
+ .collection .collection-item.avatar i.circle {
+  font-size: 18px;
+  line-height: 42px;
+  color: #fff;
+  background-color: rgba(0,0,0,0.87);;
+  text-align: center;
+}
