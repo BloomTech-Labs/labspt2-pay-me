@@ -4,18 +4,18 @@ const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 const db = require('../../dbConfig');
 =======
 =======
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
 <<<<<<< HEAD
+=======
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 //const ReminderTimer = require('./TimerReminders')
 const db = require('../../dbConfig');
-=======
-const ReminderTimer = require('./TimerReminders')
-const db = require('../dbConfig');
->>>>>>> revert my fake commit
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> revert my fake commit
 =======
@@ -34,18 +34,27 @@ const tblRem = 'reminders';
 
 <<<<<<< HEAD
 =======
+=======
+const smsData = EmailSmsApiConfig.smsHandler;
+const emailData = EmailSmsApiConfig.emailHandler;
+
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 const tblInvs = 'Invoices';
 const tblClt = 'Client';
 const tblUsr = 'User';
 const tblRem = 'Reminders';
+<<<<<<< HEAD
 >>>>>>> started to reforctor theReminders backend
 =======
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
+=======
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
 
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   const data_user =await db('users').where('user_id',id).map(item=>{
@@ -60,6 +69,8 @@ const getInvoices =  async (req, res)=>{
 =======
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
 <<<<<<< HEAD
+=======
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 const getInvoicesbyClientsbyUserId =  async (req, res)=>{
     const {id} = await req.params;
 >>>>>>> started to reforctor theReminders backend
@@ -115,18 +126,10 @@ const data = {
    }
       
   }      
-=======
->>>>>>> started to reforctor theReminders backend
-=======
-const getInvoices =  async (req, res)=>{
-  const {id} = req.params;
->>>>>>> Reminders TaskManager completed but need to rename many parameters
 
 
-  const data_user =await db('users').where('user_id',id).map(item=>{
-    return item
-  })
    
+<<<<<<< HEAD
 <<<<<<< HEAD
 >>>>>>> started to reforctor theReminders backend
 
@@ -195,23 +198,42 @@ senddata().then(response=>{
 }
 
 =======
+=======
 
-}
+  const getAllReminders = (req, res) => {
+    db.select().table(`${tableName}`)
+      .then(item =>{
+        res.status(200).json(item)
+      })
+      .catch(err =>{
+        res.status(500).json(err)
+      })
+  }
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 
-
-      
+    const SaveReminder =  async (req, res)=>{
+          const newItem = await req.body;
+          await db(tblRem).insert(newItem)
+          .then(id =>{
+            res.status(201).json({message :` inserted with ID :${id}`})
+          })
+          .catch(err =>{
+            res.status(500).json(err)
+          })
+      }
+         
    
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
     const SendReminders= async (req,res)=>{
-        const {isCheckedEmail,isCheckedSms,Sms_CustomText,
+        const {isCheckedEmail,isCheckedSms,comments,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,
             Sms_to,invoicePdfLink,invoiceNumber,UserName,clientName,
             Email_From,Email_to}= req.body
-      console.log(req.body)
+      
             // if Email_Template
       const HtmlSample =emailTemplateSample(invoiceNumber,clientName,invoicePdfLink,UserName)   
-      console.log(Email_StartDate,Sms_StartDate)
+      
       const setToHappenOn = (fn, dateR)=>{
         const now = new Date();
         const nowInNumber = now.getTime();
@@ -259,6 +281,7 @@ senddata().then(response=>{
         }
       }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 
@@ -330,17 +353,19 @@ const getRemindersbyInvoiceNumber =(req,res)=>{
 module.exports ={
         getRemindersbyInvoiceNumber ,
 =======
+=======
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 module.exports ={
-<<<<<<< HEAD
     getInvoicesbyClientsbyUserId,
-        StopReminder,
         getAllReminders,
+<<<<<<< HEAD
 =======
         getRemindersbyInvoiceNumber ,
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
 >>>>>>> Reminders TaskManager completed but need to rename many parameters
+=======
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
         SendReminders,
-        SaveReminder,
-        getInvoices,
+        SaveReminder
       }
       
