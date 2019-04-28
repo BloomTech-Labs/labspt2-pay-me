@@ -11,17 +11,21 @@ ReminderRouter.get('/',TaskManager.getInvoices);
 // ## Save A REMINDER
 =======
 // ## GET  REMINDERS
-RouterReminder.get('/view',TaskManager.getRemindersbyInvoiceNumber);
+ReminderRouter.get('/view',TaskManager.getRemindersbyInvoiceNumber);
 
 //## GET ALL INVOICES BY USER ID
-RouterReminder.get('/reminders/invoices/:id',TaskManager.getInvoices);
+ReminderRouter.get('/reminders/invoices/:id',TaskManager.getInvoices);
 
 //## SAVE REMINDERS AND STOP RESEND
+<<<<<<< HEAD
 >>>>>>> added reminders routes
 RouterReminder.post('/save',TaskManager.SaveReminder);
+=======
+ReminderRouter.post('/save',TaskManager.SaveReminder);
+>>>>>>> completed reminders with all features set, next step polishing and rename parameters
 
 // ## SEND A REMINDER
-RouterReminder.post('/send',TaskManager.SendReminders);
+ReminderRouter.post('/send',TaskManager.SendReminders);
 
 // ## GET ALL REMINDERS
 ReminderRouter.get('/reminders/view',TaskManager.getRemindersbyInvoiceNumber);

@@ -2,7 +2,7 @@ require('dotenv').config();
 const EmailSmsApiConfig =require('./smsEmailSenderApi');
 const TimerJob = require( 'timerjobs' ).TimerJobs;
 const emailTemplateSample = require('./emailReminderSample')
-const db = require('../dbconfig');
+const db = require('../../dbConfig');
 const smsData = EmailSmsApiConfig.smsHandler;
 const emailData = EmailSmsApiConfig.emailHandler;
 const tblInvs = 'invoices';
@@ -84,9 +84,6 @@ senddata().then(response=>{
 
 }
 
-
-      
-   
     const SendReminders= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
