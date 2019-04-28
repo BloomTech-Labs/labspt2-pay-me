@@ -17,6 +17,7 @@ import {Route} from "react-router-dom";
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { Table,Label,Icon  } from 'semantic-ui-react';
 //import './materialize.min.css';
 //import './App.css';
@@ -35,12 +36,21 @@ function styleFn(provided, state) {
   return { ...provided, color: state.isFocused ? 'black' : 'red' };
 }    
 =======
+=======
+import { Table,Label,Icon  } from 'semantic-ui-react';
+>>>>>>> added reminders stats view component
 //import './materialize.min.css';
 //import './App.css';
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
+<<<<<<< HEAD
         
 >>>>>>> Started refactoring the frontEnd
+=======
+function styleFn(provided, state) {
+  return { ...provided, color: state.isFocused ? 'black' : 'red' };
+}    
+>>>>>>> added reminders stats view component
 const options = [
           { value: '3600 ', label: 'Daily' },//value in milliseconds 1min --3600s 86400000--daily
           { value: '604800000', label: 'Weekly' },
@@ -52,10 +62,14 @@ const options = [
           if (a || b) {
            // return<Link to={`/`}  className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</Link>
 <<<<<<< HEAD
+<<<<<<< HEAD
             return <button className="btn blue add-btn"><i className="material-icons left">av_timer</i>Start Reminders</button>;
 =======
             return <button className="btn waves-effect waves-light" type="submit" name="action">Start Reminders</button>;
 >>>>>>> Started refactoring the frontEnd
+=======
+            return <button className="btn blue add-btn"><i className="material-icons left">av_timer</i>Start Reminders</button>;
+>>>>>>> added reminders stats view component
           }
           return null;
         }
@@ -100,6 +114,7 @@ class Reminders extends Component {
       Sms_CustomText:'',
       Sms_Template:null,
 <<<<<<< HEAD
+<<<<<<< HEAD
       isCheckedEmail: props.isCheckedSms || true,
       isCheckedSms: props.isCheckedSms || true,
       isClickedInvoice:'',
@@ -118,6 +133,11 @@ class Reminders extends Component {
 >>>>>>> added activeInvoice function and styled it onclik
 =======
       isClickedInvoice:InvoicesInfo[0].invoiceId,
+=======
+      isCheckedEmail: props.isCheckedSms || true,
+      isCheckedSms: props.isCheckedSms || true,
+      isClickedInvoice:'',
+>>>>>>> added reminders stats view component
       isLoading: true ,
       filteredInvoice:[],
       isInvoiced:false,
@@ -326,8 +346,11 @@ handleStartReminders = (e) => {
        
  }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> added activeInvoice function and styled it onclik
+=======
+>>>>>>> added reminders stats view component
 
  dateConvert =(xdate)=>{
   const currentDate = new Date(xdate);
@@ -342,11 +365,16 @@ handleStartReminders = (e) => {
   return (`${month}/${date }/${ year} at ${hours } :${minutes}:${secondes || '00'} ${(isPM ? 'PM' : 'AM')}`)
  }
 
+<<<<<<< HEAD
   componentDidMount(){
     console.log(this.dateConvert("2019-04-28T03:29:07.798Z"))
 =======
   componentDidMount(){
 >>>>>>> Started refactoring the frontEnd
+=======
+  componentDidMount(){
+    console.log(this.dateConvert("2019-04-28T03:29:07.798Z"))
+>>>>>>> added reminders stats view component
     async function getData(){
       const res = await axios('http://localhost:3111/api/reminders/invoices/5');
       return await res;
@@ -440,6 +468,7 @@ console.log('hhhhhhhhhhh')
 <div class="row">
 <div class="col s12 m4 l2 navleft"> 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <Sidenav />
 </div>
 <div className="col s12 m8 l10 wrapperContainer">
@@ -456,14 +485,23 @@ console.log('hhhhhhhhhhh')
     <a href="#!" class="collection-item">Settings</a>
     <a href="#!" class="collection-item">Billing</a>
   </div>         
+=======
+<Sidenav />
+>>>>>>> added reminders stats view component
 </div>
-<div class="col s12 m8 l10 boxstyle">
-<div ><div class={` isHidding${this.state.isHidding2}`}>Click an Invoice to start</div>
+<div className="col s12 m8 l10 wrapperContainer">
+<div className="wrapperContainer_send_reminders">
+<div className={` isHidding${this.state.isHidding2}`}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>
         {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
             <div class="col s12 m4 l2 ">
+<<<<<<< HEAD
           <div className="Searchbox boxstyle4">
              <SearchInput  onChange={this.searchUpdated} className='search boxstyle4'/>
 >>>>>>> Started refactoring the frontEnd
+=======
+          <div className="Searchbox ">
+             <SearchInput  onChange={this.searchUpdated} className='search'/>
+>>>>>>> added reminders stats view component
                  {filteredInvoice.map((itemInfo) => {
                  return (
                      <div className="mail" key={itemInfo.invoice.invoice_id}>
@@ -507,6 +545,7 @@ console.log('hhhhhhhhhhh')
                      </div>
                   <div class="email-compose-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <h4 class=" boxstyle5">Send Email</h4>
                   <div class="send-header"><div class="form-group">
                   <div class="input-field col s12 l6">
@@ -520,17 +559,24 @@ console.log('hhhhhhhhhhh')
                  <div class="col s12 l6">
 =======
                   <h4 class="c-grey-900 mB-20 boxstyle5">Send Email</h4>
+=======
+                  <h4 class=" boxstyle5">Send Email</h4>
+>>>>>>> added reminders stats view component
                   <div class="send-header"><div class="form-group">
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Email_From:</span>
                    <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.user_email}/>
                  </div>
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Email_to:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_email}/>
                  </div>
+<<<<<<< HEAD
                  <div class=" col s6">
 >>>>>>> Started refactoring the frontEnd
+=======
+                 <div class="col s12 l6">
+>>>>>>> added reminders stats view component
                    <span class="">Send first reminder on:</span>
                    <DatePicker
                  selected={this.state.Email_StartDate}
@@ -544,10 +590,14 @@ console.log('hhhhhhhhhhh')
                  </div>
          
 <<<<<<< HEAD
+<<<<<<< HEAD
                  <div class="input-field col s12 l6">
 =======
                  <div class="input-field col s6">
 >>>>>>> Started refactoring the frontEnd
+=======
+                 <div class="input-field col s12 l6">
+>>>>>>> added reminders stats view component
                    <span class="">Then repeat :</span>
                    <Select 
                  value={this.state.selectedOption.value}
@@ -555,9 +605,13 @@ console.log('hhhhhhhhhhh')
                  onChange={this.handleChangeFreqEmail}
                  options={options}
 <<<<<<< HEAD
+<<<<<<< HEAD
                  styles={styleFn}
 =======
 >>>>>>> Started refactoring the frontEnd
+=======
+                 styles={styleFn}
+>>>>>>> added reminders stats view component
                />
                  </div>
                   </div>
@@ -578,6 +632,7 @@ console.log('hhhhhhhhhhh')
                   <h4 class="c-grey-900 mB-20 boxstyle5">Send Sms</h4>
                   <div class="send-header"><div class="form-group">
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <div class="input-field col s12 l6">
                    <span class="">Sms_From:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.user_phonenumber}/>
@@ -589,15 +644,22 @@ console.log('hhhhhhhhhhh')
                  <div class=" col s12 l6">
 =======
                   <div class="input-field col s6">
+=======
+                  <div class="input-field col s12 l6">
+>>>>>>> added reminders stats view component
                    <span class="">Sms_From:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.user_phonenumber}/>
                  </div>
-                  <div class="input-field col s6">
+                  <div class="input-field col s12 l6">
                    <span class="">Sms_to:</span>
                    <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_phonenumber}/>
                  </div>
+<<<<<<< HEAD
                  <div class=" col s6">
 >>>>>>> Started refactoring the frontEnd
+=======
+                 <div class=" col s12 l6">
+>>>>>>> added reminders stats view component
                    <span class="">Send first reminder on:</span>
                    <DatePicker
                  selected={this.state.Sms_StartDate}
@@ -611,10 +673,14 @@ console.log('hhhhhhhhhhh')
                  </div>
          
 <<<<<<< HEAD
+<<<<<<< HEAD
                  <div class="input-field col s12 l6">
 =======
                  <div class="input-field col s6">
 >>>>>>> Started refactoring the frontEnd
+=======
+                 <div class="input-field col s12 l6">
+>>>>>>> added reminders stats view component
                    <span class="">Then repeat :</span>
                    <Select 
                   value={this.state.selectedOption.value}
@@ -651,6 +717,9 @@ console.log('hhhhhhhhhhh')
          <button class="btn waves-effect waves-light" type="submit" name="action">Add comment</button>
         
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> added reminders stats view component
            </form> </div>)||<div className={`isHidding${this.state.isHidding}`} >
            <ul class="collection rem_card_stats ">
     <li class="collection-item avatar card_stats">
@@ -676,6 +745,7 @@ console.log('hhhhhhhhhhh')
   </ul>
     </div>
   }
+<<<<<<< HEAD
          </div> </div>
         )||(<section className='notinvoicecard'>  
 =======
@@ -713,6 +783,8 @@ console.log('hhhhhhhhhhh')
 
 >>>>>>> Started refactoring the frontEnd
 =======
+=======
+>>>>>>> added reminders stats view component
          </div> </div>
         )||(<section className='notinvoicecard'>  
 >>>>>>> Started default FrontEnd + errors handling but need to rename some parameters
@@ -723,10 +795,14 @@ console.log('hhhhhhhhhhh')
                   sizeUnit={"px"}
                   size={15}
 <<<<<<< HEAD
+<<<<<<< HEAD
                   color={'whitesmoke'}
 =======
                   color={'#2f70e1'}
 >>>>>>> Started refactoring the frontEnd
+=======
+                  color={'whitesmoke'}
+>>>>>>> added reminders stats view component
                   loading={this.state.loading}
                 /> </div>
           <p>...Oops no invoice found, please add an invoice!</p>
