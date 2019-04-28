@@ -11,11 +11,7 @@ const reminders = require('./routes/reminders');
 const authLocal = require('../auth/local');
 const authGoogle = require('../auth/google');
 const charge = require('./routes/charge');
-const aws = require('aws-sdk');
-const multerS3 = require('multer-s3');
-const multer = require('multer');
-const path = require('path');
-
+const bodyParser = require('body-parser');
 const server = express();
 
 server.use(express.json());
@@ -28,7 +24,8 @@ server.use(function(req, res, next) {
 server.use(passport.initialize());
 server.use(cors());
 server.use(require("body-parser").text());
-server.use(formData.parse());
+server.use(bodyParser.urlencoded({extended: true}));
+//server.use(formData.parse());
 
 /* Plugging in the Routes to the correct API paths */
 

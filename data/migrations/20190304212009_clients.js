@@ -4,8 +4,8 @@ exports.up = function(knex, Promise) {
     clients.increments();
     clients.string('client_name', 128 ).notNullable()
     clients.string('company_name', 128).notNullable();
-    clients.string('email').notNullable().unique();
-    clients.string('phone_number').notNullable().unique();
+    clients.string('email').notNullable();
+    clients.string('phone_number').notNullable();
     clients.integer('user_id').unsigned().notNullable().references('id').inTable('users');
   })
   

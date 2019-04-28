@@ -12,7 +12,8 @@ export const getInvoices = () => async dispatch => {
 };
 
 export const getInvoice = (id) => async dispatch => {
-    const res = await axios.get(`${serverLoc}/api/invoices/${id}`);
+    const token = localStorage.getItem('jwt');
+    const res = await axios.get(`${serverLoc}/api/invoices/${id}`, {headers: {'Authorization': token}});
     dispatch({
         type: GET_INVOICE,
         payload: res.data
@@ -20,7 +21,8 @@ export const getInvoice = (id) => async dispatch => {
 };
 
 export const addInvoice = async (invoice) => {
-    const res = await axios.post(`${serverLoc}/api/invoices`);
+    const token = localStorage.getItem('jwt');
+    const res = await axios.post(`${serverLoc}/api/invoices`, {headers: {'Authorization': token}});
     return {
         type: ADD_INVOICE,
         payload: res.data
@@ -28,7 +30,8 @@ export const addInvoice = async (invoice) => {
 };
 
 export const deleteInvoice = id => async dispatch=> {
-    await axios.delete(`${serverLoc}/api/invoices/${id}`);
+    const token = localStorage.getItem('jwt');
+    await axios.delete(`${serverLoc}/api/invoices/${id}`, {headers: {'Authorization': token}});
     dispatch({
         type: DELETE_INVOICE,
         payload: id

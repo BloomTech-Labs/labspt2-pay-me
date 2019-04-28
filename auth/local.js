@@ -24,6 +24,8 @@ router.post('/signup', async (req, res) => {
         // Attempt to insert the user into the database.
         usersHelper.insert(user)
         .then(newUser => {
+            console.log(newUser);
+            console.log(newUser.id);
             // If there's an error number on the newUser object then something went wrong.
             if(newUser.message.errno) { 
                 // Send back the error.
@@ -73,8 +75,9 @@ router.post('/login', (req, res) => {
 
 router.get('/:id', async (req, res) => {
     const { id } = req.params;
-    await db.findById(id)
+    await usersHelper.findById(id)
     .then ((user) => {
+        console.log(user);
         res.json(user)
     })
     .catch(err => {

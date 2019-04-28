@@ -6,6 +6,7 @@ module.exports = {
 };
 
 function generateToken(user) {
+    console.log(user);
     if (user.id && user.username) {
         const payload = {
             subject: user.id,
