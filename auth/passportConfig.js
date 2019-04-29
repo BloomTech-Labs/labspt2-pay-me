@@ -26,12 +26,7 @@ passport.use(new GoogleStrategy({
         await usersHelper.findByUsername(profile.displayName)
         .then(async user => {
             if (user.length > 0) {
-<<<<<<< HEAD
                 done(null, user[0]);
-=======
-                console.log(`user: ${user}`);
-                done(null, user);
->>>>>>> revert my fake commit
             }
             else {
                 // Add them if not.
@@ -41,15 +36,9 @@ passport.use(new GoogleStrategy({
                     google_id: profile.id,
                     email: profile.emails[0].value,
                     plan: 'none'})
-<<<<<<< HEAD
                 .then(user => {
                     console.log(user);
                     done(null, user);
-=======
-                .then(newUser => {
-                    console.log(newUser);
-                    done(null, newUser);
->>>>>>> revert my fake commit
                 })
             }
         })

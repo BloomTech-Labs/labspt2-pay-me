@@ -9,9 +9,7 @@ import './reminder.css';
 import {Route} from "react-router-dom";
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
-import { Table,Label,Icon  } from 'semantic-ui-react';
-import './materialize.min.css';
-import './App.css';
+
 
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
@@ -308,18 +306,8 @@ console.log('hhhhhhhhhhh')
 </div>
 <div class="row">
 <div class="col s12 m4 l2 navleft"> 
-<div class="row">{/*LEFT Nav*/ } 
-   <div class="collection leftNav">
-
-   <a href="#!" class="collection-item">Invoices</a>
-         <a href="#!" class="collection-item active">Reminders</a>
-         <a href="#!" class="collection-item">Settings</a>        
-          <a href="#!" class="collection-item">Billing</a>
-   </div>
-         
-       </div>          
-   </div>
-
+<Sidenav />
+</div>
 <div className="col s12 m8 l10 wrapperContainer">
 <div className="wrapperContainer_send_reminders">
 <div className={` isHidding${this.state.isHidding2}`}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>

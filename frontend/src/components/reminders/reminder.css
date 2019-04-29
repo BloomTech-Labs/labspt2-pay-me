@@ -3,10 +3,13 @@
 div.reminder{
   color: rgb(12, 10, 10);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 >>>>>>> added reminders stats view component
+=======
+>>>>>>> debugging
   background: #82c0ff;
  
 
@@ -18,11 +21,15 @@ nav.Topnav {
   height: 56px;
   line-height: 56px;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> added reminders stats view component
 >>>>>>> added reminders stats view component
+=======
+>>>>>>> debugging
 }
 
+ 
 div.react-calendar__month-view,.react-calendar button {
   background:   white;
   color: #222
@@ -236,9 +243,6 @@ padding:2px;
   display:flex 
 }
 
-.reminder-container {
-  margin-top: 30px;
-}
 
 .emailfalse{
 display:none 
