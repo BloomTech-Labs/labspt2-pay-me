@@ -37,7 +37,7 @@ class SidePanel extends Component {
                     <Grid.Row>    
                       <ul style={{listStyle:"none"}}>
                           <Link to="/dashboard"><li className="nav-item">Invoices</li></Link>
-                          <Link to="#"><li className="nav-item" >Reminders</li></Link>
+                          <Link to="/reminders"><li className="nav-item" >Reminders</li></Link>
                           <Link to="/settings"><li className="nav-item">Settings</li></Link>
                           <Link to="/billing"><li className="nav-item">Billing</li></Link>
                           <Link to="#"><li className="nav-item">Support Center</li></Link>
