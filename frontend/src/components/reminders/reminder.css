@@ -4,12 +4,15 @@ div.reminder{
   color: rgb(12, 10, 10);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 =======
 >>>>>>> added reminders stats view component
 =======
 >>>>>>> debugging
+=======
+>>>>>>> 33d9ff155eeced9b13cca92fea808d02c8ed0e4c
   background: #82c0ff;
  
 
@@ -281,6 +284,10 @@ div.mail li.info{
 }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 33d9ff155eeced9b13cca92fea808d02c8ed0e4c
 .switchbox{
   display:flex;
   justify-content:space-between;
@@ -484,5 +491,9 @@ span.span-table{
   color: #fff;
   background-color: rgba(0,0,0,0.87);;
   text-align: center;
+<<<<<<< HEAD
 
 }
+=======
+}
+>>>>>>> 33d9ff155eeced9b13cca92fea808d02c8ed0e4c
