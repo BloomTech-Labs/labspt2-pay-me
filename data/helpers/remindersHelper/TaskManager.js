@@ -10,7 +10,7 @@ const tblClt = 'clients';
 const tblUsr = 'users';
 const tblRem = 'reminders';
 
-const getInvoice =  async (req, res)=>{
+/*const getInvoice =  async (req, res)=>{
   const {id} = req.params;
   const data_user = await db('users').select('id', 'username', 'email', 'phone').where('id', id);
   const data_invoices =await db('invoices').where('user_id', id)
@@ -18,6 +18,34 @@ const getInvoice =  async (req, res)=>{
   console.log(await data_invoices);
   res.send({'invoices': data_invoices, 'user': data_user[0], });
 };
+
+  const data_user =await db('users').where({id}).map(item=>{
+    return item
+  })
+  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
+    return item
+  });
+  res.send(data_user)
+ 
+ 
+  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
+    return item
+  })
+ 
+ 
+  const data_invoices =await db('invoices').map(item=>{
+    return item
+  })
+ console.log(data_invoices)
+  data_invoices.map(invoice => {
+    for(let i = 0; i < filtered_clients.length; i++) {
+        if (invoice.client_id === filtered_clients[i].id) {
+          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
+        }
+    }
+}) ;
+
+}*/
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
@@ -64,11 +92,6 @@ const getInvoices =  async (req, res)=>{
  */
 }
 
-
-      
-const SendRemindersD= async (req,res)=>{
-  res.send(req.body)
-}
     const SendReminders= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
@@ -126,9 +149,7 @@ const SendRemindersD= async (req,res)=>{
         }
       }
   
-      const SaveRemindereee =(req,res)=>{
-       console.log(req.body)
-      }
+    
       const SaveReminder =(req,res)=>{
         const dataTobeSaved=req.body;
       //  const invoiceNumber=dataTobeSaved.invoice_number;
@@ -165,6 +186,5 @@ module.exports ={
         SendReminders,
         SaveReminder,
         getInvoices,
-        getInvoice
       }
       
