@@ -9,7 +9,9 @@ import './reminder.css';
 import {Route} from "react-router-dom";
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
-
+import serverLoc from '../../serverLoc';
+const token = localStorage.getItem('jwt');
+const header ={headers: {'Authorization': token,}}
 
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
@@ -69,7 +71,7 @@ class Reminders extends Component {
       isLoading: true ,
       filteredInvoice:[],
       isInvoiced:false,
-      isRemindersSent:true,
+      isRemindersSent:false,
       reminders_data:[],
       isHidding:true,
       isHidding2:false
@@ -173,14 +175,49 @@ handleStartReminders = (e) => {
        Email_Freq,Email_Freq_label,Sms_Freq_label,isCheckedEmail,isCheckedSms,Sms_StartDate,Sms_Freq,Sms_CustomText,Sms_Template}= this.state;
        const invoiceNumber=this.state.invoiceUserClientInfo.invoice.invoice_number;
        const invoicePdfLink=this.state.invoiceUserClientInfo.invoice.inv_url;
-       const Email_From = this.state.invoiceUserClientInfo.user.user_email;
-       const Email_to= this.state.invoiceUserClientInfo.client.client_email;
-       const Sms_From = this.state.invoiceUserClientInfo.user.user_phonenumber;
-       const Sms_to= this.state.invoiceUserClientInfo.client.client_phonenumber;
-       const { UserName} =  this.state.invoiceUserClientInfo.user.user_name;
+       const Email_From = this.state.invoiceUserClientInfo.user.email;
+       const Email_to= this.state.invoiceUserClientInfo.client.email;
+       const Sms_From = this.state.invoiceUserClientInfo.user.phone_number;
+       const Sms_to= this.state.invoiceUserClientInfo.client.phone_number;
+       const { UserName} =  this.state.invoiceUserClientInfo.user.username;
        const {clientName} = this.state.invoiceUserClientInfo.client.client_name;
-      axios
-      .post(`http://localhost:3111/api/reminders/send`,
+      const data ={
+        comments,
+        Email_Subject,
+        Email_CustomText,
+        Email_Template,
+        Email_StartDate,
+        Email_Freq,
+        Sms_StartDate,
+        Email_From,
+        Email_to,
+        Sms_From,
+        Sms_to,
+        Sms_Freq,
+        Sms_CustomText,
+        Sms_Template,
+        isCheckedEmail,
+        isCheckedSms,
+        invoicePdfLink,
+        invoiceNumber,
+      };
+      const DataTobeSaved={Email_StartDate,
+        Sms_StartDate,Email_Freq_label,Sms_Freq_label,
+        isCheckedEmail,isCheckedSms,invoiceNumber}
+
+      const url =`${serverLoc}/api/reminders/send`;
+      const token = localStorage.getItem('jwt');
+      const header ={headers: {'Authorization': token,}}
+      axios.post( url, data,header )
+      .then(response => {
+        // this.setState({reminders : response.data})
+       console.log(response) 
+       })
+       .catch(err => {
+         console.log("IN CATCH", err);
+       });
+      {/* axios
+      .post(`http://localhost:3111/`,
       {
         comments,Email_Subject,Email_CustomText,Email_Template,Email_StartDate,
         Email_Freq,Sms_StartDate,Email_From,Email_to,Sms_From,Sms_to,Sms_Freq,
@@ -195,22 +232,24 @@ handleStartReminders = (e) => {
       });
      /* this.setState({
         reset forms input field :''
-      })*/
+      })
       const DataTobeSaved={Email_StartDate,
         Sms_StartDate,Email_Freq_label,Sms_Freq_label,
         isCheckedEmail,isCheckedSms,invoiceNumber}
-     this.handleSaveReminders(DataTobeSaved,e)
-     window.location.reload();
+      this.handleSaveReminders(DataTobeSaved,e)*/}
+      this.handleSaveReminders(DataTobeSaved,e)
+     //window.location.reload();
   };
   
   handleSaveReminders = (data,e) => {
      e.preventDefault();
-    axios
-      .post(`http://localhost:3111/api/reminders/save`,
-      {data})
+     const url =`${serverLoc}/api/reminders/send`;
+     const token = localStorage.getItem('jwt');
+     const header ={headers: {'Authorization': token,}}
+     axios.post( url, data,header )
       .then(response => {
-       // this.setState({reminders : response.data})
-       //console.log(response) 
+        this.setState({reminders : response.data})
+       console.log(response) 
       })
       .catch(err => {
         console.log("IN CATCH", err);
@@ -232,12 +271,21 @@ handleStartReminders = (e) => {
     this.setState({ isClickedInvoice:  invoiceNumber })
   };
   getData_reminders_sent = async (id) =>{
-    
-    const res = await axios('http://localhost:3111/api/reminders/view');
+
+    const url =`${serverLoc}/api/reminders/view`;
+     const token = localStorage.getItem('jwt');
+     const header ={headers: {'Authorization': token,}}
+
+     const res = await axios.get( url,header );
+
+    //const url =`${serverLoc}/api/reminders/view`;
+    //const res = await axios('http://localhost:5000/api/reminders/view');
+
+
    const datarem= res.data.filter(item=>{
-      return item.invoiceNumber===id
+     console.log(item)
+      return item.invoice_number===id
    })
-    
      
      if(datarem[0]){
       const dataasss = new Date();
@@ -270,13 +318,10 @@ handleStartReminders = (e) => {
  }
 
   componentDidMount(){
-    console.log(this.dateConvert("2019-04-28T03:29:07.798Z"))
-    async function getData(){
-      const res = await axios('http://localhost:3111/api/reminders/invoices/5');
-      return await res;
-   } 
-  getData().then(response => {
-    console.log(response.data[0]) 
+    const url =`${serverLoc}/api/reminders/invoices/8`;
+    const token = localStorage.getItem('jwt');
+    axios.get( url, {headers: {'Authorization': token,}})
+    .then(response => {
     if(response.data[0].lenght!==0||undefined){
       this.setState({data_invoices : response.data,
         invoiceUserClientInfo:response.data[0],
@@ -288,11 +333,11 @@ console.log('hhhhhhhhhhh')
     }
   })
       .catch(err => { /*...handle the error...*/
+        console.log(err) 
                     this.setState({data_error:'err.data',errorstatus:true,
                     isInvoiced:true,
                     isHidding2:true})});
-         console.log(this.state.data_invoices)  ; 
-    
+          ;  
             
   }
   render() {
@@ -310,7 +355,7 @@ console.log('hhhhhhhhhhh')
 </div>
 <div className="col s12 m8 l10 wrapperContainer">
 <div className="wrapperContainer_send_reminders">
-<div className={` isHidding${this.state.isHidding2}`}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>
+<div className={`isHidding${this.state.isHidding2}`}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>
         {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
             <div class="col s12 m4 l2 ">
           <div className="Searchbox ">
@@ -361,11 +406,11 @@ console.log('hhhhhhhhhhh')
                   <div class="send-header"><div class="form-group">
                   <div class="input-field col s12 l6">
                    <span class="">Email_From:</span>
-                   <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.user_email}/>
+                   <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.email}/>
                  </div>
                   <div class="input-field col s12 l6">
                    <span class="">Email_to:</span>
-                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_email}/>
+                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.email}/>
                  </div>
                  <div class="col s12 l6">
                    <span class="">Send first reminder on:</span>
@@ -409,11 +454,11 @@ console.log('hhhhhhhhhhh')
                   <div class="send-header"><div class="form-group">
                   <div class="input-field col s12 l6">
                    <span class="">Sms_From:</span>
-                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.user_phonenumber}/>
+                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.phone_number||17323335835}/>
                  </div>
                   <div class="input-field col s12 l6">
                    <span class="">Sms_to:</span>
-                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.client_phonenumber}/>
+                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.phone_number}/>
                  </div>
                  <div class=" col s12 l6">
                    <span class="">Send first reminder on:</span>

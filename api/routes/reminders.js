@@ -8,13 +8,16 @@ const TaskManager = require('../../data/helpers/remindersHelper/TaskManager')
 ReminderRouter.get('/view',TaskManager.getRemindersbyInvoiceNumber);
 
 //## GET ALL INVOICES BY USER ID
-ReminderRouter.get('/reminders/invoices/:id',TaskManager.getInvoices);
+ReminderRouter.get('/invoices/:id',TaskManager.getInvoices);
 
 //## SAVE REMINDERS AND STOP RESEND
 ReminderRouter.post('/save',TaskManager.SaveReminder);
 
 // ## SEND A REMINDER
 ReminderRouter.post('/send',TaskManager.SendReminders);
+
+// ## SEND A REMINDER
+ReminderRouter.get('/test/:id',TaskManager.getInvoice);
 
 
 
