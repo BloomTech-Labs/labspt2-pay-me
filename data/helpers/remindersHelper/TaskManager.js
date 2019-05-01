@@ -45,7 +45,35 @@ const tblRem = 'reminders';
     }
 }) ;*/
 
+/*
 
+  const data_user =await db('users').where({id}).map(item=>{
+    return item
+  })
+  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
+    return item
+  });
+  res.send(data_user)
+ 
+ 
+  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
+    return item
+  })
+ 
+ 
+  const data_invoices =await db('invoices').map(item=>{
+    return item
+  })
+ console.log(data_invoices)
+  data_invoices.map(invoice => {
+    for(let i = 0; i < filtered_clients.length; i++) {
+        if (invoice.client_id === filtered_clients[i].id) {
+          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
+        }
+    }
+}) ;
+
+}*/
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
@@ -126,10 +154,7 @@ const getInvoices =  async (req, res)=>{
         }
       }
 
-  /*
-      const SaveRemindereee =(req,res)=>{
-       console.log(req.body)
-      }*/
+
 
       const SaveReminder =(req,res)=>{
         const dataTobeSaved=req.body;
