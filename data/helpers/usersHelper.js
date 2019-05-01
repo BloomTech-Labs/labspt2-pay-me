@@ -20,48 +20,12 @@ async function findByUsername(user) {
     }
 }
 
-async function attachToUsers(users) {
-    let userObject = {user: users[0]};
-    let clients = await db('clients').where('user_id', users[0].id);
-    let invoices = await db('invoices');
-    let memberships = await db('memberships').where('id', users[0].membership_id);
-
-    clients = await clients.map(async client => {
-        const clientInvoices = await db('invoices').where('client_id', client.id);
-        client = Object.assign({}, client, clientInvoices);
-    })
-
-    userObject.clients = clients;
-    console.log('users', userObject);
-    /* Attach membership plan to users */
-    memberships.map(membership => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].membership_id === membership.id) {
-                users[i] = Object.assign({}, users[i], {plan: membership.plan});
-            }
-        }
-    });
-    /* Attach invoices to clients */
-    invoices.map(invoice => {
-        for(let i = 0; i < clients.length; i++) {
-            if (invoice.client_id === clients[i].id) {
-                clients[i] = Object.assign({}, clients[i], {invoice})
-            }
-        }
-    }) 
-
-    /* Attach clients to users */
-    userObject.clients = clients;
-    
-    return userObject;
-}
-
 async function getAll() {
     return await db('users');
 };
 
 async function checkDuplicate(user) {
-    if (checkDuplicateEmail(user.email) || checkDuplicateUsername(user.username)) {
+    if (await checkDuplicateEmail(user.email) || await checkDuplicateUsername(user.username)) {
         return true;
     }
     return false;
@@ -77,6 +41,8 @@ async function checkDuplicateEmail(email) {
 
 async function checkDuplicateUsername(username) {
     const user = await db('users').where('username', username);
+    console.log(user.length);
+    console.log(user);
     if (user.length > 0) {
         return true;
     }
@@ -84,7 +50,11 @@ async function checkDuplicateUsername(username) {
 }
 
 async function insert(user) {
-    duplicate = checkDuplicate(user);
+    const duplicate = await checkDuplicate(user);
+    if (duplicate) {
+        console.log('Duplicate user found escaping insert.');
+        return {duplicate: true, message: 'Duplicate username or email found.'}
+    }
     let newIDs = {membership_id: '', id: '', username: '', message: ''};
     await db('memberships').insert({plan: user.plan})
     .then(success => {

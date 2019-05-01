@@ -24,10 +24,11 @@ router.post('/signup', async (req, res) => {
         // Attempt to insert the user into the database.
         usersHelper.insert(user)
         .then(newUser => {
-            console.log(newUser);
-            console.log(newUser.id);
+            if (newUser.duplicate) {
+                res.status(400).json(newUser);
+            }
             // If there's an error number on the newUser object then something went wrong.
-            if(newUser.message.errno) { 
+            else if(newUser.message.errno) { 
                 // Send back the error.
                 res.status(400).json(newUser.message);
             }
@@ -50,7 +51,6 @@ router.post('/signup', async (req, res) => {
 
 router.post('/login', (req, res) => {
     const credentials = req.body;
-    console.log(credentials)
     if (credentials.email && credentials.password) {
         usersHelper.findByEmail(credentials.email)
         .then(user => { 
