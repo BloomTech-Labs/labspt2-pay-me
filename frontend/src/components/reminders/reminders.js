@@ -70,7 +70,7 @@ class Reminders extends Component {
       isLoading: true ,
       filteredInvoice:[],
       isInvoiced:false,
-      isRemindersSent:false,
+      isRemindersSent:true,
       reminders_data:[],
       isHidding:true,
       isHidding2:false
@@ -199,9 +199,6 @@ handleStartReminders = (e) => {
         invoicePdfLink,
         invoiceNumber,
       };
-      const DataTobeSaved={Email_StartDate,
-        Sms_StartDate,Email_Freq_label,Sms_Freq_label,
-        isCheckedEmail,isCheckedSms,invoiceNumber}
 
       const url =`${serverLoc}/api/reminders/send`;
       const token = localStorage.getItem('jwt');
