@@ -52,13 +52,13 @@ const getInvoices =  async (req, res)=>{
   const filtered_clients = await db('clients').where('user_id',id).map(item=>{
     return item
   });
-  console.log()
+  console.log(process.env.SENDGRID_API_KEY)
  
  
   const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
     return item
   })
- 
+  console.log(process.env.SENDGRID_API_KEY)
  
   const data_invoices =await db('invoices').map(item=>{
     return item
@@ -100,10 +100,10 @@ senddata().then(response=>{
 
 
       
-const SendReminders= async (req,res)=>{
+const SendRemindersD= async (req,res)=>{
   res.send(req.body)
 }
-    const SendRemindersd= async (req,res)=>{
+    const SendReminders= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,

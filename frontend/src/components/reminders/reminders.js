@@ -10,8 +10,7 @@ import {Route} from "react-router-dom";
 import { css } from '@emotion/core';
 import { ClimbingBoxLoader} from 'react-spinners';
 import serverLoc from '../../serverLoc';
-const token = localStorage.getItem('jwt');
-const header ={headers: {'Authorization': token,}}
+const decode = require('jwt-decode');
 
 // Key for Searching invoices
 const KEYS_TO_FILTERS = ['invoice.invoice_number', 'client.client_name', ]
@@ -178,7 +177,7 @@ handleStartReminders = (e) => {
        const invoicePdfLink=this.state.invoiceUserClientInfo.invoice.inv_url;
        const Email_From = this.state.invoiceUserClientInfo.user.email;
        const Email_to= this.state.invoiceUserClientInfo.client.email;
-       const Sms_From = this.state.invoiceUserClientInfo.user.phone_number;
+       const Sms_From = this.state.invoiceUserClientInfo.user.phone_number||17323335835;
        const Sms_to= this.state.invoiceUserClientInfo.client.phone_number;
        const { UserName} =  this.state.invoiceUserClientInfo.user.username;
        const {clientName} = this.state.invoiceUserClientInfo.client.client_name;
@@ -322,11 +321,15 @@ handleStartReminders = (e) => {
  }
 
   componentDidMount(){
-    const url =`${serverLoc}/api/reminders/invoices/8`;
+    
     const token = localStorage.getItem('jwt');
+    const id = decode(token).subject; // I had the user_id stored inside a subject field -Jason
+    const url =`${serverLoc}/api/reminders/invoices/${id}`;
+    console.log(id)
     axios.get( url, {headers: {'Authorization': token,}})
     .then(response => {
-    if(response.data[0].lenght!==0||undefined){
+      console.log(response)
+    if(response.data[0].lenght!==0||response.data[0].lenght!==undefined){
       this.setState({data_invoices : response.data,
         invoiceUserClientInfo:response.data[0],
         isLoading:false,
