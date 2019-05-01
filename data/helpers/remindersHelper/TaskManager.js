@@ -100,10 +100,10 @@ senddata().then(response=>{
 
 
       
-const SendRemindersd= async (req,res)=>{
+const SendReminders= async (req,res)=>{
   res.send(req.body)
 }
-    const SendReminders= async (req,res)=>{
+    const SendRemindersd= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,
@@ -159,16 +159,15 @@ const SendRemindersd= async (req,res)=>{
           setToHappenOn(()=>{timerSms.start()},Sms_StartDate)
         }
       }
-
-     
+  
+      const SaveRemindereee =(req,res)=>{
+       console.log(req.body)
+      }
       const SaveReminder =(req,res)=>{
-        const dataTobeSaved=req.body.data;
-        const invoice=dataTobeSaved.invoiceNumber;
-        const Email_Startdate=dataTobeSaved.invoiceNumber.toString;
-        const dateobj = new Date(Email_Startdate)
-        const B = dateobj.toString()
-        console.log(B)
-        db('reminders').where('invoice_number',invoiceNumber).then(item =>{
+        const dataTobeSaved=req.body;
+      //  const invoiceNumber=dataTobeSaved.invoice_number;
+      // console.log(invoiceNumber)
+        db('reminders').where('invoice_number',dataTobeSaved.invoice_number).then(item =>{
           console.log(item.length)
          if(item.length!==0){
           console.log('found')

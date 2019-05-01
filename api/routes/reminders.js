@@ -16,8 +16,7 @@ ReminderRouter.post('/save',TaskManager.SaveReminder);
 // ## SEND A REMINDER
 ReminderRouter.post('/send',TaskManager.SendReminders);
 
-// ## SEND A REMINDER
-ReminderRouter.get('/test/:id',TaskManager.getInvoice);
+
 
 
 
