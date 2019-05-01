@@ -43,9 +43,9 @@ const tblRem = 'reminders';
           filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
         }
     }
-}) ;
+}) ;*/
 
-}*/
+
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
@@ -67,32 +67,11 @@ const getInvoices =  async (req, res)=>{
   })
   console.log(await sortMyClients);
   res.status(200).json(await sortMyClients);
-  /*
-  var dataToSend  = filtered_clients.map((item,i)=>{
-    let invoice;
-    let client;
-    return{
-      invoice,
-      user:data_user[0],
-      client:filtered_clients2[i]
-    }})
-
-  async function senddata(){
-    return dataToSend
-  }
-
-  senddata().then(response=>{
-    //console.log(response)
-    if(response.length!==0){
-      res.status(200).json(response)
-    }else{
-      res.status(203).json([])
-    }
-  }).catch(err =>{res.status(500).json('eeeerror')})
- */
 }
 
     const SendReminders= async (req,res)=>{
+
+
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,

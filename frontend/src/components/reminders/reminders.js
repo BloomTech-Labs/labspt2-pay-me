@@ -70,7 +70,7 @@ class Reminders extends Component {
       isLoading: true ,
       filteredInvoice:[],
       isInvoiced:false,
-      isRemindersSent:true,
+      isRemindersSent:false,
       reminders_data:[],
       isHidding:true,
       isHidding2:false
@@ -199,6 +199,9 @@ handleStartReminders = (e) => {
         invoicePdfLink,
         invoiceNumber,
       };
+      const DataTobeSaved={Email_StartDate,
+        Sms_StartDate,Email_Freq_label,Sms_Freq_label,
+        isCheckedEmail,isCheckedSms,invoiceNumber}
 
       const url =`${serverLoc}/api/reminders/send`;
       const token = localStorage.getItem('jwt');
@@ -252,8 +255,8 @@ handleStartReminders = (e) => {
      const header ={headers: {'Authorization': token,}}
      axios.post( url, data,header )
       .then(response => {
-        //this.setState({reminders : response.data})
-        console.log(response)
+        this.setState({reminders : response.data})
+       console.log(response) 
       })
       .catch(err => {
         console.log("IN CATCH", err);
