@@ -21,7 +21,6 @@ const getInvoices =  async (req, res)=>{
   const filtered_clients = await db('clients').where('user_id',id).map(item=>{
     return item
   });
-
  
  
   const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
@@ -67,8 +66,6 @@ senddata().then(response=>{
 }
 
     const SendReminders= async (req,res)=>{
-
-
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,
@@ -124,33 +121,6 @@ senddata().then(response=>{
           setToHappenOn(()=>{timerSms.start()},Sms_StartDate)
         }
       }
-  
-      const SaveRemindereee =(req,res)=>{
-       console.log(req.body)
-      }
-      const SaveReminder =(req,res)=>{
-        const dataTobeSaved=req.body;
-      //  const invoiceNumber=dataTobeSaved.invoice_number;
-      // console.log(invoiceNumber)
-        db('reminders').where('invoice_number',dataTobeSaved.invoice_number).then(item =>{
-          console.log(item.length)
-         if(item.length!==0){
-          console.log('found')
-         }else{
-          console.log('Notfound')
-         
-            db('reminders')
-            .insert(dataTobeSaved)
-            .then( reminders_id =>{
-              console.log( reminders_id)
-            res.status(200).json(reminders_id)
-                })}})
-  .catch(err =>{
-   res.status(500).json(err)
-   
-  })
- 
-   }
 
 const getRemindersbyInvoiceNumber =(req,res)=>{
         db.select().table('reminders').then(item =>{
