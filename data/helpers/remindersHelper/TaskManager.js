@@ -31,8 +31,6 @@ const getInvoices =  async (req, res)=>{
 }
 
     const SendReminders= async (req,res)=>{
-
-
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
             Email_StartDate,Sms_StartDate,Email_Freq, Sms_From,
