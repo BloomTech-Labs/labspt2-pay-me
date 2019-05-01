@@ -58,12 +58,33 @@ async function attachToUsers(users) {
 
 async function getAll() {
     return await db('users');
-    return users;
 };
 
+async function checkDuplicate(user) {
+    if (checkDuplicateEmail(user.email) || checkDuplicateUsername(user.username)) {
+        return true;
+    }
+    return false;
+}
 
+async function checkDuplicateEmail(email) {
+    const user = await db('users').where('email', email);
+    if (user.length > 0) {
+        return true;
+    }
+    return false;
+}
+
+async function checkDuplicateUsername(username) {
+    const user = await db('users').where('username', username);
+    if (user.length > 0) {
+        return true;
+    }
+    return false;
+}
 
 async function insert(user) {
+    duplicate = checkDuplicate(user);
     let newIDs = {membership_id: '', id: '', username: '', message: ''};
     await db('memberships').insert({plan: user.plan})
     .then(success => {
