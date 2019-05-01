@@ -10,34 +10,63 @@ const tblClt = 'clients';
 const tblUsr = 'users';
 const tblRem = 'reminders';
 
-
-
-const getInvoices =  async (req, res)=>{
+const getInvoice =  async (req, res)=>{
   const {id} = req.params;
 
 
-  const data_user =await db('users').where('user_id',id).map(item=>{
+  const data_user =await db('users').where({id}).map(item=>{
     return item
   })
-   
   const filtered_clients = await db('clients').where('user_id',id).map(item=>{
     return item
   });
-
+  res.send(data_user)
  
  
   const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
     return item
   })
-
+ 
  
   const data_invoices =await db('invoices').map(item=>{
     return item
   })
-  
+ console.log(data_invoices)
   data_invoices.map(invoice => {
     for(let i = 0; i < filtered_clients.length; i++) {
-        if (invoice.client_id === filtered_clients[i].client_id) {
+        if (invoice.client_id === filtered_clients[i].id) {
+          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
+        }
+    }
+}) ;
+
+}
+
+const getInvoices =  async (req, res)=>{
+  const {id} = req.params;
+
+
+  const data_user =await db('users').where({id}).map(item=>{
+    return item
+  })
+  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
+    return item
+  });
+  console.log()
+ 
+ 
+  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
+    return item
+  })
+ 
+ 
+  const data_invoices =await db('invoices').map(item=>{
+    return item
+  })
+ console.log(data_invoices)
+  data_invoices.map(invoice => {
+    for(let i = 0; i < filtered_clients.length; i++) {
+        if (invoice.client_id === filtered_clients[i].id) {
           filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
         }
     }
@@ -46,9 +75,9 @@ const getInvoices =  async (req, res)=>{
   user:data_user[0],
   client:filtered_clients
 }*/
-
 var dataToSend  =filtered_clients.map((item,i)=>{
   const invoice = item.invoice;
+  console.log()
  return{
   invoice,
   user:data_user[0],
@@ -71,7 +100,9 @@ senddata().then(response=>{
 
 
       
-   
+const SendRemindersd= async (req,res)=>{
+  res.send(req.body)
+}
     const SendReminders= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
@@ -121,7 +152,7 @@ senddata().then(response=>{
         
         
         //things are happening
-        smsData(Sms_From,Sms_to,Sms_CustomText)
+       // smsData(Sms_From,Sms_to,Sms_CustomText)
         done()
           });
           
@@ -131,21 +162,20 @@ senddata().then(response=>{
 
      
       const SaveReminder =(req,res)=>{
-        console.log(process.env.API_KEY_NEXMO_SMS,process.env.API_SECRET_NEXMO_SMS,process.env.SENDGRID_API_KEY);
         const dataTobeSaved=req.body.data;
-        const invoiceNumber=dataTobeSaved.invoiceNumber;
+        const invoice=dataTobeSaved.invoiceNumber;
         const Email_Startdate=dataTobeSaved.invoiceNumber.toString;
         const dateobj = new Date(Email_Startdate)
         const B = dateobj.toString()
         console.log(B)
-        db('reminder111').where('invoiceNumber',invoiceNumber).then(item =>{
+        db('reminders').where('invoice_number',invoiceNumber).then(item =>{
           console.log(item.length)
          if(item.length!==0){
           console.log('found')
          }else{
           console.log('Notfound')
          
-            db('reminder111')
+            db('reminders')
             .insert(dataTobeSaved)
             .then( reminders_id =>{
               console.log( reminders_id)
@@ -159,7 +189,7 @@ senddata().then(response=>{
    }
 
 const getRemindersbyInvoiceNumber =(req,res)=>{
-        db.select().table('reminder111').then(item =>{
+        db.select().table('reminders').then(item =>{
           res.status(200).json(item)})
           .catch(err =>{
           res.status(500).json(err)
@@ -170,5 +200,6 @@ module.exports ={
         SendReminders,
         SaveReminder,
         getInvoices,
+        getInvoice
       }
       

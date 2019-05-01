@@ -5,11 +5,10 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('reminders').insert([
-        {id: 1, invoice_number:201903281, frequency_text: 'Monday', frequency_email: 'Monday', custom_text: 'Monday', start_date: '2019-01-20',invoices_id: 1},
-        {id: 2, invoice_number:201903282,frequency_text: 'Monday', frequency_email: 'Monday', custom_text: 'Monday', start_date: '2019-01-20',invoices_id: 2},
-        {id: 3, invoice_number:201903283, frequency_text: 'Tuesday', frequency_email: 'Monday', custom_text: 'Monday', start_date: '2019-01-20',invoices_id: 3},
-        {id: 4, invoice_number:201903284, frequency_text: 'Monday', frequency_email: 'Monday', custom_text: 'Monday', start_date: '2019-01-20',invoices_id: 4},
-        {id: 5, invoice_number:201903285, frequency_text: 'Wednesday', frequency_email: 'Monday', custom_text: 'Monday', start_date: '2019-01-20',invoices_id: 5},
+        {id: 1, invoice_number:201903281, sms_freq_label: 'weekly', email_freq_label: 'daily',ischecked_email: 'true', ischecked_sms: 'true',invoice_number: 2222222221,email_startdate:'2019-04-10T09:15:37.121Z',sms_startdate:'2019-04-10T09:15:37.121Z'},
+        {id: 2, invoice_number:201903281, sms_freq_label: 'weekly', email_freq_label: 'daily',ischecked_email: 'true', ischecked_sms: 'true',invoice_number: 2222222222,email_startdate:'2019-04-10T09:15:37.121Z',sms_startdate:'2019-04-10T09:15:37.121Z'},
+        {id: 3, invoice_number:201903281, sms_freq_label: 'weekly', email_freq_label: 'daily',ischecked_email: 'true', ischecked_sms: 'true',invoice_number: 2222222223,email_startdate:'2019-04-10T09:15:37.121Z',sms_startdate:'2019-04-10T09:15:37.121Z'},
+        {id: 4, invoice_number:201903281, sms_freq_label: 'weekly', email_freq_label: 'daily',ischecked_email: 'true', ischecked_sms: 'true',invoice_number: 2222222224,email_startdate:'2019-04-10T09:15:37.121Z',sms_startdate:'2019-04-10T09:15:37.121Z'},
       ]);
     });
 };
