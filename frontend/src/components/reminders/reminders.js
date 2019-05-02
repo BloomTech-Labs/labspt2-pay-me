@@ -354,7 +354,6 @@ console.log('hhhhhhhhhhh')
     return (
       <div class="reminder">
 <div class="row">{/*Top Nav*/ }
-<Sidenav/>
 </div>
 <div class="row">
 <div class="col s12 m4 l2 navleft"> 
@@ -382,7 +381,7 @@ console.log('hhhhhhhhhhh')
            <div class="col s12 m4 l10 Section-Email-Sms-Comment">
            
            {!this.state.isRemindersSent&&(<div>
-             <form className='Section-Email-Sms' onSubmit={this.handleStartReminders}>
+             <form className='Section-Email-Sms col s12 m12 l8' onSubmit={this.handleStartReminders}>
              <div className='switchbox boxstyle4 '>
              <div class="switch">
              <label ><span>Email Status :</span>
@@ -501,7 +500,7 @@ console.log('hhhhhhhhhhh')
           </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
           
           </form>
-         
+          <div className='col s12 m12 l3'>  
          <form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
          <h4 class="c-grey-900 mB-20">Add a Comment</h4>
          <ul className="ulComment">{this.state.comments.map( (comment) =>{
@@ -516,9 +515,9 @@ console.log('hhhhhhhhhhh')
          <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange}></textarea></div>
          <button class="btn waves-effect waves-light" type="submit" name="action">Add comment</button>
         
-           </form> </div>)||<div className={`isHidding${this.state.isHidding}`} >
+           </form></div>   </div>)||<div className={`isHidding${this.state.isHidding}`} >
            <ul class="collection rem_card_stats ">
-    <li class="collection-item avatar card_stats">
+           <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_email}`}>
       <i class="material-icons circle bigicon">email</i>
       <div className="stats_body">
         <div className="stats_title">Email Reminders</div>
@@ -528,7 +527,7 @@ console.log('hhhhhhhhhhh')
         </div>
       </div>
     </li>
-    <li class="collection-item avatar card_stats">
+    <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_sms}`}>
       <i class="material-icons circle bigicon">sms</i>
       <div className="stats_body">
         <div className="stats_title">Sms Reminders</div>

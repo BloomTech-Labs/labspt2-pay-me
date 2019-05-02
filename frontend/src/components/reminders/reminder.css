@@ -46,6 +46,9 @@ i.Medium.material-icons.icon{
   flex-wrap:wrap ;
   flex-direction:column  
 }
+div.Section-Email-Sms-Comment{
+  display: flex;
+}
 .iconbox{
   display: flex;
   align-items: center;
@@ -215,6 +218,9 @@ padding:2px;
 }
 .Section-Sms{
   display:flex ;
+}
+.stats0{
+  display:none; 
 }
 .Section-Comment{
   display:flex ;

@@ -344,7 +344,7 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                          <tr>
                            <td>
                              <p>Hi ${CustomName||'ClientName_here'},</p>
-                             <p>I hope you’re well. This is just to remind you that payment on invoice ${CustomInvoiceId}, which we sent on ${'DATE'}, will be due next week.</p>
+                             <p>I hope you’re well. This is just to remind you that payment on invoice ${CustomInvoiceId}, which we sent on ${'DATE here'}, will be due next week.</p>
                              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                <tbody>
                                  <tr>
