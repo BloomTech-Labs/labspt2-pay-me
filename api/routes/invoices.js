@@ -101,7 +101,7 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
   const user_id = res.locals.decodedToken.subject;
 
   // Let's see if we can find an ID with this client_name that also belongs to this user
-  clientsHelper.getIdByName(invoice.client_name, user_id)
+  clientsHelper.getIdByName(invoice.client_name)
   .then(id => {
     // if id.length === 0 create a new client based on the information given to us here.
     if (id.length === 0) {

@@ -6,7 +6,9 @@ module.exports = {
     remove,
     getAll,
     findById,
-    getIdByName
+    getIdByName,
+    getClientByEmail,
+    getClientByName
 };
 
 /* Clients model 
@@ -21,9 +23,17 @@ async function getAll(user_id) {
     return await db('clients').where('user_id', user_id);
 }
 
-async function getIdByName(client_name, user_id) {
+async function getIdByName(client_name) {
     return await db.select('id').from('clients').where('client_name', client_name);
     //return await db('clients').where('client_name', client_name).select('id');
+}
+
+async function getClientByName(client_name) {
+    return await db('clients').where('client_name', client_name);
+}
+
+async function getClientByEmail(email) {
+    return await db('clients').where('email', email);
 }
 
 async function insert(client) {

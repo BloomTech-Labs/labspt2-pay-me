@@ -2,10 +2,10 @@
 exports.up = function(knex, Promise) {
   return knex.schema.createTable('clients', clients =>{
     clients.increments();
-    clients.string('client_name', 128 ).notNullable()
+    clients.string('client_name', 128 ).notNullable().unique();
     clients.string('company_name', 128).notNullable();
-    clients.string('email').notNullable();
-    clients.string('phone_number').notNullable();
+    clients.string('email').notNullable().unique();
+    clients.string('phone_number').notNullable().unique();
     clients.integer('user_id').unsigned().notNullable().references('id').inTable('users');
   })
   

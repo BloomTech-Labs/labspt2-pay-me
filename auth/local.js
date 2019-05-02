@@ -14,7 +14,6 @@ router.use(cors());
 router.post('/signup', async (req, res) => {
     // Get the user registration information off the body.
     const user = req.body;
-    console.log(user.plan);
     // Make sure it has all the required data.
     if (user.username && user.password && user.email && user.plan) {
         // Hash the password and set the hash to the user object.
@@ -23,18 +22,13 @@ router.post('/signup', async (req, res) => {
         // Now we have to chain a couple promises...
         // Attempt to insert the user into the database.
         usersHelper.insert(user)
-        .then(newUser => {
-            if (newUser.duplicate) {
-                res.status(400).json(newUser);
-            }
-            // If there's an error number on the newUser object then something went wrong.
-            else if(newUser.message.errno) { 
-                // Send back the error.
-                res.status(400).json(newUser.message);
+        .then(newUserID => {
+            if (newUserID.duplicate) {
+                res.status(400).json(newUserID);
             }
             // Otherwise the user was created so let's get all the information available for it.
             else {
-                usersHelper.findById(newUser.id)
+                usersHelper.findById(newUserID)
                 .then(data => {
                     // Generate us a JWT to send to the client to store for sessions.
                     const token = JWT.generateToken(data[0]);
@@ -54,7 +48,6 @@ router.post('/login', (req, res) => {
     if (credentials.email && credentials.password) {
         usersHelper.findByEmail(credentials.email)
         .then(user => { 
-            console.log(user[0]);
             if (!user[0] || !bcrypt.compareSync(credentials.password, user[0].password)) {
                 return res.status(401).json({error: 'Invalid username or password.'})
             }
@@ -69,7 +62,7 @@ router.post('/login', (req, res) => {
         })
     }
     else {
-        return res.status(400).json({error: 'Login requires both a username and password.'});
+        return res.status(400).json({error: 'Login requires both an email and password.'});
     }
 });
 
@@ -77,7 +70,6 @@ router.get('/:id', async (req, res) => {
     const { id } = req.params;
     await usersHelper.findById(id)
     .then ((user) => {
-        console.log(user);
         res.json(user)
     })
     .catch(err => {

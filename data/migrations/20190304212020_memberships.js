@@ -4,6 +4,8 @@ exports.up = function(knex, Promise) {
     memberships.increments();
     memberships.string('plan').notNullable()
     memberships.boolean('client').notNullable();
+    // If this is a single client only account then check this column.
+    memberships.integer('client_id').unsigned();
   })
 };
 

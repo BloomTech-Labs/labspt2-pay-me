@@ -1,8 +1,9 @@
 const db = require('../dbConfig');
+const memberships = require('./membershipHelper');
+const clients = require('./clientsHelper');
 
 module.exports = {
     insert,
-    update,
     remove,
     getAll,
     findById,
@@ -41,8 +42,6 @@ async function checkDuplicateEmail(email) {
 
 async function checkDuplicateUsername(username) {
     const user = await db('users').where('username', username);
-    console.log(user.length);
-    console.log(user);
     if (user.length > 0) {
         return true;
     }
@@ -51,47 +50,50 @@ async function checkDuplicateUsername(username) {
 
 async function insert(user) {
     const duplicate = await checkDuplicate(user);
+    let client = null, newUser = null;
+    const newIDs = {
+        membership_id: null,
+        id: null,
+        errorMessage: '',
+    }
+
     if (duplicate) {
         console.log('Duplicate user found escaping insert.');
         return {duplicate: true, message: 'Duplicate username or email found.'}
     }
-    let newIDs = {membership_id: '', id: '', username: '', message: ''};
-    await db('memberships').insert({plan: user.plan})
-    .then(success => {
-        return success;
-    })
-    .then(async membershipID => {
-        newIDs.membership_id = membershipID[0];
-        await db('users').insert(
-            {username: user.username, 
+
+    // Check if this username and email are in the clients table
+    client = await clients.getClientByName(user.username);
+    client = await clients.getClientByEmail(user.email);
+
+    if (client.length > 0) {
+        newIDs.membership_id = await memberships.addMembership(true);
+        newUser = await db('users').insert({
+            username: user.username,
+            email: user.email,
             password: user.password,
-            google_id: user.google_id ? user.google_id : null, 
-            email: user.email, 
-            membership_id: membershipID[0]})
-            .then(async userID => {
-                console.log('inside user insert.')
-                newIDs.id = userID[0];
-                newIDs.username = user.username;
-                newIDs.message = 'Account created.';
-            })
-            .catch(async error => {
-                console.log(`User insert failed while trying to insert the user with error ${error}`)
-                newIDs.message = {errno: error.errno, code: error.code };
-                await db('memberships').where('id', newIDs.membership_id).delete();
-                newIDs.membership_id = '';
-            })
-    })
-    .catch(async error => {
-        newIDs.message = {errno: error.errno, code: error.code };
-        await db('memberships').where('id', newIDs.membership_id).delete();
-        newIDs.membership_id = '';
-    })
-
-    return newIDs;
-}
-
-async function update(id, user) {
-
+            membership_id: await newIDs.membership_id,
+            client_id: await client[0].id,
+        })
+        .catch(err => {
+            console.log('An error occured inserting a user.');
+            return {error: err}
+        })
+    }
+    else {
+        newIDs.membership_id = await memberships.addMembership(false);
+        newUser = await db('users').insert({
+            username: user.username,
+            email: user.email,
+            password: user.password,
+            membership_id: await newIDs.membership_id,
+        })
+        .catch(err => {
+            console.log('An error occured inserting a user.');
+            return {error: err}
+        })
+    }
+    return await newUser[0];
 }
 
 async function findByEmail(email) {
