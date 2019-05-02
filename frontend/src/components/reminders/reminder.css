@@ -3,8 +3,6 @@
 div.reminder{
   color: rgb(12, 10, 10);
   background: #82c0ff;
- 
-
 }
 nav.Topnav {
   color: #fff;
@@ -12,7 +10,6 @@ nav.Topnav {
   width: 100%;
   height: 56px;
   line-height: 56px;
-
 }
 
  
@@ -46,7 +43,11 @@ i.Medium.material-icons.icon{
 }
 .sectionboxcontact{
   display: flex;
+  flex-wrap:wrap ;
   flex-direction:column  
+}
+div.Section-Email-Sms-Comment{
+  display: flex;
 }
 .iconbox{
   display: flex;
@@ -61,6 +62,7 @@ div.row.wrapper-email-sms{
   width: 700px;
   display:flex;
   justify-content:center ;
+  flex-wrap:wrap ;
  background: #fff;
  border-color: rgba(0,0,0,.7);
  box-shadow: 0 0 0 1px rgba(198, 199, 201, 0.5);
@@ -217,6 +219,9 @@ padding:2px;
 .Section-Sms{
   display:flex ;
 }
+.stats0{
+  display:none; 
+}
 .Section-Comment{
   display:flex ;
   border: 1px solid rgba(4, 5, 5, 0.7);
@@ -295,7 +300,7 @@ div.mail li.info{
   box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
  
 }
-::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+::-webkit-input-placeholder { 
   color: #222;
   padding-left:20px; 
 }
