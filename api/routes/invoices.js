@@ -53,10 +53,8 @@ function checkFileType( file, cb ){
 // Get a list of invoices
 router.get('/', authToken, async (req, res) => {
   const user_id = res.locals.decodedToken.subject;
-  console.log(user_id);
   db.getAll(user_id)
   .then(invoices => {
-    console.log(invoices);
     res.status(200).json(invoices);
   })
   .catch(err => {
@@ -101,7 +99,7 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
   let invoice = JSON.parse(req.body.invoice);
   // We get the user_id out of the authenticated and now decoded token.
   const user_id = res.locals.decodedToken.subject;
-
+  invoice.amount = parseFloat(invoice.amount);
   // Let's see if we can find an ID with this client_name
   clientsHelper.getIdByName(invoice.client_name)
   .then(id => {
@@ -120,6 +118,7 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
           invoice_number: invoice.invoice_number,
           company_name: invoice.company_name,
           notes: invoice.notes,
+          amount: invoice.amount,
           inv_url: req.file.location,
         }
           db.insert(invoice)

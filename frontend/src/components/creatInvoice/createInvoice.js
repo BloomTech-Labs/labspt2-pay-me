@@ -15,6 +15,7 @@ class CreateInvoice extends Component {
             company_name: '',
             notes: '',
             invoice_number: '',
+            amount: '',
             selectedFile: null,
             created: false,
         };
@@ -42,6 +43,7 @@ class CreateInvoice extends Component {
         company_name: this.state.company_name,
         email: this.state.email,
         phone_number: this.state.phone_number, 
+        amount: this.state.amount,
         notes: this.state.notes,
     }));
     data.append( 'pdf', this.state.selectedFile, this.state.selectedFile.name );
@@ -91,7 +93,7 @@ class CreateInvoice extends Component {
                 <Redirect to='/signin' />
             )
         }
-        const { client_name, email, phone_number, company_name, notes, invoice_number, created } = this.state;
+        const { client_name, email, phone_number, company_name, notes, invoice_number, created, amount } = this.state;
         
         return (
             <div>
@@ -122,7 +124,13 @@ class CreateInvoice extends Component {
                             <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white grey-text"  id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input>
                         </div>
                         <div className="input-field">
-                            <input type="number" placeholder="Invoice Number" onblur="this.placeholder='Invoice Number'" className="white grey-text" id="invoice_number" value={invoice_number} onChange={this.ChangeValue}></input>                        </div>
+                            <label>Invoice Number</label>
+                            <input type="number" placeholder="Invoice Number" onblur="this.placeholder='Invoice Number'" className="white grey-text" id="invoice_number" value={invoice_number} onChange={this.ChangeValue}></input>
+                        </div>
+                        <div className="input-field">
+                            <label>Amount</label>
+                            <input type="number" placeholder="Amount" onblur="this.placeholder='Amount'" className="white grey-text" id="amount" value={amount} onChange={this.ChangeValue}></input>
+                        </div>
                         <div class="row">
                         <div class="input-field col s12">
                             <textarea id="notes" class="materialize-textarea white" data-length="120" style={{height: "6rem"}} placeholder="Notes" value={ notes } onChange={this.ChangeValue}>  </textarea>

@@ -207,8 +207,8 @@ handleStartReminders = (e) => {
       const header ={headers: {'Authorization': token,}}
       axios.post( url, data,header )
       .then(response => {
-        // this.setState({reminders : response.data})
-       console.log(response) 
+        this.setState({reminders : response.data})
+        console.log(response) 
        })
        .catch(err => {
          console.log("IN CATCH", err);
@@ -325,11 +325,10 @@ handleStartReminders = (e) => {
     const token = localStorage.getItem('jwt');
     const id = decode(token).subject; // I had the user_id stored inside a subject field -Jason
     const url =`${serverLoc}/api/reminders/invoices/${id}`;
-    console.log(id)
     axios.get( url, {headers: {'Authorization': token,}})
     .then(response => {
       console.log(response)
-    if(response.data[0].lenght!==0||response.data[0].lenght!==undefined){
+    if(response.data[0].length!==0||response.data[0].length!==undefined){
       this.setState({data_invoices : response.data,
         invoiceUserClientInfo:response.data[0],
         isLoading:false,
