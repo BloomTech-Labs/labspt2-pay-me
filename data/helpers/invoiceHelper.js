@@ -15,10 +15,14 @@ async function test() {
 }
 
 async function getAll(userID) {
-    return await db('clients').where('user_id', userID)
-    .leftJoin('invoices', 'client_id', 'clients.id');
+    return await db('invoices').where('user_id', userID)
+    .leftJoin('clients', 'clients.id', 'invoices.client_id');
     //.orderBy('invoices.invoice_number', 'desc');  
 };
+
+async function getByClientID(clientID) {
+    return await db('invoices').where('client_id', clientID);
+}
 
 async function insert(invoice) {
     return await db('invoices').insert(invoice);
