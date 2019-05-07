@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     users.string('username', 128 ).notNullable().unique();
     users.string('password', 128).notNullable();
     users.string('email').notNullable().unique();
-    users.string('google_id', 128).unique();
+    users.integer('oAuth_id').unique();
     // If this account is also a client account then attach that ID to this
     users.integer('client_id').unsigned();
     users.integer('membership_id').unsigned().notNullable().references('id').inTable('memberships');

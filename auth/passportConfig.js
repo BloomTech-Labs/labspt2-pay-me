@@ -26,16 +26,16 @@ passport.use(new GoogleStrategy({
         await usersHelper.findByUsername(profile.displayName)
         .then(async user => {
             if (user.length > 0) {
-                done(null, user[0]);
+                done(null, user[0].id);
             }
             else {
                 // Add them if not.
                 await usersHelper.insert(
                     {username: profile.displayName,
                     password: '',
-                    google_id: profile.id,
+                    oAuth_id: profile.id,
                     email: profile.emails[0].value,
-                    plan: 'none'})
+                    })
                 .then(user => {
                     console.log(user);
                     done(null, user);

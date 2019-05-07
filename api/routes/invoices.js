@@ -53,8 +53,10 @@ function checkFileType( file, cb ){
 // Get a list of invoices
 router.get('/', authToken, async (req, res) => {
   const user_id = res.locals.decodedToken.subject;
+  console.log(user_id);
   db.getAll(user_id)
   .then(invoices => {
+    console.log(invoices);
     res.status(200).json(invoices);
   })
   .catch(err => {
@@ -100,7 +102,7 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
   // We get the user_id out of the authenticated and now decoded token.
   const user_id = res.locals.decodedToken.subject;
 
-  // Let's see if we can find an ID with this client_name that also belongs to this user
+  // Let's see if we can find an ID with this client_name
   clientsHelper.getIdByName(invoice.client_name)
   .then(id => {
     // if id.length === 0 create a new client based on the information given to us here.
@@ -110,11 +112,11 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
         company_name: invoice.company_name,
         email: invoice.email,
         phone_number: invoice.phone_number,
-        user_id: user_id,
       }).then(ids => { 
         // Now that we've created the new client let's add the invoice to it.
         invoice = {
           client_id: ids[0],
+          user_id: user_id,
           invoice_number: invoice.invoice_number,
           company_name: invoice.company_name,
           notes: invoice.notes,

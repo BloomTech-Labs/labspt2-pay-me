@@ -42,7 +42,7 @@ async function insert(client) {
         company_name: client.company_name,
         email: client.email,
         phone_number: client.phone_number,
-        user_id: client.user_id,
+        //user_id: client.user_id,
     });
 }
 

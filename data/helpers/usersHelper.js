@@ -13,12 +13,8 @@ module.exports = {
 };
 
 async function findByUsername(user) {
-    if (user.username) {
-        return await db('users').where('username', user.username);
-    }
-    else {
-        return await db('users').where('username', user);
-    }
+    console.log(user);
+    return await db('users').where('username', user);
 }
 
 async function getAll() {

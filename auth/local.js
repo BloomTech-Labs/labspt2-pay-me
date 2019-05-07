@@ -15,7 +15,7 @@ router.post('/signup', async (req, res) => {
     // Get the user registration information off the body.
     const user = req.body;
     // Make sure it has all the required data.
-    if (user.username && user.password && user.email && user.plan) {
+    if (user.username && user.password && user.email) {
         // Hash the password and set the hash to the user object.
         user.password = bcrypt.hashSync(user.password, 14);
 
@@ -25,6 +25,9 @@ router.post('/signup', async (req, res) => {
         .then(newUserID => {
             if (newUserID.duplicate) {
                 res.status(400).json(newUserID);
+            }
+            else if (newUserID.error) {
+                res.status(500).json(newUserID.error);
             }
             // Otherwise the user was created so let's get all the information available for it.
             else {

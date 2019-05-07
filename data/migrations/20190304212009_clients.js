@@ -6,7 +6,6 @@ exports.up = function(knex, Promise) {
     clients.string('company_name', 128).notNullable();
     clients.string('email').notNullable().unique();
     clients.string('phone_number').notNullable().unique();
-    clients.integer('user_id').unsigned().notNullable().references('id').inTable('users');
   })
   
 };
