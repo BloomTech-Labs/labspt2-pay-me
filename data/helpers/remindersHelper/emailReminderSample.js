@@ -343,8 +343,8 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                          <tr>
                            <td>
-                             <p>Hi ${CustomName},</p>
-                             <p>I hope you’re well. This is just to remind you that payment on invoice ${CustomInvoiceId}, which we sent on March 25th, will be due next week.</p>
+                             <p>Hi ${CustomName||'ClientName_here'},</p>
+                             <p>I hope you’re well. This is just to remind you that payment on invoice ${CustomInvoiceId}, which we sent on ${'DATE here'}, will be due next week.</p>
                              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                <tbody>
                                  <tr>
@@ -362,7 +362,7 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                              </table>
                              <p>I’m sure you’re busy, but I’d appreciate if you could take a moment and look over the invoice when you get a chance. Please let me know if you have any questions.</p>
                              <p>Thank you!</p>
-                             <p>${InvoiceSEnderName} </p>
+                             <p>${InvoiceSEnderName||'UserNameHere'} </p>
                            </td>
                          </tr>
                        </table>
@@ -378,13 +378,13 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                    <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                      <tr>
                        <td class="content-block">
-                         <span class="apple-link">Company Inc, 3 Abbey Road, San Francisco CA 94102</span>
+                         <span class="apple-link">Payme lambdaStudent Company Inc, 4 Washington st Road, SOMEWHERE IN US </span>
                          <br> Don't like these emails? <a href="http://i.imgur.com/CScmqnj.gif">Unsubscribe</a>.
                        </td>
                      </tr>
                      <tr>
                        <td class="content-block powered-by">
-                         Powered by <a href="#LINKTOPAYMELOGO">PaymeWEb App team</a>.
+                         Powered by <a href="https://i.imgur.com/k9AaTur.jpg">PaymeWEb App team</a>.
                        </td>
                      </tr>
                    </table>

@@ -22,7 +22,7 @@ const nexmo = new Nexmo({
   apiKey:process.env.API_KEY_NEXMO_SMS,
   apiSecret:process.env.API_SECRET_NEXMO_SMS
 })
-
+console.log()
 //Send SMS via NEXMO 
 
 // unable only if necessary**cost money**/
