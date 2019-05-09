@@ -12,90 +12,56 @@ const tblRem = 'reminders';
 
 const getInvoice =  async (req, res)=>{
   const {id} = req.params;
-
-
-  const data_user =await db('users').where({id}).map(item=>{
-    return item
-  })
-  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
-    return item
-  });
-  res.send(data_user)
- 
- 
-  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
-    return item
-  })
- 
- 
-  const data_invoices =await db('invoices').map(item=>{
-    return item
-  })
- console.log(data_invoices)
-  data_invoices.map(invoice => {
-    for(let i = 0; i < filtered_clients.length; i++) {
-        if (invoice.client_id === filtered_clients[i].id) {
-          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
-        }
-    }
-}) ;
-
-}
+  const data_user = await db('users').select('id', 'username', 'email', 'phone').where('id', id);
+  const data_invoices =await db('invoices').where('user_id', id)
+  .leftJoin('clients', 'client.id', 'invoices.client_id');
+  console.log(await data_invoices);
+  res.send({'invoices': data_invoices, 'user': data_user[0], });
+};
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
-
-
-  const data_user =await db('users').where({id}).map(item=>{
-    return item
+  const user =await db('users').select('username', 'email').where('id', id);
+  const invoices = await db('invoices').where('user_id', id);
+  const filtered_clients = await db('clients');
+  //res.status(200).json({'user': user, 'invoices': invoices});
+  let sortMyClients = Array();
+  invoices.forEach(invoice => {
+    filtered_clients.forEach(client => {
+      if (invoice.client_id === client.id) {
+        sortMyClients.push({
+          'invoice': invoice,
+          'client': client,
+          'user': user[0]
+        })
+      }
+    })
   })
-  const filtered_clients = await db('clients').where('user_id',id).map(item=>{
-    return item
-  });
-  console.log(process.env.SENDGRID_API_KEY)
- 
- 
-  const filtered_clients2 = await db('clients').where('user_id',id).map(item=>{
-    return item
-  })
-  console.log(process.env.SENDGRID_API_KEY)
- 
-  const data_invoices =await db('invoices').map(item=>{
-    return item
-  })
- console.log(data_invoices)
-  data_invoices.map(invoice => {
-    for(let i = 0; i < filtered_clients.length; i++) {
-        if (invoice.client_id === filtered_clients[i].id) {
-          filtered_clients[i] = Object.assign({}, filtered_clients[i], {invoice})
-        }
-    }
-}) ;
-/*const data = {
-  user:data_user[0],
-  client:filtered_clients
-}*/
-var dataToSend  =filtered_clients.map((item,i)=>{
-  const invoice = item.invoice;
-  console.log()
- return{
-  invoice,
-  user:data_user[0],
-  client:filtered_clients2[i]
-}})
-async function senddata(){
-  return dataToSend
-}
+  console.log(await sortMyClients);
+  res.status(200).json(await sortMyClients);
+  /*
+  var dataToSend  = filtered_clients.map((item,i)=>{
+    let invoice;
+    let client;
+    return{
+      invoice,
+      user:data_user[0],
+      client:filtered_clients2[i]
+    }})
 
-senddata().then(response=>{
-  //console.log(response)
-  if(response.length!==0){
-    res.status(200).json(response)
-  }else{
-    res.status(203).json([])
+  async function senddata(){
+    return dataToSend
   }
-}).catch(err =>{res.status(500).json('eeeerror')})
 
+  senddata().then(response=>{
+    //console.log(response)
+    if(response.length!==0){
+      res.status(200).json(response)
+    }else{
+      res.status(203).json([])
+    }
+  }).catch(err =>{res.status(500).json('eeeerror')})
+ */
 }
 
 

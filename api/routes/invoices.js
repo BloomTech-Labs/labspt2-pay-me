@@ -102,9 +102,9 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
   invoice.amount = parseFloat(invoice.amount);
   // Let's see if we can find an ID with this client_name
   clientsHelper.getIdByName(invoice.client_name)
-  .then(id => {
+  .then(client_id => {
     // if id.length === 0 create a new client based on the information given to us here.
-    if (id.length === 0) {
+    if (client_id.length === 0) {
       clientsHelper.insert({
         client_name: invoice.client_name,
         company_name: invoice.company_name,
@@ -134,15 +134,16 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
         console.log(`Server had an error of : ${err} while trying to create a new client.`);
         res.status(500).json(err);
       })
-    }
-    // This client is already attached to this user. 
+    } 
     else {
       // Make sure the invoice object only contains the required invoice information.
       invoice = {
-        client_id: id[0].id,
+        client_id: client_id[0].id,
+        user_id: user_id,
         invoice_number: invoice.invoice_number,
         company_name: invoice.company_name,
         notes: invoice.notes,
+        amount: invoice.amount,
         inv_url: req.file.location,
       }
       // Attempt to insert the invoice into the invoice table

@@ -128,7 +128,6 @@ handleChangeFreqSms = (selectedOption) => {
 
 
 handleAddComment=(event) => {
- 
   if (event.target.value !== "") {
     const newComment = {
       commentText: this.state.commentText,
@@ -136,11 +135,10 @@ handleAddComment=(event) => {
     };
     this.setState((prevState) => {
       return { 
-        comments: prevState.comments.concat(newComment) 
+        comments: prevState.comments.concat(newComment),
+        commentText: '',
       };
     });
-    
-    this.state.commentText=''
     event.preventDefault()
     
   }}
