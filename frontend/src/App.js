@@ -9,6 +9,7 @@ import SignIn from './components/authenicate/SignIn';
 import { Route } from 'react-router-dom';
 import CreateInvoice from './components/creatInvoice/createInvoice';
 import InvoiceDetails from './components/Invoice/InvoiceDetails';
+import InvoiceEdit from './components/Invoice/InvoiceEdit';
 import Billing from './components/billing/Billing';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/settings/Settings';
@@ -33,6 +34,7 @@ class App extends Component {
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/invoice/:id" component={InvoiceDetails} />
+        <Route exact path="/invoice/edit/:id" component={InvoiceEdit} />
         <Route  path="/dashboard" component={Dashboard} />
         <Route  path="/create" component={CreateInvoice} />
         <Route  path="/billing" component={Billing} />
@@ -40,8 +42,10 @@ class App extends Component {
         <Route exact path="/payinvoice/:id" component={PayInvoice} />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
         {<Route exact path="/reminders" component={Reminders} />}
+        
+        {/* 
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
-        {/* <Route exact path="/reminders" component={Reminders} />*/}
+        <Route exact path="/reminders" component={Reminders} />*/}
       </div>
     );
   }

@@ -19,10 +19,10 @@ class Invoice extends Component {
                 <div className="card-top">
                     <a href="#">
                         <p className="right"><i className="material-icons delete-icon" onClick={this.onDeleteClick.bind(this,id)}>delete_forever</i></p>
-                    </a>
-                    <a href="#">
+                    </a>    
+                    <Link to={`/invoice/edit/${id}`}>
                         <p className="right card-icon-top">Edit</p>	
-                    </a>
+                    </Link>
                 </div>
                 <Link to= {`/invoice/${id}`}>
                     <span className="card-title">INVOICE #{invoice_number}</span>
