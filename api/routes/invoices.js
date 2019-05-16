@@ -69,7 +69,7 @@ router.get('/:id', authToken, async (req, res) => {
 
   await db.findById(id)
   .then(invoices => {
-      res.json(invoices)
+    res.json(invoices[0])
   })
   .catch(err => {
       res.status(500).json({ message: 'Unable to find invoice by id'})

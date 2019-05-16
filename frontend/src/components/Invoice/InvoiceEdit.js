@@ -3,16 +3,22 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getInvoice } from '../store/actions/invoiceActions';
 import '../../InvoiceDetails.css';
+import serverLoc from '../../serverLoc';
+import axios from 'axios';
 
 class InvoiceEdit extends Component {
-    state = {
-        client_name: '',
-        company_name: '',
-        phone: '',
-        email: '',
-        inv_url: '',
-        notes: ''
-    };
+    constructor() {
+        super();
+        this.state = {
+            id: '',
+            client_name: '',
+            company_name: '',
+            phone: '',
+            email: '',
+            inv_url: '',
+            notes: ''
+        };
+    }
     componentWillReceiveProps(nextProps, nextState){
         const {id, company_name, phone, email, inv_url, notes} = nextProps.invoice;
         this.setState({ id, company_name, phone, email, inv_url, notes})
@@ -21,6 +27,31 @@ class InvoiceEdit extends Component {
     componentDidMount() {
         const {id} = this.props.match.params;
         this.props.getInvoice(id);
+    }
+
+    onChange = (event) => {
+        event.preventDefault();
+        console.log(event.target.name)
+        this.setState({
+            [event.target.name]: event.target.value,
+        })
+    }
+    editInvoice = (event) => {
+        event.preventDefault();
+        axios.put(`${serverLoc}/api/invoices/${this.state.id}`, 
+        {
+            notes: this.state.notes,
+        }, {
+            headers: {
+                Authorization: localStorage.getItem('jwt'),
+            }
+        })
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
     }
 
     render () {
@@ -38,12 +69,14 @@ class InvoiceEdit extends Component {
                         <div className="card-content">
                         <span className="card-title">INVOICE {id}</span>
                         <p className="name-heading">{client_name}</p>
+                        <label>Company Name</label>
                         <p className="invoice-text">{company_name}</p>
+                        <label>Email</label>
                         <p className="invoice-text">{email}</p>
                         <p className="invoice-text">{phone}</p>
-                        <form className="create-invoice-form z-depth-0" enctype='multipart/form-data'>
-                        <label>Notes</label>
-                        <input type='multiline' className="invoice-text-details" value={notes}/>
+                        <form className="create-invoice-form z-depth-0" onSubmit={this.editInvoice}>
+                        <label>Notes</label><br />
+                        <input type='multiline' name="notes" className="invoice-text-details" value={this.state.notes} onChange={this.onChange}/>
                         <br /><br />
                         <button type='submit'>Submit</button>
                         </form>

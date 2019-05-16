@@ -15,8 +15,24 @@ async function test() {
 }
 
 async function getAll(userID) {
+    let invoice = await db('invoices').where('user_id', userID);
+    const clients = await db('clients');
+    clients.forEach(client =>  {
+        invoice.forEach(invoice => {
+            if (client.id === invoice.client_id) {
+                invoice.client_name = client.client_name;
+                invoice.company_name = client.company_name;
+                invoice.phone_number = client.phone_number;
+                invoice.email = client.email;
+            }
+        })
+    })
+    return await invoice;
+    
+    /*
     return await db('invoices').where('user_id', userID)
-    .leftJoin('clients', 'clients.id', 'invoices.client_id');
+    .leftJoin(db('clients').select('client_name', 'company_name', 'email', 'phone_number').where('id', 'invoices.id'));
+    */
     //.orderBy('invoices.invoice_number', 'desc');  
 };
 
@@ -35,9 +51,19 @@ async function update(id, changes) {
 };
 
 async function findById(id) {
-    return await db('invoices')
-    .where('id', id)
-    .first()
+    const clients = await db('clients');
+    let invoice = await db('invoices').where('id', id);
+    clients.forEach(client => {
+        invoice.forEach(invoice => {
+            if (client.id === invoice.client_id) {
+                invoice.client_name = client.client_name;
+                invoice.company_name = client.company_name;
+                invoice.phone_number = client.phone_number;
+                invoice.email = client.email;
+            }
+        })
+    })
+    return await invoice;
 };
 
 async function findByClientId(client_id) {
