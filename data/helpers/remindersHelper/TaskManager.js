@@ -125,16 +125,12 @@ const getInvoices =  async (req, res)=>{
           setToHappenOn(()=>{timerSms.start()},Sms_StartDate)
         }
       }
-<<<<<<< HEAD
-  
-    
-=======
-<<<<<<< HEAD
+
   /*
       const SaveRemindereee =(req,res)=>{
        console.log(req.body)
       }*/
->>>>>>> Fix merge conflict in payme.db
+
       const SaveReminder =(req,res)=>{
         const dataTobeSaved=req.body;
       //  const invoiceNumber=dataTobeSaved.invoice_number;
@@ -158,8 +154,6 @@ const getInvoices =  async (req, res)=>{
   })
  
    }
-=======
->>>>>>> Fix merge conflict in payme.db
 
 const getRemindersbyInvoiceNumber =(req,res)=>{
         db.select().table('reminders').then(item =>{
