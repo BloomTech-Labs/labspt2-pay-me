@@ -18,6 +18,8 @@ class CreateInvoice extends Component {
             amount: '',
             selectedFile: null,
             created: false,
+            emailError: false,
+            phoneError: false,
         };
     }
    
@@ -82,6 +84,13 @@ class CreateInvoice extends Component {
        }
       }).catch( ( error ) => {
       // If another error
+      if (error.response.data.email === true || error.response.data.phone === true) {
+        console.log('inside setstate block')
+        this.setState({
+            emailError: error.response.data.email,
+            phoneError: error.response.data.phone
+        })
+      }
       console.log( error );
      });
   };
@@ -93,7 +102,7 @@ class CreateInvoice extends Component {
                 <Redirect to='/signin' />
             )
         }
-        const { client_name, email, phone_number, company_name, notes, invoice_number, created, amount } = this.state;
+        const { client_name, email, phone_number, company_name, notes, invoice_number, created, amount, emailError, phoneError } = this.state;
         
         return (
             <div>
@@ -117,11 +126,21 @@ class CreateInvoice extends Component {
                         </div>
                         <div className="input-field">
                             <i class="material-icons prefix">mail</i> 
-                            <input type="email" placeholder="Email" onblur="this.placeholder='Email'" className="white lighten-3 grey-text"  id="email" value={ email } onChange={this.ChangeValue}></input>
+                            {emailError ?
+                            <div>Email already in use
+                                <input type="email" placeholder="Email" onBlur="this.placeholder='Email'" className="white lighten-3 formError" id="email" value={email} onChange={this.ChangeValue} />
+                            </div>
+                            : <input type="email" placeholder="Email" onblur="this.placeholder='Email'" className="white lighten-3 grey-text"  id="email" value={ email } onChange={this.ChangeValue}></input>
+                            }
                         </div>
                         <div className="input-field">
                             <i class="material-icons prefix">phone</i> 
-                            <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white grey-text"  id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input>
+                            {phoneError ?
+                            <div>Phone number already in use
+                                <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white formError"  id="phone_number" value={ phone_number } onChange={this.ChangeValue} />
+                            </div>
+                            : <input type="text" placeholder="Phone Number" onblur="this.placeholder='Phone Number'" className="white grey-text"  id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input>
+                            }
                         </div>
                         <div className="input-field">
                             <label>Invoice Number</label>
