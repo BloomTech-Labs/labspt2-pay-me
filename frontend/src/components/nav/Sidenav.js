@@ -27,7 +27,8 @@ class Sidenav extends Component {
                         <Link to="/dashboard"><li>INVOICES</li></Link>
                         <Link to="/reminders"><li>REMINDERS</li></Link>
                         <Link to="/settings"><li>ACCOUNT AND SETTINGS</li></Link>
-                        <Link to="/billing"><li>BILLINGS</li></Link>
+                        <Link to="/billing"><li>BILLING</li></Link>
+                        <Link to="/payinvoice"><li>PAY INVOICE</li></Link>
                         <Link to="#"><li>SUPPORT CENTER</li></Link>
                     </ul>
                     <div className="add-invoiceBtn-container-text">NEW INVOICE</div>

@@ -177,4 +177,16 @@ router.delete('/:id', authToken, async (req, res) =>{
     })
   });
 
+router.get('/client/:id', authToken, async (req, res) => {
+  const {id} = req.params;
+  console.log(id);
+  await db.findByClientId(id)
+  .then(invoices => {
+    res.status(201).json(invoices);
+  })
+  .catch(err => {
+    res.status(500).json({error: err});
+  })
+})
+
 module.exports = router;

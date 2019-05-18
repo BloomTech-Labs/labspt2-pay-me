@@ -13,6 +13,7 @@ import InvoiceEdit from './components/Invoice/InvoiceEdit';
 import Billing from './components/billing/Billing';
 import Dashboard from './components/dashboard/dashboard';
 import Settings from './components/settings/Settings';
+import InvoicePay from './components/Invoice/InvoicePay';
 
 /*
 <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
@@ -41,6 +42,7 @@ class App extends Component {
         <Route  path="/settings" component={Settings} />
         <Route exact path="/payinvoice/:id" component={PayInvoice} />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
+        <Route exact path="/payinvoice" component={InvoicePay} />
         {<Route exact path="/reminders" component={Reminders} />}
         
         {/* 
