@@ -6,11 +6,10 @@ module.exports = {
 };
 
 function generateToken(user) {
-    console.log(user);
-    if (user.id && user.username) {
+    console.log('in generate token' + user.id);
+    if (user.id) {
         const payload = {
             subject: user.id,
-            username: user.username
         }
 
         const options = {

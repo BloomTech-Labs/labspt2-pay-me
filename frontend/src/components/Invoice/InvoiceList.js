@@ -1,7 +1,6 @@
 import React from 'react';
 import Invoice from '../Invoice/Invoice';
-import '../../Dashboard.css';
-import { Link } from 'react-router-dom';
+import '../../Main.css';
 
 const InvoiceList = ({ invoices }) => {
     return (
@@ -12,8 +11,7 @@ const InvoiceList = ({ invoices }) => {
                }
                else {
                 return (
-                        <Invoice invoice={invoice} key={invoice.id} />  
-                
+                    <Invoice invoice={invoice} key={invoice.id} />  
                 )
                 }
            })}
