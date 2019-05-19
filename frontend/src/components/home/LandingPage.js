@@ -37,7 +37,7 @@ const LandingPage = (props) => {
                 </div>
             </section>
 
-            <section id="features" style={{backgroundColor: "#fff", paddingBottom: 10, paddingTop: 20}}>
+            <section id="features" style={{backgroundColor: "#fff", paddingBottom: 15, paddingTop: 20}}>
                 <div className="container"> 
                     <h1 className="center" >Nice, Clean and Simple Features</h1>
                     <div className="row" style={{paddingBottom: 60}}>
