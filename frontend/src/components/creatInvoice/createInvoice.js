@@ -63,6 +63,16 @@ class CreateInvoice extends Component {
             //Display to the user that the invoice was successfully created.
             this.setState({
                 created: true,
+                emailError: false,
+                phoneError: false,
+                client_name: '',
+                email: '',
+                company_name: '',
+                phone_number: '',
+                invoice_number: '',
+                amount: '',
+                selectedFile: null,
+                notes: '',
             })
         }
     if ( 200 === response.status ) {
@@ -108,7 +118,7 @@ class CreateInvoice extends Component {
             <div>
                 
             <div className="row">
-            {created ? <h5 className="s10">Invoice successfully created.</h5> : <></>}
+            {created ? <center><h5 className="s10">Invoice successfully created.</h5></center> : <></>}
                 <Sidenav />
             
             <div className="col s10 workspace-white"> 
