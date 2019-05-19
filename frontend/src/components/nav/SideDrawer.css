@@ -1,0 +1,28 @@
+.side-drawer {
+    flex-direction: column;
+    height: 100%;
+    background: #1e90ff;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70%;
+    max-width: 400px;
+    z-index: 200;
+    transform: translateX(-100%);
+    transition: 0.3s ease-out;
+}
+
+.side-drawer ul li {
+    margin-left: 5%;
+    margin-bottom: 20px;
+    color: #FFF;
+}
+
+.side-drawer ul li:hover {
+    opacity: .8;
+}
+
+.side-drawer.open {
+    transform: translateX(0);
+}

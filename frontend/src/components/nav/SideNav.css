@@ -1,0 +1,51 @@
+
+#button-create-inovice {
+    width: 100px;
+}
+
+button:hover {
+	opacity: .85;
+	transition: opacity 0.3s ease-in-out;
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+
+#sidenav {
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background-color: #2196F3;
+	width: 300px;
+}
+
+.sidenav-wrapper ul li {
+	list-style: none;
+	padding: 15px 10px;
+	color: #FFF;
+}
+
+.sidenav-wrapper ul li:hover {
+	opacity: .8;
+}
+
+.material-icons {
+
+	color: #FFF;
+}
+
+.add-circle:hover {
+	opacity: .8;
+}
+
+.add-invoiceBtn-container {
+	margin-left: 50px;
+}
+
+.add-invoiceBtn-container-text {
+	margin-left: 35px;
+}
+
+ul li {
+	color: #FFF;
+}

@@ -36,7 +36,7 @@ server.use('/api/payments', payments);
 server.use('/api/reminders', reminders);
 server.use('/auth/local/', authLocal);
 server.use('/auth/google/', authGoogle);
-server.use('/charge', charge);
+server.use('/api/charge', charge);
 
 /* This just responds to the client letting it know that the server is up. */
 server.get('/', async (req, res) => {
