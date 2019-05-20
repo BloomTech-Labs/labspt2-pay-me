@@ -1,26 +1,29 @@
 import React, { Component} from 'react';
 import {Link} from 'react-router-dom';
 import serverLoc from '../../serverLoc';
-import axios from 'axios';
+import Axios from 'axios';
 import { connect } from 'react-redux';
 import { getInvoice } from '../store/actions/invoiceActions';
 import '../../InvoiceDetails.css';
 
 class InvoiceEdit extends Component {
-    state = {
-        invoice_number: '',
-        client_name: '',
-        company_name: '',
-        phone_number: '',
-        email: '',
-        amount: '',
-        inv_url: '',
-        notes: ''
-    };
+    constructor() {
+        super()
+        this.state = {
+            invoice_number: '',
+            company_name: '',
+            amount: '',
+            inv_url: '',
+            notes: '',
+            loading: false,
+            changed: false,
+        };
+        this.editInvoice = this.editInvoice.bind(this);
+    }
 
     componentWillReceiveProps(nextProps, nextState){
-        const {id, invoice_number, client_name, amount, company_name, phone_number, email, inv_url, notes} = nextProps.invoice;
-        this.setState({ id, invoice_number, client_name, amount, company_name, phone_number, email, inv_url, notes})
+        const {id, invoice_number, amount, company_name, inv_url, notes} = nextProps.invoice;
+        this.setState({ id, invoice_number, amount, company_name, inv_url, notes})
     }
 
     componentDidMount() {
@@ -34,16 +37,12 @@ class InvoiceEdit extends Component {
         })
     };
 
-    editInvoice = (event) => {
+    async editInvoice (event) {
         event.preventDefault();
-        axios.put(`${serverLoc}/api/invoices/${this.state.id}`, 
-        {
+        const response = await Axios.put(`${serverLoc}/api/invoices/${this.state.id}`, {
             notes: this.state.notes,
             invoice_number: this.state.invoice_number,
-            client_name: this.state.client_name,
             company_name: this.state.company_name,
-            phone_number: this.state.phone_number,
-            email: this.state.email,
             amount: this.state.amount
         }, {
             headers: {
@@ -52,14 +51,31 @@ class InvoiceEdit extends Component {
         })
         .then(res => {
             console.log(res);
+            if (res.status === 200) {
+                //Display to the user that the password was successfully changed.
+                this.setState({
+                    loading: true
+                })
+                setTimeout(
+                    function() {
+                    this.setState({
+                        loading: false,
+                        changed: true
+                    });
+                        }
+                        .bind(this),
+                        2000
+                    );
+            } 
         })
         .catch(err => {
             console.log(err);
         })
+        console.log(this.state.changed)
     }
 
     render () {
-    const { id,invoice_number, client_name, company_name, email, phone_number, amount, notes, loading } = this.state;
+    const { id,invoice_number, company_name, amount, notes, loading, changed } = this.state;
    
     return (
         <div className="outside-container">
@@ -73,7 +89,8 @@ class InvoiceEdit extends Component {
             <div className="content-container">
                 <h3 className="center" style={{color: "#7795F8"}}>Update Invoice</h3>
                 <p className="center lead-text">To make changes to your invoice. Fill out the form below.</p>
-                
+                {changed ? <h5 className="update-text center" style={{marginTop: 30, marginBottom: 30}}>Invoice updated successfully</h5> : ""}
+
                 <div className="col s12">
                     <div className="input-field center">
                         <Link to="/dashboard">
@@ -88,7 +105,7 @@ class InvoiceEdit extends Component {
 
                                 <form onSubmit={ this.editInvoice }>
                                 
-                                    <div className="offset-s4">
+                                    <div className="col s12 m6">
                                         <p>Invoice number:</p>
                                         <input type="number" className="white lighten-3 grey-text input-container"  id="invoice_number" onChange={this.changeValue} value={invoice_number}></input>
 
@@ -97,31 +114,21 @@ class InvoiceEdit extends Component {
                                         <p>Amount due:</p>
                                         <input type="number" className="white lighten-3 grey-text input-container"  id="amount" onChange={this.changeValue} value={amount}></input>
                                         </div>
+                                    </div>
 
-                                        <p>Client name:</p>
-                                        <input type="text" className="white lighten-3 grey-text input-container"  id="client_name" onChange={this.changeValue} value={client_name}></input>
-
-                                        <p>Company name:</p>
-                                        <input type="text" className="white lighten-3 grey-text input-container"  id="company_name" onChange={this.changeValue} value={company_name}></input>
-
-                                        <p>Phone number:</p>
-                                        <input type="number" className="white lighten-3 grey-text input-container"  id="phone_number" onChange={this.changeValue} value={phone_number}></input>
-                                        
-                                        <p>Email:</p>
-                                        <input type="email" className="white lighten-3 grey-text input-container"  id="email" onChange={this.changeValue} value={email}></input>
+                                    <div className="col s12 m6">
+                                        <p>Notes:</p>
+                                        <textarea type='text' name="notes" id="notes" className="matierialize-textarea white grey-text" value={notes} onChange={this.changeValue}/>
                                    </div>
-                                    <label>Notes</label><br />
-                                    <textarea type='text' name="notes" id="notes" className="matierialize-textarea white grey-text" value={notes} onChange={this.changeValue}/>
-                                
-                                    
+   
                                     {/* Button */}
-                                    <button className="submit-button update-button"  disabled={ loading }>
+                                    <button className="submit-button update-button"  disabled={ loading } style={{marginLeft: 10}}>
                                     { loading && <i className="fas fa-spinner" id="loading" style={{color:"#FFF", marginRight: 10}}></i> }
                                     Update Invoice
                                     </button>
                                 </form>
 
-                                <hr className="divider"></hr>
+                                <hr className="divider" style={{marginTop: 70}}></hr>
                             </div>
                         </div>
                     </div>      

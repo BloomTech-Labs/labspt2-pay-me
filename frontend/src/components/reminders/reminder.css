@@ -70,10 +70,10 @@ textarea{
   display: block;
   -webkit-transition: .25s;
   transition: .25s;
-  color: #2196F3;
+  color: #7795F8;
 }
 .collection.leftNav .collection-item.active {
-  background-color:   #2196F3;
+  background-color:   #7795F8;
   color: #eafaf9;
 }
 
@@ -103,7 +103,7 @@ div.col.s12.m6.l5.boxShadow{
   margin: 10px;
 }
 .btn.reminder_submit_btn{
-  background: #2196F3;
+  background: #7795F8;
 }
 span.spanComment{
  
@@ -132,9 +132,9 @@ div.text:hover{
   cursor: pointer;
 }
 div.tab-button.active{
-  color: #0af;
+  color: #7795F8;
   border: 1px solid #abc;
-  border-top: 3px solid #0af;
+  border-top: 3px solid #7795F8;
   border-bottom: 1px solid #fff;
 }
 div.tab-button{
@@ -235,7 +235,7 @@ display:none
 div.mail li.info{
   font-size: 12px;
   font-weight:600;
-	color: #2f70e1;
+	color: #7795F8;
 	padding: 10px 30px;  
 	box-shadow:	0px 1px 3px 0px rgba(0, 0, 0, .3);
   cursor: pointer;
@@ -250,6 +250,6 @@ div.mail li.info{
 }
 
 div.mail li.info:active{    
-background-color:#2f70e1;
+background-color:#7795F8;
 color:grey;
 }

@@ -64,6 +64,13 @@ class CreateInvoice extends Component {
             //Display to the user that the invoice was successfully created.
             this.setState({
                 created: true,
+                client_name: '',
+                email: '',
+                phone_number: '',
+                company_name: '',
+                notes: '',
+                invoice_number: '',
+                amount: '',
             })
         }
     if ( 200 === response.status ) {
@@ -121,48 +128,48 @@ class CreateInvoice extends Component {
             
             {/* Main content */} 
             <div className="content-container">
-                <h3 className="center" style={{color: "#2196F3"}}>New Invoice</h3>
-                <p className="heading-text center">Complete the form to create a new invoice</p>
+                <h3 className="center" style={{color: "#7795F8"}}>New Invoice</h3>
+                <p className="center lead-text">Complete the form to create a new invoice</p>
                 {created ? <h5 className="s10 center created-text">Invoice has been successfully created.</h5> : ""}
                 <div className="container">
                     <div className="row">
                         <form className="creat-invoice-form" enctype="multipart/form-data">
-                            <div className="col s12 m6 center">
-                                {/* Client Name input */}
-                                <input type="text" placeholder="Client Name" id="client_name" value={ client_name } onChange={this.ChangeValue}></input>
-
-                                {/* Company Name input */}
-                                <input type="text" placeholder="Company" id="company_name" value={ company_name } onChange={this.ChangeValue}></input>
-
-                                {/* Email input */}
-                                {emailError ?    
-                                <input type="email" placeholder="Email address already in use!" id="email" value={ email } onChange={this.ChangeValue} className="error-input"></input> 
-                               : <input type="email" placeholder="Email" id="email" value={ email } onChange={this.ChangeValue}></input> }
-
-                                {/* Phone Number input */}
-                                {phoneError ?
-                                <input type="number" placeholder="Phone number already in use!" id="phone_number" value={ phone_number } onChange={this.ChangeValue} className="error-input"></input>
-                                : <input type="number" placeholder="Phone Number" id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input> }
-                            </div>
-
-                            <div className="col s12 m6 center">
+                            <div className="col s12 m6">
                                 {/* Invoice Number input */}
                                 <input type="number" placeholder="Invoice Number" id="invoice_number" value={invoice_number} onChange={this.ChangeValue}></input>
 
                                 {/* Amount input */}
                                 <input type="number" placeholder="Amount" id="amount" value={amount} onChange={this.ChangeValue}></input>
 
-                                {/* Notes input */}
-                                <div className="notes-container">
-                                    <textarea type="text" placeholder="Notes" className="matierialize-textarea white grey-text"  id="notes" value={ notes } onChange={this.ChangeValue}></textarea>
-                                </div>
+                                {/* Company Name input */}
+                                <input type="text" placeholder="Company" id="company_name" value={ company_name } onChange={this.ChangeValue}></input> 
+                            </div>
+
+                            <div className="col s12 m6">
+                                {/* Client Name input */}
+                                <input type="text" placeholder="Client Name" id="client_name" value={ client_name } onChange={this.ChangeValue}></input>
+
+                                {/* Phone Number input */}
+                                {phoneError ?
+                                <input type="number" placeholder="Phone number already in use!" id="phone_number" value={ phone_number } onChange={this.ChangeValue} className="error-input"></input>
+                                : <input type="number" placeholder="Phone Number" id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input> } 
+
+                                {/* Email input */}
+                                {emailError ?    
+                                <input type="email" placeholder="Email address already in use!" id="email" value={ email } onChange={this.ChangeValue} className="error-input"></input> 
+                               : <input type="email" placeholder="Email" id="email" value={ email } onChange={this.ChangeValue}></input> }
                             </div>
                             
+                            {/* Notes input */}
+                            <div className="notes-container">
+                                <textarea type="text" placeholder="Notes" className="matierialize-textarea white grey-text"  id="notes" value={ notes } onChange={this.ChangeValue}></textarea>
+                            </div>
+
                             {/* File Upload input */}
                             <div className="col s12 offset-s2 file-upload-container">
                                 <div className="file-field input-field file-container" style={{marginTop: 10}}>
                                 
-                                    <div className="btn blue btnFlat">
+                                    <div className="btn btnFlat" style={{background: '#1e90ff'}}>
                                         <span className="file-upload-text">Upload</span>
                                         <input type="file" onChange={this.singleFileChangedHandler} />
                                     </div>
@@ -175,7 +182,7 @@ class CreateInvoice extends Component {
 
                             {/* Submit Button */}
                             <div className="center createInvoice-button-container">
-                                <button className="createInvoice-button" onClick={ this.singleFileUploadHandler }>Create Invoice</button>
+                                <button className="createInvoice-button" onClick={ this.singleFileUploadHandler } style={{background: '#1e90ff'}}>Create Invoice</button>
                             </div>
                             
                         </form>    

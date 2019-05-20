@@ -55,7 +55,7 @@ class InvoiceDetails extends Component {
 
                                 {/* Link to pay invoice page */}
                                 <Link to= {`/payinvoice/${id}`}>
-                                    <button className="btn blue btn-flat white-text pay-button">PAY NOW</button>
+                                    <button className="btn blue btn-flat white-text">PAY NOW</button>
                                 </Link>
 
                                 {/* Amount Due display */}

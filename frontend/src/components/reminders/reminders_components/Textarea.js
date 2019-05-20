@@ -4,7 +4,7 @@ import * as React from 'react';
  const Textarea = () => {
     return (
 <div class="row">
-    <form class="col s12">
+    <form class="col s12" style={{background: "#7795F8"}}>
       <textarea>Custom message</textarea>
     </form>
   </div>

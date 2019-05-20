@@ -22,7 +22,8 @@ class Pay extends Component {
         email: '',
         stripe_email: '',
         amount: '',
-        inv_url: ''
+        inv_url: '',
+        success: false
     }
     this.handleToken = this.handleToken.bind(this);
 }
@@ -43,7 +44,25 @@ class Pay extends Component {
             amount: this.state.amount,
             invoice_number: this.state.invoice_number,
             client_name: this.state.client_name  
-        });  
+        })  
+        .then( ( response ) => {
+            if (response.data.status === "success") {
+                {/* Alert user if payment was successful */}
+                this.setState({
+                    success: true
+                })
+            }
+            setTimeout(
+                function() {
+                this.setState({
+                    succes: false
+                });
+                    }
+                    .bind(this),
+                    2000
+                );
+        })
+
     }
 
     handleChange= (e) => {
@@ -61,7 +80,7 @@ class Pay extends Component {
         }
         const { invoice } = this.props;
         
-        const { amount, invoice_number, email, company_name, phone_number, inv_url, stripe_email, client_name } = this.state;
+        const { amount, invoice_number, email, company_name, phone_number, inv_url, stripe_email, client_name, success } = this.state;
         return (
         <>
         <div className="outside-container">
@@ -79,10 +98,12 @@ class Pay extends Component {
             <div className="content-container">
                 <h3 className="center">Pay Invoice</h3>
                 <p className="center lead-text">Complete the form to securely pay your invoice with Stripe</p>
+                {/* Successful payment alert */} 
+                {success ? <h5 className="s10 center created-text">Hooray! Payment is successful.</h5> : ""}
                 <div className="container">
                     <div className="row">
                         {/* Invoice # heading */} 
-                        <h4 className="center invoice-name-heading">
+                        <h4 className="center invoice-title-heading">
                             Invoice# {invoice_number}
                         </h4>
 
@@ -93,9 +114,10 @@ class Pay extends Component {
 
                         {/* Invoice details heading */} 
                         <h4 className="pay-invoice-content-text-bold">
-                            {client_name} 
+                            {company_name} 
                             <br></br>
-                            <span className="pay-invoice-content-text-normal">{company_name}</span>
+                            <br></br>
+                            <span className="pay-invoice-content-text-normal">{client_name}</span>
                             <br></br>
                             <span className=" pay-invoice-content-text-normal">{phone_number}</span>
                             <br></br>
@@ -104,7 +126,8 @@ class Pay extends Component {
                 
                         {/* Amount Due display */}
                         <div className="amount-due-display">
-                            <h3 className="amount-due-heading">Amount due: ${amount}</h3>
+                            {success ? <h3 className="amount-due-heading">Amount due: <span className="amount-paid-heading">PAID</span> 
+                            </h3> : <h3 className="amount-due-heading">Amount due: ${amount}</h3>}
                         </div>
 
                         {/* Email input for Stripe */}
