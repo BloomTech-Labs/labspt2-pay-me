@@ -80,7 +80,7 @@ router.get('/:id', authToken, async (req, res) => {
 router.put('/:id', authToken, async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
-
+  console.log(changes);
   await db.update(id, changes)
   .then(count => {
       if(!count || count < 1) {
@@ -90,6 +90,7 @@ router.put('/:id', authToken, async (req, res) => {
       }
   })
   .catch(err => {
+    console.log(err);
       res.status(500).json({ message: 'Sorry, the server ran into an issue'})
   })     
 });
@@ -111,9 +112,6 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
         email: invoice.email,
         phone_number: invoice.phone_number,
       }).then(ids => { 
-        console.log(`ids`, ids);
-        console.log(ids.email)
-        console.log(ids.phone)
         if (ids.email === true || ids.phone === true) {
           res.status(400).json(ids);
         }

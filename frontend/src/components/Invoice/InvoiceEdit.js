@@ -40,10 +40,7 @@ class InvoiceEdit extends Component {
         {
             notes: this.state.notes,
             invoice_number: this.state.invoice_number,
-            client_name: this.state.client_name,
             company_name: this.state.company_name,
-            phone_number: this.state.phone_number,
-            email: this.state.email,
             amount: this.state.amount
         }, {
             headers: {
@@ -98,18 +95,10 @@ class InvoiceEdit extends Component {
                                         <input type="number" className="white lighten-3 grey-text input-container"  id="amount" onChange={this.changeValue} value={amount}></input>
                                         </div>
 
-                                        <p>Client name:</p>
-                                        <input type="text" className="white lighten-3 grey-text input-container"  id="client_name" onChange={this.changeValue} value={client_name}></input>
-
                                         <p>Company name:</p>
                                         <input type="text" className="white lighten-3 grey-text input-container"  id="company_name" onChange={this.changeValue} value={company_name}></input>
 
-                                        <p>Phone number:</p>
-                                        <input type="number" className="white lighten-3 grey-text input-container"  id="phone_number" onChange={this.changeValue} value={phone_number}></input>
-                                        
-                                        <p>Email:</p>
-                                        <input type="email" className="white lighten-3 grey-text input-container"  id="email" onChange={this.changeValue} value={email}></input>
-                                   </div>
+                                    </div>
                                     <label>Notes</label><br />
                                     <textarea type='text' name="notes" id="notes" className="matierialize-textarea white grey-text" value={notes} onChange={this.changeValue}/>
                                 

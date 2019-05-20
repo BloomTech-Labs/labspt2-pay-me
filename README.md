@@ -1,6 +1,5 @@
 # Project Title
-
-One Paragraph of project description goes here
+The Payme app is a project designed to request payments for outstanding invoices by allowing users to create clients and add invoice information to them with an uploaded pdf file containing the invoice. After creating an invoice users can then create a reminder schedule to send email and/or SMS messages, SMS is disabled on the deployed app for fee concerns.
 
 ## Getting Started
 

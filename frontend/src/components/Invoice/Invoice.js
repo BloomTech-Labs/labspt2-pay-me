@@ -16,7 +16,7 @@ class Invoice extends Component {
             <div className="card-panel white z-depth-0 invoice-card">
                 <div className="card-content">
                     <div className="card-top">
-                        <Link to= "">   
+                        <Link to={'/dashboard'}> {/* Link was set to="" which redirected to the front page.*/}
                             <p className="right"><i className="fas fa-trash-alt card-icon" onClick={this.onDeleteClick.bind(this,id)}></i></p>
                         </Link>
                         <Link to= {`/invoice/edit/${id}`}>
