@@ -88,7 +88,6 @@ class App extends Component {
         <Route exact path="/reminders" render={(props) => <Reminders {...props} open={this.sideDrawerClickHandler}/> } />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
-        <Route exact path="/reminders" component={Reminders} />*/}
       </div>
     );
   }
