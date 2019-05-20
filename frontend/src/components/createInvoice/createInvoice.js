@@ -5,6 +5,7 @@ import './CreateInvoice.css';
 import axios from 'axios';
 import serverLoc from '../../serverLoc';
 import PayMeIcon from '../../img/SideNav_logo_SM.png';
+import MaskedInput from 'react-text-mask'
 
 class CreateInvoice extends Component {
     constructor() {
@@ -133,6 +134,7 @@ class CreateInvoice extends Component {
                 {created ? <h5 className="s10 center created-text">Invoice has been successfully created.</h5> : ""}
                 <div className="container">
                     <div className="row">
+                    
                         <form className="creat-invoice-form" enctype="multipart/form-data">
                             <div className="col s12 m6">
                                 {/* Invoice Number input */}
@@ -151,13 +153,35 @@ class CreateInvoice extends Component {
 
                                 {/* Phone Number input */}
                                 {phoneError ?
-                                <input type="number" placeholder="Phone number already in use!" id="phone_number" value={ phone_number } onChange={this.ChangeValue} className="error-input"></input>
-                                : <input type="number" placeholder="Phone Number" id="phone_number" value={ phone_number } onChange={this.ChangeValue}></input> } 
+                                <MaskedInput mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]} 
+                                    placeholder="Phone number already in use!" 
+                                    id="phone_number" 
+                                    value={ phone_number } 
+                                    onChange={this.ChangeValue} 
+                                    className="error-input" />
+                                : <MaskedInput mask={['(', /[1-9]/, /\d/, /\d/, ')', ' ', /\d/, /\d/, /\d/, '-', /\d/, /\d/, /\d/, /\d/]}  
+                                    placeholder="Phone Number" 
+                                    id="phone_number" 
+                                    value={ phone_number } 
+                                    onChange={this.ChangeValue} /> } 
 
                                 {/* Email input */}
                                 {emailError ?    
-                                <input type="email" placeholder="Email address already in use!" id="email" value={ email } onChange={this.ChangeValue} className="error-input"></input> 
-                               : <input type="email" placeholder="Email" id="email" value={ email } onChange={this.ChangeValue}></input> }
+                                <input 
+                                    type="email" 
+                                    placeholder="Email address already in use!" 
+                                    id="email" 
+                                    value={ email } 
+                                    onChange={this.ChangeValue} 
+                                    className="error-input">
+                                </input> 
+                               : <input 
+                                    type="email" 
+                                    placeholder="Email" 
+                                    id="email" 
+                                    value={ email } 
+                                    onChange={this.ChangeValue}>
+                                </input> }
                             </div>
                             
                             {/* Notes input */}
