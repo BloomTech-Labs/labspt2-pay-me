@@ -1,0 +1,46 @@
+#button-create-inovice {
+    width: 100px;
+}
+
+button:hover {
+    opacity: .95;
+}
+
+#sidenav {
+	height: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background-color: dodgerblue;
+	width: 300px;
+}
+
+.sidenav-wrapper ul li {
+	list-style: none;
+	padding: 15px 10px;
+}
+
+.sidenav-wrapper ul li:hover {
+	opacity: .8;
+}
+
+.material-icons {
+
+	color: rgb(255, 255, 255);
+}
+
+.add-circle:hover {
+	opacity: .8;
+}
+
+.add-invoiceBtn-container {
+	margin-left: 50px;
+}
+
+.add-invoiceBtn-container-text {
+	margin-left: 35px;
+}
+
+ul li {
+	color: #FFF;
+}

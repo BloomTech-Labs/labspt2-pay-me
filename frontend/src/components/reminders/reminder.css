@@ -66,7 +66,6 @@ div.row.wrapper-email-sms{
  background: #fff;
  border-color: rgba(0,0,0,.7);
  box-shadow: 0 0 0 1px rgba(198, 199, 201, 0.5);
-
 }
 
 textarea{
@@ -91,6 +90,7 @@ textarea{
   background-color:   #2196F3;
   color: #eafaf9;
 }
+
 .reminderInput {
   color:#222;
   border-color: rgba(0,0,0,.55);

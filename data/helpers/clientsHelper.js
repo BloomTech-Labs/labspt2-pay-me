@@ -37,13 +37,34 @@ async function getClientByEmail(email) {
 }
 
 async function insert(client) {
-    return await db('clients').insert({
-        client_name: client.client_name,
-        company_name: client.company_name,
-        email: client.email,
-        phone_number: client.phone_number,
-        //user_id: client.user_id,
-    });
+    const constraintCheck = {email: false, phone: false}
+    const clients = await db('clients')
+    clients.forEach(curClients => {
+        if (curClients.email === client.email
+            && curClients.phone_number === client.phone_number) {
+            constraintCheck.email = true;
+            constraintCheck.phone = true;
+        }
+        else if (curClients.email === client.email) {
+            console.log('email match')
+            constraintCheck.email = true;
+        }
+        else if (curClients.phone_number === client.phone_number) {
+            console.log('phone match')
+            constraintCheck.phone = true;
+        }
+    })
+    if (!constraintCheck.phone && !constraintCheck.email) {
+        return await db('clients').insert({
+            client_name: client.client_name,
+            company_name: client.company_name,
+            email: client.email,
+            phone_number: client.phone_number,
+        });
+    }
+    else {
+        return constraintCheck;
+    }
 }
 
 async function update(id, client) {

@@ -80,7 +80,7 @@ router.get('/:id', authToken, async (req, res) => {
 router.put('/:id', authToken, async (req, res) => {
   const { id } = req.params;
   const changes = req.body;
-
+  console.log(changes);
   await db.update(id, changes)
   .then(count => {
       if(!count || count < 1) {
@@ -90,6 +90,7 @@ router.put('/:id', authToken, async (req, res) => {
       }
   })
   .catch(err => {
+    console.log(err);
       res.status(500).json({ message: 'Sorry, the server ran into an issue'})
   })     
 });
@@ -111,24 +112,28 @@ router.post('/create', [authToken, pdfUpload], (req, res) => {
         email: invoice.email,
         phone_number: invoice.phone_number,
       }).then(ids => { 
-        // Now that we've created the new client let's add the invoice to it.
-        invoice = {
-          client_id: ids[0],
-          user_id: user_id,
-          invoice_number: invoice.invoice_number,
-          company_name: invoice.company_name,
-          notes: invoice.notes,
-          amount: invoice.amount,
-          inv_url: req.file.location,
+        if (ids.email === true || ids.phone === true) {
+          res.status(400).json(ids);
         }
-          db.insert(invoice)
-        .then(ids => {
-            res.status(201).json({message: ids});
-        })
-        .catch(err => {
-            console.log(`Server had an error of : ${err} while trying to add an invoice to a new client.`);
-            res.status(500).json(err)
-        })
+        else {// Now that we've created the new client let's add the invoice to it.
+          invoice = {
+            client_id: ids[0],
+            user_id: user_id,
+            invoice_number: invoice.invoice_number,
+            company_name: invoice.company_name,
+            notes: invoice.notes,
+            amount: invoice.amount,
+            inv_url: req.file.location,
+          }
+            db.insert(invoice)
+          .then(ids => {
+              res.status(201).json({message: ids});
+          })
+          .catch(err => {
+              console.log(`Server had an error of : ${err} while trying to add an invoice to a new client.`);
+              res.status(500).json(err)
+          })
+        }
       })
       .catch(err => {
         console.log(`Server had an error of : ${err} while trying to create a new client.`);
@@ -176,5 +181,17 @@ router.delete('/:id', authToken, async (req, res) =>{
       res.status(500).json({error:'unable to delete invoice'})
     })
   });
+
+router.get('/client/:id', authToken, async (req, res) => {
+  const {id} = req.params;
+  console.log(id);
+  await db.findByClientId(id)
+  .then(invoices => {
+    res.status(201).json(invoices);
+  })
+  .catch(err => {
+    res.status(500).json({error: err});
+  })
+})
 
 module.exports = router;
