@@ -16,7 +16,7 @@ class Invoice extends Component {
             <div className="card-panel white z-depth-0 invoice-card">
                 <div className="card-content">
                     <div className="card-top">
-                        <Link to={'/dashboard'}> {/* Link was set to="" which redirected to the front page.*/}
+                        <Link to= "/dashboard">   
                             <p className="right"><i className="fas fa-trash-alt card-icon" onClick={this.onDeleteClick.bind(this,id)}></i></p>
                         </Link>
                         <Link to= {`/invoice/edit/${id}`}>
@@ -26,11 +26,10 @@ class Invoice extends Component {
 
                     {/* Link to invoice details page */}
                     <Link to= {`/invoice/${id}`}>
-                        <span className="invoice-number-heading">INVOICE #{invoice_number}</span>
+                        <span className="invoice-number-heading">INVOICE # {invoice_number}</span>
                     </Link>
-
+                    <p className="invoice-company-heading">{company_name}</p>
                     <p className="invoice-name-heading">{client_name}</p>
-                    <p className="invoice-content-text">{company_name}</p>
                     <p className="invoice-content-text">{email}</p>
                     <p className="invoice-content-text">{phone_number}</p>
 

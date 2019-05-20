@@ -9,20 +9,24 @@
 .invoice-number-heading {
     font-size: 1.5rem !important;
     color: #7795F8 !important;
-    font-weight: 700 !important;
+    font-weight: 600 !important;
 }
 
-.invoice-name-heading {
-    font-size: 1.3rem !important;
+.invoice-company-heading {
+    font-size: 1.7rem !important;
     color: #7795F8 !important;
     font-weight: 600 !important;
 }
 
+.invoice-name-heading {
+    font-weight: 600 !important;
+}
+
 .invoice-number-heading:hover {
-    opacity: .6 !important;
+    opacity: .8 !important;
     transition: opacity 0.3s ease-in-out !important;
-	-webkit-transform: translateY(-2px)!important;
-	transform: translateY(-2px) !important;
+	-webkit-transform: translateY(2px)!important;
+    transform: translateY(2px) !important;
 }
 
 .invoice-amount-due-heading {
@@ -46,6 +50,7 @@
 
 #file-download:hover {
     color: #7795F8 !important;
+    opacity: 1;
 	-webkit-transform: translateY(-1px) !important;
 	transform: translateY(-1px) !important;
 }
@@ -55,7 +60,7 @@
 }
 
 .pay-button {
-    background-color:#12CD72 !important;
+    background-color: #7795F8 !important;
 }
 
 

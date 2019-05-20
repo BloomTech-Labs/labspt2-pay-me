@@ -21,6 +21,7 @@ class Billing extends Component {
             } ,
             success: false
         };
+        this.handleToken = this.handleToken.bind(this);
     }
 
     componentDidMount() {
@@ -48,21 +49,35 @@ class Billing extends Component {
     async handleToken(token) {
     {/* Make stripe request to the Stripe single client backend */}
    
-        const response = await Axios.post("http://localhost:5000/api/charge", {
+        const response = await Axios.post(`${serverLoc}/api/charge`, {
             token  
-        });
-    }
+        })
+        .then( ( response ) => {
+            if (response.data.status === "success") {
+                {/* Alert user if payment was successful */}
+                this.setState({
+                    success: true
+                })
+            }
+        })
+      
+      
+    };
 
     async handleTokenSubscription(token) {
         {/* Make stripe request to the stripe subscription backend */}
        
-            const response = await Axios.post("http://localhost:5000/api/charge/subscription", {
+            const response = await Axios.post(`${serverLoc}/api/charge/subscription`, {
                 token  
-            });
-            const { status } = response.data;
-            if (status === 'success') {
-            console.log(status, "Payment successful")
-            }
+            })
+            .then( ( response ) => {
+                {/* Alert user if payment was successful */}
+                if (response.data.status === "success") {
+                    this.setState({
+                        success: true
+                    })
+                }
+            })
         }
 
     handleChange= (e) => {
@@ -80,8 +95,9 @@ class Billing extends Component {
             )
         }
         
-        const { subscriptions } = this.state;
+        const { subscriptions, success } = this.state;
         console.log(subscriptions.price)
+
         return (
         <>
         <div className="outside-container">
@@ -99,6 +115,8 @@ class Billing extends Component {
             <div className="content-container">
                 <h3 className="center" style={{color: "#7795F8"}}>Billing and Subscriptions</h3>
                 <p className="center lead-text">Choose a subscription plan to get the most from Pay Me</p>
+                {/* Successful payment alert */} 
+                {success ? <h5 className="s10 center created-text">Hooray! Payment is successful.</h5> : ""}
                 <div className="container">
                     <div className="row">
                         {/* Unlimited card */}
@@ -166,8 +184,14 @@ class Billing extends Component {
                                     </StripeCheckout> 
                                 </div>
                             </div>         
-                        </div>                    
+                        </div>
                     </div>
+                    <div className="stripe-payment-text center">
+                        <p style={{marginTop: 30}}>Securely make a payment with stripe
+                            <span className="stripe-payment-text"><i className="fab fa-cc-stripe"></i>
+                            </span>
+                        </p>
+                    </div> 
                 </div> 
             </div>
         </div>   

@@ -84,10 +84,10 @@ textarea{
   display: block;
   -webkit-transition: .25s;
   transition: .25s;
-  color: #2196F3;
+  color: #7795F8;
 }
 .collection.leftNav .collection-item.active {
-  background-color:   #2196F3;
+  background-color:   #7795F8;
   color: #eafaf9;
 }
 
@@ -118,7 +118,7 @@ div.col.s12.m6.l5.boxShadow{
   margin: 10px;
 }
 .btn.reminder_submit_btn{
-  background: #2196F3;
+  background: #7795F8;
 }
 span.spanComment{
  
@@ -147,9 +147,9 @@ div.text:hover{
   cursor: pointer;
 }
 div.tab-button.active{
-  color: #0af;
+  color: #7795F8;
   border: 1px solid #abc;
-  border-top: 3px solid #0af;
+  border-top: 3px solid #7795F8;
   border-bottom: 1px solid #fff;
 }
 div.tab-button{
@@ -254,10 +254,9 @@ display:none
 div.mail li.info{
   font-size: 12px;
   font-weight:600;
-	color: dodgerblue;
-  padding: 10px 30px;
-  background:white;
-  margin:3px;    
+	color: #7795F8;
+	padding: 10px 30px;  
+	box-shadow:	0px 1px 3px 0px rgba(0, 0, 0, .3);
   cursor: pointer;
   list-style:none 
 }
@@ -271,209 +270,7 @@ div.mail li.info{
   color: rgb(10, 10, 10);
 }
 
-
-.switchbox{
-  display:flex;
-  justify-content:space-between;
-  padding: 10px; 
-  margin-bottom:10px; 
-  background: white 
-}
-
-.boxstyle {
-  box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
-  background-color: #82c0ff;
-  color:#000;
-  border-radius: 6px;
-  padding: .1px 0;
-}
-
-
-.boxstyle3 {
-  box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
-}
-.boxstyle4 {
-  box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
-  background: #82c0ff;
-}
-.boxstyle5 {
-  box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
- 
-}
-::-webkit-input-placeholder { 
-  color: #222;
-  padding-left:20px; 
-}
-
-.Searchbox  {
-  width:207px; 
-  padding:5px; 
-  
-}
-div.mail li.info.invoice--clicked{    
-  background-color:dodgerblue;
-  color:white;
-  }
-  section.notinvoicecard{
-    text-align:center; 
-  background:#82c0ff; 
- display:flex ;
- flex-direction:column ;
- justify-content: center;
-}
-
-.wrapper{
-  transform-style: preserve-3d;
-  
-  width:600px;
-margin: 20px;
-border:1px solid  rgba(151, 171, 187, 0.1);
-padding-bottom:10px }
-.tile:hover{
-
-
-}
-#tile1{
-	margin-right:20px;
-}
-.dates{
-	border:1px solid #ebeff2;
-	border-radius:5px;
-	padding:20px 0px;
-	margin:37px 20px 0;
-	font-size:16px;
-	color:dodgerblue;
-	font-weight:600;	
-	overflow:auto;
-}
-.dates div{
-	float:left;
-	width:50%;
-	text-align:center;
-	position:relative;
-}
-.dates strong,
-.stats strong{
-	display:block;
-	color:#adb8c2;
-	font-size:11px;
-	font-weight:700;
-}
-.dates span{
-	width:1px;
-	height:40px;
-	position:absolute;
-	right:0;
-	top:0;	
-	background:#208fe4;
-}
-.stats{
-	border-top:1px solid #ebeff2;
-	background:#f7f8fa;
-	overflow:auto;
-	padding:15px 0;
-	font-size:16px;
-	color:#59687f;
-	font-weight:600;	
-    margin-top: 36px;
-	border-radius: 0 0 5px 5px;
-}
-.stats div{
-	border-right:1px solid #ebeff2;
-	width:119px;
-	float:left;
-	text-align:center
-}
-.stats div:nth-of-type(3){border:none;}
-
-table.rwd-table {
-  width: 800px;
-  color:rgb(22, 8, 8);
-  border-radius: .4em;
-}
-.rwd-table tr {
- 
-}
-.rwd-table th, .rwd-table td {
-  margin: .10em 1em;
-}
-
-td.td-table{
- background:darkolivegreen 
-}
-
-span.span-table{
-  background:#888;
-  color:#fafafa;
-  border-radius: 10px/50%;
- 
- 
- }
- .isHiddingtrue,div.isHiddingtrue{
-   display:none 
- }
-
- section.notinvoicecard {
-   height:80vh; 
-   background:#82c0ff;
-    
- }
-
- .wrapperContainer_send_reminders{
-   display: flex;
-   flex-direction:column; 
-   justify-content:space-between 
- }
- h3.titles{
-   font-size:18px; 
-   color:grey;
-   margin-bottom:15px 
- }
- .rem_card_stats{
-   width:600px ;
-  display:flex;
-  
-  flex-direction: column;
-   
-   display:flex;
- }
-.card_stats{
-  margin:20px ;
- 
-}
- .stats_body{
-   border-left: 0.5px solid #D3D3D3;
-   margin-left: 10px;
-   padding-left:15px; 
-  font-size:18px; 
-  color:rgba(0,0,0,0.87);
-  margin-bottom:15px 
- }
- .stats_title{
-  font-size:20px; 
-  color:rgba(0,0,0,0.87);
-  margin-bottom:45px;
-  
- }
- .stats_contents{
-  height:150px ;
-  margin-left:10px 
- }
- .stats_content1,.stats_content2{
-  font-size:18px; 
-  color:rgba(0,0,0,0.87);
-  margin-bottom:25px;
- }
- .material-icons.iconstyle,.bigicon{
-  color:rgba(0,0,0,0.87);
-  line-height: 35px;
-  margin-right: 10px;
- }
- .collection .collection-item.avatar i.circle {
-  font-size: 18px;
-  line-height: 42px;
-  color: #fff;
-  background-color: rgba(0,0,0,0.87);;
-  text-align: center;
-
+div.mail li.info:active{    
+background-color:#7795F8;
+color:grey;
 }
