@@ -65,7 +65,7 @@ class Reminders extends Component {
       Sms_CustomText:'',
       Sms_Template:null,
       isCheckedEmail: props.isCheckedSms || true,
-      // isCheckedSms: props.isCheckedSms || true, Disabled this to prevent SMS charges on the deployed version of the app -Jason
+      // isCheckedSms: props.isCheckedSms || true, //Disabled this to prevent SMS charges on the deployed version of the app -Jason
       isCheckedSms: false,
       isClickedInvoice:'',
       isLoading: true ,
