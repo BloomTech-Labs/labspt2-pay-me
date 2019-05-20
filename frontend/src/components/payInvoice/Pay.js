@@ -51,6 +51,13 @@ class Pay extends Component {
                 this.setState({
                     success: true
                 })
+                Axios.put(`${serverLoc}/api/invoices/${this.state.id}`, {
+                    amount: "0"
+                }, {
+                    headers: {
+                        Authorization: localStorage.getItem('jwt'),
+                    }
+                })
             }
             setTimeout(
                 function() {
