@@ -8,7 +8,9 @@
     "axios": "^0.18.0",
     "babel-core": "^6.26.3",
     "body-parser": "^1.18.3",
+    "css": "^2.2.4",
     "jwt-decode": "^2.2.0",
+    "normalize": "^0.3.1",
     "passport": "^0.4.0",
     "passport-http": "^0.3.0",
     "passport-local": "^1.0.0",
@@ -19,16 +21,19 @@
     "react-redux": "^6.0.1",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
-    "react-scripts": "2.1.5",
+    "react-scripts": "^3.0.0",
     "react-search-input": "^0.11.3",
     "react-select": "^2.4.2",
     "react-spinners": "^0.5.4",
-    "react-stripe-elements": "^2.0.3",
+    "react-stripe-checkout": "^2.6.3",
+    "react-stripe-elements": "^3.0.0",
+    "react-toastify": "^5.1.0",
     "redux": "^4.0.1",
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.86.0",
-    "stripe": "^6.28.0"
+    "stripe": "^6.32.0",
+    "uuid": "^3.3.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -46,7 +51,6 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "babel-jest": "23.6.0",
     "react-testing-library": "^6.0.0"
   }
 }

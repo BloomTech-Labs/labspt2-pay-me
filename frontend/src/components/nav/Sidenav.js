@@ -1,11 +1,12 @@
 import React, { Component } from "react";
-import { Link, NavLink, Redirect } from 'react-router-dom';
-import '../../Dashboard.css';
+import { Link, Redirect } from 'react-router-dom';
+import './SideNav.css';
 import logo from '../../img/logo_SM.png';
 
 class Sidenav extends Component {
 
     logout = () => {
+        console.log("Sign out")
         localStorage.removeItem('jwt');
         this.forceUpdate();
     }
@@ -19,25 +20,35 @@ class Sidenav extends Component {
         }
 
         return (
-            <div className="col s2 blue hide-on-med-and-down">
-                <div className="white-text sidebar fixed">
-                    <div className="logo-container"><img src={ logo }></img></div>
-                    <button className="btn-small white blue-text z-depth-0" id="logout-button" onClick={this.logout}>Logout</button>
-                    <ul>
-                        <Link to="/dashboard"><li>INVOICES</li></Link>
-                        <Link to="/reminders"><li>REMINDERS</li></Link>
-                        <Link to="/settings"><li>ACCOUNT AND SETTINGS</li></Link>
-                        <Link to="/billing"><li>BILLING</li></Link>
-                        <Link to="/payinvoice"><li>PAY INVOICE</li></Link>
-                        <Link to="#"><li>SUPPORT CENTER</li></Link>
-                    </ul>
-                    <div className="add-invoiceBtn-container-text">NEW INVOICE</div>
-                    <div className="add-invoiceBtn-container">
-                            <Link to="/create">
-                                <i className="material-icons left add-circle">add_circle</i>
-                            </Link>
-                            <br />   
+            <div className="side-nav hide-on-med-and-down" id="sidenav">
+                <div className="white-text sidenav-wrapper">
+                    <div className="container">
+                        <div className="logo">
+                            <img src={ logo } style={{ marginTop: "40px"}}></img>
                         </div>
+                        <ul style={{ marginTop: "40px"}}>
+                            <Link to="/dashboard">
+                                <li><i className="material-icons left">description</i>INVOICES</li>
+                            </Link>
+                            <Link to="/reminders">
+                                <li><i className="material-icons left">notifications</i>REMINDERS</li>
+                            </Link>
+                            <Link to="/settings">
+                                <li><i className="material-icons left">settings</i>SETTINGS</li>
+                            </Link>
+                            <Link to="/billing">
+                                <li><i className="material-icons left" >account_balance</i>BILLING</li>
+                            </Link>
+                            <Link to= "#">
+                                <li onClick={this.logout}><i className="material-icons left">reply_all</i>SIGN OUT</li>
+                            </Link>
+                         
+                        </ul>
+
+                        <Link to= "/create">
+                            <button className="btn-small white blue-text z-depth-0" id="button-create-invoice" style={{width: "150px", height: "50px", fontSize: "14px", fontWeight: "bold"}}> NEW INVOICE </button>
+                        </Link>
+                    </div>
                 </div>
             </div>
         )

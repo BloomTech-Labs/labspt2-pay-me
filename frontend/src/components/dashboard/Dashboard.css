@@ -1,0 +1,54 @@
+/* === Containers === */
+.outside-container {
+    display: flex;
+    height: 100vh;
+    background: #F6F9FC;
+}
+
+.nav-container {
+    flex: 1;
+}
+
+.content-container {
+    flex: 5;
+    padding-top: 30px;
+}
+
+/* === Headings === */
+h3 {
+    color: #2196F3;
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    color: #18171c;
+    font-weight: 300;
+}
+
+/* === Mobile Navigation === */
+#mobile-user-nav {
+    margin-top: 20px;
+    color: #1e90ff;
+}
+
+/* ----- Media Queries max Width 600px ----- */
+@media (max-width: 600px) {
+	.outside-container {
+       height: 100% !important;  
+    }
+
+    .content-container {
+        margin-right: 50px;
+    }
+}
+
+/* ----- Media Queries minimum Width 600px ----- */
+@media (min-width: 600px) {
+	.outside-container {
+        height: 100% !important;  
+     }
+ 
+     .content-container {
+         margin-left: 90px
+     }
+}

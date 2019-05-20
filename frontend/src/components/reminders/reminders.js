@@ -65,7 +65,8 @@ class Reminders extends Component {
       Sms_CustomText:'',
       Sms_Template:null,
       isCheckedEmail: props.isCheckedSms || true,
-      isCheckedSms: props.isCheckedSms || true,
+      // isCheckedSms: props.isCheckedSms || true, Disabled this to prevent SMS charges on the deployed version of the app -Jason
+      isCheckedSms: false,
       isClickedInvoice:'',
       isLoading: true ,
       filteredInvoice:[],
@@ -269,7 +270,7 @@ handleStartReminders = (e) => {
   }
 
   handleChangeActivSms=()=> {
-    this.setState({ isCheckedSms:!this.state.isCheckedSms})
+    // this.setState({ isCheckedSms:!this.state.isCheckedSms}) Disabled for deployed. -Jason
   };
   handleChangeActivInvoice=(invoiceNumber)=> {
     this.setState({ isClickedInvoice:  invoiceNumber })
@@ -350,208 +351,212 @@ console.log('hhhhhhhhhhh')
     const filteredInvoice = this.state.data_invoices.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS))
     return (
       <div class="reminder">
-<div class="row">{/*Top Nav*/ }
-</div>
-<div class="row">
-<div class="col s12 m4 l2 navleft"> 
-<Sidenav />
-</div>
-<div className="col s12 m8 l10 wrapperContainer">
-<div className="wrapperContainer_send_reminders">
-<div className={`isHidding${this.state.isHidding2}`}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>
-        {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
-            <div class="col s12 m4 l2 ">
-          <div className="Searchbox ">
-             <SearchInput  onChange={this.searchUpdated} className='search'/>
-                 {filteredInvoice.map((itemInfo) => {
-                 return (
-                     <div className="mail" key={itemInfo.invoice.invoice_id}>
- <li  className={this.state.isClickedInvoice === itemInfo.invoice.invoice_number ? 'info invoice--clicked' : 'info '} 
-                  onClick={(i) => this.invoiceData(itemInfo.invoice.invoice_number)}>
-                  {itemInfo.client.client_name +'---'+ itemInfo.invoice.invoice_number}
-                  </li>
-                     </div>
-                         )
-                       })}
-                     </div></div>    
-           
-           <div class="col s12 m4 l10 Section-Email-Sms-Comment">
-           
-           {!this.state.isRemindersSent&&(<div>
-             <form className='Section-Email-Sms col s12 m12 l8' onSubmit={this.handleStartReminders}>
-             <div className='switchbox boxstyle4 '>
-             <div class="switch">
-             <label ><span>Email Status :</span>
-            
-               <input type="checkbox" value={this.state.isCheckedEmail} onChange={this.handleChangeActivEmail} />
-               <span class="lever"></span>
-            
-             </label>
-           </div>
-           <div class="switch">
-             <label ><span>Sms Status :</span>
-               <input type="checkbox" value={this.state.isCheckedSms} onChange={this.handleChangeActivSms} />
-               <span class="lever"></span>
-           
-             </label>
-           </div>
-             </div>
-           
-           <div className='Section-Email '>
-         
-           <div className={`sectionboxcontact email${this.state.isCheckedEmail} boxstyle3`}>
-           <div>
-           <div className="">
-                 </div>
-                     </div>
-                  <div class="email-compose-body">
-                  <h4 class=" boxstyle5">Send Email</h4>
-                  <div class="send-header"><div class="form-group">
-                  <div class="input-field col s12 l6">
-                   <span class="">Email_From:</span>
-                   <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.email}/>
-                 </div>
-                  <div class="input-field col s12 l6">
-                   <span class="">Email_to:</span>
-                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.email}/>
-                 </div>
-                 <div class="col s12 l6">
-                   <span class="">Send first reminder on:</span>
-                   <DatePicker
-                 selected={this.state.Email_StartDate}
-                 onChange={this.handleChangeDateEmail}
-                 showTimeSelect
-                 timeFormat="HH:mm"
-             timeIntervals={3}
-             dateFormat="MMMM d, yyyy h:mm aa"
-             timeCaption="time"
-               />
-                 </div>
-         
-                 <div class="input-field col s12 l6">
-                   <span class="">Then repeat :</span>
-                   <Select 
-                 value={this.state.selectedOption.value}
-                 label={this.state.selectedOption.label}
-                 onChange={this.handleChangeFreqEmail}
-                 options={options}
-                 styles={styleFn}
-               />
-                 </div>
+        <div className="outside-container">
+        <div class="row">
+        <div class="col s12 m4 l2 navleft"> 
+        <Sidenav />
+        </div>
+        <div className="col s12 m8 l10 wrapperContainer">
+        <div className="wrapperContainer_send_reminders">
+          <h3 className="center" style={{color: "#7795F8"}}>Reminders</h3>
+          <p className="center lead-text">View and setup invoice reminders.</p>
+
+        <div className={`isHidding${this.state.isHidding2}`} style={{marginTop: 20, fontWeight: 700}}><i class="material-icons prefix">warning</i>Click an Invoice to start</div>
+                {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
+                    <div class="col s12 m4 l2 ">
+                  <div className="Searchbox ">
+                    <SearchInput  onChange={this.searchUpdated} className='search'/>
+                        {filteredInvoice.map((itemInfo) => {
+                        return (
+                            <div className="mail" key={itemInfo.invoice.invoice_id}>
+        <li  className={this.state.isClickedInvoice === itemInfo.invoice.invoice_number ? 'info invoice--clicked' : 'info '} 
+                          onClick={(i) => this.invoiceData(itemInfo.invoice.invoice_number)}>
+                          {itemInfo.client.client_name +'---'+ itemInfo.invoice.invoice_number}
+                          </li>
+                            </div>
+                                )
+                              })}
+                            </div></div>    
+                  
+                  <div class="col s12 m8 l10 Section-Email-Sms-Comment">
+                  
+                  {!this.state.isRemindersSent&&(<div>
+                    <form className='Section-Email-Sms col s12 m12 l8' onSubmit={this.handleStartReminders}>
+                    <div className='switchbox boxstyle4 '>
+                    <div class="switch">
+                    <label ><span>Email Status :</span>
+                    
+                      <input type="checkbox" value={this.state.isCheckedEmail} onChange={this.handleChangeActivEmail} />
+                      <span class="lever"></span>
+                    
+                    </label>
                   </div>
-         
-                  <div class="form-group"><input class="form-control" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
-                  <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
+                  <div class="switch">
+                    <label ><span>Sms Status :</span>
+                      <input type="checkbox" value={this.state.isCheckedSms} onChange={this.handleChangeActivSms} />
+                      <span class="lever"></span>
+                  
+                    </label>
                   </div>
-                  <div id="compose-area"></div><div class="text-right mrg-top-30">
+                    </div>
+                  
+                  <div className='Section-Email '>
+                
+                  <div className={`sectionboxcontact email${this.state.isCheckedEmail} boxstyle3`}>
+                  <div>
+                  <div className="">
+                        </div>
+                            </div>
+                          <div class="email-compose-body">
+                          <h4 class=" boxstyle5">Send Email</h4>
+                          <div class="send-header"><div class="form-group">
+                          <div class="input-field col s12 l6">
+                          <span class="">Email_From:</span>
+                          <input disabled id="icon_prefix" type="text" class=" validate boxstyle" value={this.state.invoiceUserClientInfo.user.email}/>
+                        </div>
+                          <div class="input-field col s12 l6">
+                          <span class="">Email_to:</span>
+                          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.email}/>
+                        </div>
+                        <div class="col s12 l6">
+                          <span class="">Send first reminder on:</span>
+                          <DatePicker
+                        selected={this.state.Email_StartDate}
+                        onChange={this.handleChangeDateEmail}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                    timeIntervals={3}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
+                      />
+                        </div>
+                
+                        <div class="input-field col s12 l6">
+                          <span class="">Then repeat :</span>
+                          <Select 
+                        value={this.state.selectedOption.value}
+                        label={this.state.selectedOption.label}
+                        onChange={this.handleChangeFreqEmail}
+                        options={options}
+                        styles={styleFn}
+                      />
+                        </div>
+                          </div>
+                
+                          <div class="form-group"><input class="form-control" name ="Email_Subject" value={this.state.Email_Subject} placeholder="Email Subject" onChange={this.handleInputChange2}/></div>
+                          <div class="form-group"><textarea value={this.state.Email_CustomText} name="Email_CustomText" class="form-control" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange2}></textarea></div>
+                          </div>
+                          <div id="compose-area"></div><div class="text-right mrg-top-30">
+                          </div>
+                      
+                          </div>
+                        
+                        </div>
                   </div>
-               
-                  </div>
-                 
-                 </div>
-          </div>
-           <div className='Section-Sms'>
-           <div className={`sectionboxcontact sms${this.state.isCheckedSms} boxstyle3`}>
-                  <div class="email-compose-body">
-                  <h4 class="c-grey-900 mB-20 boxstyle5">Send Sms</h4>
-                  <div class="send-header"><div class="form-group">
-                  <div class="input-field col s12 l6">
-                   <span class="">Sms_From:</span>
-                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.phone_number||17323335835}/>
-                 </div>
-                  <div class="input-field col s12 l6">
-                   <span class="">Sms_to:</span>
-                   <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.phone_number}/>
-                 </div>
-                 <div class=" col s12 l6">
-                   <span class="">Send first reminder on:</span>
-                   <DatePicker
-                 selected={this.state.Sms_StartDate}
-                 onChange={this.handleChangeDateSms}
-                 showTimeSelect
-                 timeFormat="HH:mm"
-             timeIntervals={3}
-             dateFormat="MMMM d, yyyy h:mm aa"
-             timeCaption="time"
-               />
-                 </div>
-         
-                 <div class="input-field col s12 l6">
-                   <span class="">Then repeat :</span>
-                   <Select 
-                  value={this.state.selectedOption.value}
-                  label={this.state.selectedOption.label}
-                  onChange={this.handleChangeFreqSms}
-                  options={options}
-               />
-                 </div>
-                  </div>
-                  <div class="form-group"><textarea  value={this.state.Sms_CustomText} name="Sms_CustomText" class="form-control" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange}></textarea></div>
-                  </div>
-                  <div id="compose-area"></div><div class="text-right mrg-top-30">
-                  </div>
-               
-                  </div>
-                 
-                 </div>    
-          </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
-          
-          </form>
-          <div className='col s12 m12 l3'>  
-         <form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
-         <h4 class="c-grey-900 mB-20">Add a Comment</h4>
-         <ul className="ulComment">{this.state.comments.map( (comment) =>{
-           return <li className="collection-item avatar licomment" key={comment.key}>
-               <img src="https://i.ibb.co/pLfXZ0w/blank-profile-picture-973460-960-720.png" alt="" className="circle imagAvatar" />
-               <span className="avatarli">{comment.commentText}</span>
-             </li>
-         })}
-         
-         </ul>
-         <div class="form-group">
-         <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange}></textarea></div>
-         <button class="btn waves-effect waves-light" type="submit" name="action">Add comment</button>
-        
-           </form></div>   </div>)||<div className={`isHidding${this.state.isHidding}`} >
-           <ul class="collection rem_card_stats ">
-           <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_email}`}>
-      <i class="material-icons circle bigicon">email</i>
-      <div className="stats_body">
-        <div className="stats_title">Email Reminders</div>
-        <div className="stats_contents">
-        <div className="stats_content1"><i class="material-icons  iconstyle">snooze</i>{this.dateConvert(`${this.state.reminders_data.email_startdate}`)}</div>
-        <div className="stats_content2"><i class="material-icons  iconstyle">repeat</i>{this.state.reminders_data.email_freq_label}</div>
+                  <div className='Section-Sms'>
+                  <div className={`sectionboxcontact sms${this.state.isCheckedSms} boxstyle3`}>
+                          <div class="email-compose-body">
+                          <h4 class="c-grey-900 mB-20 boxstyle5">Send Sms</h4>
+                          <div class="send-header"><div class="form-group">
+                          <div class="input-field col s12 l6">
+                          <span class="">Sms_From:</span>
+                          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.user.phone_number||17323335835}/>
+                        </div>
+                          <div class="input-field col s12 l6">
+                          <span class="">Sms_to:</span>
+                          <input disabled id="icon_prefix" type="text" class="validate" value={this.state.invoiceUserClientInfo.client.phone_number}/>
+                        </div>
+                        <div class=" col s12 l6">
+                          <span class="">Send first reminder on:</span>
+                          <DatePicker
+                        selected={this.state.Sms_StartDate}
+                        onChange={this.handleChangeDateSms}
+                        showTimeSelect
+                        timeFormat="HH:mm"
+                    timeIntervals={3}
+                    dateFormat="MMMM d, yyyy h:mm aa"
+                    timeCaption="time"
+                      />
+                        </div>
+                
+                        <div class="input-field col s12 l6">
+                          <span class="">Then repeat :</span>
+                          <Select 
+                          value={this.state.selectedOption.value}
+                          label={this.state.selectedOption.label}
+                          onChange={this.handleChangeFreqSms}
+                          options={options}
+                      />
+                        </div>
+                          </div>
+                          <div class="form-group"><textarea  value={this.state.Sms_CustomText} name="Sms_CustomText" class="form-control" placeholder="Say Hi..." rows="10" onChange={this.handleInputChange}></textarea></div>
+                          </div>
+                          <div id="compose-area"></div><div class="text-right mrg-top-30">
+                          </div>
+                      
+                          </div>
+                        
+                        </div>    
+                  </div> {buttonReminder(this.state.isCheckedEmail, this.state.isCheckedSms)}
+                  
+                  </form>
+                  <div className='col s12 m12 l3'>  
+                <form class="sectionboxcontact boxstyle4" onSubmit={this.handleAddComment}>
+                <h4 class="c-grey-900 mB-20">Add a Comment</h4>
+                <ul className="ulComment">{this.state.comments.map( (comment) =>{
+                  return <li className="collection-item avatar licomment" key={comment.key}>
+                      <img src="https://i.ibb.co/pLfXZ0w/blank-profile-picture-973460-960-720.png" alt="" className="circle imagAvatar" />
+                      <span className="avatarli">{comment.commentText}</span>
+                    </li>
+                })}
+                
+                </ul>
+                <div class="form-group">
+                <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange}></textarea></div>
+                <button class="btn blue white-text btnFlat" type="submit" name="action">Add comment</button>
+                
+                  </form></div>   </div>)||<div className={`isHidding${this.state.isHidding}`} >
+                  <ul class="collection rem_card_stats ">
+                  <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_email}`}>
+              <i class="material-icons circle bigicon">email</i>
+              <div className="stats_body">
+                <div className="stats_title">Email Reminders</div>
+                <div className="stats_contents">
+                <div className="stats_content1"><i class="material-icons  iconstyle">snooze</i>{this.dateConvert(`${this.state.reminders_data.email_startdate}`)}</div>
+                <div className="stats_content2"><i class="material-icons  iconstyle">repeat</i>{this.state.reminders_data.email_freq_label}</div>
+                </div>
+              </div>
+            </li>
+            <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_sms}`}>
+              <i class="material-icons circle bigicon">sms</i>
+              <div className="stats_body">
+                <div className="stats_title">Sms Reminders</div>
+                <div className="stats_contents">
+                <div className="stats_content1"><i class="material-icons  iconstyle">snooze</i>{this.dateConvert(`${this.state.reminders_data.sms_startdate}`)}</div>
+                <div className="stats_content2"><i class="material-icons  iconstyle">repeat</i>{this.state.reminders_data.sms_freq_label}</div>
+                </div>
+              </div>
+            </li>
+          </ul>
+            </div>
+          }
+                </div> </div>
+                )||(<section className='notinvoicecard' >  
+                  <p class="h3" style={{marginTop: 250}}><strong>Loading data ...</strong></p>
+                  <div className='PacmanLoader'>
+                        <ClimbingBoxLoader
+                          css={override}
+                          sizeUnit={"px"}
+                          size={15}
+                          color={'lightBlue'}
+                          loading={this.state.loading}
+                        /> </div>
+                  <p>...Oops no invoice found, please add an invoice!</p>
+                </section>
+                )}
+              </div></div></div>
         </div>
       </div>
-    </li>
-    <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_sms}`}>
-      <i class="material-icons circle bigicon">sms</i>
-      <div className="stats_body">
-        <div className="stats_title">Sms Reminders</div>
-        <div className="stats_contents">
-        <div className="stats_content1"><i class="material-icons  iconstyle">snooze</i>{this.dateConvert(`${this.state.reminders_data.sms_startdate}`)}</div>
-        <div className="stats_content2"><i class="material-icons  iconstyle">repeat</i>{this.state.reminders_data.sms_freq_label}</div>
-        </div>
-      </div>
-    </li>
-  </ul>
-    </div>
-  }
-         </div> </div>
-        )||(<section className='notinvoicecard'>  
-          <p class="h3"><strong>Loading data ...</strong></p>
-          <div className='PacmanLoader'>
-                <ClimbingBoxLoader
-                  css={override}
-                  sizeUnit={"px"}
-                  size={15}
-                  color={'whitesmoke'}
-                  loading={this.state.loading}
-                /> </div>
-          <p>...Oops no invoice found, please add an invoice!</p>
-        </section>
-        )}
-      </div></div></div></div>
     );
   }}
 
