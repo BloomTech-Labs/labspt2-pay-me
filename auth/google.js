@@ -14,7 +14,7 @@ router.get('/', passport.authenticate('google', {scope:['profile', 'email']}));
 
 router.get('/redirect', passport.authenticate('google', {session: false}), async (req, res) => {
     const jwt = JWT.generateToken({id: req.user});
-    res.redirect(local + jwt);
+    res.redirect(deployed + jwt);
 });
 
 module.exports = router;
