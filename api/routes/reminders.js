@@ -17,10 +17,6 @@ ReminderRouter.post('/save',TaskManager.SaveReminder);
 ReminderRouter.post('/send',TaskManager.SendReminders);
 
 
-
-
-
-
 module.exports = ReminderRouter;
 
 

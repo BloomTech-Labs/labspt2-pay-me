@@ -38,7 +38,7 @@ const getInvoices =  async (req, res)=>{
             Email_From,Email_to}= req.body
       console.log(req.body)
             // if Email_Template
-      const HtmlSample =emailTemplateSample(invoiceNumber,clientName,invoicePdfLink,UserName)   
+      const HtmlSample =emailTemplateSample(invoiceNumber,Email_CustomText,invoicePdfLink)   
       console.log(Email_StartDate,Sms_StartDate)
       const setToHappenOn = (fn, dateR)=>{
         const now = new Date();
