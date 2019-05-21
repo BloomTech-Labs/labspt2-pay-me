@@ -2,11 +2,11 @@
 
 div.reminder{
   color: rgb(12, 10, 10);
-  background: #82c0ff;
+  
 }
 nav.Topnav {
   color: #fff;
-  background-color: dodgerblue;
+  
   width: 100%;
   height: 56px;
   line-height: 56px;
@@ -47,6 +47,9 @@ i.Medium.material-icons.icon{
   flex-direction:column  
 }
 div.Section-Email-Sms-Comment{
+  display: flex;
+}
+form.Section-Email-Sms-Comment{
   display: flex;
 }
 .iconbox{
@@ -199,7 +202,7 @@ padding:2px;
 
 .Section-Email-Sms-Comment{
   display:flex ;
-  background:#82c0ff
+  margin-left:100px;
   
 }
 .Section-Email-Sms{
@@ -241,9 +244,7 @@ display:none
 .smsfalse{
   display:none 
   }
-.boxwrapper{
-  color:#458 !important
-}
+
 
  div span,h4, input,span .rem{
   color:#222;
@@ -282,7 +283,7 @@ div.mail li.info{
 
 .boxstyle {
   box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
-  background-color: #82c0ff;
+  
   color:#000;
   border-radius: 6px;
   padding: .1px 0;
@@ -294,7 +295,7 @@ div.mail li.info{
 }
 .boxstyle4 {
   box-shadow: 0px .2px .2px 1px rgba(192, 193, 197, 0.603);
-  background: #82c0ff;
+ 
 }
 .boxstyle5 {
   box-shadow: 0px .1px .1px .3px rgba(0,0,0,0.1);
@@ -316,10 +317,10 @@ div.mail li.info.invoice--clicked{
   }
   section.notinvoicecard{
     text-align:center; 
-  background:#82c0ff; 
+
  display:flex ;
  flex-direction:column ;
- justify-content: center;
+ 
 }
 
 .wrapper{
@@ -365,7 +366,7 @@ padding-bottom:10px }
 	position:absolute;
 	right:0;
 	top:0;	
-	background:#208fe4;
+	
 }
 .stats{
 	border-top:1px solid #ebeff2;
@@ -414,12 +415,13 @@ span.span-table{
  }
 
  section.notinvoicecard {
-   height:80vh; 
-   background:#82c0ff;
+  
+   background:#F6F9FC;
     
  }
 
  .wrapperContainer_send_reminders{
+   margin-left:100px; 
    display: flex;
    flex-direction:column; 
    justify-content:space-between 
@@ -430,15 +432,16 @@ span.span-table{
    margin-bottom:15px 
  }
  .rem_card_stats{
-   width:600px ;
+   margin-left:50px; 
+   width:410px ;
   display:flex;
-  
+  box-shadow: rgba(50, 50, 93, 0.14902) 0px 1px 3px, rgba(0, 0, 0, 0.0196078) 0px 1px 0px;
   flex-direction: column;
    
    display:flex;
  }
 .card_stats{
-  margin:20px ;
+   margin-left:50px;  ;
  
 }
  .stats_body{
@@ -451,7 +454,8 @@ span.span-table{
  }
  .stats_title{
   font-size:20px; 
-  color:rgba(0,0,0,0.87);
+  color:#7795F8;
+  font-weight: 600;
   margin-bottom:45px;
   
  }
@@ -464,16 +468,28 @@ span.span-table{
   color:rgba(0,0,0,0.87);
   margin-bottom:25px;
  }
- .material-icons.iconstyle,.bigicon{
-  color:rgba(0,0,0,0.87);
+ .material-icons.iconstyle,.bigicon, i.material-icons.circle.bigicon{
+  color:#7795F8;
   line-height: 35px;
   margin-right: 10px;
  }
  .collection .collection-item.avatar i.circle {
+  
   font-size: 18px;
   line-height: 42px;
   color: #fff;
-  background-color: rgba(0,0,0,0.87);;
+  background-color:#7795F8;
   text-align: center;
 
+}
+.reminderbox{
+  display: flex;
+}
+.wrapperSearch_reminders{
+  display: flex;
+  justify-content:space-between; 
+}
+.material-icons.prefix{
+  color:#7795F8 ;
+  font-size: 34px
 }
