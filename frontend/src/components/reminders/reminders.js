@@ -65,7 +65,7 @@ class Reminders extends Component {
       Sms_CustomText:'',
       Sms_Template:null,
       isCheckedEmail: props.isCheckedSms || true,
-      // isCheckedSms: props.isCheckedSms || true, Disabled this to prevent SMS charges on the deployed version of the app -Jason
+      // isCheckedSms: props.isCheckedSms || true, //Disabled this to prevent SMS charges on the deployed version of the app -Jason
       isCheckedSms: false,
       isClickedInvoice:'',
       isLoading: true ,
@@ -290,7 +290,6 @@ handleStartReminders = (e) => {
    const datarem= res.data.filter(item=>{
       return item.invoice_number===id
    })
-   console.log(datarem)
      if(datarem[0]){
    
       console.log(datarem[0])
@@ -352,18 +351,18 @@ console.log('hhhhhhhhhhh')
     return (
       <div class="reminder">
         <div className="outside-container">
-        <div class="row">
+        <div class="row reminderbox ">
         <div class="col s12 m4 l2 navleft"> 
-        <Sidenav />
+        <Sidenav className="col s12 m4 l2 navleft" />
         </div>
-        <div className="col s12 m8 l10 wrapperContainer">
+        <div className="col s12 m8 l10 leftmargin wrapperContainer">
         <div className="wrapperContainer_send_reminders">
           <h3 className="center" style={{color: "#7795F8"}}>Reminders</h3>
           <p className="center lead-text">View and setup invoice reminders.</p>
 
-        <div className={`isHidding${this.state.isHidding2}`} style={{marginTop: 20, fontWeight: 700}}><i class="material-icons prefix">info</i>Click an Invoice to start</div>
-                {!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
-                    <div class="col s12 m4 l2 ">
+
+        <div className={`isHidding${this.state.isHidding2}`} style={{marginTop: 20, fontWeight: 700}}><i className="material-icons prefix">warning</i>Click an Invoice to start</div>{!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
+                    <div class="col s12 m4 l2  wrapperSearch_reminders">
                   <div className="Searchbox ">
                     <SearchInput  onChange={this.searchUpdated} className='search'/>
                         {filteredInvoice.map((itemInfo) => {
@@ -371,7 +370,7 @@ console.log('hhhhhhhhhhh')
                             <div className="mail" key={itemInfo.invoice.invoice_id}>
         <li  className={this.state.isClickedInvoice === itemInfo.invoice.invoice_number ? 'info invoice--clicked' : 'info '} 
                           onClick={(i) => this.invoiceData(itemInfo.invoice.invoice_number)}>
-                          {itemInfo.client.client_name +'---'+ itemInfo.invoice.invoice_number}
+                          {itemInfo.client.client_name + '  '+ itemInfo.invoice.invoice_number}
                           </li>
                             </div>
                                 )

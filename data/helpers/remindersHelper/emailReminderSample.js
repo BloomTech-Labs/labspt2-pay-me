@@ -334,7 +334,7 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
              <td class="container">
                <div class="content">
      
-                 <!-- START CENTERED WHITE CONTAINER -->
+                 <!-- STARTe CENTERED WHITE CONTAINER -->
                  <table role="presentation" class="main">
      
                    <!-- START MAIN CONTENT AREA -->
@@ -343,8 +343,8 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                        <table role="presentation" border="0" cellpadding="0" cellspacing="0">
                          <tr>
                            <td>
-                             <p>Hi ${CustomName||'ClientName_here'},</p>
-                             <p>I hope you’re well. This is just to remind you that payment on invoice ${CustomInvoiceId}, which we sent on ${'DATE here'}, will be due next week.</p>
+                             <p>Hi dear Customer,</p>
+                             <p>I hope you’re well. This is just to remind you that payment on invoice ${CustomInvoiceId}</p>
                              <table role="presentation" border="0" cellpadding="0" cellspacing="0" class="btn btn-primary">
                                <tbody>
                                  <tr>
@@ -362,7 +362,7 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                              </table>
                              <p>I’m sure you’re busy, but I’d appreciate if you could take a moment and look over the invoice when you get a chance. Please let me know if you have any questions.</p>
                              <p>Thank you!</p>
-                             <p>${InvoiceSEnderName||'UserNameHere'} </p>
+                             <i>More details :${Email_CustomText}||${`n/a`}</i>
                            </td>
                          </tr>
                        </table>
@@ -384,7 +384,7 @@ module.exports=(CustomInvoiceId,CustomName,CustomInvoiceLink,InvoiceSEnderName)=
                      </tr>
                      <tr>
                        <td class="content-block powered-by">
-                         Powered by <a href="https://i.imgur.com/k9AaTur.jpg">PaymeWEb App team</a>.
+                         Powered by <img src="https://i.imgur.com/k9AaTur.jpg">PaymeWEb App team</img>.
                        </td>
                      </tr>
                    </table>

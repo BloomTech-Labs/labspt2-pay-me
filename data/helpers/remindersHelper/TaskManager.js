@@ -5,19 +5,8 @@ const emailTemplateSample = require('./emailReminderSample')
 const db = require('../../dbConfig');
 const smsData = EmailSmsApiConfig.smsHandler;
 const emailData = EmailSmsApiConfig.emailHandler;
-const tblInvs = 'invoices';
-const tblClt = 'clients';
-const tblUsr = 'users';
-const tblRem = 'reminders';
 
-const getInvoice =  async (req, res)=>{
-  const {id} = req.params;
-  const data_user = await db('users').select('id', 'username', 'email', 'phone').where('id', id);
-  const data_invoices =await db('invoices').where('user_id', id)
-  .leftJoin('clients', 'client.id', 'invoices.client_id');
-  console.log(await data_invoices);
-  res.send({'invoices': data_invoices, 'user': data_user[0], });
-};
+
 
 const getInvoices =  async (req, res)=>{
   const {id} = req.params;
@@ -39,36 +28,8 @@ const getInvoices =  async (req, res)=>{
   })
   console.log(await sortMyClients);
   res.status(200).json(await sortMyClients);
-  /*
-  var dataToSend  = filtered_clients.map((item,i)=>{
-    let invoice;
-    let client;
-    return{
-      invoice,
-      user:data_user[0],
-      client:filtered_clients2[i]
-    }})
-
-  async function senddata(){
-    return dataToSend
-  }
-
-  senddata().then(response=>{
-    //console.log(response)
-    if(response.length!==0){
-      res.status(200).json(response)
-    }else{
-      res.status(203).json([])
-    }
-  }).catch(err =>{res.status(500).json('eeeerror')})
- */
 }
 
-
-      
-const SendRemindersD= async (req,res)=>{
-  res.send(req.body)
-}
     const SendReminders= async (req,res)=>{
         const {isCheckedEmail,isCheckedSms,Sms_CustomText,
             Sms_Freq,Email_Subject,Email_CustomText,Email_Template,
@@ -77,7 +38,7 @@ const SendRemindersD= async (req,res)=>{
             Email_From,Email_to}= req.body
       console.log(req.body)
             // if Email_Template
-      const HtmlSample =emailTemplateSample(invoiceNumber,clientName,invoicePdfLink,UserName)   
+      const HtmlSample =emailTemplateSample(invoiceNumber,Email_CustomText,invoicePdfLink)   
       console.log(Email_StartDate,Sms_StartDate)
       const setToHappenOn = (fn, dateR)=>{
         const now = new Date();
@@ -125,10 +86,9 @@ const SendRemindersD= async (req,res)=>{
           setToHappenOn(()=>{timerSms.start()},Sms_StartDate)
         }
       }
-  
-      const SaveRemindereee =(req,res)=>{
-       console.log(req.body)
-      }
+
+
+
       const SaveReminder =(req,res)=>{
         const dataTobeSaved=req.body;
       //  const invoiceNumber=dataTobeSaved.invoice_number;
@@ -165,6 +125,5 @@ module.exports ={
         SendReminders,
         SaveReminder,
         getInvoices,
-        getInvoice
       }
       

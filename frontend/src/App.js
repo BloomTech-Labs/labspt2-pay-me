@@ -87,6 +87,7 @@ class App extends Component {
         <Route  path="/payinvoice/:id" render={(props) => <Pay {...props} open={this.sideDrawerClickHandler}/> } />
         <Route exact path="/reminders" render={(props) => <Reminders {...props} open={this.sideDrawerClickHandler}/> } />
         <Route exact path="/signin/:jwt" render={(props) => <SignIn {...props}/>} />
+
       </div>
     );
   }
