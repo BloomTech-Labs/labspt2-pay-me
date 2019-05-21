@@ -1,0 +1,83 @@
+.invoice-card {
+	width: 350px !important;
+	margin-top: 10px !important;
+    margin-right: 10px !important;
+    border: 1px solid rgb(236, 235, 235) !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1) !important;
+}
+
+.invoice-number-heading {
+    font-size: 1.5rem !important;
+    color: #7795F8 !important;
+    font-weight: 600 !important;
+}
+
+.invoice-company-heading {
+    font-size: 1.7rem !important;
+    color: #7795F8 !important;
+    font-weight: 600 !important;
+}
+
+.invoice-name-heading {
+    font-weight: 600 !important;
+}
+
+.invoice-number-heading:hover {
+    opacity: .8 !important;
+    transition: opacity 0.3s ease-in-out !important;
+	-webkit-transform: translateY(2px)!important;
+    transform: translateY(2px) !important;
+}
+
+.invoice-amount-due-heading {
+    font-size: 1.3rem !important;
+    color: #7795F8 !important;
+    font-weight: 700 !important;
+}
+
+.name-content-text {
+    font-size: 1.3rem !important;
+    color: #7795F8 !important;
+    font-weight: 500 !important;
+    line-height: 50 !important;
+}
+
+#file-download {
+    color: #7795F8 !important;
+    font-size: 3rem !important;
+    padding-bottom: 20px !important;
+}
+
+#file-download:hover {
+    color: #7795F8 !important;
+    opacity: 1;
+	-webkit-transform: translateY(-1px) !important;
+	transform: translateY(-1px) !important;
+}
+
+.card-icon {
+    color: #7795F8 !important;
+}
+
+.pay-button {
+    background-color: #7795F8 !important;
+}
+
+
+@media (max-width: 1530px) {
+	.invoice-card {
+       margin-left: 50px !important;  
+    }
+}
+
+@media (max-width: 1240px) {
+	.invoice-card {
+       margin-left: 80px !important;  
+    }
+}
+
+@media (max-width: 1125px) {
+	.invoice-card {
+       margin-left: 90px !important;  
+    }
+}

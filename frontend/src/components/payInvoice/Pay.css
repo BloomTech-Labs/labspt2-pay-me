@@ -1,0 +1,137 @@
+/* === Containers === */
+.outside-container {
+    display: flex;
+    height: 100vh;
+    background: #F6F9FC;
+}
+
+.nav-container {
+    flex: 1;
+}
+
+.content-container {
+    flex: 5;
+    padding-top: 30px;
+}
+
+/* === Headings === */
+h3 {
+    color: #2196F3;
+}
+
+.lead-text {
+    font-size: 1.3rem;
+    color: #18171c;
+    font-weight: 300;
+}
+
+.card-panel {
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 4px;
+    margin-top: 80px;
+}
+
+.card-content {
+    background: rgb(252, 252, 252) !important;
+    padding: 2px !important;
+    margin: 0px !important;  
+}
+
+.card-heading-plan {
+    color: #2196F3;
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.invoice-number-heading {
+    color: #2A2F45;
+    font-size: 2.5rem;
+    margin-top: 70px;
+    font-weight: 600;
+}
+
+.invoice-title-heading {
+    font-weight: 500;
+    color: #18171c;
+    font-size: 1.7rem;
+}
+
+.pay-invoice-content-text-bold {
+    color: #2A2F45;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.pay-invoice-content-text-normal {
+    color: #2A2F45;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 10px;
+    padding-top: 20px;
+}
+
+.amount-due-heading {
+    color: #2A2F45;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.amount-paid-heading {
+    color: #12CD72;
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.stripe-payment-text {
+    font-size: 1.2rem;
+}
+
+.link:hover {
+    opacity: .55;
+	transition: opacity 0.3s ease-in-out;
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+
+/* === Form Input === */
+.input-container {
+    height: 50px !important;
+}
+
+input[type=email]:focus {
+    border: 2px solid rgba(81, 203, 238, 1) !important;
+    box-shadow: 0 0 5px rgba(81, 203, 238, .5) !important;
+}
+
+input[type=password]:focus {
+    border: 2px solid rgba(81, 203, 238, 1) !important;
+    box-shadow: 0 0 5px rgba(81, 203, 238, .5) !important;
+}
+
+/* === Button === */
+.pay-invoice-button {
+    background: #2196F3;
+    height: 50px;
+    font-size: 14px;
+    color: #FFF;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    width: 20%;
+    
+}
+
+.pay-invoice-button:hover {
+    opacity: .85;
+	transition: opacity 0.3s ease-in-out;
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+
+/* === Mobile Navigation === */
+#mobile-user-nav {
+    margin-top: 20px;
+    color: #1e90ff;
+}

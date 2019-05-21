@@ -1,0 +1,121 @@
+* {
+	font-family: 'Open Sans', sans-serif;
+}
+
+/* === Containers === */
+.outside-container {
+	display: flex;
+	height: 100vh;
+	background: #F6F9FC;
+}
+
+.nav-container {
+	flex: 1;
+}
+
+.content-container {
+	flex: 5;
+	padding-top: 30px;
+}
+
+/* === Headings === */
+h3 {
+	color: #2196F3;
+}
+
+.pay-now-text {
+	color: #2196F3;
+	opacity: 1;
+}
+
+.pay-now-text:hover {
+	color: #2196F3;
+	opacity: .3;
+	transition: 2s ease;
+}
+
+.lead-text {
+	font-size: 1.3rem;
+	color: #18171c;
+	font-weight: 300;
+}
+
+.invoice-details-content-text-bold {
+	color: #525F7F !important;
+	font-size: 2rem;
+	font-weight: 600;
+}
+
+.invoice-details-content-text-light {
+	color: #525F7F !important;
+	font-size: 2rem !important;
+	font-weight: 700 !important;
+}
+
+.invoice-details-content-text-normal {
+	color: #525F7F;
+	font-size: 1rem;
+	font-weight: 500;
+}
+
+.amount-due-heading-details {
+	color: #525F7F ;
+	font-size: 2.2rem;
+	font-weight: 610;
+}
+
+.details {
+	margin-top: 20px;
+}
+
+.notes-heading {
+	font-size: 14px;
+	font-weight: 600;
+	margin-top: 50px;
+	color: #18171c;
+}
+
+hr {
+	background-color: #7795F8 !important;
+	border: 2px solid #7795F8;
+}
+
+/* === Button === */
+.back-button {
+    background: #7795F8;
+	height: 50px;
+	width: 10%;
+    font-size: 14px;
+    color: #FFF;
+    border: none;
+	outline: none;
+	border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.back-button:hover {
+    opacity: .85;
+	transition: opacity 0.3s ease-in-out;
+	-webkit-transform: translateY(-1px);
+	transform: translateY(-1px);
+}
+
+.update-button {
+	background-color: #7795F8 !important;
+	margin-bottom: 50px;
+	margin-top: 20px;
+}
+/* === Mobile Navigation === */
+#mobile-user-nav {
+	margin-top: 20px;
+	color: #1e90ff;
+	margin-left: 20px;
+}
+
+@media (max-width: 1240px) {
+	#detail-card {
+		width: 100% !important;
+		margin: 0 !important;
+		border: 1px solid red !important;
+	} 
+}

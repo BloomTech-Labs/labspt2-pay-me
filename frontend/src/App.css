@@ -1,0 +1,135 @@
+*{
+  font-family: 'Open Sans', sans-serif;
+  color: #fff;
+}
+
+.background {
+  background: #209cd7;
+  height: 100%;
+}
+
+.btn-call-to-action {
+  margin-top: 15px;
+}
+
+.call-to-action {
+  background: #3381cc;
+  height: 550px;
+}
+
+.call-to-action-content-top{
+  margin-top: 120px;
+}
+
+.call-to-action-content-bottom{
+  margin-top: 120px;
+}
+
+.call-to-action-2 {
+  background: #e2e2e2;
+  height: 550px;
+}
+
+.features {
+  background-color: #fff;
+  height: 500px;
+  border: 1px solid transparent;
+}
+
+.jump-link {
+  color:white;
+  text-decoration: underline; 
+}
+.signin {
+  width: 500px;
+  margin-top: 50px
+}
+
+.form-heading {
+  margin-top: 60px;
+}
+
+label {
+  padding-left: 10px;
+}
+
+.offer-section {
+  color: #3E4348;
+}
+
+.showcase {
+    background: url(./img/Home_bg.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+  }
+
+  nav ul a{
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  nav .brand-logo{
+    padding:8px;
+  }
+
+  .btn-large{
+    border-radius:50px;
+    padding:0 50px;
+  }
+
+  .call-to-action-top-text{
+    margin-top: -20px;
+  }
+
+  .call-to-action-bottom-text{
+    margin-top: -20px;
+    color: #000;
+  }
+
+  .grey-text{
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
+.blue.lighten-2 {
+  border-radius:50px;
+}
+
+.pg-inverse{
+  color:black;
+}
+.signup-container {
+  border: 1px solid transparent;
+  background: #209cd7;
+}
+
+#loading {
+  animation: round 2s linear infinite;
+}
+
+@keyframes round {
+  from{transform: rotate(0deg)}
+  to{transform: rotate(360deg)}
+}
+
+.error-text {
+  font-size: 20px;
+}
+
+#user-image {
+  margin-top: 120px;
+}
+
+/* ----- Media Queries ----- */
+
+@media screen and (max-width: 700px){
+  #user-image{
+    display: none;
+  }
+
+  .call-to-action-content-top{
+    margin: 0 auto;
+  }
+}

@@ -5,11 +5,13 @@ exports.up = function(knex, Promise) {
     invoices.integer('invoice_number').notNullable()
     invoices.string('company_name', 128).notNullable();
     invoices.string('inv_url').notNullable().unique();
-    invoices.string('notes').notNullable().unique();
+    invoices.string('notes').notNullable();
+    invoices.decimal('amount').notNullable();
     invoices.integer('client_id').unsigned().notNullable().references('id').inTable('clients');
+    invoices.integer('user_id').unsigned().notNullable().references('id').inTable('users');
   })
 };
 
 exports.down = function(knex, Promise) {
-  return kenex.schema.dropTableIfExists('invoices')
+  return knex.schema.dropTableIfExists('invoices')
 };
