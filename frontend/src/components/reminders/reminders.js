@@ -360,6 +360,7 @@ console.log('hhhhhhhhhhh')
           <h3 className="center" style={{color: "#7795F8"}}>Reminders</h3>
           <p className="center lead-text">View and setup invoice reminders.</p>
 
+
         <div className={`isHidding${this.state.isHidding2}`} style={{marginTop: 20, fontWeight: 700}}><i className="material-icons prefix">warning</i>Click an Invoice to start</div>{!this.state.isLoading&&filteredInvoice[0].invoice&&(<div>
                     <div class="col s12 m4 l2  wrapperSearch_reminders">
                   <div className="Searchbox ">
@@ -510,13 +511,13 @@ console.log('hhhhhhhhhhh')
                 
                 </ul>
                 <div class="form-group">
-                <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange}></textarea></div>
+                <textarea name="compose" class="form-control" placeholder={''} rows="2" value={this.state.commentText} onChange={this.handleCommentChange} style={{backgroundColor: "#7795F8"}}></textarea></div>
                 <button class="btn blue white-text btnFlat" type="submit" name="action">Add comment</button>
                 
                   </form></div>   </div>)||<div className={`isHidding${this.state.isHidding}`} >
                   <ul class="collection rem_card_stats ">
                   <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_email}`}>
-              <i class="material-icons circle bigicon">email</i>
+              <i class="material-icons circle bigicon" style={{background: "#7795F8"}}>email</i>
               <div className="stats_body">
                 <div className="stats_title">Email Reminders</div>
                 <div className="stats_contents">
@@ -526,7 +527,7 @@ console.log('hhhhhhhhhhh')
               </div>
             </li>
             <li class={`collection-item avatar card_stats stats${this.state.reminders_data.ischecked_sms}`}>
-              <i class="material-icons circle bigicon">sms</i>
+              <i class="material-icons circle bigicon" style={{background: "#7795F8"}}>sms</i>
               <div className="stats_body">
                 <div className="stats_title">Sms Reminders</div>
                 <div className="stats_contents">
@@ -540,7 +541,7 @@ console.log('hhhhhhhhhhh')
           }
                 </div> </div>
                 )||(<section className='notinvoicecard' >  
-                  <p class="h3" style={{marginTop: 250}}><strong>Loading data ...</strong></p>
+                  <p class="h3" style={{marginTop: 120}}><strong>Loading data ...</strong></p>
                   <div className='PacmanLoader'>
                         <ClimbingBoxLoader
                           css={override}
